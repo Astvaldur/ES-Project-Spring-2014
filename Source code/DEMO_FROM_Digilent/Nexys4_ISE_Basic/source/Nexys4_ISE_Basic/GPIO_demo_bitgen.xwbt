@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=C:\Sam_work\Xilinx_projects\14_5\Nexys4_ISE_Basic\GPIO_demo.ncd
+OUTFILE=C:\Sam_work\Xilinx_projects\14_5\Nexys4_ISE_Basic\GPIO_demo.bit
+FAMILY=Artix7
+PART=xc7a100t-1csg324
+WORKINGDIR=C:\Sam_work\Xilinx_projects\14_5\Nexys4_ISE_Basic
+LICENSE=ISE
+USER_INFO=174850505_175670721_210548921_207
