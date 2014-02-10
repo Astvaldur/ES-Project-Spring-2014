@@ -15,8 +15,7 @@ entity PWM is
     PORT(
     -- in
 	vsample: in	std_logic_vector(width-1 downto 0); -- Sample
-    enable: in  std_logic;           -- Sample clock
-	--system
+    --system
 	reset : in std_logic;    -- system reset
     clk   : in std_logic;      -- System clock
     -- out
@@ -30,37 +29,41 @@ CONSTANT pwm_period: INTEGER := sys_clk/op_freq;
 TYPE counters of INTEGER RANGE 0 to pwm_period-1;
 
 Type reg_t is record
-        pwm_out : std_logic := '0';
-        pwm_in : std_logic_vector(width-1 downto 0) := (others=>'0');
-        period_counter : counters := (OTHERS => '0');
+        pwm_out : std_logic ;
+        pwm_in : std_logic_vector(width-1 downto 0) ;
+        period_counter : counters ;
 end record;
 
 -- registers
 signal r, rin :reg_t;
 
 begin
-
 reg:process(clk,reset) -- sequential process
 begin
-    if(reset='1') then
+    if(reset = '1') then -- 1 or 0 ?
         r.pwm_out <='0';
         r.pwm_in  <= (others=>'0');
-        r.period_counter <= (others=>'0')
+        r.period_counter <= (others=>'0');
+        
     elsif (rising_edge(CLK)) then -- COUNTER
-        r<=rin;
-        r.period_counter <= std_logic_vector(period_counter + '1'); --fix   
-    elsif(enable='1') then
-        r.pwm_in <= vsample;        
+        r<=rin;    
     end if;
 end process;
 
-comb:process(period_counter,enable) -- combinatorial process
+comb:process(r,rin,enable) -- combinatorial process
 variable v : reg_t;
 begin
-     if(rin.pwm_in /= r.pwm_in) then
-        
      v:=r;
-      if(duty_cycle)
+     v.period_counter:= r.period_counter +1;
+      if(r.period_counter = (pwm_period -1)) then
+            v:=r.pwm_in;
+            v.period_counter:=(others=>'0');
+      elsif(r.period_counter <= r.pwm_in) then
+             v.pwm_out := '1';  
+      elsif(r.period_counter > r.pwm_in) then
+             v.pwm_out := '0';
+      END IF;
+ rin <= v;
 end process;
 
 
