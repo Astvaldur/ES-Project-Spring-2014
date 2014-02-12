@@ -17,10 +17,13 @@ entity PWM is
 	vsample: in	std_logic_vector(width-1 downto 0); -- Sample
     --system
 	reset : in std_logic;    -- system reset
-    clk   : in std_logic;      -- System clock
+    clk   : in std_logic;    -- System clock
     -- out
-	Pwm_signal	: out	std_logic_vector(width-1 downto 0)); 
-end;
+	ampPWM	: out	std_logic;  -- PWM signal 
+    ampSD	: out	std_logic   -- select the amplifier
+    );
+end entity;
+
 
 architecture RTL of PWM is
 -- This is the current 
@@ -52,11 +55,11 @@ comb:process(r,rin) -- combinatorial process
 variable v : reg_t;
 begin
      v:=r;
-     v.period_counter <= r.period_counter+1;
+     v.period_counter := std_logic_vector(unsigned(r.period_counter)+1);
       if(r.period_counter = pwm_period) then
-            v.pwm_in:=r.pwm_in;
+            v.pwm_in:=r.pwm_in; -- New Input
             v.period_counter:=(others=>'0');
-      elsif(r.period_counter <= integer(r.pwm_in)) then
+      elsif(r.pwm_in >= r.period_counter) then
              v.pwm_out := '1';  
       elsif(r.period_counter > r.pwm_in) then
              v.pwm_out := '0';
@@ -66,7 +69,7 @@ end process;
 
 
 -- Pins for the modules
-ampPWM <= pwm_out;-- Input to LP
+ampPWM <= r.pwm_out;-- Input to LP
 ampSD <= '1';     -- This pin selects the amplifiers to be ON.
 
-end Behavioral;
+end RTL;
