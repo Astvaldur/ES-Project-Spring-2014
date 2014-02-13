@@ -5,7 +5,7 @@ LIBRARY ieee;
 USE work.all;
 USE ieee.std_logic_1164.all;
 USE ieee.std_logic_unsigned.all;
-USE std.textio.all -- used for reading text files
+USE std.textio.all; -- used for reading text files
 
 ENTITY tb_PWM IS
   GENERIC(WIDTH: INTEGER := 12;
@@ -14,6 +14,10 @@ ENTITY tb_PWM IS
 END	tb_PWM;
 
 ARCHITECTURE bench OF tb_PWM IS
+
+-- other signal declarations
+constant size : integer := 1000;   --adjust to test vector count
+type sample_array IS ARRAY (size DOWNTO 0) OF STD_LOGIC_VECTOR(WIDTH DOWNTO 0);  
 
   -- Functions --------------------------------------------------------------------------
   function bin (
@@ -32,9 +36,9 @@ ARCHITECTURE bench OF tb_PWM IS
 
     function loadOperand (
     fileName : string)
-    return Operand_array is
+    return sample_array is
     file objectFile : text open read_mode is fileName;
-    variable memory : Operand_array;
+    variable memory : sample_array;
     variable L      : line;
     variable index  : natural := 0;
     variable myChar : character;
@@ -71,16 +75,12 @@ END COMPONENT;
 -- test bench signals
 SIGNAL tb_clk : STD_LOGIC := '0';
 SIGNAL tb_reset: STD_LOGIC;
-SIGNAL vsample_mem: sample_array := (OTHERS => 0');               -- array of input
-SIGNAL tb_vsample: STD_LOGIC (WIDTH-1 DOWNTO 0);
+SIGNAL vsample_mem: sample_array; -- array of input
+SIGNAL tb_vsample: STD_LOGIC_VECTOR (WIDTH-1 DOWNTO 0);
 SIGNAL tb_pwm: STD_LOGIC;
 
--- other signal declarations
-constant size : integer := 1000;   --adjust to test vector count
-type sample_array IS ARRAY (size DOWNTO 0) OF STD_LOGIC_VECTOR(11 DOWNTO 0);  
-
 -- how many sys_clk in one pwm periods
-CONSTANT period : INTEGER := sys_clk/pwm_freq; 
+CONSTANT period : INTEGER := sys_clk/op_freq; 
 
 BEGIN
 
@@ -92,20 +92,20 @@ pwm_comp:PWM
            reset => tb_reset;
            clk => tb_clk;
            ampPWM => tb_pwm;
-           ampSD => '1'); --might need to add a signal here.
+           ampSD => ); --might need to add a signal here.
 
 
 -- resets
-tb_reset <= '0'
-            '1' AFTER 1 ns;
+tb_reset <= '0' ,
+            '1' AFTER 1 ns,
             '0' AFTER 3 ns;
 
 
-clk:PROCESS()
+clk:PROCESS
 -- clock process
 BEGIN
-  WAIT FOR 10 ns
-    tb_clk <= NOT(tb_clk);
+  WAIT FOR 10 ns;
+    tb_clk <= NOT (tb_clk);
 END PROCESS;
 
 testproc:PROCESS(tb_clk)
