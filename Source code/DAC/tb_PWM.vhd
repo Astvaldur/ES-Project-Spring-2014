@@ -75,24 +75,28 @@ END COMPONENT;
 -- test bench signals
 SIGNAL tb_clk : STD_LOGIC := '0';
 SIGNAL tb_reset: STD_LOGIC;
-SIGNAL vsample_mem: sample_array; -- array of input
+SIGNAL vsample_mem: sample_array := (OTHERS => (OTHERS => '0')); -- array of input
 SIGNAL tb_vsample: STD_LOGIC_VECTOR (WIDTH-1 DOWNTO 0);
 SIGNAL tb_pwm: STD_LOGIC;
+SIGNAL tb_ampSD: STD_LOGIC;
 
 -- how many sys_clk in one pwm periods
 CONSTANT period : INTEGER := sys_clk/op_freq; 
 
 BEGIN
 
+-- load the file with sample inputs
+vsample_mem <= loadOperand(string'("output.txt"));
+
 pwm_comp:PWM
-  GENERIC MAP(width => WIDTH;
-              op_freq => op_freq;
-              sys_clk => sys_clk);-- bit resulution
-  PORT MAP(vsample => tb_vsample;
-           reset => tb_reset;
-           clk => tb_clk;
-           ampPWM => tb_pwm;
-           ampSD => ); --might need to add a signal here.
+  GENERIC MAP(width => WIDTH,
+              op_freq => op_freq,
+              sys_clk => sys_clk)-- bit resulution
+  PORT MAP(vsample => tb_vsample,
+           reset => tb_reset,
+           clk => tb_clk,
+           ampPWM => tb_pwm,
+           ampSD => tb_ampSD); --might need to add a signal here.
 
 
 -- resets
