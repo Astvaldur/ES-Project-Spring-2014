@@ -4,11 +4,8 @@ restart -f -nowave
 
 view signals wave
 #add wave /*
-add wave -color brown clk
-add wave -color blue reset
-add wave -color brown A
-add wave -color brown B
-add wave -color blue result
-add wave -binary -color yellow opcode
-
-run 150000 ns
+add wave -color brown tb_clk
+add wave -color blue tb_reset
+add wave -color yellow tb_vsample
+add wave -color brown tb_pwm
+run 150000000 ns

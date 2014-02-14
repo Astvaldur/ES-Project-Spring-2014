@@ -47,17 +47,18 @@ begin
         r.period_counter <= (others=>'0');
       
     elsif (rising_edge(CLK)) then -- COUNTER
-        r<=rin;    
+        r<=rin;
+        r.period_counter := std_logic_vector(unsigned(r.period_counter)+1);
     end if;
 end process;
 
-comb:process(r,rin) -- combinatorial process
+comb:process(r,vsample) -- combinatorial process
 variable v : reg_t;
 begin
      v:=r;
-     v.period_counter := std_logic_vector(unsigned(r.period_counter)+1);
+    
       if(r.period_counter = pwm_period) then
-            v.pwm_in:=r.pwm_in; -- New Input
+            v.pwm_in:=vsample; -- New Input
             v.period_counter:=(others=>'0');
       elsif(r.pwm_in >= r.period_counter) then
              v.pwm_out := '1';  
