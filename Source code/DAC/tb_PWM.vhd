@@ -126,6 +126,12 @@ BEGIN
       tb_vsample <= current_sample;
       -- increment sample index.
       sample_index := sample_index+1;
+      IF sample_index = size THEN
+        -- we have gone through all samples and exit
+        ASSERT(FALSE)
+        REPORT "Test Bench Finsihed"
+        SEVERITY FAILURE;
+      END IF;
       -- calculate at which index pwm should change
       pwm_change := conv_integer(current_sample)*period/(2**tb_width);
     ELSIF (index = period) THEN
