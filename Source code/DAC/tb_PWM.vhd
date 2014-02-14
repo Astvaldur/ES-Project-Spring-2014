@@ -79,6 +79,8 @@ SIGNAL vsample_mem: sample_array := (OTHERS => (OTHERS => '0')); -- array of inp
 SIGNAL tb_vsample: STD_LOGIC_VECTOR (tb_width-1 DOWNTO 0);
 SIGNAL tb_pwm: STD_LOGIC;
 SIGNAL tb_ampSD: STD_LOGIC;
+SIGNAL tb_index: INTEGER;
+SIGNAL tb_pwm_change: INTEGER;
 
 -- how many sys_clk in one pwm periods
 CONSTANT period : INTEGER := sys_clk/op_freq; 
@@ -134,9 +136,7 @@ BEGIN
       END IF;
       -- calculate at which index pwm should change
       pwm_change := conv_integer(current_sample)*period/(2**tb_width);
-    ELSIF (index = period) THEN
-      -- the index is equal to the period so we reset it.
-      index := -1; -- set it to -1 because post increment 
+      tb_pwm_change <= pwm_change;
     ELSIF (index = pwm_change) THEN
       -- here the pwm signal should be one and on the next cycle it changes.
       ASSERT(tb_pwm = '1')
@@ -147,9 +147,13 @@ BEGIN
       ASSERT(tb_pwm = '0')
       REPORT "late pwm transistion"
       SEVERITY ERROR;
+    ELSIF (index = period) THEN
+      -- the index is equal to the period so we reset it.
+      index := -1; -- set it to -1 because post increment 
     END IF;
     --increment index
     index := index+1;
+    tb_index <= index;
   END IF;
 
 END PROCESS;
