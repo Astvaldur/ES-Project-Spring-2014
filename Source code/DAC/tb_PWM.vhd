@@ -8,7 +8,7 @@ USE ieee.std_logic_unsigned.all;
 USE std.textio.all; -- used for reading text files
 
 ENTITY tb_PWM IS
-  GENERIC(WIDTH: INTEGER := 12;
+  GENERIC(tb_width: INTEGER := 6;
           op_freq: INTEGER := 200_000;
           sys_clk: INTEGER := 100_000_000);
 END	tb_PWM;
@@ -16,8 +16,8 @@ END	tb_PWM;
 ARCHITECTURE bench OF tb_PWM IS
 
 -- other signal declarations
-constant size : integer := 1000;   --adjust to test vector count
-type sample_array IS ARRAY (size DOWNTO 0) OF STD_LOGIC_VECTOR(WIDTH DOWNTO 0);  
+constant size : integer := 100;   --adjust to test vector count
+type sample_array IS ARRAY (size-1 DOWNTO 0) OF STD_LOGIC_VECTOR(tb_width-1 DOWNTO 0);  
 
   -- Functions --------------------------------------------------------------------------
   function bin (
@@ -45,7 +45,7 @@ type sample_array IS ARRAY (size DOWNTO 0) OF STD_LOGIC_VECTOR(WIDTH DOWNTO 0);
   begin
     while not endfile(objectFile) loop
       readline(objectFile, L);
-      for i in 11 downto 0 loop -- 
+      for i in tb_width-1 downto 0 loop -- 
         read(L, myChar);
         memory(index)(i) := bin(myChar);
       end loop;
@@ -58,9 +58,9 @@ type sample_array IS ARRAY (size DOWNTO 0) OF STD_LOGIC_VECTOR(WIDTH DOWNTO 0);
 -- Importing pwm component to test.
 COMPONENT PWM
    GENERIC(
-        width   : integer  := 12; -- bit resulution
-        op_freq : integer  := 200_000;
-        sys_clk : integer  := 100_000_000);
+        width   : integer ; -- bit resulution
+        op_freq : integer ;
+        sys_clk : integer);
     PORT(
     -- in
     vsample: in	std_logic_vector(width-1 downto 0); -- Sample
@@ -76,7 +76,7 @@ END COMPONENT;
 SIGNAL tb_clk : STD_LOGIC := '0';
 SIGNAL tb_reset: STD_LOGIC;
 SIGNAL vsample_mem: sample_array := (OTHERS => (OTHERS => '0')); -- array of input
-SIGNAL tb_vsample: STD_LOGIC_VECTOR (WIDTH-1 DOWNTO 0);
+SIGNAL tb_vsample: STD_LOGIC_VECTOR (tb_width-1 DOWNTO 0);
 SIGNAL tb_pwm: STD_LOGIC;
 SIGNAL tb_ampSD: STD_LOGIC;
 
@@ -89,7 +89,7 @@ BEGIN
 vsample_mem <= loadOperand(string'("output.txt"));
 
 pwm_comp:PWM
-  GENERIC MAP(width => WIDTH,
+  GENERIC MAP(width => tb_width,
               op_freq => op_freq,
               sys_clk => sys_clk)-- bit resulution
   PORT MAP(vsample => tb_vsample,
@@ -117,7 +117,7 @@ testproc:PROCESS(tb_clk)
 VARIABLE index: INTEGER := 0;
 VARIABLE pwm_change: INTEGER := 0;
 VARIABLE sample_index: INTEGER := 0;
-VARIABLE current_sample: STD_LOGIC_VECTOR(WIDTH -1 DOWNTO 0);
+VARIABLE current_sample: STD_LOGIC_VECTOR(tb_width -1 DOWNTO 0);
 BEGIN
   IF(rising_edge(tb_clk)) THEN
     IF index = 0 THEN
@@ -127,7 +127,7 @@ BEGIN
       -- increment sample index.
       sample_index := sample_index+1;
       -- calculate at which index pwm should change
-      pwm_change := conv_integer(current_sample)*period/(2**WIDTH);
+      pwm_change := conv_integer(current_sample)*period/(2**tb_width);
     ELSIF (index = period) THEN
       -- the index is equal to the period so we reset it.
       index := -1; -- set it to -1 because post increment 
