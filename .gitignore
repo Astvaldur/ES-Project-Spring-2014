@@ -14,7 +14,7 @@ build/
 # doc/**/*.txt]
 
 # Ignore for DAC workspace
-ES-Project-Spring-2014\Source code\DAC\work
+Source code/DAC/work/
 
 # Latex ignore files
 # In .gitignore
@@ -43,3 +43,6 @@ ES-Project-Spring-2014\Source code\DAC\work
 *.synctex.gz
 *.cr.mti
 *.mpf
+*.swp
+*.swo
+*.wlf
