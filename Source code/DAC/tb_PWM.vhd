@@ -4,7 +4,7 @@ LIBRARY ieee;
 
 USE work.all;
 USE ieee.std_logic_1164.all;
-USE ieee.std_logic_unsigned.all;
+USE ieee.numeric_std.all;
 USE std.textio.all; -- used for reading text files
 
 ENTITY tb_PWM IS
@@ -17,7 +17,7 @@ ARCHITECTURE bench OF tb_PWM IS
 
 -- other signal declarations
 constant size : integer := 100;   --adjust to test vector count
-type sample_array IS ARRAY (size-1 DOWNTO 0) OF STD_LOGIC_VECTOR(tb_width-1 DOWNTO 0);  
+type sample_array IS ARRAY (size DOWNTO 0) OF STD_LOGIC_VECTOR(tb_width-1 DOWNTO 0);  
 
   -- Functions --------------------------------------------------------------------------
   function bin (
@@ -74,13 +74,15 @@ END COMPONENT;
 
 -- test bench signals
 SIGNAL tb_clk : STD_LOGIC := '0';
-SIGNAL tb_reset: STD_LOGIC;
+SIGNAL tb_reset: STD_LOGIC := '1';
 SIGNAL vsample_mem: sample_array := (OTHERS => (OTHERS => '0')); -- array of input
-SIGNAL tb_vsample: STD_LOGIC_VECTOR (tb_width-1 DOWNTO 0);
+SIGNAL tb_vsample: STD_LOGIC_VECTOR (tb_width-1 DOWNTO 0) := (OTHERS => '0');
 SIGNAL tb_pwm: STD_LOGIC;
 SIGNAL tb_ampSD: STD_LOGIC;
-SIGNAL tb_index: INTEGER;
-SIGNAL tb_pwm_change: INTEGER;
+SIGNAL tb_index: INTEGER := 0;   -- to see this signal do not optimize design when simulating
+SIGNAL tb_pwm_change: INTEGER; -- index where change happens
+
+SIGNAL tb_pwm_signal: STD_LOGIC := '0'; -- the test bench pwm signal. the component should match this one.
 
 -- how many sys_clk in one pwm periods
 CONSTANT period : INTEGER := sys_clk/op_freq; 
@@ -102,9 +104,9 @@ pwm_comp:PWM
 
 
 -- resets
-tb_reset <= '0' ,
-            '1' AFTER 1 ns,
-            '0' AFTER 3 ns;
+tb_reset <= '1' ,
+            '0' AFTER 1 ns,
+            '1' AFTER 3 ns;
 
 
 clk:PROCESS
@@ -117,9 +119,9 @@ END PROCESS;
 testproc:PROCESS(tb_clk)
 -- testing values
 VARIABLE index: INTEGER := 0;
-VARIABLE pwm_change: INTEGER := 0;
-VARIABLE sample_index: INTEGER := 0;
-VARIABLE current_sample: STD_LOGIC_VECTOR(tb_width -1 DOWNTO 0);
+VARIABLE pwm_change: NATURAL;   -- Natural range is from 0 and up. what the index where the transition should happen
+VARIABLE sample_index: NATURAL := 0;
+VARIABLE current_sample: STD_LOGIC_VECTOR(tb_width-1 DOWNTO 0);
 BEGIN
   IF(rising_edge(tb_clk)) THEN
     IF index = 0 THEN
@@ -135,19 +137,24 @@ BEGIN
         SEVERITY FAILURE;
       END IF;
       -- calculate at which index pwm should change
-      pwm_change := conv_integer(current_sample)*period/(2**tb_width);
-      tb_pwm_change <= pwm_change;
-    ELSIF (index = pwm_change) THEN
+      pwm_change := TO_INTEGER(UNSIGNED(current_sample))*period/(2**tb_width);
+      tb_pwm_change <= pwm_change; -- give the index signal so it can be tracked in tb
+      tb_pwm_signal <= '1'; -- set to high in the beginning of the cycle
+    END IF;
+    IF (index = pwm_change) THEN
       -- here the pwm signal should be one and on the next cycle it changes.
-      ASSERT(tb_pwm = '1')
+      ASSERT(tb_pwm = '0')
       REPORT "early pwm transistion"
-      SEVERITY ERROR;
+      SEVERITY WARNING;
+      
+      -- set tb_pwm signal low here
+      tb_pwm_signal <= '0'; 
     ELSIF (index = (pwm_change+1)) THEN
       -- check one index after pwm_change, not the pwm signal should be 1.
       ASSERT(tb_pwm = '0')
       REPORT "late pwm transistion"
-      SEVERITY ERROR;
-    ELSIF (index = period) THEN
+      SEVERITY WARNING;
+    ELSIF (index = period-1) THEN
       -- the index is equal to the period so we reset it.
       index := -1; -- set it to -1 because post increment 
     END IF;
