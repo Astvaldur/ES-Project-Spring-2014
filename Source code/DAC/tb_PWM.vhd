@@ -16,8 +16,8 @@ END	tb_PWM;
 ARCHITECTURE bench OF tb_PWM IS
 
 -- other signal declarations
-constant size : integer := 100;   --adjust to test vector count
-type sample_array IS ARRAY (size DOWNTO 0) OF STD_LOGIC_VECTOR(tb_width-1 DOWNTO 0);  
+constant size : integer := 64;   --adjust to test vector count
+type sample_array IS ARRAY (size-1 DOWNTO 0) OF STD_LOGIC_VECTOR(tb_width-1 DOWNTO 0);  
 
   -- Functions --------------------------------------------------------------------------
   function bin (
@@ -79,9 +79,10 @@ SIGNAL vsample_mem: sample_array := (OTHERS => (OTHERS => '0')); -- array of inp
 SIGNAL tb_vsample: STD_LOGIC_VECTOR (tb_width-1 DOWNTO 0) := (OTHERS => '0');
 SIGNAL tb_pwm: STD_LOGIC;
 SIGNAL tb_ampSD: STD_LOGIC;
-SIGNAL tb_index: INTEGER := 0;   -- to see this signal do not optimize design when simulating
+SIGNAL tb_index: INTEGER := 0;   -- current index,to see this signal do not optimize design when simulating
 SIGNAL tb_pwm_change: INTEGER; -- index where change happens
 
+SIGNAL tb_sample_nr : INTEGER; -- index for the current sample used
 SIGNAL tb_pwm_signal: STD_LOGIC := '0'; -- the test bench pwm signal. the component should match this one.
 
 -- how many sys_clk in one pwm periods
@@ -125,17 +126,19 @@ VARIABLE current_sample: STD_LOGIC_VECTOR(tb_width-1 DOWNTO 0);
 BEGIN
   IF(rising_edge(tb_clk)) THEN
     IF index = 0 THEN
-      --when the index is 0 we give a new sample
-      current_sample := vsample_mem(sample_index);
-      tb_vsample <= current_sample;
-      -- increment sample index.
-      sample_index := sample_index+1;
       IF sample_index = size THEN
         -- we have gone through all samples and exit
         ASSERT(FALSE)
         REPORT "Test Bench Finsihed"
         SEVERITY FAILURE;
       END IF;
+      --when the index is 0 we give a new sample
+      current_sample := vsample_mem(sample_index);
+      tb_vsample <= current_sample;
+      tb_sample_nr <= sample_index;  
+      -- increment sample index.
+      sample_index := sample_index+1;
+      
       -- calculate at which index pwm should change
       pwm_change := TO_INTEGER(UNSIGNED(current_sample))*period/(2**tb_width);
       tb_pwm_change <= pwm_change; -- give the index signal so it can be tracked in tb
@@ -143,7 +146,7 @@ BEGIN
     END IF;
     IF (index = pwm_change) THEN
       -- here the pwm signal should be one and on the next cycle it changes.
-      ASSERT(tb_pwm = '0')
+      ASSERT(tb_pwm = '1')
       REPORT "early pwm transistion"
       SEVERITY WARNING;
       
@@ -151,9 +154,9 @@ BEGIN
       tb_pwm_signal <= '0'; 
     ELSIF (index = (pwm_change+1)) THEN
       -- check one index after pwm_change, not the pwm signal should be 1.
-      ASSERT(tb_pwm = '0')
-      REPORT "late pwm transistion"
-      SEVERITY WARNING;
+      --ASSERT(tb_pwm = '0')
+      --REPORT "late pwm transistion"
+      --SEVERITY WARNING;
     ELSIF (index = period-1) THEN
       -- the index is equal to the period so we reset it.
       index := -1; -- set it to -1 because post increment 
