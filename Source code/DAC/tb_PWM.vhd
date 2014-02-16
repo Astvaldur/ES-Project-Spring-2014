@@ -83,7 +83,7 @@ SIGNAL tb_index: INTEGER := 0;   -- current index,to see this signal do not opti
 SIGNAL tb_pwm_change: INTEGER; -- index where change happens
 
 SIGNAL tb_sample_nr : INTEGER; -- index for the current sample used
-SIGNAL tb_pwm_signal: STD_LOGIC := '0'; -- the test bench pwm signal. the component should match this one.
+SIGNAL tb_pwm_signal: STD_LOGIC := '1'; -- the test bench pwm signal. the component should match this one.
 
 -- how many sys_clk in one pwm periods
 CONSTANT period : INTEGER := sys_clk/op_freq; 
@@ -144,19 +144,19 @@ BEGIN
       tb_pwm_change <= pwm_change; -- give the index signal so it can be tracked in tb
       tb_pwm_signal <= '1'; -- set to high in the beginning of the cycle
     END IF;
-    IF (index = pwm_change) THEN
+    IF (index = pwm_change) THEN 
       -- here the pwm signal should be one and on the next cycle it changes.
       ASSERT(tb_pwm = '1')
-      REPORT "early pwm transistion"
+      -- print out error message and the index.
+      REPORT "Early pwm transistion at index " & INTEGER'IMAGE(index)
       SEVERITY WARNING;
-      
       -- set tb_pwm signal low here
       tb_pwm_signal <= '0'; 
-    ELSIF (index = (pwm_change+1)) THEN
-      -- check one index after pwm_change, not the pwm signal should be 1.
-      --ASSERT(tb_pwm = '0')
-      --REPORT "late pwm transistion"
-      --SEVERITY WARNING;
+    ELSIF (index = (pwm_change/2)) THEN
+      -- check if the pwm is 1 halfway in the duty cycle
+      ASSERT(tb_pwm = '1')
+      REPORT "Incorrect pwm value at index " & INTEGER'IMAGE(index)
+      SEVERITY WARNING;
     ELSIF (index = period-1) THEN
       -- the index is equal to the period so we reset it.
       index := -1; -- set it to -1 because post increment 
