@@ -12,4 +12,6 @@ add wave -color "light blue"  -unsigned tb_index
 add wave -color violet -unsigned tb_pwm_change
 add wave -color "light green" tb_pwm_signal
 add wave -color green tb_pwm
+add wave -color yellow tb_ampSD
+
 run 150000000 ns

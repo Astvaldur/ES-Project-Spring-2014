@@ -36,7 +36,7 @@ entity PWM is
 	vsample: in	std_logic_vector(width-1 downto 0); --! The PWM input signal.
     -- !out
 	ampPWM	: out	std_logic;  --! The ouput PWM signal, It is connected to the input of the filter. 
-    ampSD	: out	 std_logic_vector(8 downto 0)   --! We need to select the filter to be on.
+    ampSD	: out	 std_logic   --! We need to select the filter to be on.
     );
 end entity;
 
@@ -171,5 +171,5 @@ end process;
 -- Pins for the modules --------------------------------------
 
 ampPWM <= r.pwm_out;-- Input to LP
-ampSD <= std_logic_vector(To_unsigned(r.period_counter,9));     -- This pin selects the amplifiers to be ON.
+ampSD <= '1';     -- This pin selects the amplifiers to be ON.
 end RTL;
