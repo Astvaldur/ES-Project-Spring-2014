@@ -8,7 +8,7 @@ USE ieee.numeric_std.all;
 USE std.textio.all; -- used for reading text files
 
 ENTITY tb_PWM IS
-  GENERIC(tb_width: INTEGER := 6;
+  GENERIC(tb_width: INTEGER := 12;
           op_freq: INTEGER := 200_000;
           sys_clk: INTEGER := 100_000_000);
 END	tb_PWM;
@@ -16,7 +16,7 @@ END	tb_PWM;
 ARCHITECTURE bench OF tb_PWM IS
 
 -- other signal declarations
-constant size : integer := 64;   --adjust to test vector count
+constant size : integer := 2000;   --adjust to test vector count
 type sample_array IS ARRAY (size-1 DOWNTO 0) OF STD_LOGIC_VECTOR(tb_width-1 DOWNTO 0);  
 
   -- Functions --------------------------------------------------------------------------
@@ -91,7 +91,7 @@ CONSTANT period : INTEGER := (sys_clk/op_freq);
 BEGIN
 
 -- load the file with sample inputs
-vsample_mem <= loadOperand(string'("output.txt"));
+vsample_mem <= loadOperand(string'("input_2k_12bits.txt"));
 
 pwm_comp:PWM
   GENERIC MAP(width => tb_width,
@@ -126,13 +126,15 @@ VARIABLE sample_index: NATURAL := 0;
 VARIABLE current_sample: STD_LOGIC_VECTOR(tb_width-1 DOWNTO 0);
 BEGIN
   IF(rising_edge(tb_clk)) THEN
+    IF sample_index = size THEN
+      -- we have gone through all samples and exit
+      ASSERT(FALSE)
+      REPORT "Test Bench Finsihed"
+      SEVERITY FAILURE;
+    END IF;    
+    -- make the sample for the cycle available before the pwm period starts
+    tb_vsample <= vsample_mem(sample_index); 
     IF index = 0 THEN
-      IF sample_index = size THEN
-        -- we have gone through all samples and exit
-        ASSERT(FALSE)
-        REPORT "Test Bench Finsihed"
-        SEVERITY FAILURE;
-      END IF;    
       -- at index zero a new sample is loaded
       current_sample := vsample_mem(sample_index);
       tb_sample_nr <= sample_index; -- indicate what sample we are on.
@@ -157,8 +159,16 @@ BEGIN
     ELSIF index = pwm_change THEN
       -- switch signal from high to low at pwm_change index.
       tb_pwm_signal <= '0';
-      --increment index as well
-      index := index+1;
+      
+      IF index = period-1 THEN
+        -- if the duty cycle is max then we have to reset index her as well
+        index := 0;
+      ELSE
+        --increment index as well
+        index := index+1;
+      END IF;
+
+      
     ELSIF index = period-1 THEN -- add -1 here or we get one extra clock cycle in the pwm period.
       -- we have gone through the period. reset index.
       index := 0;
