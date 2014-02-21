@@ -26,6 +26,11 @@ end entity adderapb;
 
 architecture rtl of adderapb is
 
+--constant REVISION       : amba_version_type := 0; 
+constant pconfig        : apb_config_type := (
+                        0 => ahb_device_reg ( VENDOR_OPENCORES, GAISLER_GPREG, 0, 0, 0),
+                        1 => apb_iobar(paddr, pmask));
+
   -- APB related signals
   type adder_registers is record
     A       : std_logic_vector(31 downto 0);
@@ -40,11 +45,6 @@ architecture rtl of adderapb is
   signal B       : std_logic_vector(31 downto 0);
   signal sum     : std_logic_vector(31 downto 0);
 
-
---constant REVISION       : amba_version_type := 0; 
-constant pconfig        : apb_config_type := (
-                        0 => ahb_device_reg ( VENDOR_OPENCORES, GAISLER_GPREG, 0, 0, 0),
-                        1 => apb_iobar(paddr, pmask));
 
 begin
 

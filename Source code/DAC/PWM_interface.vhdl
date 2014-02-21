@@ -127,6 +127,7 @@ begin
           v.pwm_in:=vsample; -- New Input
           -- CALCULATE SHIFTING INDEX 
           v.pwm_index_shift :=  To_integer(unsigned(vsample))*(pwm_period+1)/resolution;
+          
           IF(v.pwm_index_shift>1) THEN
             v.state := output_high;
             v.pwm_out := '1';
@@ -142,11 +143,13 @@ begin
     when output_high =>--(r.pwm_index_shift >= r.period_counter) =>
         v.period_counter := r.period_counter + 1;
         v.pwm_out := '1';
-        if(r.pwm_index_shift = v.period_counter) then
+        
+        if(pwm_period = v.period_counter) then
+            v.state:=new_data;
+        elsif(r.pwm_index_shift = v.period_counter) then
             v.pwm_out := '0';
             v.state:=output_low;
-         elsif(pwm_period = v.period_counter ) then
-            v.state:=new_data;
+         
         end if;
         
         
@@ -165,7 +168,7 @@ begin
         v.pwm_in  := (others=>'0');
         v.state := new_data;
     end case;
-      rin <= v;
+    rin <= v;
       
 end process;
 -- Pins for the modules --------------------------------------
