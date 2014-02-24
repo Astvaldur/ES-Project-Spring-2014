@@ -174,5 +174,5 @@ end process;
 -- Pins for the modules --------------------------------------
 
 ampPWM <= r.pwm_out;-- Input to LP
-ampSD <= '1';     -- This pin selects the amplifiers to be ON.
+--ampSD <= '0';     -- This pin selects the amplifiers to be ON.
 end RTL;
