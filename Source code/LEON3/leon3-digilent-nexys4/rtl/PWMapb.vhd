@@ -18,8 +18,8 @@ entity PWMapb is
 
     --PWM
     width   	: integer := 8; 				-- Bit resulution of the input bit vector
-    op_freq_2 	: integer := 200_000; 				--! The 2*frequency of the Pulses that we output.
-    sys_clk 	: integer := 100_000_000 			--! The overall system clock
+    op_freq 	: integer := 200_000; 				--! The 2*frequency of the Pulses that we output.
+    sys_clk 	: integer := 50_000_000 			--! The overall system clock
     );
   port (
     --AMBA
@@ -57,7 +57,7 @@ constant pconfig        : apb_config_type := (
                         1 => apb_iobar(paddr, pmask));
 
 begin
-  ampSD <= '1';
+  --ampSD <= '1';
 
   -- combinatorial process
   apb_comb : process(rstn, apb_reg, apbi)
@@ -113,14 +113,14 @@ begin
   PWM_comp: PWM
   generic map (
 	width => width, --set the generic values here so we dont have to do it in the top entity??
- 	op_freq_2 => op_freq_2, 
+ 	op_freq => op_freq, 
 	sys_clk => sys_clk
   )
   port map (reset => rstn,
 	clk => pwm_clk, -- Wrong clock, should be sys clk not APB clk
 	vsample => vsample (7 downto 0), 
 	ampPWM => ampPWM, --width??
-	ampSD => tmp --width??
+	ampSD => ampSD --width??
   ) ;
 
 

@@ -77,7 +77,7 @@ end  integerbitsize;
 CONSTANT pwm_period: INTEGER:=(sys_clk/op_freq)-1; --499
 --! Resulution is a constant for the highest resulution we can get for 
 --! the input bits.
-CONSTANT resolution: INTEGER:=2**(width);
+CONSTANT resolution: INTEGER:=(2**(width))-1;
 --! pwm_period is to see of large a counter we need. This might be change to 
 --! 32 bits or any other constant depending on how large the counter might ever
 --! become.

@@ -14,7 +14,7 @@ EFFORT=high
 XSTOPT=-uc leon3mp.xcf
 SYNPOPT="set_option -pipe 1; set_option -retiming 1; set_option -write_apr_constraint 0"
 
-VHDLSYNFILES=config.vhd ahbrom.vhd rtl/SKadder.vhd rtl/PWM.vhd rtl/PWM_pkg.vhd rtl/PWMapb.vhd leon3mp.vhd 
+VHDLSYNFILES=config.vhd ahbrom.vhd rtl/PWM.vhd rtl/PWM_pkg.vhd rtl/PWMapb.vhd rtl/PWMahb.vhd leon3mp.vhd 
  
 VHDLSIMFILES=testbench.vhd
 SIMTOP=testbench

@@ -8,6 +8,33 @@ use grlib.stdlib.all;
 
 package PWM_pkg is
 
+  component PWMahb is
+    generic(  
+    	-- This is for the PWM
+    	width   : integer  := 8; 
+    	op_freq : integer  := 200_000;  
+    	sys_clk : integer  := 50_000_000;     
+    	-- This is for the High speed bus
+    	hindex      : integer := 0;
+    	haddr       : integer := 0;
+    	hmask       : integer := 16#fff#
+    );
+    port (
+    	-- system
+    	rstn  : in  std_ulogic; 			-- clean register, restart devce
+    	clk   : in  std_ulogic; 			-- clock for the PWM system
+    	-- Input
+    	ahbsi : in ahb_slv_in_type;			-- Slave input
+    	-- Output
+    	ahbso : out ahb_slv_out_type; 			-- Slave output
+    	
+	--PWM
+	pwm_clk : in  std_ulogic;				--! System clock
+   	ampPWM	: out std_logic;
+    	ampSD: out std_logic
+  );
+  end component PWMahb;
+
   component PWMapb is
     generic(
       pindex      : integer := 0;
@@ -27,16 +54,9 @@ package PWM_pkg is
     );
   end component PWMapb;
 
-  component SKadder is
-  generic ( size : natural := 32) ;                          -- size: Number of bits
-  port ( A, B : in std_logic_vector ( size -1 downto 0 ) ;  -- A,B: addends
-         S : out std_logic_vector ( size -1 downto 0 ) ;    -- S: Sum;
-         Cout : out std_logic ) ;                           -- carry out
-  end component SKadder ;
-
   component PWM is
   generic (width   : integer  := 8; 				-- Bit resulution of the input bit vector
-        op_freq_2 : integer  := 200_000; 			--! The 2*frequency of the Pulses that we output.
+        op_freq : integer  := 200_000; 			--! The 2*frequency of the Pulses that we output.
         sys_clk : integer  := 100_000_000			--! The overall system clock
 	);
   port (--! system
