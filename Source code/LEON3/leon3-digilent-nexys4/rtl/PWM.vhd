@@ -26,7 +26,7 @@ use ieee.numeric_std.all;
 entity PWM is
    GENERIC(
         width   : integer  := 8; -- Bit resulution of the input bit vector
-        op_freq_2 : integer  := 200_000; --! The 2*frequency of the Pulses that we output.
+        op_freq : integer  := 200_000; --! The 2*frequency of the Pulses that we output.
         sys_clk : integer  := 100_000_000); --! The overall system clock
     PORT(
     --! system
@@ -74,7 +74,7 @@ end  integerbitsize;
 
 --! Constants
 --! pwm_period is compiler constant for calulating the PWM period.
-CONSTANT pwm_period: INTEGER:=(sys_clk/op_freq_2)-1; --499
+CONSTANT pwm_period: INTEGER:=(sys_clk/op_freq)-1; --499
 --! Resulution is a constant for the highest resulution we can get for 
 --! the input bits.
 CONSTANT resolution: INTEGER:=2**(width);
