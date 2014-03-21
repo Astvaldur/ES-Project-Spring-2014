@@ -14,7 +14,7 @@ build/
 # doc/**/*.txt]
 
 # Ignore for DAC workspace
-Source code/DAC/work/
+Source code/HW/DAC/work/
 
 # Latex ignore files
 # In .gitignore
@@ -47,3 +47,8 @@ Source code/DAC/work/
 *.swp
 *.swo
 *.wlf
+
+#Exclude vivado files
+*.str
+*.log
+*.jou
