@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DARoots Version="1" Minor="30">
+  <FileSet Name="sim_leon3-digilent-nexys4" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/sim_leon3-digilent-nexys4">
+    <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sim_leon3-digilent-nexys4/imports/grlib-gpl-1.3.4-b4140/lib/grlib/stdlib/stdio.vhd">
+      <FileInfo>
+        <Attr Name="Library" Val="grlib"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Desktop/Stuff/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/lib/grlib/stdlib/stdio.vhd"/>
+        <Attr Name="ImportTime" Val="1387560004"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sim_leon3-digilent-nexys4/imports/grlib-gpl-1.3.4-b4140/lib/grlib/stdlib/testlib.vhd">
+      <FileInfo>
+        <Attr Name="Library" Val="grlib"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Desktop/Stuff/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/lib/grlib/stdlib/testlib.vhd"/>
+        <Attr Name="ImportTime" Val="1387560004"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sim_leon3-digilent-nexys4/imports/grlib-gpl-1.3.4-b4140/lib/grlib/util/util.vhd">
+      <FileInfo>
+        <Attr Name="Library" Val="grlib"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Desktop/Stuff/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/lib/grlib/util/util.vhd"/>
+        <Attr Name="ImportTime" Val="1387560004"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sim_leon3-digilent-nexys4/imports/grlib-gpl-1.3.4-b4140/lib/grlib/sparc/sparc_disas.vhd">
+      <FileInfo>
+        <Attr Name="Library" Val="grlib"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Desktop/Stuff/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/lib/grlib/sparc/sparc_disas.vhd"/>
+        <Attr Name="ImportTime" Val="1387560004"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sim_leon3-digilent-nexys4/imports/grlib-gpl-1.3.4-b4140/lib/gaisler/sim/sim.vhd">
+      <FileInfo>
+        <Attr Name="Library" Val="gaisler"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Desktop/Stuff/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/lib/gaisler/sim/sim.vhd"/>
+        <Attr Name="ImportTime" Val="1387560003"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sim_leon3-digilent-nexys4/imports/grlib-gpl-1.3.4-b4140/lib/gaisler/sim/ahbrep.vhd">
+      <FileInfo>
+        <Attr Name="Library" Val="gaisler"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Desktop/Stuff/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/lib/gaisler/sim/ahbrep.vhd"/>
+        <Attr Name="ImportTime" Val="1387560003"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sim_leon3-digilent-nexys4/imports/grlib-gpl-1.3.4-b4140/lib/work/debug/debug.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Desktop/Stuff/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/lib/work/debug/debug.vhd"/>
+        <Attr Name="ImportTime" Val="1387560004"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sim_leon3-digilent-nexys4/imports/grlib-gpl-1.3.4-b4140/lib/gaisler/spi/spi_flash.vhd">
+      <FileInfo>
+        <Attr Name="Library" Val="gaisler"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Desktop/Stuff/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/lib/gaisler/spi/spi_flash.vhd"/>
+        <Attr Name="ImportTime" Val="1387560003"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sim_leon3-digilent-nexys4/imports/grlib-gpl-1.3.4-b4140/lib/gaisler/sim/sram.vhd">
+      <FileInfo>
+        <Attr Name="Library" Val="gaisler"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Desktop/Stuff/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/lib/gaisler/sim/sram.vhd"/>
+        <Attr Name="ImportTime" Val="1387560003"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sim_leon3-digilent-nexys4/imports/grlib-gpl-1.3.4-b4140/designs/leon3-digilent-nexys4/testbench.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Desktop/Stuff/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/designs/leon3-digilent-nexys4/leon3-digilent-nexys4/testbench.vhd"/>
+        <Attr Name="ImportTime" Val="1387560003"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sim_leon3-digilent-nexys4/imports/grlib-gpl-1.3.4-b4140/lib/grlib/sparc/cpu_disas.vhd">
+      <FileInfo>
+        <Attr Name="Library" Val="grlib"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Desktop/Stuff/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/lib/grlib/sparc/cpu_disas.vhd"/>
+        <Attr Name="ImportTime" Val="1387560004"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sim_leon3-digilent-nexys4/imports/grlib-gpl-1.3.4-b4140/lib/grlib/amba/dma2ahb_tp.vhd">
+      <FileInfo>
+        <Attr Name="Library" Val="grlib"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Desktop/Stuff/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/lib/grlib/amba/dma2ahb_tp.vhd"/>
+        <Attr Name="ImportTime" Val="1387560004"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sim_leon3-digilent-nexys4/imports/grlib-gpl-1.3.4-b4140/lib/grlib/amba/amba_tp.vhd">
+      <FileInfo>
+        <Attr Name="Library" Val="grlib"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Desktop/Stuff/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/lib/grlib/amba/amba_tp.vhd"/>
+        <Attr Name="ImportTime" Val="1387560004"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sim_leon3-digilent-nexys4/imports/grlib-gpl-1.3.4-b4140/lib/synplify/sim/synplify.vhd">
+      <FileInfo>
+        <Attr Name="Library" Val="synplify"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Desktop/Stuff/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/lib/synplify/sim/synplify.vhd"/>
+        <Attr Name="ImportTime" Val="1387560004"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sim_leon3-digilent-nexys4/imports/grlib-gpl-1.3.4-b4140/lib/synplify/sim/synattr.vhd">
+      <FileInfo>
+        <Attr Name="Library" Val="synplify"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Desktop/Stuff/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/lib/synplify/sim/synattr.vhd"/>
+        <Attr Name="ImportTime" Val="1387560004"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sim_leon3-digilent-nexys4/imports/grlib-gpl-1.3.4-b4140/lib/techmap/inferred/sim_pll.vhd">
+      <FileInfo>
+        <Attr Name="Library" Val="techmap"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Desktop/Stuff/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/lib/techmap/inferred/sim_pll.vhd"/>
+        <Attr Name="ImportTime" Val="1387560005"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sim_leon3-digilent-nexys4/imports/grlib-gpl-1.3.4-b4140/lib/techmap/inferred/lpddr2_phy_inferred.vhd">
+      <FileInfo>
+        <Attr Name="Library" Val="techmap"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Desktop/Stuff/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/lib/techmap/inferred/lpddr2_phy_inferred.vhd"/>
+        <Attr Name="ImportTime" Val="1387560005"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sim_leon3-digilent-nexys4/imports/grlib-gpl-1.3.4-b4140/lib/gaisler/sim/sram16.vhd">
+      <FileInfo>
+        <Attr Name="Library" Val="gaisler"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Desktop/Stuff/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/lib/gaisler/sim/sram16.vhd"/>
+        <Attr Name="ImportTime" Val="1387560003"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sim_leon3-digilent-nexys4/imports/grlib-gpl-1.3.4-b4140/lib/gaisler/sim/phy.vhd">
+      <FileInfo>
+        <Attr Name="Library" Val="gaisler"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Desktop/Stuff/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/lib/gaisler/sim/phy.vhd"/>
+        <Attr Name="ImportTime" Val="1387560003"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sim_leon3-digilent-nexys4/imports/grlib-gpl-1.3.4-b4140/lib/gaisler/sim/delay_wire.vhd">
+      <FileInfo>
+        <Attr Name="Library" Val="gaisler"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Desktop/Stuff/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/lib/gaisler/sim/delay_wire.vhd"/>
+        <Attr Name="ImportTime" Val="1387560003"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sim_leon3-digilent-nexys4/imports/grlib-gpl-1.3.4-b4140/lib/gaisler/sim/pwm_check.vhd">
+      <FileInfo>
+        <Attr Name="Library" Val="gaisler"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Desktop/Stuff/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/lib/gaisler/sim/pwm_check.vhd"/>
+        <Attr Name="ImportTime" Val="1387560003"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sim_leon3-digilent-nexys4/imports/grlib-gpl-1.3.4-b4140/lib/gaisler/jtag/jtagtst.vhd">
+      <FileInfo>
+        <Attr Name="Library" Val="gaisler"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Desktop/Stuff/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/lib/gaisler/jtag/jtagtst.vhd"/>
+        <Attr Name="ImportTime" Val="1387560004"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sim_leon3-digilent-nexys4/imports/grlib-gpl-1.3.4-b4140/lib/gaisler/ddr/mig_interface_model.v">
+      <FileInfo>
+        <Attr Name="Library" Val="gaisler"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Desktop/Stuff/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/lib/gaisler/ddr/mig_interface_model.v"/>
+        <Attr Name="ImportTime" Val="1387557695"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInImplementation" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sim_leon3-digilent-nexys4/imports/grlib-gpl-1.3.4-b4140/lib/gaisler/i2c/i2c_slave_model.v">
+      <FileInfo>
+        <Attr Name="Library" Val="gaisler"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Desktop/Stuff/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/lib/gaisler/i2c/i2c_slave_model.v"/>
+        <Attr Name="ImportTime" Val="1387557695"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInImplementation" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sim_leon3-digilent-nexys4/imports/grlib-gpl-1.3.4-b4140/lib/fmf/utilities/conversions.vhd">
+      <FileInfo>
+        <Attr Name="Library" Val="fmf"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Desktop/Stuff/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/lib/fmf/utilities/conversions.vhd"/>
+        <Attr Name="ImportTime" Val="1387560005"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sim_leon3-digilent-nexys4/imports/grlib-gpl-1.3.4-b4140/lib/fmf/utilities/gen_utils.vhd">
+      <FileInfo>
+        <Attr Name="Library" Val="fmf"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Desktop/Stuff/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/lib/fmf/utilities/gen_utils.vhd"/>
+        <Attr Name="ImportTime" Val="1387560005"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sim_leon3-digilent-nexys4/imports/grlib-gpl-1.3.4-b4140/lib/fmf/flash/flash.vhd">
+      <FileInfo>
+        <Attr Name="Library" Val="fmf"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Desktop/Stuff/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/lib/fmf/flash/flash.vhd"/>
+        <Attr Name="ImportTime" Val="1387560005"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sim_leon3-digilent-nexys4/imports/grlib-gpl-1.3.4-b4140/lib/fmf/flash/s25fl064a.vhd">
+      <FileInfo>
+        <Attr Name="Library" Val="fmf"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Desktop/Stuff/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/lib/fmf/flash/s25fl064a.vhd"/>
+        <Attr Name="ImportTime" Val="1387560005"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sim_leon3-digilent-nexys4/imports/grlib-gpl-1.3.4-b4140/lib/fmf/flash/m25p80.vhd">
+      <FileInfo>
+        <Attr Name="Library" Val="fmf"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Desktop/Stuff/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/lib/fmf/flash/m25p80.vhd"/>
+        <Attr Name="ImportTime" Val="1387560005"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sim_leon3-digilent-nexys4/imports/grlib-gpl-1.3.4-b4140/lib/fmf/fifo/idt7202.vhd">
+      <FileInfo>
+        <Attr Name="Library" Val="fmf"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Desktop/Stuff/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/lib/fmf/fifo/idt7202.vhd"/>
+        <Attr Name="ImportTime" Val="1387560005"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sim_leon3-digilent-nexys4/imports/grlib-gpl-1.3.4-b4140/lib/gsi/ssram/functions.vhd">
+      <FileInfo>
+        <Attr Name="Library" Val="gsi"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Desktop/Stuff/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/lib/gsi/ssram/functions.vhd"/>
+        <Attr Name="ImportTime" Val="1387560004"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sim_leon3-digilent-nexys4/imports/grlib-gpl-1.3.4-b4140/lib/gsi/ssram/core_burst.vhd">
+      <FileInfo>
+        <Attr Name="Library" Val="gsi"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Desktop/Stuff/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/lib/gsi/ssram/core_burst.vhd"/>
+        <Attr Name="ImportTime" Val="1387560004"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sim_leon3-digilent-nexys4/imports/grlib-gpl-1.3.4-b4140/lib/gsi/ssram/g880e18bt.vhd">
+      <FileInfo>
+        <Attr Name="Library" Val="gsi"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Desktop/Stuff/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/lib/gsi/ssram/g880e18bt.vhd"/>
+        <Attr Name="ImportTime" Val="1387560004"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sim_leon3-digilent-nexys4/imports/grlib-gpl-1.3.4-b4140/lib/micron/sdram/mobile_sdr.v">
+      <FileInfo>
+        <Attr Name="Library" Val="micron"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Desktop/Stuff/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/lib/micron/sdram/mobile_sdr.v"/>
+        <Attr Name="ImportTime" Val="1387557695"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInImplementation" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sim_leon3-digilent-nexys4/imports/grlib-gpl-1.3.4-b4140/lib/micron/ddr_sdram/ddr2.v">
+      <FileInfo>
+        <Attr Name="Library" Val="micron"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Desktop/Stuff/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/lib/micron/ddr_sdram/ddr2.v"/>
+        <Attr Name="ImportTime" Val="1387557695"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInImplementation" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sim_leon3-digilent-nexys4/imports/grlib-gpl-1.3.4-b4140/lib/micron/ddr_sdram/mobile_ddr.v">
+      <FileInfo>
+        <Attr Name="Library" Val="micron"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Desktop/Stuff/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/lib/micron/ddr_sdram/mobile_ddr.v"/>
+        <Attr Name="ImportTime" Val="1387557695"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInImplementation" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sim_leon3-digilent-nexys4/imports/grlib-gpl-1.3.4-b4140/lib/micron/ddr_sdram/ddr3.v">
+      <FileInfo>
+        <Attr Name="Library" Val="micron"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Desktop/Stuff/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/lib/micron/ddr_sdram/ddr3.v"/>
+        <Attr Name="ImportTime" Val="1387557695"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInImplementation" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sim_leon3-digilent-nexys4/imports/grlib-gpl-1.3.4-b4140/lib/micron/ddr_sdram/mobile_ddr_fe.v">
+      <FileInfo>
+        <Attr Name="Library" Val="micron"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Desktop/Stuff/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/lib/micron/ddr_sdram/mobile_ddr_fe.v"/>
+        <Attr Name="ImportTime" Val="1387557695"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInImplementation" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sim_leon3-digilent-nexys4/imports/grlib-gpl-1.3.4-b4140/lib/micron/ddr_sdram/ddr3_model.v">
+      <FileInfo>
+        <Attr Name="Library" Val="micron"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Desktop/Stuff/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/lib/micron/ddr_sdram/ddr3_model.v"/>
+        <Attr Name="ImportTime" Val="1387557695"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInImplementation" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sim_leon3-digilent-nexys4/imports/grlib-gpl-1.3.4-b4140/lib/micron/ddr_sdram/mobile_ddr2_fe.v">
+      <FileInfo>
+        <Attr Name="Library" Val="micron"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Desktop/Stuff/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/lib/micron/ddr_sdram/mobile_ddr2_fe.v"/>
+        <Attr Name="ImportTime" Val="1387557695"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInImplementation" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sim_leon3-digilent-nexys4/imports/grlib-gpl-1.3.4-b4140/lib/work/debug/grtestmod.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Desktop/Stuff/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/lib/work/debug/grtestmod.vhd"/>
+        <Attr Name="ImportTime" Val="1387560004"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sim_leon3-digilent-nexys4/imports/grlib-gpl-1.3.4-b4140/lib/work/debug/cpu_disas.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Desktop/Stuff/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/lib/work/debug/cpu_disas.vhd"/>
+        <Attr Name="ImportTime" Val="1387560004"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sim_leon3-digilent-nexys4/imports/grlib-gpl-1.3.4-b4140/designs/leon3-digilent-nexys4/prom.srec">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Desktop/Stuff/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/designs/leon3-digilent-nexys4/leon3-digilent-nexys4/prom.srec"/>
+        <Attr Name="ImportTime" Val="1387557695"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sim_leon3-digilent-nexys4/imports/grlib-gpl-1.3.4-b4140/designs/leon3-digilent-nexys4/ram.srec">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Desktop/Stuff/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/designs/leon3-digilent-nexys4/leon3-digilent-nexys4/ram.srec"/>
+        <Attr Name="ImportTime" Val="1387557695"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="testbench"/>
+      <Option Name="SrcSet" Val="sources_1"/>
+    </Config>
+  </FileSet>
+</DARoots>

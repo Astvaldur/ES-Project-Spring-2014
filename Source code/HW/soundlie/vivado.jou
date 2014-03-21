@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2013.4 (64-bit)
+# SW Build 353583 on Mon Dec  9 17:49:19 MST 2013
+# IP Build 208076 on Mon Dec  2 12:38:17 MST 2013
+# Start of session at: Fri Mar 21 11:08:39 2014
+# Process ID: 6736
+# Log file: C:/ES-Project-Spring-2014/Source code/HW/soundlie/vivado.log
+# Journal file: C:/ES-Project-Spring-2014/Source code/HW/soundlie\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project {C:\ES-Project-Spring-2014\Source code\HW\soundlie\soundlie.xpr}
+update_compile_order -fileset sources_1
+update_compile_order -fileset sim_leon3-digilent-nexys4
