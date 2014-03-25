@@ -142,6 +142,7 @@ entity leon3mp is
     --XADC
     AdcVn           : in    std_logic;
     AdcVp           : in    std_logic;
+    eoc_out         : out   std_logic;
     
     --PWM module
     ampPWM          : out std_logic;
@@ -211,12 +212,12 @@ architecture rtl of leon3mp is
   
   component BUFG port (O : out std_logic; I : in std_logic); end component;
   
---  COMPONENT ila_0
---    PORT (
---      clk : IN STD_LOGIC;
---      probe0 : IN STD_LOGIC_VECTOR(15 DOWNTO 0)
---    );
---  END COMPONENT;
+  COMPONENT ila_0
+    PORT (
+      clk : IN STD_LOGIC;
+      probe0 : IN STD_LOGIC_VECTOR(15 DOWNTO 0)
+    );
+  END COMPONENT;
 
   signal CLKFBOUT      : std_logic;
   signal CLKFBIN       : std_logic;
@@ -286,7 +287,8 @@ architecture rtl of leon3mp is
   signal ampSD_sig : std_logic;
   
   -- XADC
-  signal xadc_out_s : std_logic_vector(15 downto 0); 
+  signal xadc_out_s : std_logic_vector(15 downto 0);
+  signal irq_test   : std_logic;
   
   attribute keep                     : boolean;
   attribute syn_keep                 : boolean;
@@ -320,6 +322,9 @@ begin
   
   ampSD <= ampSD_sig;
   ampSD_jd <= ampSD_sig;
+  
+  eoc_out <= irq_test;
+  
  
   btnCpuReset<= not btnCpuResetn;
   cgi.pllctrl <= "00";
@@ -486,6 +491,7 @@ begin
   end generate;
   notim : if CFG_GPT_ENABLE = 0 generate apbo(3) <= apb_none; end generate;
 
+  -- UART
   ua1 : if CFG_UART1_ENABLE /= 0 generate
     uart1 : apbuart                     -- UART 1
       generic map (pindex   => 1, paddr => 1, pirq => 2, console => dbguart, fifosize => CFG_UART1_FIFO)
@@ -505,6 +511,35 @@ begin
   nospi: if CFG_SPICTRL_ENABLE = 0 and CFG_SPIMCTRL = 0 generate
     apbo(7) <= apb_none;
   end generate;
+  
+  --  Custom XADC module
+    xadc_apb_if : xadc_apb
+      generic map (pindex => 10, paddr => 10, pmask => 16#FFF#) 
+      port map (rstn => rstn,
+          clk => clk, 
+          apbi => apbi, 
+          apbo => apbo(10),
+          xadc_clk => clk,
+          xadc_reset => '1',
+          xadc_vp => AdcVp,
+          xadc_vn  => AdcVn,
+          xadc_out => xadc_out_s
+      );
+  
+  irq_test <= apbo(10).pirq(10);
+  
+  --  Custom PWM module
+  
+    PWMapb_if : PWMapb
+        generic map (pindex => 11, paddr => 11, pmask => 16#FFF#) 
+        port map (rstn => rstn,
+          clk => clk,
+          apbi => apbi,
+          apbo => apbo(11),
+          pwm_clk => clk,
+          ampPWM => ampPWM_sig,
+          ampSD => ampSD_sig
+        );
 
 -----------------------------------------------------------------------
 ---  ETHERNET ---------------------------------------------------------
@@ -586,45 +621,14 @@ begin
   end generate;
   
 -----------------------------------------------------------------------
----  Custom XADC module  ----------------------------------------------
------------------------------------------------------------------------
-  xadc_apb_if : xadc_apb
-    generic map (pindex => 10, paddr => 10, pmask => 16#FFF#) 
-    port map (rstn => rstn,
-        clk => clk, 
-        apbi => apbi, 
-        apbo => apbo(10),
-        xadc_clk => clk,
-        xadc_reset => '1',
-        xadc_vp => AdcVp,
-        xadc_vn  => AdcVn,
-        xadc_out => xadc_out_s
-    );
-
------------------------------------------------------------------------
----  Custom PWM module  -----------------------------------------------
------------------------------------------------------------------------
-
-  PWMapb_if : PWMapb
-      generic map (pindex => 11, paddr => 11, pmask => 16#FFF#) 
-      port map (rstn => rstn,
-        clk => clk,
-        apbi => apbi,
-        apbo => apbo(11),
-        pwm_clk => clk,
-        ampPWM => ampPWM_sig,
-        ampSD => ampSD_sig
-      );
-
------------------------------------------------------------------------
 ---  ILA  ----------------------------------------------------
 -----------------------------------------------------------------------
 
---ila_leon3 : ila_0
---  PORT MAP (
---    clk => clkm,
---    probe0 => xadc_out_s
---  );
+ila_leon3 : ila_0
+  PORT MAP (
+    clk => clk,
+    probe0 => xadc_out_s
+  );
 
 -----------------------------------------------------------------------
 ---  Boot message  ----------------------------------------------------

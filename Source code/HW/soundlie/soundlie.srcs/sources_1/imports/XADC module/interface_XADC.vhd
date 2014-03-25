@@ -93,6 +93,7 @@ PORT MAP (  di_in => (others => '0'),
             --busy_out => xadc_busy
             );
 
+
 -- CONCURRENT STATEMENTS
 xadc_eoc <= xadc_den;
 

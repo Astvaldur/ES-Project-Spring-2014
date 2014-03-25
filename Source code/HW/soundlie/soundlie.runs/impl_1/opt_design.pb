@@ -41,7 +41,7 @@ BPlease refer to the DRC report (report_drc) for more information.
 
 %s
 *constraints2r
-^Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.311 . Memory (MB): peak = 906.504 ; gain = 3.0742default:default
+^Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.323 . Memory (MB): peak = 905.586 ; gain = 3.0982default:default
 X
 
 Starting %s Task
@@ -68,13 +68,13 @@ B
 49*opt2
 02default:defaultZ31-49
 3
-'Phase 1 Retarget | Checksum: 188bdda09
+'Phase 1 Retarget | Checksum: 25232b4c0
 *common
 †
 
 %s
 *constraints2o
-[Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 929.008 ; gain = 22.5042default:default
+[Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 928.055 ; gain = 22.4692default:default
 l
 
 Phase %s%s
@@ -90,13 +90,13 @@ B
 10*opt2
 1732default:defaultZ31-10
 ?
-3Phase 2 Constant Propagation | Checksum: 17b58067e
+3Phase 2 Constant Propagation | Checksum: 1e05c365b
 *common
 †
 
 %s
 *constraints2o
-[Time (s): cpu = 00:00:04 ; elapsed = 00:00:03 . Memory (MB): peak = 929.008 ; gain = 22.5042default:default
+[Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 928.055 ; gain = 22.4692default:default
 ]
 
 Phase %s%s
@@ -112,26 +112,26 @@ L
 11*opt2
 92default:defaultZ31-11
 0
-$Phase 3 Sweep | Checksum: 2321a30e2
+$Phase 3 Sweep | Checksum: 2ab163ab9
 *common
 †
 
 %s
 *constraints2o
-[Time (s): cpu = 00:00:05 ; elapsed = 00:00:04 . Memory (MB): peak = 929.008 ; gain = 22.5042default:default
+[Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 928.055 ; gain = 22.4692default:default
 A
-5Ending Logic Optimization Task | Checksum: 2321a30e2
+5Ending Logic Optimization Task | Checksum: 2ab163ab9
 *common
 †
 
 %s
 *constraints2o
-[Time (s): cpu = 00:00:00 ; elapsed = 00:00:04 . Memory (MB): peak = 929.008 ; gain = 22.5042default:default
+[Time (s): cpu = 00:00:00 ; elapsed = 00:00:04 . Memory (MB): peak = 928.055 ; gain = 22.4692default:default
 8
-,Implement Debug Cores | Checksum: 23b7643b7
+,Implement Debug Cores | Checksum: 15781eda8
 *common
 5
-)Logic Optimization | Checksum: 23b7643b7
+)Logic Optimization | Checksum: 15781eda8
 *common
 Q
 Releasing license: %s
@@ -166,9 +166,9 @@ I%sTime (s): cpu = %s ; elapsed = %s . Memory (MB): peak = %s ; gain = %s
 268*common2)
 Write XDEF Complete: 2default:default2
 00:00:002default:default2 
-00:00:00.3222default:default2
-934.8912default:default2
-1.8982default:defaultZ17-268
+00:00:00.3252default:default2
+933.8242default:default2
+1.8442default:defaultZ17-268
 
 
 End Record

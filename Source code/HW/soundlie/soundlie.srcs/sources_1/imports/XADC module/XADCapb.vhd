@@ -48,6 +48,7 @@ architecture rtl of xadc_apb is
   
   signal comb_out   : std_logic_vector(31 downto 0);
   signal irq        : std_logic;
+  signal eoc        : std_logic;
 
 
 --constant REVISION       : amba_version_type := 0; 
@@ -124,9 +125,20 @@ begin
     xadc_vp => xadc_vp,
     xadc_vn => xadc_vn,    
     xadc_addr => ADC_OUTPUT_ADDR,    
-    xadc_eoc => irq,
+    xadc_eoc => eoc,
     xadc_output => comb_out(15 downto 0)
   ); 
+  
+  process(clk, irq) 
+  begin
+      if rising_edge(clk) then 
+          if eoc = '1' and irq = '0' then
+              irq <= '1';
+          else
+              irq <= '0';
+          end if;
+      end if;
+  end process;
 
    -- pragma translate_off   
    bootmsg : report_version 
