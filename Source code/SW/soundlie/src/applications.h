@@ -2,12 +2,11 @@
 #ifndef __APPLICATIONS_H
 #define __APPLICATIONS_H
 
-
+/* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "uart.h"
 
-
-//Initiate functions
+/* Private function prototypes -----------------------------------------------*/
 void filter(void);
 void Init_Config(void);
 void Init_UART(void);
@@ -18,11 +17,11 @@ void Config_Interrupts(void);
 void apbuart_Send(char Packet[8]);
 char apbuart_Receive(char Packet[8]);
 
+/* Function prototypes -------------------------------------------------------*/
 
-//Variables
+/* Private variables ---------------------------------------------------------*/
 char* Config_Pointer;
 int i;
 
-//structs
 
 #endif /* __APPLICATIONS_H */

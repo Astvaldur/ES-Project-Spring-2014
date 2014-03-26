@@ -212,7 +212,7 @@ architecture rtl of leon3mp is
   
   component BUFG port (O : out std_logic; I : in std_logic); end component;
   
-  COMPONENT ila_0
+  COMPONENT ila_leon3
     PORT (
       clk : IN STD_LOGIC;
       probe0 : IN STD_LOGIC_VECTOR(15 DOWNTO 0)
@@ -624,11 +624,12 @@ begin
 ---  ILA  ----------------------------------------------------
 -----------------------------------------------------------------------
 
-ila_leon3 : ila_0
-  PORT MAP (
-    clk => clk,
-    probe0 => xadc_out_s
-  );
+
+  ila_leon3_0 : ila_leon3
+    PORT MAP (
+      clk => clk,
+      probe0 => xadc_out_s
+    );
 
 -----------------------------------------------------------------------
 ---  Boot message  ----------------------------------------------------

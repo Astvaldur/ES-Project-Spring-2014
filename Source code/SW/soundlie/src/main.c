@@ -1,40 +1,54 @@
-/*
- ============================================================================
- Name        : NGProj.c
- Author      : 
- Version     :
- Copyright   : Your copyright notice
- Description : Test of code....
- ============================================================================
- */
+//Include Libraries
+#include "main.h"
 
-#define ADC_APB  0x80000A00
-#define PWM_APB  0x80000B00
+//void Configuration();
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
+int main()
+ { 
+    //Initiate start configurations for processor
+    //Init_Config(); // Init main characteristics
+    //Init_UART();   // Init UART characteristics
+    //Init_Interrupts(); //Init interrupt characteristics
 
-void pwm_write(int addr, int outdata);
-int adc_read(int addr);
+    //Enable interrupt for External interrupt
+    catch_interrupt(irqhandler, 10);
+    enable_irq(10);
 
-//void gpio_init(int addr);
+    //Enable interrupt for PC connection
+    // catch_interrupt(Configuration, 2);
+    // enable_irq(2);
 
-int main(void) {
+    puts("Ready to rock!");
 
-	puts("Ready to rock!"); /* prints to debugport */
+    cb.pos = 0;
 
-	int i = 0;
+    //Infinite loop
+    while(1);
+ }
 
-	while(1) {
+/*void Configuration()
+{
+			//Receive and print byte
+		 	Letter = apbuart_Receive((int*)0x80000103);
+		 	//apbuart_Send((int*)0x80000103);
 
-		int adc_in = adc_read(ADC_APB);
+			  if (Letter == 'y')
+			  {
+				  //apbuart_Send("Configuration of Bass,Middle and Treble begins:\n");
+				  printf("Configuration of Bass,Middle and Treble begins: \n");
+				  Letter = '<';
+				  Config_Interrupts();
+			  }
 
-		//printf("Test %d", adc_read);
-
-		pwm_write(PWM_APB, adc_in);
-	}
-
-
-	return EXIT_SUCCESS;
+			  if (Letter == 'e')
+			  {
+				  //apbuart_Send("Executing current configuration:");
+				  printf("Executing current configuration: \n");
+				  Letter = '<';
+				  //Test_filter_input = Test_filter_input + 10000;
+				  *Pending_vector |= 0x400;
+				  //force_irq(10);
+			  }
 }
+*/
+

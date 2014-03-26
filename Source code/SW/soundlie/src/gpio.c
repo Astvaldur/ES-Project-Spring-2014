@@ -1,51 +1,27 @@
-/*
- * gpio.c
- *
- *  Created on: 19 feb 2014
- *      Author:
- */
+#include "main.h"
 
-//#include <stdio.h>
-
-#define DISABLE 0x0
-#define ENABLE_RX 0x1
-#define ENABLE_TX 0x2
-#define RX_INT 0x4
-#define TX_INT 0x8
-#define EVEN_PARITY 0x20
-#define ODD_PARITY 0x30
-#define LOOP_BACK 0x80
-#define FLOW_CONTROL 0x40
-#define FIFO_TX_INT 0x200
-#define FIFO_RX_INT 0x400
-
-/*
- * gpio[0] = input data
- * gpio[1] = output data
- * gpio[2] = direction
- * gpio[3] = interrupt...
- */
-
-
-struct gpio_regs
+//************************************************//
+//Define GPIO structures
+#define GPIO_ADDRESS 0x4000E000
+struct GPIO
 {
-   volatile int input;
-   volatile int output;
-   volatile int direction;
-   volatile int scaler;
+volatile int Input;
+volatile int Output;
 };
 
-
-void gpio_init(int addr)
-{
-        struct gpio_regs *gpio = (struct gpio_regs *) addr;
-              
-        gpio->direction = 0xFF;       
-        gpio->output = 0xFF;   
-}
-
-void gpio_write(int addr, int outdata) {
-		struct gpio_regs *gpio = (struct gpio_regs *) addr;
-		
-		gpio->output = outdata; 
-}
+struct GPIO* gpio = (struct GPIO*) GPIO_ADDRESS;
+//************************************************//
+//Variables
+int Delay,i,j = 0;
+char Letter = '0';
+char* Test_vector;
+//Functions
+int* Mask_Register = (int*)0x80000240;
+int* Data_Register = (int*)0x80000100;
+int* Pending_vector = (int*)Interrupts_Pending;
+short Test_filter_input = 40000;
+short test_buffer[4];
+int32 Test_filter_output_Lowpass;
+int32 Test_filter_output_BandPass;
+int32 Test_filter_output_Highpass;
+int Output_packet;

@@ -60,7 +60,8 @@ char apbuart_Receive(char Packet[8])
 void apbuart_Send(char Packet[8])
 {
 	//Init Send variables
-	int SendCount,PacketCount = 0, Delay,g = 0;
+	//int SendCount,PacketCount = 0, Delay,g = 0;
+	int SendCount, Delay;
 	struct uart_regs *uart = (struct uart_regs *) UART_BASE_ADDRESS;
 
 	//Send 8 Bytes each time

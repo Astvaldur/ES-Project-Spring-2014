@@ -1,4 +1,3 @@
-
 #ifndef _APBUART_H
 #define _APBUART_H
 
@@ -9,8 +8,6 @@ extern int putInt(int a);
 #define SIM 2
 #define SYN 1
 #define UART_BASE_ADDRESS 0x80000100
-
-#endif
 
 
 //Write registers
@@ -44,3 +41,4 @@ extern int putInt(int a);
 
 #define Transmit_buffer_interrupt   0x04
 
+#endif

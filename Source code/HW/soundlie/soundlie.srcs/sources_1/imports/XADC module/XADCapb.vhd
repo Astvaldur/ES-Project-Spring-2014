@@ -36,7 +36,13 @@ end entity xadc_apb;
 
 architecture rtl of xadc_apb is
 
-
+  COMPONENT ila_xadc
+  PORT (
+    clk : IN STD_LOGIC;
+    probe0 : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
+    probe1 : IN STD_LOGIC_VECTOR(0 DOWNTO 0)
+  );
+  END COMPONENT;
 
   -- APB related signals
   type xadc_registers is record
@@ -47,8 +53,8 @@ architecture rtl of xadc_apb is
   signal apb_reg_in : xadc_registers;
   
   signal comb_out   : std_logic_vector(31 downto 0);
-  signal irq        : std_logic;
-  signal eoc        : std_logic;
+  signal irq        : std_logic_vector(0 downto 0);
+  signal eoc        : std_logic_vector(0 downto 0);
 
 
 --constant REVISION       : amba_version_type := 0; 
@@ -114,7 +120,7 @@ begin
   end process;
 
   -- Set APB bus signals
-  apbo.pirq(10) <= irq;            -- IRQ
+  apbo.pirq(10) <= irq(0);            -- IRQ
   apbo.pindex  <= pindex;          -- VHDL Generic
   apbo.pconfig <= PCONFIG;         -- VHDL Constant
 
@@ -125,25 +131,32 @@ begin
     xadc_vp => xadc_vp,
     xadc_vn => xadc_vn,    
     xadc_addr => ADC_OUTPUT_ADDR,    
-    xadc_eoc => eoc,
+    xadc_eoc => irq(0),
     xadc_output => comb_out(15 downto 0)
   ); 
   
-  process(clk, irq) 
-  begin
-      if rising_edge(clk) then 
-          if eoc = '1' and irq = '0' then
-              irq <= '1';
-          else
-              irq <= '0';
-          end if;
-      end if;
-  end process;
+--  process(clk, irq(0)) 
+--  begin
+--      if rising_edge(clk) then 
+--          if eoc(0) = '1' and irq(0) = '0' then
+--              irq(0) <= '1';
+--          else
+--              irq(0) <= '0';
+--          end if;
+--      end if;
+--  end process;
 
    -- pragma translate_off   
    bootmsg : report_version 
    generic map ("apbvgreport_versiona" & tost(pindex) & ": LED Control rev 0");
    -- pragma translate_on
+   
+     ila_xdc0 : ila_xadc
+     PORT MAP (
+       clk => clk,
+       probe0 => irq,
+       probe1 => eoc
+     );
 
 
 end rtl;
