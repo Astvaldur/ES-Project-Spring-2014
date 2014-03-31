@@ -8,7 +8,7 @@ disp('File reads OK!')
 %%
 filtered_y = rock_y;
 
-coeffs = fir1(15, 1/44100,'low');
+coeffs = fir1(10, 1/44100,'low');
 
 for idx = 50001:(numel(rock_y)/3)
     
