@@ -46,34 +46,67 @@
 -- 
 -- DO NOT MODIFY THIS FILE.
 
--- IP VLNV: xilinx.com:ip:ila:3.0
--- IP Revision: 1
+-- IP VLNV: xilinx.com:ip:xadc_wiz:3.0
+-- IP Revision: 2
 
 -- The following code must appear in the VHDL architecture header.
 
 ------------- Begin Cut here for COMPONENT Declaration ------ COMP_TAG
-COMPONENT ila_leon3
+COMPONENT xadc_wiz_0
   PORT (
-    clk : IN STD_LOGIC;
-    probe0 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-    probe1 : IN STD_LOGIC_VECTOR(0 DOWNTO 0)
+    di_in : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+    daddr_in : IN STD_LOGIC_VECTOR(6 DOWNTO 0);
+    den_in : IN STD_LOGIC;
+    dwe_in : IN STD_LOGIC;
+    drdy_out : OUT STD_LOGIC;
+    do_out : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+    dclk_in : IN STD_LOGIC;
+    reset_in : IN STD_LOGIC;
+    vp_in : IN STD_LOGIC;
+    vn_in : IN STD_LOGIC;
+    vauxp3 : IN STD_LOGIC;
+    vauxn3 : IN STD_LOGIC;
+    channel_out : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
+    eoc_out : OUT STD_LOGIC;
+    alarm_out : OUT STD_LOGIC;
+    eos_out : OUT STD_LOGIC;
+    busy_out : OUT STD_LOGIC
   );
 END COMPONENT;
+ATTRIBUTE SYN_BLACK_BOX : BOOLEAN;
+ATTRIBUTE SYN_BLACK_BOX OF xadc_wiz_0 : COMPONENT IS TRUE;
+ATTRIBUTE BLACK_BOX_PAD_PIN : STRING;
+ATTRIBUTE BLACK_BOX_PAD_PIN OF xadc_wiz_0 : COMPONENT IS "di_in[15:0],daddr_in[6:0],den_in,dwe_in,drdy_out,do_out[15:0],dclk_in,reset_in,vp_in,vn_in,vauxp3,vauxn3,channel_out[4:0],eoc_out,alarm_out,eos_out,busy_out";
+
 -- COMP_TAG_END ------ End COMPONENT Declaration ------------
 
 -- The following code must appear in the VHDL architecture
 -- body. Substitute your own instance name and net names.
 
 ------------- Begin Cut here for INSTANTIATION Template ----- INST_TAG
-your_instance_name : ila_leon3
+your_instance_name : xadc_wiz_0
   PORT MAP (
-    clk => clk,
-    probe0 => probe0,
-    probe1 => probe1
+    di_in => di_in,
+    daddr_in => daddr_in,
+    den_in => den_in,
+    dwe_in => dwe_in,
+    drdy_out => drdy_out,
+    do_out => do_out,
+    dclk_in => dclk_in,
+    reset_in => reset_in,
+    vp_in => vp_in,
+    vn_in => vn_in,
+    vauxp3 => vauxp3,
+    vauxn3 => vauxn3,
+    channel_out => channel_out,
+    eoc_out => eoc_out,
+    alarm_out => alarm_out,
+    eos_out => eos_out,
+    busy_out => busy_out
   );
 -- INST_TAG_END ------ End INSTANTIATION Template ---------
 
--- You must compile the wrapper file ila_leon3.vhd when simulating
--- the core, ila_leon3. When compiling the wrapper file, be sure to
+-- You must compile the wrapper file xadc_wiz_0.vhd when simulating
+-- the core, xadc_wiz_0. When compiling the wrapper file, be sure to
 -- reference the VHDL simulation library.
 

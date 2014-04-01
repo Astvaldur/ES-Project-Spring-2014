@@ -166,7 +166,7 @@ begin
         INIT_58 => X"5999",  -- Vbram upper alarm limit
         INIT_5C => X"5111",  -- Vbram lower alarm limit
         SIM_DEVICE => "7SERIES",
-        SIM_MONITOR_FILE => "c:/Users/Zotty/Desktop/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/designs/leon3-digilent-nexys4/leon3-digilent-nexys4/project_1/project_1.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0/simulation/functional/design.txt"
+        SIM_MONITOR_FILE => "c:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0/simulation/functional/design.txt"
         )
 
 port map (

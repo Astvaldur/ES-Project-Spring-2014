@@ -1,10 +1,10 @@
 // Copyright 1986-1999, 2001-2013 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2013.4 (win64) Build 353583 Mon Dec  9 17:49:19 MST 2013
-// Date        : Thu Mar 13 10:42:06 2014
+// Date        : Mon Mar 31 10:30:09 2014
 // Host        : Zotty-LT02 running 64-bit Service Pack 1  (build 7601)
-// Command     : write_verilog -force -mode synth_stub
-//               C:/Users/Zotty/Desktop/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/designs/leon3-digilent-nexys4/leon3-digilent-nexys4/project_1/project_1.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0_stub.v
+// Command     : write_verilog -force -mode synth_stub {C:/ES-Project-Spring-2014/Source
+//               code/HW/soundlie/soundlie.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0_stub.v}
 // Design      : xadc_wiz_0
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7a100tcsg324-2

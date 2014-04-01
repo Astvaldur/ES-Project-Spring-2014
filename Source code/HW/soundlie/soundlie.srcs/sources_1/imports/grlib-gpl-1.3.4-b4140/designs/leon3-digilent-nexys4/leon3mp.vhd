@@ -142,7 +142,6 @@ entity leon3mp is
     --XADC
     AdcVn           : in    std_logic;
     AdcVp           : in    std_logic;
-    eoc_out         : out   std_logic;
     
     --PWM module
     ampPWM          : out std_logic;
@@ -213,10 +212,11 @@ architecture rtl of leon3mp is
   component BUFG port (O : out std_logic; I : in std_logic); end component;
   
   COMPONENT ila_leon3
-    PORT (
-      clk : IN STD_LOGIC;
-      probe0 : IN STD_LOGIC_VECTOR(15 DOWNTO 0)
-    );
+      PORT (
+        clk : IN STD_LOGIC;
+        probe0 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+        probe1 : IN STD_LOGIC_VECTOR(0 DOWNTO 0)
+      );
   END COMPONENT;
 
   signal CLKFBOUT      : std_logic;
@@ -288,7 +288,9 @@ architecture rtl of leon3mp is
   
   -- XADC
   signal xadc_out_s : std_logic_vector(15 downto 0);
-  signal irq_test   : std_logic;
+  
+  -- ILA
+  signal xadc_irq   : std_logic_vector(0 downto 0);
   
   attribute keep                     : boolean;
   attribute syn_keep                 : boolean;
@@ -322,9 +324,6 @@ begin
   
   ampSD <= ampSD_sig;
   ampSD_jd <= ampSD_sig;
-  
-  eoc_out <= irq_test;
-  
  
   btnCpuReset<= not btnCpuResetn;
   cgi.pllctrl <= "00";
@@ -502,8 +501,6 @@ begin
     txd1       <= u1o.txd;
 --    serrx_pad : inpad generic map (tech  => padtech) port map (dsurx, rxd1);
 --    sertx_pad : outpad generic map (tech => padtech) port map (dsutx, txd1);
---    led(0) <= not rxd1;
---    led(1) <= not txd1;
   end generate;
   noua0 : if CFG_UART1_ENABLE = 0 generate apbo(1) <= apb_none; end generate;
 
@@ -516,17 +513,16 @@ begin
     xadc_apb_if : xadc_apb
       generic map (pindex => 10, paddr => 10, pmask => 16#FFF#) 
       port map (rstn => rstn,
-          clk => clk, 
+          clk => clkm, 
           apbi => apbi, 
           apbo => apbo(10),
           xadc_clk => clk,
-          xadc_reset => '1',
           xadc_vp => AdcVp,
           xadc_vn  => AdcVn,
           xadc_out => xadc_out_s
       );
   
-  irq_test <= apbo(10).pirq(10);
+  xadc_irq(0) <= apbo(10).pirq(10);
   
   --  Custom PWM module
   
@@ -624,11 +620,11 @@ begin
 ---  ILA  ----------------------------------------------------
 -----------------------------------------------------------------------
 
-
   ila_leon3_0 : ila_leon3
     PORT MAP (
       clk => clk,
-      probe0 => xadc_out_s
+      probe0 => xadc_out_s,
+      probe1 => xadc_irq
     );
 
 -----------------------------------------------------------------------

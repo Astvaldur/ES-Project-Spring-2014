@@ -55,7 +55,8 @@ PORT (
 clk : IN STD_LOGIC;
 
 
-probe0 : IN STD_LOGIC_VECTOR(15 DOWNTO 0)
+probe0 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+    probe1 : IN STD_LOGIC_VECTOR(0 DOWNTO 0)
 );
 END ila_leon3;
 

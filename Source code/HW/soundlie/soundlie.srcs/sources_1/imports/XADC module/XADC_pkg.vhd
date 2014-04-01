@@ -22,7 +22,6 @@ package XADC_pkg is
 
       --application specific
 	  xadc_clk : in std_logic;
-	  xadc_reset : in std_logic;
       xadc_vp : in  std_logic;
       xadc_vn : in  std_logic;
 	  xadc_out : out std_logic_vector(15 downto 0)

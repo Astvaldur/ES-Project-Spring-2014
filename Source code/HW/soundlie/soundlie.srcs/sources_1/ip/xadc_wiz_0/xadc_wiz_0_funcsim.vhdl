@@ -1,10 +1,10 @@
 -- Copyright 1986-1999, 2001-2013 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2013.4 (win64) Build 353583 Mon Dec  9 17:49:19 MST 2013
--- Date        : Thu Mar 13 10:42:06 2014
+-- Date        : Mon Mar 31 10:30:10 2014
 -- Host        : Zotty-LT02 running 64-bit Service Pack 1  (build 7601)
--- Command     : write_vhdl -force -mode funcsim
---               C:/Users/Zotty/Desktop/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/designs/leon3-digilent-nexys4/leon3-digilent-nexys4/project_1/project_1.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0_funcsim.vhdl
+-- Command     : write_vhdl -force -mode funcsim {C:/ES-Project-Spring-2014/Source
+--               code/HW/soundlie/soundlie.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0_funcsim.vhdl}
 -- Design      : xadc_wiz_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -90,7 +90,7 @@ U0: unisim.vcomponents.XADC
       IS_CONVSTCLK_INVERTED => '0',
       IS_DCLK_INVERTED => '0',
       SIM_DEVICE => "7SERIES",
-      SIM_MONITOR_FILE => "c:/Users/Zotty/Desktop/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/designs/leon3-digilent-nexys4/leon3-digilent-nexys4/project_1/project_1.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0/simulation/functional/design.txt"
+      SIM_MONITOR_FILE => "c:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0/simulation/functional/design.txt"
     )
     port map (
       ALM(7) => alarm_out,
