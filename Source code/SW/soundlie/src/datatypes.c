@@ -27,5 +27,5 @@ void circ_buff_get(circ_buff_t *circ_buff, int32_t pos, int16_t *outdata)
 		pos = CIRC_BUFF_SIZE + pos;
 	}
 
-	outdata = circ_buff->elems[pos];
+	*outdata = circ_buff->elems[pos];
 }

@@ -31,11 +31,8 @@ void irqhandler(int irq)
 		circ_buff_put(&circ_buff, adc_read(ADC_APB));
 
 		//tmp_out = circ_buff_get(&circ_buff, circ_buff.pos); // Straight through buffer and decimate
-		//tmp_out = tc_fir(tc_lp, &circ_buff); //Use LP-filter
-		//tmp_out = tc_fir(tc_hp, &circ_buff); //Use HP-filter
 
 		tmp_out = tc_amp(&circ_buff);
-
 
 		irq_counter = 0;
 
