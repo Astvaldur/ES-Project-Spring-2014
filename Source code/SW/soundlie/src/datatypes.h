@@ -25,6 +25,6 @@ typedef struct {
 
 /* Function prototypes -------------------------------------------------------*/
 void circ_buff_put(circ_buff_t *, int16_t);
-int16_t circ_buff_get(circ_buff_t *, int32_t);
+void circ_buff_get(circ_buff_t *, int32_t, int16_t *);
 
 #endif /* DATATYPES_H_ */

@@ -14,6 +14,7 @@
 
 
 /* Private function prototypes -----------------------------------------------*/
+int16_t tc_amp(circ_buff_t *);
 int16_t tc_fir(fir_data_t, circ_buff_t *);
 
 /* Function prototypes -------------------------------------------------------*/

@@ -14,9 +14,6 @@ void disable_irq (int irq) { lreg[IMASK/4] &= ~(1 << irq); }	// mask irq
 
 void force_irq (int irq) { lreg[IFORCE/4] = (1 << irq); }	// force irq
 
-extern fir_data_t tc_lp;
-extern fir_data_t tc_hp;
-
 void irqhandler(int irq)
 {
 	disable_irq(10);
@@ -35,7 +32,9 @@ void irqhandler(int irq)
 
 		//tmp_out = circ_buff_get(&circ_buff, circ_buff.pos); // Straight through buffer and decimate
 		//tmp_out = tc_fir(tc_lp, &circ_buff); //Use LP-filter
-		tmp_out = tc_fir(tc_hp, &circ_buff); //Use HP-filter
+		//tmp_out = tc_fir(tc_hp, &circ_buff); //Use HP-filter
+
+		tmp_out = tc_amp(&circ_buff);
 
 
 		irq_counter = 0;
