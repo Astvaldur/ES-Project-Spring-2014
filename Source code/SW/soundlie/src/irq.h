@@ -6,12 +6,13 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <math.h>
 
 #include "applications.h"
 #include "uart.h"
-#include "filters.h"
 #include "adc.h"
 #include "pwm.h"
+#include "tone_control.h"
 
 /* Definitions ---------------------------------------------------------------*/
 #define ICLEAR 0x20c

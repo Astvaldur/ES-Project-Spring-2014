@@ -14,42 +14,35 @@ void disable_irq (int irq) { lreg[IMASK/4] &= ~(1 << irq); }	// mask irq
 
 void force_irq (int irq) { lreg[IFORCE/4] = (1 << irq); }	// force irq
 
+extern fir_data_t tc_lp;
+extern fir_data_t tc_hp;
+
 void irqhandler(int irq)
 {
 	disable_irq(10);
 
+	static int tmp_out = 0;
+
+	static circ_buff_t circ_buff;
+
 	if (irq_counter < 16) {
+		//puts("I");
 
-		int adc_sample = adc_read(ADC_APB);
+		//pwm_write(PWM_APB, adc_read(ADC_APB)); // Straight through
+		pwm_write(PWM_APB, tmp_out);
 
-		int outdata = 0.6* adc_sample + (0.3 * cb_get(cb.pos-10000));
-		//int outdata = adc_sample;
+		circ_buff_put(&circ_buff, adc_read(ADC_APB));
 
-		cb_put(outdata);
+		//tmp_out = circ_buff_get(&circ_buff, circ_buff.pos); // Straight through buffer and decimate
+		//tmp_out = tc_fir(tc_lp, &circ_buff); //Use LP-filter
+		tmp_out = tc_fir(tc_hp, &circ_buff); //Use HP-filter
 
-		pwm_write(PWM_APB, outdata);
 
-		//pwm_write(PWM_APB, adc_sample);
-	irq_counter = 0;
+		irq_counter = 0;
 
 	}
 	irq_counter++;
 
 	enable_irq(10);
-
-
-	//Return value is of int16 type
-	/*Test_filter_output_Lowpass = iir_LP( Test_filter_input);
-	Test_filter_output_BandPass = iir_BP( Test_filter_input);
-	Test_filter_output_Highpass = iir_HP( Test_filter_input);*/
-
-	//Send the output
-	//printf("%hu \n",Test_filter_output_Lowpass);
-	//printf("%hu \n",Test_filter_output_BandPass);
-	//printf("%hu \n",Test_filter_output_Highpass);
-
-	//apbuart_Send(Test_filter_output_Lowpass);
-	//apbuart_Send(Test_filter_output_BandPass);
-    //apbuart_Send(Test_filter_output_Highpass);
 
 }

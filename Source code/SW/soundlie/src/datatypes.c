@@ -8,7 +8,7 @@
 
 #include "datatypes.h"
 
-void circ_buff_put(circ_buff_t *circ_buff, int16 indata)
+void circ_buff_put(circ_buff_t *circ_buff, int16_t indata)
 {
 	if ( circ_buff->pos < CIRC_BUFF_SIZE)
 	{
@@ -20,7 +20,7 @@ void circ_buff_put(circ_buff_t *circ_buff, int16 indata)
 	circ_buff->elems[circ_buff->pos] = indata;
 }
 
-int16 circ_buff_get(circ_buff_t *circ_buff, int pos)
+int16_t circ_buff_get(circ_buff_t *circ_buff, int32_t pos)
 {
 	if (pos < 0)
 	{

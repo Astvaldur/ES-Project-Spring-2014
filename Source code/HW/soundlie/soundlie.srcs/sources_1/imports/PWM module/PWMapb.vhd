@@ -114,7 +114,7 @@ begin
   )
   port map (reset => rstn,
 	clk => pwm_clk, -- Wrong clock, should be sys clk not APB clk
-	vsample => vsample(width-1 downto 0),
+	vsample => not vsample(width-1) &  vsample((width-2) downto 0),
 	ampPWM => ampPWM, --width??
 	ampSD => ampSD --width??
   ) ;

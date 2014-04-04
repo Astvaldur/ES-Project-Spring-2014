@@ -1,26 +1,12 @@
-#include "datatypes.h"
+/**
+* @file effects.c
+* @brief Sounds effects and associated functions.
+* @details Sounds effects and associated functions for use with circular buffer.
+* @author Tobias Hallberg
+* @version 1.0
+*/
 
-circ_buff_t cb;
+#include "effects.h"
 
 
-void cb_put(int16 indata)
-{
-	if ( cb.pos < 44100)
-	{
-		cb.pos++;
-	} else
-	{
-		cb.pos = 0;
-	}
-	cb.elems[cb.pos] = indata;
-}
 
-int16 cb_get(int pos)
-{
-	if (pos < 0)
-	{
-		pos = 44100 + pos;
-	}
-
-	return cb.elems[pos];
-}

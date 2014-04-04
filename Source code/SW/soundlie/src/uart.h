@@ -42,3 +42,29 @@ extern int putInt(int a);
 #define Transmit_buffer_interrupt   0x04
 
 #endif
+
+/*void Configuration()
+{
+			//Receive and print byte
+		 	Letter = apbuart_Receive((int*)0x80000103);
+		 	//apbuart_Send((int*)0x80000103);
+
+			  if (Letter == 'y')
+			  {
+				  //apbuart_Send("Configuration of Bass,Middle and Treble begins:\n");
+				  printf("Configuration of Bass,Middle and Treble begins: \n");
+				  Letter = '<';
+				  Config_Interrupts();
+			  }
+
+			  if (Letter == 'e')
+			  {
+				  //apbuart_Send("Executing current configuration:");
+				  printf("Executing current configuration: \n");
+				  Letter = '<';
+				  //Test_filter_input = Test_filter_input + 10000;
+				  *Pending_vector |= 0x400;
+				  //force_irq(10);
+			  }
+}
+*/

@@ -83,7 +83,7 @@ begin
     case apbi.paddr(4 downto 2) is         
       when "000" =>
           -- Invert MSB to change representation
-          apbo.prdata <= not(sample(15)) & sample(14 downto 0);
+          apbo.prdata <= sample;
       when others =>
     end case;
 
@@ -144,7 +144,7 @@ begin
    
      ila_xdc0 : ila_xadc
      PORT MAP (
-       clk => xadc_clk,
+       clk => clk,
        probe0 => probe0,
        probe1 => probe1
      );
