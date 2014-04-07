@@ -7,14 +7,14 @@ extern int putInt(int a);
 
 #define SIM 2
 #define SYN 1
-#define UART_BASE_ADDRESS 0x80000100
+#define UART_BASE_ADDRESS (int*)0x80000100
 
 
 //Write registers
 #define DATA_REGISTER 			0x0
 #define STATUS_REGISTER 		0x04
 #define CONTROL_REGISTER 		0x08
-#define SCALER_REGISTER	 		0x0C  //Wont need probably
+#define SCALER_REGISTER	 		0x0C
 #define TIMER_RELOAD_REGISTER 	0x10  //Wont need probably
 
 #define DISABLE 0x0
@@ -41,30 +41,10 @@ extern int putInt(int a);
 
 #define Transmit_buffer_interrupt   0x04
 
+//Function Prototypes
+void InitUart();
+char ReadUartChar();
+void SendCharOnUart(char);
+int UartStatus();
+
 #endif
-
-/*void Configuration()
-{
-			//Receive and print byte
-		 	Letter = apbuart_Receive((int*)0x80000103);
-		 	//apbuart_Send((int*)0x80000103);
-
-			  if (Letter == 'y')
-			  {
-				  //apbuart_Send("Configuration of Bass,Middle and Treble begins:\n");
-				  printf("Configuration of Bass,Middle and Treble begins: \n");
-				  Letter = '<';
-				  Config_Interrupts();
-			  }
-
-			  if (Letter == 'e')
-			  {
-				  //apbuart_Send("Executing current configuration:");
-				  printf("Executing current configuration: \n");
-				  Letter = '<';
-				  //Test_filter_input = Test_filter_input + 10000;
-				  *Pending_vector |= 0x400;
-				  //force_irq(10);
-			  }
-}
-*/

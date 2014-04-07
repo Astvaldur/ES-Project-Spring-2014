@@ -14,6 +14,7 @@
 #include "pwm.h"
 #include "irq.h"
 #include "effects.h"
+#include "pc_communication.h"
 
 /* Definitions ---------------------------------------------------------------*/
 

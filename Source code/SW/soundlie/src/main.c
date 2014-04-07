@@ -14,12 +14,14 @@
 int main()
  { 
     //Initialize hw config
-    catch_interrupt(irqhandler, 10);
-    enable_irq(10);
+    //catch_interrupt(irqhandler, 10);
+    //enable_irq(10);
+	PcConnectionInit();
+	printf("1");
 
     //Initialize variable values
 
-    puts("Ready to rock!");
+    //puts("Ready to rock!");
 
     //Infinite loop
     while(1);
