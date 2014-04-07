@@ -20,12 +20,12 @@ void circ_buff_put(circ_buff_t *circ_buff, int16_t indata)
 	circ_buff->elems[circ_buff->pos] = indata;
 }
 
-void circ_buff_get(circ_buff_t *circ_buff, int32_t pos, int16_t *outdata)
+int16_t circ_buff_get(circ_buff_t *circ_buff, int32_t pos)
 {
 	if (pos < 0)
 	{
 		pos = CIRC_BUFF_SIZE + pos;
 	}
 
-	*outdata = circ_buff->elems[pos];
+	return circ_buff->elems[pos];
 }
