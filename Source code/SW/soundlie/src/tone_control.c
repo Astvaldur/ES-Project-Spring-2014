@@ -12,9 +12,10 @@ extern fir_data_t tc_hp;
 * @return Result from filter calculations.
 */
 int16_t tc_amp(circ_buff_t *circ_buff) {
+	//Read sample for straight through testing
 	int16_t tmp = circ_buff_get(circ_buff, circ_buff->pos);
 
-
+	//Execute filter calculations
 	//int16_t filt_lp = tc_fir(tc_lp, circ_buff); //Use LP-filter
 	//int16_t filt_bp = tc_fir(tc_bp, circ_buff); //Use BP-filter
 	//int16_t filt_hp = tc_fir(tc_hp, circ_buff); //Use HP-filter
@@ -28,16 +29,9 @@ int16_t tc_fir(fir_data_t fir_data, circ_buff_t *circ_buff) {
 	uint16_t n = 0;
 	int32_t tmp = 0;
 
-	/*
 	for (n = 0; n < fir_data.num_coeffs; n++) {
-		tmp = tmp + ( (fir_data.coeffs[n] * circ_buff_get(circ_buff, circ_buff->pos - n, )) );
-	}*/
-
-	for (n = 0; n < fir_data.num_coeffs; n++) {
-			int16_t tmp2;
-			//circ_buff_get(circ_buff, circ_buff->pos - n, &tmp2);
-			tmp = tmp + ( (fir_data.coeffs[n] * tmp2) );
-		}
+		tmp = tmp + ( (fir_data.coeffs[n] * circ_buff_get(circ_buff, circ_buff->pos - n )) );
+	}
 
 	//Do shifting here to save cpu time
 	return (int16_t) (tmp >> 15);

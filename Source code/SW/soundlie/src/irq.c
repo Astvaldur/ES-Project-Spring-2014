@@ -1,6 +1,5 @@
 #include "irq.h"
 
-static int irq_counter;
 int *lreg = (int *) 0x80000000;
 
 
@@ -16,29 +15,30 @@ void force_irq (int irq) { lreg[IFORCE/4] = (1 << irq); }	// force irq
 
 void irqhandler(int irq)
 {
+	//Disable IRQ to provide mutual exclusion
 	disable_irq(10);
 
-	static int tmp_out = 0;
+	//Declare/define variables with limited scope
+	static echo_data_t echo_data = {
+			0x6000,		//Q1.15:0.75
+			0x2000,		//Q1.15:0.25
+			24000,		//Delay: 0.5sec
+			{0}			//Empty buffer
+	};
 
-	static circ_buff_t circ_buff;
+	static circ_buff_t buff_echo_out = {0, {0}};
+	static int16_t tmp_out = 0;
 
-	if (irq_counter < 16) {
-		//puts("I");
+	//Write sample from last irq (get 1 sample delay in exchange for "stable skew")
+	pwm_write(PWM_APB, tmp_out);
 
-		//pwm_write(PWM_APB, adc_read(ADC_APB)); // Straight through
-		pwm_write(PWM_APB, tmp_out);
+	//Read sample from ADC
+	int16_t sample = (int16_t) adc_read(ADC_APB);
 
-		circ_buff_put(&circ_buff, adc_read(ADC_APB));
+	//Run echo
+	tmp_out = echo(sample, &buff_echo_out, &echo_data);
 
-		//tmp_out = circ_buff_get(&circ_buff, circ_buff.pos); // Straight through buffer and decimate
-
-		tmp_out = tc_amp(&circ_buff);
-
-		irq_counter = 0;
-
-	}
-	irq_counter++;
-
+	//Enable IR when done
 	enable_irq(10);
 
 }

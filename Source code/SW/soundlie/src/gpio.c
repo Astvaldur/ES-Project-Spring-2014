@@ -21,7 +21,7 @@ int* Data_Register = (int*)0x80000100;
 int* Pending_vector = (int*)Interrupts_Pending;
 short Test_filter_input = 40000;
 short test_buffer[4];
-int32 Test_filter_output_Lowpass;
+/*int32 Test_filter_output_Lowpass;
 int32 Test_filter_output_BandPass;
-int32 Test_filter_output_Highpass;
+int32 Test_filter_output_Highpass;*/
 int Output_packet;
