@@ -36,7 +36,8 @@ architecture rtl of xadc_apb is
   PORT (
     clk : IN STD_LOGIC;
     probe0 : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-    probe1 : IN STD_LOGIC_VECTOR(0 DOWNTO 0)
+    probe1 : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
+    probe2 : IN STD_LOGIC_VECTOR(0 DOWNTO 0)
   );
   END COMPONENT;
 
@@ -52,10 +53,15 @@ architecture rtl of xadc_apb is
   signal xadc_irq       : std_logic;
   signal xadc_irq_delay : std_logic;
   signal pirq           : std_logic;
+  signal xadc_eoc       : std_logic;
+  signal xadc_sample    : std_logic_vector(15 downto 0);
+  
+  signal fir_y          : std_logic_vector(31 downto 0);
   
   -- ILA
   signal probe0   : std_logic_vector(0 downto 0);
   signal probe1   : std_logic_vector(0 downto 0);
+  signal probe2   : std_logic_vector(0 downto 0);
   
 --constant REVISION       : amba_version_type := 0; 
 constant pconfig        : apb_config_type := (
@@ -68,9 +74,13 @@ begin
 
   xadc_out(15 downto 0) <= sample;
   
+  sample(15 downto 0) <= fir_y(31 downto 16);
+  
+  
   -- ILA
-  probe0(0) <= xadc_irq;
-  probe1(0) <= pirq;
+  probe0(0) <= xadc_eoc;
+  probe1(0) <= xadc_irq;
+  probe2(0) <= pirq;
 
   -- combinatorial process
   apb_comb : process(rstn, apb_reg, apbi)
@@ -133,9 +143,19 @@ begin
     xadc_vp => xadc_vp,
     xadc_vn => xadc_vn,    
     xadc_addr => ADC_OUTPUT_ADDR,    
-    xadc_eoc => xadc_irq,
-    xadc_output => sample
+    xadc_eoc => xadc_eoc,
+    xadc_output => xadc_sample
   ); 
+  
+  fir: top_fir
+  port map (
+      reset => not rstn,
+      start => xadc_eoc,
+      clk => xadc_clk,
+      x => xadc_sample,
+      finish => xadc_irq,
+      y => fir_y
+  );
   
    -- pragma translate_off   
    bootmsg : report_version 
@@ -146,7 +166,8 @@ begin
      PORT MAP (
        clk => clk,
        probe0 => probe0,
-       probe1 => probe1
+       probe1 => probe1,
+       probe2 => probe2
      );
 
 

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="C:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.hw/hw_1/wave/hw_ila_data_1/hw_ila_data_1.wdb" id="1">
+         <top_modules>
+            <top_module name="top" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="1" />
+   <wave_markers>
+      <marker time="1139000" label="" />
+   </wave_markers>
+   <wvobject fp_name="xadc_apb_if/apbo[pirq]" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">xadc_apb_if/apbo[pirq][0:0]</obj_property>
+      <obj_property name="ObjectShortName">xadc_apb_if/apbo[pirq][0:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+</wave_config>

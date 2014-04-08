@@ -135,10 +135,15 @@ entity leon3mp is
 
     --~ PicGpio         : out   std_logic_vector(1 downto 0);
 
-    -- USB-RS232 interface
+    -- USB-RS232 interface (DEBUG UART)
     RsRx            : in    std_logic;
     RsTx            : out   std_logic;
     
+    -- USB-RS232 interface (DEBUG UART)
+    uart_rxd1       : in    std_logic;
+    uart_txd1       : out   std_logic;
+    
+
     --XADC
     AdcVn           : in    std_logic;
     AdcVp           : in    std_logic;
@@ -146,8 +151,9 @@ entity leon3mp is
     --PWM module
     ampPWM          : out std_logic;
     ampSD           : out std_logic;
-    ampPWM_jd       : out std_logic;
-    ampSD_jd        : out std_logic
+    
+    -- GPIO module
+    gpio            : inout std_logic_vector(CFG_GRGPIO_WIDTH-1 downto 0) 	-- I/O port
 
   );
 end;
@@ -213,10 +219,11 @@ architecture rtl of leon3mp is
   
   COMPONENT ila_leon3
       PORT (
-        clk : IN STD_LOGIC;
-        probe0 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-        probe1 : IN STD_LOGIC_VECTOR(0 DOWNTO 0)
-      );
+          clk : IN STD_LOGIC;
+          probe0 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+          probe1 : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
+          probe2 : IN STD_LOGIC_VECTOR(1 DOWNTO 0)
+        );
   END COMPONENT;
 
   signal CLKFBOUT      : std_logic;
@@ -290,7 +297,9 @@ architecture rtl of leon3mp is
   signal xadc_out_s : std_logic_vector(15 downto 0);
   
   -- ILA
-  signal xadc_irq   : std_logic_vector(0 downto 0);
+  signal probe0     : std_logic_vector(15 downto 0);
+  signal probe1     : std_logic_vector(0 downto 0);
+  signal probe2     : std_logic_vector(1 downto 0);
   
   attribute keep                     : boolean;
   attribute syn_keep                 : boolean;
@@ -315,15 +324,16 @@ begin
   vcc <= '1';
   gnd <= '0';
   
-  --led(15 downto 4) <= (others =>'0'); -- unused leds off
-  --xadc_out <= xadc_out_s;
-  led <= xadc_out_s;
-  
   ampPWM <= ampPWM_sig;
-  ampPWM_jd <= ampPWM_sig;
-  
   ampSD <= ampSD_sig;
-  ampSD_jd <= ampSD_sig;
+  
+  probe0 <= xadc_out_s;
+  probe1(0) <= apbo(10).pirq(10);
+  probe2(0) <= rxd1;
+  probe2(1) <= txd1;
+  
+  uart_txd1 <= txd1;
+  rxd1 <= uart_rxd1;
  
   btnCpuReset<= not btnCpuResetn;
   cgi.pllctrl <= "00";
@@ -367,8 +377,8 @@ begin
         port map (clkm, rstn, ahbmi, ahbmo(i), ahbsi, ahbso, irqi(i), irqo(i), dbgi(i), dbgo(i));
     end generate;
 
-    --led(3)  <= not dbgo(0).error;
-    --led(2)  <= not dsuo.active;
+    led(3)  <= not dbgo(0).error;
+    led(2)  <= not dsuo.active;
 
     -- LEON3 Debug Support Unit    
     dsugen : if CFG_DSU = 1 generate
@@ -522,8 +532,6 @@ begin
           xadc_out => xadc_out_s
       );
   
-  xadc_irq(0) <= apbo(10).pirq(10);
-  
   --  Custom PWM module
   
     PWMapb_if : PWMapb
@@ -536,6 +544,21 @@ begin
           ampPWM => ampPWM_sig,
           ampSD => ampSD_sig
         );
+        
+    gpio0 : if CFG_GRGPIO_ENABLE /= 0 generate     -- GR GPIO unit
+        grgpio0: grgpio
+          generic map( pindex => 12, paddr => 12, imask => CFG_GRGPIO_IMASK, 
+            nbits => CFG_GRGPIO_WIDTH)
+          port map( rstn, clkm, apbi, apbo(12), gpioi, gpioo);
+        
+          pio_pads : for i in 0 to CFG_GRGPIO_WIDTH-1 generate
+            pio_pad : iopad generic map (tech => padtech)
+              port map (gpio(i), gpioo.dout(i), gpioo.oen(i), gpioi.din(i));
+          end generate;
+    end generate;
+
+
+
 
 -----------------------------------------------------------------------
 ---  ETHERNET ---------------------------------------------------------
@@ -623,8 +646,9 @@ begin
   ila_leon3_0 : ila_leon3
     PORT MAP (
       clk => clk,
-      probe0 => xadc_out_s,
-      probe1 => xadc_irq
+      probe0 => probe0,
+      probe1 => probe1,
+      probe2 => probe2
     );
 
 -----------------------------------------------------------------------

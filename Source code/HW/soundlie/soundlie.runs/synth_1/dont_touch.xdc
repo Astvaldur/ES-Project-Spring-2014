@@ -15,10 +15,18 @@
 
 # XDC: new/unused.xdc
 
-# IP: ip/ila_0/ila_0.xci
-set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==ila_0 || ORIG_REF_NAME==ila_0}]
+# IP: ip/ila_xadc/ila_xadc.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==ila_xadc || ORIG_REF_NAME==ila_xadc}]
 
-# XDC: ip/ila_0/constraints/ila.xdc
-set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {REF_NAME==ila_0 || ORIG_REF_NAME==ila_0}] {/U0 }]/U0 ]]
+# IP: ip/ila_leon3/ila_leon3.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==ila_leon3 || ORIG_REF_NAME==ila_leon3}]
 
-# XDC: ip/ila_0/ila_0_ooc.xdc
+# XDC: ip/ila_xadc/constraints/ila.xdc
+set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {REF_NAME==ila_xadc || ORIG_REF_NAME==ila_xadc}] {/U0 }]/U0 ]]
+
+# XDC: ip/ila_xadc/ila_xadc_ooc.xdc
+
+# XDC: ip/ila_leon3/constraints/ila.xdc
+set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {REF_NAME==ila_leon3 || ORIG_REF_NAME==ila_leon3}] {/U0 }]/U0 ]]
+
+# XDC: ip/ila_leon3/ila_leon3_ooc.xdc

@@ -1,7 +1,7 @@
 Copyright 1986-1999, 2001-2013 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------
 | Tool Version : Vivado v.2013.4 (win64) Build 353583 Mon Dec  9 17:49:19 MST 2013
-| Date         : Fri Mar 21 10:53:13 2014
+| Date         : Tue Apr 08 11:49:41 2014
 | Host         : Zotty-LT02 running 64-bit Service Pack 1  (build 7601)
 | Command      : report_drc
 -----------------------------------------------------------------------------------
@@ -33,6 +33,9 @@ REPORT SUMMARY
                      Missing CFGBVS and CONFIG_VOLTAGE Design Properties
                      Configuration Mode
                      Design Rule Check Disabled
+                     Device blockram resources exceeded
+                     Clocked by a non-clock net.
+                     Unconnected channel
                      DCI Cascade IO standard
                      DCI Cascade with part compatibility
                      DCI Cascade Checks
@@ -119,7 +122,7 @@ REPORT SUMMARY
                      Hold option missing in multicycle path constraint
                      Delay constraint missing on IO port
            Max violations: <unlimited>
-         Violations found: 67
+         Violations found: 76
 
 2. REPORT DETAILS
 -----------------
@@ -248,42 +251,78 @@ Related violations: <none>
 
 DPIP-1#1 Warning
 DSP input pipelining  
-DSP leon3gen.cpu[0].u0/leon3x0/p0/mgen.mul0/xm3232.m3232/pipe2.arch0.dwm/unamedDSP input A B  is not pipelined. Pipelining DSP48 input will improve performance. Each input of DSP48 has 2 levels of pipelining.
+DSP ARG input A B  is not pipelined. Pipelining DSP48 input will improve performance. Each input of DSP48 has 2 levels of pipelining.
 Related violations: <none>
 
 DPIP-1#2 Warning
 DSP input pipelining  
-DSP leon3gen.cpu[0].u0/leon3x0/p0/mgen.mul0/xm3232.m3232/pipe2.arch0.dwm/unamedDSP__0 input A B  is not pipelined. Pipelining DSP48 input will improve performance. Each input of DSP48 has 2 levels of pipelining.
+DSP ARG__0 input A B  is not pipelined. Pipelining DSP48 input will improve performance. Each input of DSP48 has 2 levels of pipelining.
 Related violations: <none>
 
 DPIP-1#3 Warning
 DSP input pipelining  
-DSP w2.p_i_reg[1]__0 input A B C  is not pipelined. Pipelining DSP48 input will improve performance. Each input of DSP48 has 2 levels of pipelining.
+DSP mgen.mul0/xm3232.m3232/pipe2.arch0.dwm/w2.p_i_reg[1] input A B  is not pipelined. Pipelining DSP48 input will improve performance. Each input of DSP48 has 2 levels of pipelining.
 Related violations: <none>
 
 DPIP-1#4 Warning
 DSP input pipelining  
-DSP w2.p_i_reg[1]__2 input A B C  is not pipelined. Pipelining DSP48 input will improve performance. Each input of DSP48 has 2 levels of pipelining.
+DSP mgen.mul0/xm3232.m3232/pipe2.arch0.dwm/w2.p_i_reg[1]__0 input A B  is not pipelined. Pipelining DSP48 input will improve performance. Each input of DSP48 has 2 levels of pipelining.
+Related violations: <none>
+
+DPIP-1#5 Warning
+DSP input pipelining  
+DSP p_1_out__0 input A B  is not pipelined. Pipelining DSP48 input will improve performance. Each input of DSP48 has 2 levels of pipelining.
+Related violations: <none>
+
+DPIP-1#6 Warning
+DSP input pipelining  
+DSP p_1_out__1 input A B  is not pipelined. Pipelining DSP48 input will improve performance. Each input of DSP48 has 2 levels of pipelining.
 Related violations: <none>
 
 DPOP-1#1 Warning
 DSP output pipelining  
-DSP leon3gen.cpu[0].u0/leon3x0/p0/mgen.mul0/xm3232.m3232/pipe2.arch0.dwm/unamedDSP output P  is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
+DSP ARG output P  is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
 Related violations: <none>
 
 DPOP-1#2 Warning
 DSP output pipelining  
-DSP leon3gen.cpu[0].u0/leon3x0/p0/mgen.mul0/xm3232.m3232/pipe2.arch0.dwm/unamedDSP__0 output P  is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
+DSP ARG__0 output P  is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
 Related violations: <none>
 
 DPOP-1#3 Warning
 DSP output pipelining  
-DSP w2.p_i_reg[1]__0 output P  is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
+DSP mgen.mul0/xm3232.m3232/pipe2.arch0.dwm/w2.p_i_reg[1] output P  is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
 Related violations: <none>
 
 DPOP-1#4 Warning
 DSP output pipelining  
-DSP w2.p_i_reg[1]__2 output P  is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
+DSP mgen.mul0/xm3232.m3232/pipe2.arch0.dwm/w2.p_i_reg[1]__0 output P  is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
+Related violations: <none>
+
+DPOP-1#5 Warning
+DSP output pipelining  
+DSP p_1_out__0 output P  is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
+Related violations: <none>
+
+DPOP-1#6 Warning
+DSP output pipelining  
+DSP p_1_out__1 output P  is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
+Related violations: <none>
+
+PDRC-153#1 Warning
+Physical design rule  
+Net rst0/O3 is a gated clock net sourced by a combinational pin rst0/xadc_i_2/O, cell rst0/xadc_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PLHOLDVIO-2#1 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT rst0/xadc_i_2 is driving clock pin of 16 cells. This could lead to large hold time violations. First few involved cells are:
+    xadc_apb_if/fir/wrap2/fir_comp/coefficients_reg[4][14] {LDCE}
+    xadc_apb_if/fir/wrap2/fir_comp/coefficients_reg[4][13] {LDCE}
+    xadc_apb_if/fir/wrap2/fir_comp/coefficients_reg[4][12] {LDCE}
+    xadc_apb_if/fir/wrap2/fir_comp/coefficients_reg[4][11] {LDCE}
+    xadc_apb_if/fir/wrap2/fir_comp/coefficients_reg[4][10] {LDCE}
+
 Related violations: <none>
 
 XDCM-1#1 Warning
@@ -408,62 +447,77 @@ Related violations: <none>
 
 XDCM-1#25 Warning
 Delay constraint missing on IO port  
-The port 'ampPWM_jd' does not have any I/O delay defined. It is necessary to have I/O (input or output) delays defined on all the ports to properly time the FPGA interface.
+The port 'ampSD' does not have any I/O delay defined. It is necessary to have I/O (input or output) delays defined on all the ports to properly time the FPGA interface.
 Related violations: <none>
 
 XDCM-1#26 Warning
 Delay constraint missing on IO port  
-The port 'ampSD' does not have any I/O delay defined. It is necessary to have I/O (input or output) delays defined on all the ports to properly time the FPGA interface.
+The port 'btnCpuResetn' does not have any I/O delay defined. It is necessary to have I/O (input or output) delays defined on all the ports to properly time the FPGA interface.
 Related violations: <none>
 
 XDCM-1#27 Warning
 Delay constraint missing on IO port  
-The port 'ampSD_jd' does not have any I/O delay defined. It is necessary to have I/O (input or output) delays defined on all the ports to properly time the FPGA interface.
+The port 'btn[0], btn[1], btn[2], btn[3], btn[4]' does not have any I/O delay defined. It is necessary to have I/O (input or output) delays defined on all the ports to properly time the FPGA interface.
 Related violations: <none>
 
 XDCM-1#28 Warning
 Delay constraint missing on IO port  
-The port 'btnCpuResetn' does not have any I/O delay defined. It is necessary to have I/O (input or output) delays defined on all the ports to properly time the FPGA interface.
+The port 'data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[8], data[9], data[10], data[11], data[12], data[13], data[14] (the first 15 of 16 listed)' does not have any I/O delay defined. It is necessary to have I/O (input or output) delays defined on all the ports to properly time the FPGA interface.
 Related violations: <none>
 
 XDCM-1#29 Warning
 Delay constraint missing on IO port  
-The port 'btn[0], btn[1], btn[2], btn[3], btn[4]' does not have any I/O delay defined. It is necessary to have I/O (input or output) delays defined on all the ports to properly time the FPGA interface.
+The port 'gpio[0], gpio[1], gpio[2], gpio[3], gpio[4], gpio[5], gpio[6], gpio[7]' does not have any I/O delay defined. It is necessary to have I/O (input or output) delays defined on all the ports to properly time the FPGA interface.
 Related violations: <none>
 
 XDCM-1#30 Warning
 Delay constraint missing on IO port  
-The port 'data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[8], data[9], data[10], data[11], data[12], data[13], data[14] (the first 15 of 16 listed)' does not have any I/O delay defined. It is necessary to have I/O (input or output) delays defined on all the ports to properly time the FPGA interface.
+The port 'sw[0], sw[1], sw[2], sw[3], sw[4], sw[5], sw[6], sw[7], sw[8], sw[9], sw[10], sw[11], sw[12], sw[13], sw[14] (the first 15 of 16 listed)' does not have any I/O delay defined. It is necessary to have I/O (input or output) delays defined on all the ports to properly time the FPGA interface.
 Related violations: <none>
 
 XDCM-1#31 Warning
 Delay constraint missing on IO port  
-The port 'sw[0], sw[1], sw[2], sw[3], sw[4], sw[5], sw[6], sw[7], sw[8], sw[9], sw[10], sw[11], sw[12], sw[13], sw[14] (the first 15 of 16 listed)' does not have any I/O delay defined. It is necessary to have I/O (input or output) delays defined on all the ports to properly time the FPGA interface.
+The port 'uart_rxd1' does not have any I/O delay defined. It is necessary to have I/O (input or output) delays defined on all the ports to properly time the FPGA interface.
+Related violations: <none>
+
+XDCM-1#32 Warning
+Delay constraint missing on IO port  
+The port 'uart_txd1' does not have any I/O delay defined. It is necessary to have I/O (input or output) delays defined on all the ports to properly time the FPGA interface.
 Related violations: <none>
 
 AVAL-4#1 Advisory
 enum_USE_DPORT_FALSE_enum_DREG_1_enum_ADREG_1  
-leon3gen.cpu[0].u0/leon3x0/p0/mgen.mul0/xm3232.m3232/pipe2.arch0.dwm/unamedDSP: If the DSP48E1 USE_DPORT attribute is set to FALSE, then Please set DREG and ADREG to 0 to save power.
+ARG: If the DSP48E1 USE_DPORT attribute is set to FALSE, then Please set DREG and ADREG to 0 to save power.
 Related violations: <none>
 
 AVAL-4#2 Advisory
 enum_USE_DPORT_FALSE_enum_DREG_1_enum_ADREG_1  
-leon3gen.cpu[0].u0/leon3x0/p0/mgen.mul0/xm3232.m3232/pipe2.arch0.dwm/unamedDSP__0: If the DSP48E1 USE_DPORT attribute is set to FALSE, then Please set DREG and ADREG to 0 to save power.
+ARG__0: If the DSP48E1 USE_DPORT attribute is set to FALSE, then Please set DREG and ADREG to 0 to save power.
 Related violations: <none>
 
 AVAL-4#3 Advisory
 enum_USE_DPORT_FALSE_enum_DREG_1_enum_ADREG_1  
-w2.p_i_reg[1]__0: If the DSP48E1 USE_DPORT attribute is set to FALSE, then Please set DREG and ADREG to 0 to save power.
+mgen.mul0/xm3232.m3232/pipe2.arch0.dwm/w2.p_i_reg[1]: If the DSP48E1 USE_DPORT attribute is set to FALSE, then Please set DREG and ADREG to 0 to save power.
 Related violations: <none>
 
 AVAL-4#4 Advisory
 enum_USE_DPORT_FALSE_enum_DREG_1_enum_ADREG_1  
-w2.p_i_reg[1]__2: If the DSP48E1 USE_DPORT attribute is set to FALSE, then Please set DREG and ADREG to 0 to save power.
+mgen.mul0/xm3232.m3232/pipe2.arch0.dwm/w2.p_i_reg[1]__0: If the DSP48E1 USE_DPORT attribute is set to FALSE, then Please set DREG and ADREG to 0 to save power.
+Related violations: <none>
+
+AVAL-4#5 Advisory
+enum_USE_DPORT_FALSE_enum_DREG_1_enum_ADREG_1  
+p_1_out__0: If the DSP48E1 USE_DPORT attribute is set to FALSE, then Please set DREG and ADREG to 0 to save power.
+Related violations: <none>
+
+AVAL-4#6 Advisory
+enum_USE_DPORT_FALSE_enum_DREG_1_enum_ADREG_1  
+p_1_out__1: If the DSP48E1 USE_DPORT attribute is set to FALSE, then Please set DREG and ADREG to 0 to save power.
 Related violations: <none>
 
 RTSTAT-10#1 Advisory
 No routable loads  
-24 net(s) have no routable loads. The problem net(s) are clkgen0/xc7l.v/CLKOUT1, clkgen0/xc7l.v/CLKOUT2, xlnx_opt__20, xlnx_opt__22, xlnx_opt__24, xlnx_opt__26, xlnx_opt__28, xlnx_opt__30, xlnx_opt__32, xlnx_opt__34, xlnx_opt__36, xlnx_opt__38, xlnx_opt__40, xlnx_opt__42, xlnx_opt__44 (the first 15 of 24 listed).
+24 net(s) have no routable loads. The problem net(s) are clkgen0/xc7l.v/CLKOUT1, clkgen0/xc7l.v/CLKOUT2, xlnx_opt__4, xlnx_opt__6, xlnx_opt__8, xlnx_opt__10, xlnx_opt__12, xlnx_opt__14, xlnx_opt__16, xlnx_opt__18, xlnx_opt__20, xlnx_opt__22, xlnx_opt__24, xlnx_opt__26, xlnx_opt__28 (the first 15 of 24 listed).
 Related violations: <none>
 
 

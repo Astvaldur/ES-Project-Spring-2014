@@ -12,11 +12,17 @@ add_files {{C:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.runs/xadc
 set_property used_in_implementation false [get_files {{C:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.runs/xadc_wiz_0_synth_1/xadc_wiz_0.dcp}}]
 set_property use_blackbox_stub false [get_files {{C:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.runs/xadc_wiz_0_synth_1/xadc_wiz_0.dcp}}]
 
-read_ip {{C:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/ip/ila_0/ila_0.xci}}
-set_property used_in_implementation false [get_files -all {{c:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/ip/ila_0/constraints/ila.xdc}}]
-set_property used_in_implementation false [get_files -all {{c:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/ip/ila_0/ila_0_ooc.xdc}}]
+read_ip {{C:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/ip/ila_xadc/ila_xadc.xci}}
+set_property used_in_implementation false [get_files -all {{c:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/ip/ila_xadc/constraints/ila.xdc}}]
+set_property used_in_implementation false [get_files -all {{c:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/ip/ila_xadc/ila_xadc_ooc.xdc}}]
 set_msg_config -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property is_locked true [get_files {{C:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/ip/ila_0/ila_0.xci}}]
+set_property is_locked true [get_files {{C:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/ip/ila_xadc/ila_xadc.xci}}]
+
+read_ip {{C:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/ip/ila_leon3/ila_leon3.xci}}
+set_property used_in_implementation false [get_files -all {{c:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/ip/ila_leon3/constraints/ila.xdc}}]
+set_property used_in_implementation false [get_files -all {{c:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/ip/ila_leon3/ila_leon3_ooc.xdc}}]
+set_msg_config -id {IP_Flow 19-2162} -severity warning -new_severity info
+set_property is_locked true [get_files {{C:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/ip/ila_leon3/ila_leon3.xci}}]
 
 read_verilog {{c:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0_stub.v}}
 read_vhdl -library grlib {
@@ -119,6 +125,7 @@ read_vhdl -library gaisler {
   {C:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/imports/grlib-gpl-1.3.4-b4140/lib/gaisler/uart/ahbuart.vhd}
   {C:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/imports/grlib-gpl-1.3.4-b4140/lib/gaisler/spi/spi.vhd}
   {C:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/imports/grlib-gpl-1.3.4-b4140/lib/gaisler/misc/rstgen.vhd}
+  {C:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/imports/grlib-gpl-1.3.4-b4140/lib/gaisler/misc/grgpio.vhd}
   {C:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/imports/grlib-gpl-1.3.4-b4140/lib/gaisler/misc/gptimer.vhd}
   {C:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/imports/grlib-gpl-1.3.4-b4140/lib/gaisler/misc/ahbram.vhd}
   {C:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/imports/grlib-gpl-1.3.4-b4140/lib/gaisler/leon3v3/leon3s.vhd}
@@ -138,10 +145,15 @@ read_vhdl -library eth {
   {C:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/imports/grlib-gpl-1.3.4-b4140/lib/eth/comp/ethcomp.vhd}
 }
 read_vhdl {
+  {C:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/imports/fir_2cascaded/fir2.vhd}
+  {C:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/imports/fir_2cascaded/fir1.vhd}
+  {C:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/imports/fir_2cascaded/fir_wrap2.vhd}
+  {C:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/imports/fir_2cascaded/fir_wrap.vhd}
   {C:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/imports/XADC module/XADC_pkg.vhd}
   {C:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/imports/XADC module/interface_XADC.vhd}
   {C:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/imports/PWM module/PWM_pkg.vhd}
   {C:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/imports/PWM module/PWM.vhd}
+  {C:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/imports/fir_2cascaded/top_fir.vhd}
   {C:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/imports/XADC module/XADCapb.vhd}
   {C:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/imports/PWM module/PWMapb.vhd}
   {C:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/imports/grlib-gpl-1.3.4-b4140/designs/leon3-digilent-nexys4/config.vhd}
@@ -180,6 +192,6 @@ set_property used_in_implementation false [get_files dont_buffer.xdc]
 set_param synth.vivado.isSynthRun true
 set_property webtalk.parent_dir {C:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.data/wt} [current_project]
 set_property parent.project_dir {C:/ES-Project-Spring-2014/Source code/HW/soundlie} [current_project]
-synth_design -top leon3mp -part xc7a100tcsg324-2 -directive RuntimeOptimized
+synth_design -top leon3mp -part xc7a100tcsg324-2
 write_checkpoint leon3mp.dcp
 report_utilization -file leon3mp_utilization_synth.rpt -pb leon3mp_utilization_synth.pb

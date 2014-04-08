@@ -103,7 +103,8 @@ package config is
   constant CFG_DSU_ETH : integer := 1 + 0 + 0;
   constant CFG_ETH_BUF : integer := 2;
   constant CFG_ETH_IPM : integer := 16#C0A8#;
-  constant CFG_ETH_IPL : integer := 16#0033#;
+  --constant CFG_ETH_IPL : integer := 16#0033#;
+  constant CFG_ETH_IPL : integer := 16#0133#;
   constant CFG_ETH_ENM : integer := 16#020000#;
   constant CFG_ETH_ENL : integer := 16#000000#;
 -- LEON2 memory controller

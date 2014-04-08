@@ -40,6 +40,17 @@ package XADC_pkg is
             xadc_output : out std_logic_vector(15 downto 0)
   );
   end component interface_XADC;
+  
+  component top_fir is
+    generic(    W:INTEGER:=16
+    );
+    port(  reset : IN STD_LOGIC;
+  		   start : IN STD_LOGIC;
+  		   clk : IN STD_LOGIC;
+           x : IN STD_LOGIC_VECTOR(W-1 DOWNTO 0);
+  		   finish : OUT STD_LOGIC;
+           y : OUT STD_LOGIC_VECTOR((2*W-1) DOWNTO 0));
+  end component top_fir;
 
 end;
 
