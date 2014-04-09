@@ -6,21 +6,35 @@
 disp('File reads OK!')
 
 %%
-filtered_y = rock_y;
+%filtered_y = rock_y;
+filtered_y = [];
 
-coeffs = fir1(20, 1/44100,'high');
+for idx = 1:(numel(rock_y))
+    filtered_y(idx) = 0;
+end
 
-for idx = 50001:(numel(rock_y)/3)
-    
+%coeffs = fir1(20, 1/44100,'high');
+[x, y] = butter(2, 0.3/48, 'low');
+
+for idx = 125000:(numel(rock_y)/3)
+
     tmp = 0;
     
-    for n = 1:numel(coeffs)
+    for n = 1:numel(x)
     
-        tmp = tmp + (coeffs(n) * rock_y(idx-n));
+        tmp = tmp + (x(n) * rock_y(idx-n + 1));
     
     end 
     
-    filtered_y(idx) = tmp; 
+    for n = 2:numel(y)
+    
+        tmp = tmp - (y(n) * filtered_y(idx-n + 1));
+    
+    end 
+    
+    tmp;
+    
+    filtered_y(idx) = tmp;
 end
 
 disp('Data calculated!')
