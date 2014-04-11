@@ -23,8 +23,8 @@ void InitUart() {
 	//set scaler to 9600 baudrate.
 	uart_reg_ptr->scaler_reg = 650; //28A in hex.
 	//set the correct control bits.
-	//bit0:receiver enable, bit1:transmitter enable, bit2:receiver interrupt enabled
-	uart_reg_ptr->control_reg = 0x07;
+	//bit0:receiver enable, bit1:transmitter enable, bit2:receiver interrupt enabled, bit3: transmitt interuppt enabled.
+	uart_reg_ptr->control_reg = 0x0F;
 }
 
 //function to read from uart.
@@ -43,11 +43,23 @@ void SendCharOnUart(char char_to_send) {
 	uart_reg_ptr->data_reg = char_to_send;
 }
 
-//get the status of the uart. Is there data recieved? Can we send next char.
+//status check to se if sending is possible
+int UartSendStatus(){
+	int send_status = uart_reg_ptr->status_reg; //get the status of the uart
+	return (send_status & 0x2);
+}
+
+//status check to see if reading is possible
+int UartReadStatus(){
+	int read_status = uart_reg_ptr->status_reg; //read status of the uart.
+	return (read_status & 0x1);
+}
+
+/*get the status of the uart. Is there data recieved? Can we send next char. redundant
 int UartStatus() {
 	//read the status from the uart.
 	int uart_status = uart_reg_ptr->status_reg;
 	//mask out unwanted bit is the status. We want bit0 & bit1.
 	uart_status = (uart_status & 0x3);
 	return uart_status;
-}
+}*/

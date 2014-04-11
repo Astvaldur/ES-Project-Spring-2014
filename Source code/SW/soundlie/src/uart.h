@@ -45,6 +45,7 @@ extern int putInt(int a);
 void InitUart();
 char ReadUartChar();
 void SendCharOnUart(char);
-int UartStatus();
+int UartReadStatus();
+int UartSendStatus();
 
 #endif

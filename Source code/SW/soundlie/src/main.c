@@ -17,7 +17,7 @@ int main()
     //catch_interrupt(irqhandler, 10);
     //enable_irq(10);
 	PcConnectionInit();
-	printf("1");
+	//printf(":");
 
     //Initialize variable values
 
