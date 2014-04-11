@@ -8,23 +8,22 @@
 
 #include "effects.h"
 
-int16_t echo(int16_t sample) {
-	int16_t delay = 500;
 
-	static circ_buff_t buff_dry;
-	static circ_buff_t buff_wet;
+int16_t echo(int16_t dry_samp, echo_data_t *echo_data) {
 
-	circ_buff_put(&buff_dry, sample);
+	// Get delayed wet signal from buffer
+	int16_t wet_samp = circ_buff_get(&(echo_data->buff_wet), echo_data->buff_wet.pos - echo_data->delay);
 
-	int16_t wet = circ_buff_get(&buff_wet, buff_wet.pos - delay);
+	// Apply echo effect
+	int32_t echo_calc = (dry_samp * echo_data->dry_amp) + (wet_samp * echo_data->wet_amp);
 
-	int16_t result = (sample * 0.8) + (wet * 0.4);
-	//add correct mult and bitshift
+	// Perform bitshift to get correct result from Q1.15 x Q1.15 multiplication
+	int16_t result = (int16_t) (echo_calc >> 15);
 
-	circ_buff_put(&buff_wet, result);
+	// Push calculated signal into wet buffer
+	circ_buff_put(&(echo_data->buff_wet), result);
 
 	return result;
-
 }
 
 

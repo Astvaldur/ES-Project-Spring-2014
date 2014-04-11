@@ -3,6 +3,11 @@
  Attempting to get a license: %s
 78*common2"
 Implementation2default:defaultZ17-78
+x
+%Your %s license expires in %s day(s)
+86*common2"
+Implementation2default:default2
+292default:defaultZ17-86
 Q
 Feature available: %s
 81*common2"
@@ -56,13 +61,13 @@ xadc_wiz_02default:default2M
 xc7a100t2default:defaultZ17-349
 õ
 %s*synth2ã
-wStarting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 242.242 ; gain = 89.883
+wStarting RTL Elaboration : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 241.867 ; gain = 89.688
 2default:default
-√
+Î
 synthesizing module '%s'638*oasys2
 
-xadc_wiz_02default:default2”
-ºc:/Users/Zotty/Desktop/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/designs/leon3-digilent-nexys4/leon3-digilent-nexys4/project_1/project_1.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0.vhd2default:default2
+xadc_wiz_02default:default2|
+fc:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0.vhd2default:default2
 782default:default8@Z8-638
 V
 %s*synth2G
@@ -204,27 +209,27 @@ O
 %s*synth2L
 8	Parameter SIM_DEVICE bound to: 7SERIES - type: string 
 2default:default
-µ
-%s*synth2•
-ê	Parameter SIM_MONITOR_FILE bound to: c:/Users/Zotty/Desktop/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/designs/leon3-digilent-nexys4/leon3-digilent-nexys4/project_1/project_1.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0/simulation/functional/design.txt - type: string 
+ﬂ
+%s*synth2œ
+∫	Parameter SIM_MONITOR_FILE bound to: c:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0/simulation/functional/design.txt - type: string 
 2default:default
-Í
+í
 ,binding component instance '%s' to cell '%s'113*oasys2
 U02default:default2
-XADC2default:default2”
-ºc:/Users/Zotty/Desktop/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/designs/leon3-digilent-nexys4/leon3-digilent-nexys4/project_1/project_1.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0.vhd2default:default2
+XADC2default:default2|
+fc:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0.vhd2default:default2
 1452default:default8@Z8-113
-˛
+¶
 %done synthesizing module '%s' (%s#%s)256*oasys2
 
 xadc_wiz_02default:default2
 12default:default2
-12default:default2”
-ºc:/Users/Zotty/Desktop/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/designs/leon3-digilent-nexys4/leon3-digilent-nexys4/project_1/project_1.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0.vhd2default:default2
+12default:default2|
+fc:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0.vhd2default:default2
 782default:default8@Z8-256
 ú
 %s*synth2å
-xFinished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 275.289 ; gain = 122.930
+xFinished RTL Elaboration : Time (s): cpu = 00:00:22 ; elapsed = 00:00:25 . Memory (MB): peak = 275.906 ; gain = 123.727
 2default:default
 ;
 %s*synth2,
@@ -291,34 +296,34 @@ BD:/Xilinx/Vivado/2013.4/data\./parts/xilinx/artix7/IOStandards.xml2default:de
 
 Processing XDC Constraints
 244*projectZ1-262
-≤
+⁄
 $Parsing XDC File [%s] for cell '%s'
-848*designutils2’
-¿c:/Users/Zotty/Desktop/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/designs/leon3-digilent-nexys4/leon3-digilent-nexys4/project_1/project_1.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0_OOC.xdc2default:default2
+848*designutils2~
+jc:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0_OOC.xdc2default:default2
 U02default:defaultZ20-848
-ª
+„
 -Finished Parsing XDC File [%s] for cell '%s'
-847*designutils2’
-¿c:/Users/Zotty/Desktop/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/designs/leon3-digilent-nexys4/leon3-digilent-nexys4/project_1/project_1.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0_OOC.xdc2default:default2
+847*designutils2~
+jc:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0_OOC.xdc2default:default2
 U02default:defaultZ20-847
-Æ
+÷
 $Parsing XDC File [%s] for cell '%s'
-848*designutils2—
-ºc:/Users/Zotty/Desktop/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/designs/leon3-digilent-nexys4/leon3-digilent-nexys4/project_1/project_1.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0.xdc2default:default2
+848*designutils2z
+fc:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0.xdc2default:default2
 U02default:defaultZ20-848
-∑
+ﬂ
 -Finished Parsing XDC File [%s] for cell '%s'
-847*designutils2—
-ºc:/Users/Zotty/Desktop/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/designs/leon3-digilent-nexys4/leon3-digilent-nexys4/project_1/project_1.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0.xdc2default:default2
+847*designutils2z
+fc:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0.xdc2default:default2
 U02default:defaultZ20-847
-É
+´
 Parsing XDC File [%s]
-179*designutils2Ã
-∑C:/Users/Zotty/Desktop/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/designs/leon3-digilent-nexys4/leon3-digilent-nexys4/project_1/project_1.runs/xadc_wiz_0_synth_1/dont_touch.xdc2default:defaultZ20-179
-å
+179*designutils2u
+aC:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.runs/xadc_wiz_0_synth_1/dont_touch.xdc2default:defaultZ20-179
+¥
 Finished Parsing XDC File [%s]
-178*designutils2Ã
-∑C:/Users/Zotty/Desktop/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/designs/leon3-digilent-nexys4/leon3-digilent-nexys4/project_1/project_1.runs/xadc_wiz_0_synth_1/dont_touch.xdc2default:defaultZ20-178
+178*designutils2u
+aC:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.runs/xadc_wiz_0_synth_1/dont_touch.xdc2default:defaultZ20-178
 ?
 &Completed Processing XDC Constraints
 
@@ -330,11 +335,11 @@ u
 2default:defaultZ1-111
 µ
 %s*synth2•
-êFinished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 474.789 ; gain = 322.430
+êFinished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:57 ; elapsed = 00:01:06 . Memory (MB): peak = 474.801 ; gain = 322.621
 2default:default
 ù
 %s*synth2ç
-yFinished RTL Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 474.789 ; gain = 322.430
+yFinished RTL Optimization : Time (s): cpu = 00:00:57 ; elapsed = 00:01:06 . Memory (MB): peak = 474.801 ; gain = 322.621
 2default:default
 <
 %s*synth2-
@@ -365,7 +370,7 @@ BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
 2default:default
 ±
 %s*synth2°
-åFinished Loading Part and Timing Information : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 538.352 ; gain = 385.992
+åFinished Loading Part and Timing Information : Time (s): cpu = 00:01:36 ; elapsed = 00:01:46 . Memory (MB): peak = 538.332 ; gain = 386.152
 2default:default
 B
 %s*synth23
@@ -385,7 +390,7 @@ B
 2default:default
 ©
 %s*synth2ô
-ÑFinished Cross Boundary Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 538.352 ; gain = 385.992
+ÑFinished Cross Boundary Optimization : Time (s): cpu = 00:01:36 ; elapsed = 00:01:46 . Memory (MB): peak = 538.332 ; gain = 386.152
 2default:default
 ¢
 %s*synth2í
@@ -407,19 +412,19 @@ R-------------------------------------------------------------------------------
 2default:default
 û
 %s*synth2é
-zFinished Area Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 539.363 ; gain = 387.004
+zFinished Area Optimization : Time (s): cpu = 00:01:36 ; elapsed = 00:01:47 . Memory (MB): peak = 539.336 ; gain = 387.156
 2default:default
 ≠
 %s*synth2ù
-àFinished Applying XDC Timing Constraints : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 539.371 ; gain = 387.012
+àFinished Applying XDC Timing Constraints : Time (s): cpu = 00:01:36 ; elapsed = 00:01:47 . Memory (MB): peak = 539.340 ; gain = 387.160
 2default:default
 †
 %s*synth2ê
-|Finished Timing Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 539.371 ; gain = 387.012
+|Finished Timing Optimization : Time (s): cpu = 00:01:36 ; elapsed = 00:01:47 . Memory (MB): peak = 539.340 ; gain = 387.160
 2default:default
 ü
 %s*synth2è
-{Finished Technology Mapping : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 548.898 ; gain = 396.539
+{Finished Technology Mapping : Time (s): cpu = 00:01:36 ; elapsed = 00:01:47 . Memory (MB): peak = 548.879 ; gain = 396.699
 2default:default
 D
 %s*synth25
@@ -427,7 +432,7 @@ D
 2default:default
 ô
 %s*synth2â
-uFinished IO Insertion : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 548.898 ; gain = 396.539
+uFinished IO Insertion : Time (s): cpu = 00:01:38 ; elapsed = 00:01:48 . Memory (MB): peak = 548.879 ; gain = 396.699
 2default:default
 ;
 %s*synth2,
@@ -456,11 +461,11 @@ I+------+------------------+-------+---------+-------+------------------+
 2default:default
 ™
 %s*synth2ö
-ÖFinished Renaming Generated Instances : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 548.898 ; gain = 396.539
+ÖFinished Renaming Generated Instances : Time (s): cpu = 00:01:38 ; elapsed = 00:01:48 . Memory (MB): peak = 548.879 ; gain = 396.699
 2default:default
 ß
 %s*synth2ó
-ÇFinished Rebuilding User Hierarchy : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 548.898 ; gain = 396.539
+ÇFinished Rebuilding User Hierarchy : Time (s): cpu = 00:01:38 ; elapsed = 00:01:48 . Memory (MB): peak = 548.879 ; gain = 396.699
 2default:default
 ¢
 %s*synth2í
@@ -553,7 +558,7 @@ E
 2default:default
 ¶
 %s*synth2ñ
-ÅFinished Writing Synthesis Report : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 548.898 ; gain = 396.539
+ÅFinished Writing Synthesis Report : Time (s): cpu = 00:01:38 ; elapsed = 00:01:48 . Memory (MB): peak = 548.879 ; gain = 396.699
 2default:default
 i
 %s*synth2Z
@@ -561,7 +566,7 @@ FSynthesis finished with 0 errors, 0 critical warnings and 0 warnings.
 2default:default
 £
 %s*synth2ì
-Synthesis Optimization Complete : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 548.898 ; gain = 396.539
+Synthesis Optimization Complete : Time (s): cpu = 00:01:38 ; elapsed = 00:01:49 . Memory (MB): peak = 548.879 ; gain = 396.699
 2default:default
 \
 -Analyzing %s Unisim elements for replacement
@@ -571,25 +576,25 @@ a
 2Unisim Transformation completed in %s CPU seconds
 28*netlist2
 02default:defaultZ29-28
-≤
+⁄
 $Parsing XDC File [%s] for cell '%s'
-848*designutils2’
-¿c:/Users/Zotty/Desktop/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/designs/leon3-digilent-nexys4/leon3-digilent-nexys4/project_1/project_1.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0_OOC.xdc2default:default2
+848*designutils2~
+jc:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0_OOC.xdc2default:default2
 U02default:defaultZ20-848
-ª
+„
 -Finished Parsing XDC File [%s] for cell '%s'
-847*designutils2’
-¿c:/Users/Zotty/Desktop/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/designs/leon3-digilent-nexys4/leon3-digilent-nexys4/project_1/project_1.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0_OOC.xdc2default:default2
+847*designutils2~
+jc:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0_OOC.xdc2default:default2
 U02default:defaultZ20-847
-Æ
+÷
 $Parsing XDC File [%s] for cell '%s'
-848*designutils2—
-ºc:/Users/Zotty/Desktop/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/designs/leon3-digilent-nexys4/leon3-digilent-nexys4/project_1/project_1.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0.xdc2default:default2
+848*designutils2z
+fc:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0.xdc2default:default2
 U02default:defaultZ20-848
-∑
+ﬂ
 -Finished Parsing XDC File [%s] for cell '%s'
-847*designutils2—
-ºc:/Users/Zotty/Desktop/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/designs/leon3-digilent-nexys4/leon3-digilent-nexys4/project_1/project_1.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0.xdc2default:default2
+847*designutils2z
+fc:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0.xdc2default:default2
 U02default:defaultZ20-847
 C
 Pushed %s inverter(s).
@@ -619,18 +624,18 @@ U
 I%sTime (s): cpu = %s ; elapsed = %s . Memory (MB): peak = %s ; gain = %s
 268*common2"
 synth_design: 2default:default2
-00:00:432default:default2
-00:00:432default:default2
-953.1722default:default2
-760.3242default:defaultZ17-268
+00:02:232default:default2
+00:02:362default:default2
+952.6722default:default2
+760.2192default:defaultZ17-268
 <
 %Done setting XDC timing constraints.
 35*timingZ38-35
 
-sreport_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.036 . Memory (MB): peak = 953.172 ; gain = 0.000
+sreport_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.183 . Memory (MB): peak = 952.672 ; gain = 0.000
 *common
 w
 Exiting %s at %s...
 206*common2
 Vivado2default:default2,
-Thu Mar 13 10:42:06 20142default:defaultZ17-206
+Mon Mar 31 10:30:10 20142default:defaultZ17-206

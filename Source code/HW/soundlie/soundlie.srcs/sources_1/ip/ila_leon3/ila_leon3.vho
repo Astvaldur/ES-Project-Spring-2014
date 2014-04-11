@@ -56,7 +56,8 @@ COMPONENT ila_leon3
   PORT (
     clk : IN STD_LOGIC;
     probe0 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-    probe1 : IN STD_LOGIC_VECTOR(0 DOWNTO 0)
+    probe1 : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
+    probe2 : IN STD_LOGIC_VECTOR(1 DOWNTO 0)
   );
 END COMPONENT;
 -- COMP_TAG_END ------ End COMPONENT Declaration ------------
@@ -69,7 +70,8 @@ your_instance_name : ila_leon3
   PORT MAP (
     clk => clk,
     probe0 => probe0,
-    probe1 => probe1
+    probe1 => probe1,
+    probe2 => probe2
   );
 -- INST_TAG_END ------ End INSTANTIATION Template ---------
 

@@ -6,7 +6,6 @@
 	<Step Id="init_design">
 	</Step>
 	<Step Id="opt_design">
-		<Option Id="Directive">3</Option>
 	</Step>
 	<Step Id="power_opt_design">
 	</Step>
@@ -14,7 +13,7 @@
 	</Step>
 	<Step Id="post_place_power_opt_design">
 	</Step>
-	<Step Id="phys_opt_design">
+	<Step Id="phys_opt_design" EnableStepBool="1">
 	</Step>
 	<Step Id="route_design">
 	</Step>

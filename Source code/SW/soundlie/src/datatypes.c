@@ -10,7 +10,7 @@
 
 void circ_buff_put(circ_buff_t *circ_buff, int16_t indata)
 {
-	if ( circ_buff->pos < CIRC_BUFF_SIZE)
+	if ( circ_buff->pos < CIRC_BUFF_SIZE - 1)
 	{
 		circ_buff->pos++;
 	} else

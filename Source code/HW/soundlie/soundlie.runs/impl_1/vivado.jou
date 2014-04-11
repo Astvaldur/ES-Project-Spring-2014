@@ -2,9 +2,9 @@
 # Vivado v2013.4 (64-bit)
 # SW Build 353583 on Mon Dec  9 17:49:19 MST 2013
 # IP Build 208076 on Mon Dec  2 12:38:17 MST 2013
-# Start of session at: Fri Mar 21 10:54:12 2014
-# Process ID: 1996
-# Log file: C:/Project/soundlie/soundlie.runs/impl_1/leon3mp.rdi
-# Journal file: C:/Project/soundlie/soundlie.runs/impl_1\vivado.jou
+# Start of session at: Tue Apr 08 11:50:39 2014
+# Process ID: 3156
+# Log file: C:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.runs/impl_1/leon3mp.rdi
+# Journal file: C:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.runs/impl_1\vivado.jou
 #-----------------------------------------------------------
 source leon3mp.tcl -notrace

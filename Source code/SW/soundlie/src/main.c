@@ -10,14 +10,19 @@
 //Include Libraries
 #include "main.h"
 
-
 int main()
  { 
     //Initialize hw config
+
     //catch_interrupt(irqhandler, 10);
     //enable_irq(10);
 	PcConnectionInit();
 	//printf(":");
+
+    //catch_interrupt(irqhandler, 10);
+    //enable_irq(10);
+	//PcConnectionInit();
+	//printf("1");
 
     //Initialize variable values
 

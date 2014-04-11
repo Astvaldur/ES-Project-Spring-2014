@@ -1,7 +1,7 @@
 Copyright 1986-1999, 2001-2013 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2013.4 (win64) Build 353583 Mon Dec  9 17:49:19 MST 2013
-| Date         : Fri Mar 21 10:49:34 2014
+| Date         : Tue Apr 08 11:43:15 2014
 | Host         : Zotty-LT02 running 64-bit Service Pack 1  (build 7601)
 | Command      : report_utilization -file leon3mp_utilization_synth.rpt -pb leon3mp_utilization_synth.pb
 | Design       : leon3mp
@@ -26,20 +26,20 @@ Table of Contents
 1. Slice Logic
 --------------
 
-+----------------------------+------+-------+-----------+-------+
-|          Site Type         | Used | Loced | Available | Util% |
-+----------------------------+------+-------+-----------+-------+
-| Slice LUTs*                | 9828 |     0 |     63400 | 15.50 |
-|   LUT as Logic             | 9793 |     0 |     63400 | 15.44 |
-|   LUT as Memory            |   35 |     0 |     19000 |  0.18 |
-|     LUT as Distributed RAM |   24 |     0 |           |       |
-|     LUT as Shift Register  |   11 |     0 |           |       |
-| Slice Registers            | 4820 |     0 |    126800 |  3.80 |
-|   Register as Flip Flop    | 4820 |     0 |    126800 |  3.80 |
-|   Register as Latch        |    0 |     0 |    126800 |  0.00 |
-| F7 Muxes                   |  223 |     0 |     31700 |  0.70 |
-| F8 Muxes                   |   36 |     0 |     15850 |  0.22 |
-+----------------------------+------+-------+-----------+-------+
++----------------------------+-------+-------+-----------+-------+
+|          Site Type         |  Used | Loced | Available | Util% |
++----------------------------+-------+-------+-----------+-------+
+| Slice LUTs*                | 12062 |     0 |     63400 | 19.02 |
+|   LUT as Logic             | 11865 |     0 |     63400 | 18.71 |
+|   LUT as Memory            |   197 |     0 |     19000 |  1.03 |
+|     LUT as Distributed RAM |    24 |     0 |           |       |
+|     LUT as Shift Register  |   173 |     0 |           |       |
+| Slice Registers            |  7362 |     0 |    126800 |  5.80 |
+|   Register as Flip Flop    |  7346 |     0 |    126800 |  5.79 |
+|   Register as Latch        |    16 |     0 |    126800 |  0.01 |
+| F7 Muxes                   |   369 |     0 |     31700 |  1.16 |
+| F8 Muxes                   |    56 |     0 |     15850 |  0.35 |
++----------------------------+-------+-------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis for a more realistic count.
 
 
@@ -49,11 +49,11 @@ Table of Contents
 +-------------------+------+-------+-----------+-------+
 |     Site Type     | Used | Loced | Available | Util% |
 +-------------------+------+-------+-----------+-------+
-| Block RAM Tile    |   19 |     0 |       135 | 14.07 |
-|   RAMB36/FIFO*    |   13 |     0 |       135 |  9.62 |
-|     RAMB36E1 only |   13 |       |           |       |
-|   RAMB18          |   12 |     0 |       270 |  4.44 |
-|     RAMB18E1 only |   12 |       |           |       |
+| Block RAM Tile    | 24.5 |     0 |       135 | 17.77 |
+|   RAMB36/FIFO*    |   18 |     0 |       135 | 13.33 |
+|     RAMB36E1 only |   18 |       |           |       |
+|   RAMB18          |   13 |     0 |       270 |  4.81 |
+|     RAMB18E1 only |   13 |       |           |       |
 +-------------------+------+-------+-----------+-------+
 * Note: Each Block RAM Tile only has one FIFO logic available and therefore can accommodate only one FIFO36E1 or one FIFO18E1. However, if a FIFO18E1 occupies a Block RAM Tile, that tile can still accommodate a RAMB18E1
 
@@ -64,8 +64,8 @@ Table of Contents
 +----------------+------+-------+-----------+-------+
 |    Site Type   | Used | Loced | Available | Util% |
 +----------------+------+-------+-----------+-------+
-| DSPs           |    4 |     0 |       240 |  1.66 |
-|   DSP48E1 only |    4 |       |           |       |
+| DSPs           |    6 |     0 |       240 |  2.50 |
+|   DSP48E1 only |    6 |       |           |       |
 +----------------+------+-------+-----------+-------+
 
 
@@ -75,7 +75,7 @@ Table of Contents
 +-----------------------------+------+-------+-----------+-------+
 |          Site Type          | Used | Loced | Available | Util% |
 +-----------------------------+------+-------+-----------+-------+
-| Bonded IOB                  |   64 |     0 |       210 | 30.47 |
+| Bonded IOB                  |   88 |     0 |       210 | 41.90 |
 | Bonded IPADs                |    0 |     0 |         2 |  0.00 |
 | IBUFGDS                     |    0 |     0 |       202 |  0.00 |
 | IDELAYCTRL                  |    0 |     0 |         6 |  0.00 |
@@ -115,7 +115,7 @@ Table of Contents
 +-------------+------+-------+-----------+-------+
 |  Site Type  | Used | Loced | Available | Util% |
 +-------------+------+-------+-----------+-------+
-| BSCANE2     |    2 |     0 |         4 | 50.00 |
+| BSCANE2     |    0 |     0 |         4 |  0.00 |
 | CAPTUREE2   |    0 |     0 |         1 |  0.00 |
 | DNA_PORT    |    0 |     0 |         1 |  0.00 |
 | EFUSE_USR   |    0 |     0 |         1 |  0.00 |
@@ -133,31 +133,33 @@ Table of Contents
 +-----------+------+
 |  Ref Name | Used |
 +-----------+------+
-| LUT6      | 4974 |
-| FDRE      | 4609 |
-| LUT5      | 2734 |
-| LUT4      | 1396 |
-| LUT3      | 1200 |
-| LUT2      |  704 |
-| CARRY4    |  237 |
-| MUXF7     |  223 |
-| LUT1      |  222 |
-| FDSE      |  136 |
-| FDCE      |   68 |
-| OBUF      |   42 |
+| LUT6      | 6352 |
+| FDRE      | 6195 |
+| LUT5      | 2917 |
+| LUT4      | 1620 |
+| LUT3      | 1440 |
+| FDCE      |  962 |
+| LUT2      |  804 |
+| LUT1      |  385 |
+| MUXF7     |  369 |
+| CARRY4    |  327 |
+| FDSE      |  175 |
+| SRLC32E   |  132 |
+| SRL16E    |  121 |
+| OBUF      |   57 |
+| MUXF8     |   56 |
 | RAMD32    |   36 |
-| MUXF8     |   36 |
-| IBUF      |   22 |
-| OBUFT     |   17 |
-| RAMB36E1  |   13 |
+| IBUF      |   31 |
+| OBUFT     |   25 |
+| RAMB36E1  |   18 |
+| LDCE      |   16 |
+| FDPE      |   14 |
+| RAMB18E1  |   13 |
 | RAMS32    |   12 |
-| RAMB18E1  |   12 |
-| SRL16E    |   11 |
-| FDPE      |    7 |
 | BUFG      |    7 |
-| DSP48E1   |    4 |
+| DSP48E1   |    6 |
+| SRLC16E   |    4 |
 | PLLE2_ADV |    2 |
-| BSCANE2   |    2 |
 +-----------+------+
 
 
@@ -168,6 +170,7 @@ Table of Contents
 |  Ref Name  | Used |
 +------------+------+
 | xadc_wiz_0 |    1 |
+| dbg_hub_CV |    1 |
 +------------+------+
 
 
