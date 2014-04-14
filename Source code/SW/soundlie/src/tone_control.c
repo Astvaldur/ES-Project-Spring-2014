@@ -95,7 +95,7 @@ bool tc_set_filter_coeff(iir_input_data *in_data){
 
 	if(in_data->taps <= IIR_MAX_COEFFS){
 		iir_data_t *filter;
-		switch(in_data.type)
+		switch(in_data->type)
 		{
 		case FILTER_LP:
 			filter = &iir_data_lp;
@@ -109,8 +109,8 @@ bool tc_set_filter_coeff(iir_input_data *in_data){
 		}
 
 		iir_data_hp.num_coeffs = in_data->taps;
-		memcpy(filter.coeffs_x, in_data->x_data, in_data->taps*sizeof(int16_t));
-		memcpy(filter.coeffs_y, in_data->y_data, in_data->taps*sizeof(int16_t));
+		memcpy(filter->coeffs_x, in_data->x_data, in_data->taps*sizeof(int16_t));
+		memcpy(filter->coeffs_y, in_data->y_data, in_data->taps*sizeof(int16_t));
 
 	}else{
 		//Not valid number of taps
