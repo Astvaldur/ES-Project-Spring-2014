@@ -10,6 +10,8 @@
 #define FIR_MAX_COEFFS		100
 #define IIR_MAX_COEFFS  	3
 
+typedef enum {FILTER_LP, FILTER_MID, FILTER_HP} input_type_e;
+
 typedef struct {
     int32_t		pos;					/* Position of latest added val	 */
     int16_t		elems[CIRC_BUFF_SIZE];  /* Vector of elements            */
@@ -37,5 +39,12 @@ typedef struct {
 /* Function prototypes -------------------------------------------------------*/
 void circ_buff_put(circ_buff_t *, int16_t);
 int16_t circ_buff_get(circ_buff_t *, int32_t);
+
+typedef struct {
+	uint8_t taps;
+	input_type_e type;
+	int16_t *x_data;
+	int16_t *y_data;
+}iir_input_data;
 
 #endif /* DATATYPES_H_ */
