@@ -11,6 +11,7 @@
 #include <stdint.h>
 #include "uart.h"			//to read,write and initialize uart
 #include "irq.h"			//to be able to enable interrupts for uart
+#include "tone_control.h"
 #include "datatypes.h"
 #include "applications.h"
 #include "main.h"
@@ -24,16 +25,6 @@
 #define UART_INTERRUP_NR 2
 
 //Functions
-void PcConnectionInit();
-void PcConnectionHandler();
-void ReadFromUart();
-void SendCharBuffer();
-int CheckMessageContent();
-int GetMessageType();
-int ReadAndReturnDataField();
-int VerifyChecksum();
-void SendAChar();
-
 void PcConnectionInitHex();
 void PcConnectionHandlerHex();
 
