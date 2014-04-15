@@ -1,5 +1,15 @@
+/**
+ * @file tone_control.c
+ * @brief Tone control feature.
+ * @details Filters for running 3 band tone control.
+ * @author Tobias Hallberg
+ * @version 1.0
+ */
+
 #include "tone_control.h"
 
+/* Private functions ----------------------------------------------------*/
+static int16_t tc_iir(iir_data_t *, circ_buff_t *);
 
 /**
  * Used for applying tone control to incoming signal
@@ -24,7 +34,7 @@ int16_t tc_amp(circ_buff_t *circ_buff) {
 	};
 	static iir_data_t iir_data_hp = {
 			3,
-			{13116, 39303, 13116},
+			{13116, -26234, 13116},
 			{1, 39960, 10507},
 			{0, {0}}
 	};
@@ -34,16 +44,14 @@ int16_t tc_amp(circ_buff_t *circ_buff) {
 	int16_t filt_bp = tc_iir(&iir_data_bp, circ_buff);			//Use BP-filter
 	int16_t filt_hp = tc_iir(&iir_data_hp, circ_buff);			//Use HP-filter
 
-	//Testing stuff...
-	/*int32_t filt_lp_32 = filt_lp << 16;
-	int32_t filt_bp_32 = filt_bp << 16;
-	int32_t filt_hp_32 = filt_hp << 16;*/
+	/*int16_t filt_lp_16 = filt_lp >> 16;
+	int16_t filt_bp_16 = filt_bp >> 16;
+	int16_t filt_hp_16 = filt_hp >> 16;
 
 	//Add +- 12dB amplification here!
-	//int32_t result = (int32_t) (filt_lp + filt_bp + filt_hp);
-	//return (int16_t) (result >> 16);
-	//return (int16_t) ( ((filt_lp + filt_bp + filt_hp)*32612) >> 13);
-
+	int32_t result_lp = filt_lp_16 * 0x7F64;
+	int32_t result_bp = filt_bp_16 * 0x7F64;
+	int32_t result_hp = filt_hp_16 * 0x7F64;*/
 
 	return (int16_t) (filt_lp + filt_bp + filt_hp);
 }
@@ -51,40 +59,29 @@ int16_t tc_amp(circ_buff_t *circ_buff) {
 
 int16_t tc_iir(iir_data_t *iir_data, circ_buff_t *circ_buff) {
 	uint16_t n = 0;
-	int32_t tmp = 0;
+	int64_t tmp = 0;
 
 	for (n = 0; n < iir_data->num_coeffs; n++) {
 		// tmp = tmp + (x_coeff * dry_signal)
-		tmp = tmp + (iir_data->coeffs_x[n] * circ_buff_get(circ_buff, circ_buff->pos - n));
+		tmp = tmp + ((iir_data->coeffs_x[n]) * (circ_buff_get(circ_buff, n)));
 	}
 
 	for (n = 1; n < iir_data->num_coeffs; n++) {
 		// tmp = tmp - (y_coeff * wet_signal)
-		tmp = tmp - (iir_data->coeffs_y[n] * circ_buff_get(&(iir_data->buff_wet), iir_data->buff_wet.pos - n + 1));
+		tmp = tmp - ((iir_data->coeffs_y[n]) * ( circ_buff_get(&(iir_data->buff_wet), n - 1)));
 	}
+
+	//tmp = tmp * ((int32_t)(0x40000000));
 
 	//Do shifting here to save cpu time
 	int16_t result = (int16_t) (tmp >> 14);
-	//Testing stuff...
-	//int16_t result = (int16_t) (tmp >> 16);
+
+	//int64_t result_64 = (int16_t) result * ((int32_t)(0x40000000));
 
 	// Push calculated signal into wet buffer
 	circ_buff_put(&(iir_data->buff_wet), result);
 
-	return result;
-
+	return (int16_t) (result);
+	//return (int16_t) (result_64 >> (m/48000));
 }
 
-
-int16_t tc_fir(fir_data_t fir_data, circ_buff_t *circ_buff) {
-	uint16_t n = 0;
-	int32_t tmp = 0;
-
-	for (n = 0; n < fir_data.num_coeffs; n++) {
-		tmp = tmp + ( (fir_data.coeffs[n] * circ_buff_get(circ_buff, circ_buff->pos - n )) );
-	}
-
-	//Do shifting here to save cpu time
-	return (int16_t) (tmp >> 15);
-
-}

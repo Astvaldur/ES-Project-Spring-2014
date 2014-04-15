@@ -10,7 +10,7 @@
 /* Private function prototypes -----------------------------------------------*/
 
 /* Function prototypes -------------------------------------------------------*/
-int16_t echo(int16_t, echo_data_t *);
+int16_t echo(int16_t);
 
 /* Variable declarations -----------------------------------------------------*/
 

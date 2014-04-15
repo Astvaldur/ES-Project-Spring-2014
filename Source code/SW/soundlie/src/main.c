@@ -14,9 +14,11 @@ int main()
  { 
     //Initialize hw config
 
-    //catch_interrupt(irqhandler, 10);
-    //enable_irq(10);
-	PcConnectionInit();
+    catch_interrupt(sample_irq, SAMPLE_IRQ_ID);
+    enable_irq(SAMPLE_IRQ_ID);
+
+
+	//PcConnectionInit();
 	//printf(":");
 
     //catch_interrupt(irqhandler, 10);
@@ -24,9 +26,7 @@ int main()
 	//PcConnectionInit();
 	//printf("1");
 
-    //Initialize variable values
-
-    //puts("Ready to rock!");
+    //SET DEFAULT VALUES FOR ECHO AND TC HERE!
 
     //Infinite loop
     while(1);

@@ -8,7 +8,7 @@
 /* Definitions ---------------------------------------------------------------*/
 #define CIRC_BUFF_SIZE		30000
 #define FIR_MAX_COEFFS		100
-#define IIR_MAX_COEFFS  	3
+#define IIR_MAX_COEFFS  	15
 
 typedef struct {
     int32_t		pos;					/* Position of latest added val	 */
@@ -23,7 +23,7 @@ typedef struct {
 typedef struct {
 	uint16_t	num_coeffs;				/* Current number of coefficients*/
 	int16_t		coeffs_x[IIR_MAX_COEFFS];/* Array of X coefficients		 */
-	int16_t		coeffs_y[IIR_MAX_COEFFS];/* Array of X coefficients		 */
+	int16_t		coeffs_y[IIR_MAX_COEFFS];/* Array of Y coefficients		 */
 	circ_buff_t buff_wet;				/* Buffer for wet signal 		 */
 } iir_data_t;
 
@@ -33,6 +33,12 @@ typedef struct {
 	int16_t wet_amp;					/* Attenuation of wet signal	 */
 	circ_buff_t buff_wet;				/* Buffer for wet signal 		 */
 } echo_data_t;
+
+typedef struct {
+	int16_t lp_amp;						/* Attenuation of LP signal	 	 */
+	int16_t bp_amp;						/* Attenuation of BP signal	 	 */
+	int16_t hp_amp;						/* Attenuation of HP signal	 	 */
+} tc_ctrl_data_t;
 
 /* Function prototypes -------------------------------------------------------*/
 void circ_buff_put(circ_buff_t *, int16_t);
