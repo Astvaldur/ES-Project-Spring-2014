@@ -35,6 +35,8 @@ void irqhandler(int irq)
 	//Write sample from last irq (get 1 sample delay in exchange for "stable skew")
 	pwm_write(PWM_APB, tmp_out);
 
+
+
 	//Read sample from ADC
 	int16_t sample = (int16_t) adc_read(ADC_APB);
 
