@@ -11,6 +11,25 @@
 /* Private functions ----------------------------------------------------*/
 static int16_t tc_iir(iir_data_t *, circ_buff_t *);
 
+static iir_data_t iir_data_lp = {
+		3,
+		{6, 12, 6},
+		{1, 33677, 15498},
+		{0, {0}}
+};
+static iir_data_t iir_data_bp = {
+		3,
+		{1990, 0, 63545},
+		{1, 36928, 12402},
+		{0, {0}}
+};
+static iir_data_t iir_data_hp = {
+		3,
+		{13116, 39303, 13116},
+		{1, 39960, 10507},
+		{0, {0}}
+};
+
 /**
  * Used for applying tone control to incoming signal
  * @param  [in]   a   I just like sending Integers.
@@ -19,25 +38,6 @@ static int16_t tc_iir(iir_data_t *, circ_buff_t *);
  * @return Result from filter calculations.
  */
 int16_t tc_amp(circ_buff_t *circ_buff) {
-
-	static iir_data_t iir_data_lp = {
-			3,
-			{6, 12, 6},
-			{1, 33677, 15498},
-			{0, {0}}
-	};
-	static iir_data_t iir_data_bp = {
-			3,
-			{1990, 0, 63545},
-			{1, 36928, 12402},
-			{0, {0}}
-	};
-	static iir_data_t iir_data_hp = {
-			3,
-			{13116, -26234, 13116},
-			{1, 39960, 10507},
-			{0, {0}}
-	};
 
 	//Execute filter calculations
 	int16_t filt_lp = tc_iir(&iir_data_lp, circ_buff);			//Use LP-filter
@@ -85,3 +85,33 @@ int16_t tc_iir(iir_data_t *iir_data, circ_buff_t *circ_buff) {
 	//return (int16_t) (result_64 >> (m/48000));
 }
 
+
+bool tc_set_filter_coeff(iir_input_data *in_data){
+
+	if(in_data->taps <= IIR_MAX_COEFFS){
+		iir_data_t *filter;
+		switch(in_data->type)
+		{
+		case FILTER_LP:
+			filter = &iir_data_lp;
+			break;
+		case FILTER_MID:
+			filter = &iir_data_bp;
+			break;
+		case FILTER_HP:
+			filter = &iir_data_hp;
+			break;
+		}
+
+		iir_data_hp.num_coeffs = in_data->taps;
+		memcpy(filter->coeffs_x, in_data->x_data, in_data->taps*sizeof(int16_t));
+		memcpy(filter->coeffs_y, in_data->y_data, in_data->taps*sizeof(int16_t));
+
+	}else{
+		//Not valid number of taps
+		return false;
+	}
+
+	//Filter updated
+	return true;
+}

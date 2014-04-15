@@ -11,4 +11,3 @@ void enable_irq (int irq)
 void disable_irq (int irq) { lreg[IMASK/4] &= ~(1 << irq); }	// mask irq
 
 void force_irq (int irq) { lreg[IFORCE/4] = (1 << irq); }	// force irq
-
