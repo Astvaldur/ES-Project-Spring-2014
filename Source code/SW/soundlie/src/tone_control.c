@@ -25,7 +25,7 @@ static iir_data_t iir_data_bp = {
 };
 static iir_data_t iir_data_hp = {
 		3,
-		{13116, 39303, 13116},
+		{13116, -26234, 13116},
 		{1, 39960, 10507},
 		{0, {0}}
 };
@@ -44,22 +44,20 @@ int16_t tc_amp(circ_buff_t *circ_buff) {
 	int16_t filt_bp = tc_iir(&iir_data_bp, circ_buff);			//Use BP-filter
 	int16_t filt_hp = tc_iir(&iir_data_hp, circ_buff);			//Use HP-filter
 
-	/*int16_t filt_lp_16 = filt_lp >> 16;
-	int16_t filt_bp_16 = filt_bp >> 16;
-	int16_t filt_hp_16 = filt_hp >> 16;
-
 	//Add +- 12dB amplification here!
-	int32_t result_lp = filt_lp_16 * 0x7F64;
-	int32_t result_bp = filt_bp_16 * 0x7F64;
-	int32_t result_hp = filt_hp_16 * 0x7F64;*/
+	int32_t amp_lp = (int16_t)filt_lp * ((int16_t)(0x4000));
+	int32_t amp_bp = (int16_t)filt_bp * ((int16_t)(0x1000));
+	int32_t amp_hp = (int16_t)filt_hp * ((int16_t)(0x1000));
 
-	return (int16_t) (filt_lp + filt_bp + filt_hp);
+	int32_t result = amp_lp + amp_bp + amp_hp;
+
+	return (int16_t) (result >> 13);
+	//return (int16_t) (filt_lp + filt_bp + filt_hp);
 }
-
 
 int16_t tc_iir(iir_data_t *iir_data, circ_buff_t *circ_buff) {
 	uint16_t n = 0;
-	int64_t tmp = 0;
+	int32_t tmp = 0;
 
 	for (n = 0; n < iir_data->num_coeffs; n++) {
 		// tmp = tmp + (x_coeff * dry_signal)
@@ -76,16 +74,16 @@ int16_t tc_iir(iir_data_t *iir_data, circ_buff_t *circ_buff) {
 	//Do shifting here to save cpu time
 	int16_t result = (int16_t) (tmp >> 14);
 
-	//int64_t result_64 = (int16_t) result * ((int32_t)(0x40000000));
+	//int32_t result_64 = (int16_t) result * ((int16_t)(0x1000));
 
 	// Push calculated signal into wet buffer
 	circ_buff_put(&(iir_data->buff_wet), result);
 
-	return (int16_t) (result);
-	//return (int16_t) (result_64 >> (m/48000));
+	//return (int16_t) (result);
+	//return (int16_t) (result_64 >> 13);
 }
 
-
+/*
 bool tc_set_filter_coeff(iir_input_data *in_data){
 
 	if(in_data->taps <= IIR_MAX_COEFFS){
@@ -114,4 +112,4 @@ bool tc_set_filter_coeff(iir_input_data *in_data){
 
 	//Filter updated
 	return true;
-}
+}*/
