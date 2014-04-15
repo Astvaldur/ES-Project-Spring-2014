@@ -8,6 +8,13 @@
 #ifndef PC_CONNECTION_H_
 #define PC_CONNECTION_H_
 
+#include <stdint.h>
+#include "uart.h"			//to read,write and initialize uart
+#include "irq.h"			//to be able to enable interrupts for uart
+#include "datatypes.h"
+#include "applications.h"
+#include "main.h"
+
 //Macro
 #define UART_ADDRESS (int*)0x80000100
 #define MSG_SIZE 17						//includes terminator '\0'
@@ -27,6 +34,7 @@ int ReadAndReturnDataField();
 int VerifyChecksum();
 void SendAChar();
 
+void PcConnectionInitHex();
 void PcConnectionHandlerHex();
 
 
