@@ -12,7 +12,8 @@
 
 int main()
  { 
-    //Initialize hw config
+
+	//Initialize hw config
     catch_interrupt(sample_irq, 10);
     enable_irq(10);
 	//printf(":");
