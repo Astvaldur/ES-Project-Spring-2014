@@ -83,7 +83,7 @@ int16_t tc_iir(iir_data_t *iir_data, circ_buff_t *circ_buff) {
 	//return (int16_t) (result_64 >> 13);
 }
 
-/*
+
 bool tc_set_filter_coeff(iir_input_data *in_data){
 
 	if(in_data->taps <= IIR_MAX_COEFFS){
@@ -101,7 +101,7 @@ bool tc_set_filter_coeff(iir_input_data *in_data){
 			break;
 		}
 
-		iir_data_hp.num_coeffs = in_data->taps;
+		filter->num_coeffs = in_data->taps;
 		memcpy(filter->coeffs_x, in_data->x_data, in_data->taps*sizeof(int16_t));
 		memcpy(filter->coeffs_y, in_data->y_data, in_data->taps*sizeof(int16_t));
 
@@ -112,4 +112,4 @@ bool tc_set_filter_coeff(iir_input_data *in_data){
 
 	//Filter updated
 	return true;
-}*/
+}
