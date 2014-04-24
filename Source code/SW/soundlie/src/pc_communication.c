@@ -49,6 +49,7 @@ void PcConnectionInitHex() {
 void PcConnectionHandlerHex() {
 	disable_irq(10);
 	disable_irq(UART_INTERRUP_NR); //Disable interrupts
+	disable_irq(10);
 	if (UartReadStatus()) { //When the uartstatus == 1. then data ready (DR).
 		ReadFromUartHex();
 
@@ -56,6 +57,9 @@ void PcConnectionHandlerHex() {
 			if (VerifyChecksumHex()) { //Verify that checksum is valid
 				//call the messagehandler
 				MessageHandler();
+				//SendCharOnUart('Y');
+
+				ResetPcConnectionParametersHex(); //reset variables when all has been handled.
 			} else {
 				//SendCharBufferHex();
 				ResetPcConnectionParametersHex(); //reset if something was invalid in the message.
@@ -68,6 +72,7 @@ void PcConnectionHandlerHex() {
 	}
 	enable_irq(10);
 	enable_irq(UART_INTERRUP_NR); //enable interrupts.
+	enable_irq(10);
 }
 
 //this function handles the operation of the message. Does what is specified in the message.
@@ -86,19 +91,27 @@ static void MessageHandler() {
 		new_filter_data.type = msg_type;
 		new_filter_data.taps = (msg_length - 9) / 8;
 
+		//printf("%d", new_filter_data.taps);
+
 		int16_t new_x_coefficients[IIR_MAX_COEFFS] = { 0 }; //x taps
 		new_filter_data.x_data = new_x_coefficients; //assign the array to the struct
 
 		int16_t new_y_coefficients[IIR_MAX_COEFFS] = { 0 }; //y taps
 		new_filter_data.y_data = new_y_coefficients; //assign array to struct.
 
-		ExtractFilterTaps(new_x_coefficients, new_y_coefficients); //
+		ExtractFilterTaps(new_x_coefficients, new_y_coefficients);
+
+		printf("%d", new_filter_data.y_data[1]); //to verify i have the correct ints.
+
+		//SendCharOnUart('$');
+		//tc_set_filter_coeff(&new_filter_data);
+
 		//function here to handle filter taps
 		//call on the function to configure filters
 
 		//tc_set_filter_coeff(iir_input_data *in_data)
 
-		tc_set_filter_coeff(&new_filter_data);
+		//tc_set_filter_coeff(&new_filter_data);
 	}
 		break;
 	case 3:
@@ -118,6 +131,8 @@ static void MessageHandler() {
 static void ExtractFilterTaps(int16_t *x_pointer, int16_t *y_pointer) {
 	int data_index_border = (msg_length - 9) / 2; //calculate where in the datafield the y data begins
 	data_index_border += 6;
+	//printf("Border: %d ", data_index_border);
+
 	char hex_number[4] = { 0 }; //array to temporary store the hex number.
 	//iterate through the first half of the data field and save the x values.
 	for (i = 6; i < data_index_border; i += 4) {
@@ -126,7 +141,6 @@ static void ExtractFilterTaps(int16_t *x_pointer, int16_t *y_pointer) {
 		hex_number[2] = uart_hex_buffer[i + 2];
 		hex_number[3] = uart_hex_buffer[i + 3];
 		//convert the value to a integer and store it in the passed array.
-		//int coefficient = strtol(hex_number, NULL, 16);
 		*x_pointer = strtol(hex_number, NULL, 16); //store the value in the array.
 		x_pointer++; //increment the pointer.
 	}
@@ -140,6 +154,7 @@ static void ExtractFilterTaps(int16_t *x_pointer, int16_t *y_pointer) {
 		*y_pointer = strtol(hex_number, NULL, 16); //store value in array.
 		y_pointer++;
 	}
+	//SendCharOnUart('T');
 }
 
 static input_type_e GetMessageTypeEnum() {

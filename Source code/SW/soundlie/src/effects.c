@@ -11,20 +11,28 @@
 //Declare/define variables with limited scope
 static echo_data_t echo_data_alt;
 
+static echo_data_t echo_data = { //REMOVE definition (keep declaration)
+			24000,		//Delay: 0.5sec
+			0x6000,		//Q1.15:0.75
+			0x2000,		//Q1.15:0.25
+			{0}			//Empty buffer
+	};
 
-int16_t echo(int16_t dry_samp, echo_data_t *echo_data) {
+
+
+int16_t echo(int16_t dry_samp) {
 
 	// Get delayed wet signal from buffer
-	int16_t wet_samp = circ_buff_get(&(echo_data->buff_wet), echo_data->buff_wet.pos - echo_data->delay);
+	int16_t wet_samp = circ_buff_get(&(echo_data.buff_wet), echo_data.delay);
 
 	// Apply echo effect
-	int32_t echo_calc = (dry_samp * echo_data->dry_amp) + (wet_samp * echo_data->wet_amp);
+	int32_t echo_calc = (dry_samp * echo_data.dry_amp) + (wet_samp * echo_data.wet_amp);
 
 	// Perform bitshift to get correct result from Q1.15 x Q1.15 multiplication
 	int16_t result = (int16_t) (echo_calc >> 15);
 
 	// Push calculated signal into wet buffer
-	circ_buff_put(&(echo_data->buff_wet), result);
+	circ_buff_put(&(echo_data.buff_wet), result);
 
 	return result;
 }

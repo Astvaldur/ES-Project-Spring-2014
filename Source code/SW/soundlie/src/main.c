@@ -12,18 +12,18 @@
 
 int main()
  { 
-    //Initialize hw config
-	init_echo_alt();
-    catch_interrupt(irqhandler, 10);
-    //PcConnectionInitHex();
-    enable_irq(10);
-
     //echo_input_data alt;
     //alt.delay = 48000;
     //alt.dry_amp = 0x6000;
     //alt.wet_amp = 0x2000;
     //set_echo_alt(&alt);
 
+
+	//Initialize hw config
+	PcConnectionInitHex();
+
+    catch_interrupt(sample_irq, 10);
+    enable_irq(10);
 	//printf(":");
 
 	//TEST
@@ -44,9 +44,7 @@ int main()
 	//PcConnectionInit();
 	//printf("1");
 
-    //Initialize variable values
-
-    //puts("Ready to rock!");
+    //SET DEFAULT VALUES FOR ECHO AND TC HERE!
 
     //Infinite loop
     while(1);

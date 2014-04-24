@@ -1,10 +1,10 @@
 /**
-* @file datatypes.c
-* @brief Associated functions for types.
-* @details Functions for handling types.
-* @author Tobias Hallberg
-* @version 1.0
-*/
+ * @file datatypes.c
+ * @brief Associated functions for types.
+ * @details Functions for handling types.
+ * @author Tobias Hallberg
+ * @version 1.0
+ */
 
 #include "datatypes.h"
 
@@ -20,8 +20,10 @@ void circ_buff_put(circ_buff_t *circ_buff, int16_t indata)
 	circ_buff->elems[circ_buff->pos] = indata;
 }
 
-int16_t circ_buff_get(circ_buff_t *circ_buff, int32_t pos)
+int16_t circ_buff_get(circ_buff_t *circ_buff, int32_t offset)
 {
+	int32_t pos = circ_buff->pos - offset;
+
 	if (pos < 0)
 	{
 		pos = CIRC_BUFF_SIZE + pos;

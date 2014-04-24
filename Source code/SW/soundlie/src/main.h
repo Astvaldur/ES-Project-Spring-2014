@@ -16,6 +16,7 @@
 #include "pwm.h"
 #include "irq.h"
 #include "effects.h"
+#include "audiopath.h"
 #include "pc_communication.h"
 
 
@@ -25,6 +26,8 @@
 
 /* Function prototypes -------------------------------------------------------*/
 extern void *catch_interrupt(void func(), int irq);
+
+/* Global variables ----------------------------------------------------------*/
 
 
 #endif /* __MAIN_H */
