@@ -14,6 +14,8 @@ int main()
  { 
 
 	//Initialize hw config
+	PcConnectionInitHex();
+
     catch_interrupt(sample_irq, 10);
     enable_irq(10);
 	//printf(":");
