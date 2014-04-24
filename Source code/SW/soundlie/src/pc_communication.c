@@ -47,6 +47,7 @@ void PcConnectionInitHex() {
 
 //newer function to handle reading and handling the messages.
 void PcConnectionHandlerHex() {
+	disable_irq(10);
 	disable_irq(UART_INTERRUP_NR); //Disable interrupts
 	if (UartReadStatus()) { //When the uartstatus == 1. then data ready (DR).
 		ReadFromUartHex();
@@ -59,12 +60,13 @@ void PcConnectionHandlerHex() {
 				//SendCharBufferHex();
 				ResetPcConnectionParametersHex(); //reset if something was invalid in the message.
 			} //end of checkmessage/verifychecksum if.
+
 		}// end of message complete
 	} else if (UartSendStatus() && sending) { //&& logical AND
 		//call to send a char
 		SendACharHex();
 	}
-
+	enable_irq(10);
 	enable_irq(UART_INTERRUP_NR); //enable interrupts.
 }
 
@@ -76,10 +78,12 @@ static void MessageHandler() {
 	case FILTER_HP:
 	case FILTER_MID:
 	case FILTER_LP: {
-		//sending = 1;
-		//SendACharHex();
+		sending = 1;
+		SendACharHex();
 		iir_input_data new_filter_data; //declare struct to store the data in.
 		//calculate the number of taps in the message. data field length/2/4 => datafield/8. each tap takes 4 ascii so thats why division of 4 is present.
+
+		new_filter_data.type = msg_type;
 		new_filter_data.taps = (msg_length - 9) / 8;
 
 		int16_t new_x_coefficients[IIR_MAX_COEFFS] = { 0 }; //x taps
@@ -91,6 +95,10 @@ static void MessageHandler() {
 		ExtractFilterTaps(new_x_coefficients, new_y_coefficients); //
 		//function here to handle filter taps
 		//call on the function to configure filters
+
+		//tc_set_filter_coeff(iir_input_data *in_data)
+
+		tc_set_filter_coeff(&new_filter_data);
 	}
 		break;
 	case 3:
@@ -187,7 +195,7 @@ static void ReadFromUartHex() {
 				msg_length = strtol(hex_num, NULL, 16); //convert the hex chars to integer.
 				msg_length += 4; //include the type and byte count elements in the length
 			}
-			if (uart_hex_buffer_index == msg_length) { //when the index is the same as the length we have recieved the whole msg.
+			if (uart_hex_buffer_index >= msg_length) { //when the index is the same as the length we have recieved the whole msg.
 				if (CheckMessageContentHex()) { //checking that message content is okay.
 					message_complete = 1;
 				} else {

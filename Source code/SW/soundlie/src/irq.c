@@ -48,9 +48,13 @@ void irqhandler(int irq)
 	//Run echo
 	//tmp_out = echo(sample, &echo_data);
 
+	//Run echo alternative
+	tmp_out = echo_alt(sample);
+
+
 	//Run tone control
 	//tmp_out = tc_amp(&(echo_data.buff_wet));
-	tmp_out = tc_amp(&circ_buff);
+	//tmp_out = tc_amp(&circ_buff);
 
 
 

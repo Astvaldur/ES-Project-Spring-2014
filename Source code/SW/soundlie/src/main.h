@@ -6,6 +6,8 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <stdint.h>
+#include <stdbool.h>
 
 #include "datatypes.h"
 #include "applications.h"
@@ -15,6 +17,8 @@
 #include "irq.h"
 #include "effects.h"
 #include "pc_communication.h"
+
+
 
 /* Definitions ---------------------------------------------------------------*/
 

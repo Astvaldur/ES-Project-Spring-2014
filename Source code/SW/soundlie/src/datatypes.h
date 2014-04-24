@@ -6,9 +6,9 @@
 #include <stdint.h>
 
 /* Definitions ---------------------------------------------------------------*/
-#define CIRC_BUFF_SIZE		30000
+#define CIRC_BUFF_SIZE		48000
 #define FIR_MAX_COEFFS		100
-#define IIR_MAX_COEFFS  	3
+#define IIR_MAX_COEFFS  	15
 
 typedef enum {FILTER_LP, FILTER_MID, FILTER_HP} input_type_e;
 
@@ -46,5 +46,11 @@ typedef struct {
 	int16_t *x_data;
 	int16_t *y_data;
 }iir_input_data;
+
+typedef struct {
+	uint16_t delay;
+	int16_t dry_amp;
+	int16_t wet_amp;
+} echo_input_data;
 
 #endif /* DATATYPES_H_ */
