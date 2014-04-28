@@ -85,7 +85,7 @@ static void MessageHandler() {
 	case FILTER_LP: {
 		sending = 1;
 		SendACharHex();
-		iir_input_data new_filter_data; //declare struct to store the data in.
+		iir_input_data_t new_filter_data; //declare struct to store the data in.
 		//calculate the number of taps in the message. data field length/2/4 => datafield/8. each tap takes 4 ascii so thats why division of 4 is present.
 
 		new_filter_data.type = msg_type;
