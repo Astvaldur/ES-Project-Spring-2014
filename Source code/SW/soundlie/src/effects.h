@@ -16,8 +16,9 @@
 //int16_t echo(int16_t, echo_data_t *);
 bool init_echo_alt();
 int16_t echo_alt(int16_t dry_samp);
-bool set_echo_alt(echo_input_data *in_data);
+bool set_echo_alt(echo_input_data_t *in_data);
 int16_t echo(int16_t);
+
 /* Variable declarations -----------------------------------------------------*/
 
 #endif /* __EFFECTS_H */
