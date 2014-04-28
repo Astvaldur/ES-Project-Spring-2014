@@ -96,6 +96,7 @@ int16_t tc_iir(iir_data_t *iir_data, circ_buff_t *circ_buff) {
 	//return (int16_t) (result_64 >> 13);															//Test junk
 }
 
+
 /**
  * Access method for IIR filter coefficients used in Tone Control.
  * @param  [in]  iir_data    Instance of iir_input_data_t, contains filter coefficients and buffer for wet signal.
@@ -103,7 +104,6 @@ int16_t tc_iir(iir_data_t *iir_data, circ_buff_t *circ_buff) {
  * @return Output signal from IIR filter.
  */
 bool tc_set_filter_coeff(iir_input_data_t *in_data){
-
 	if(in_data->taps <= IIR_MAX_COEFFS){
 		iir_data_t *filter;
 		switch(in_data->type)
@@ -119,7 +119,7 @@ bool tc_set_filter_coeff(iir_input_data_t *in_data){
 			break;
 		}
 
-		iir_data_hp.num_coeffs = in_data->taps;
+		filter->num_coeffs = in_data->taps;
 		memcpy(filter->coeffs_x, in_data->x_data, in_data->taps*sizeof(int16_t));
 		memcpy(filter->coeffs_y, in_data->y_data, in_data->taps*sizeof(int16_t));
 

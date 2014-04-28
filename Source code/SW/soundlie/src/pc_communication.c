@@ -83,35 +83,35 @@ static void MessageHandler() {
 	case FILTER_HP:
 	case FILTER_MID:
 	case FILTER_LP: {
-		sending = 1;
-		SendACharHex();
+
 		iir_input_data_t new_filter_data; //declare struct to store the data in.
 		//calculate the number of taps in the message. data field length/2/4 => datafield/8. each tap takes 4 ascii so thats why division of 4 is present.
 
 		new_filter_data.type = msg_type;
 		new_filter_data.taps = (msg_length - 9) / 8;
 
-		//printf("%d", new_filter_data.taps);
-
 		int16_t new_x_coefficients[IIR_MAX_COEFFS] = { 0 }; //x taps
-		new_filter_data.x_data = new_x_coefficients; //assign the array to the struct
+		new_filter_data.x_data = new_x_coefficients; //assign the array to the struct array
 
 		int16_t new_y_coefficients[IIR_MAX_COEFFS] = { 0 }; //y taps
-		new_filter_data.y_data = new_y_coefficients; //assign array to struct.
+		new_filter_data.y_data = new_y_coefficients; //assign array to struct array.
 
 		ExtractFilterTaps(new_x_coefficients, new_y_coefficients);
 
-		printf("%d", new_filter_data.y_data[1]); //to verify i have the correct ints.
+		//printf("%d", new_filter_data.y_data[0]); //to verify i have the correct ints.
+
+		bool result = tc_set_filter_coeff(&new_filter_data); //calling the filter config function.
+
+		if (result){
+			SendCharOnUart('!'); //send ! on succesful configuration.
+		} else {
+			SendCharOnUart('?');
+		}
 
 		//SendCharOnUart('$');
-		//tc_set_filter_coeff(&new_filter_data);
-
 		//function here to handle filter taps
 		//call on the function to configure filters
 
-		//tc_set_filter_coeff(iir_input_data *in_data)
-
-		//tc_set_filter_coeff(&new_filter_data);
 	}
 		break;
 	case 3:
@@ -162,13 +162,13 @@ static input_type_e GetMessageTypeEnum() {
 	input_type_e message_enum;
 	switch (message_integer) {
 	case 0:
-		message_enum = FILTER_HP;
+		message_enum = FILTER_LP;
 		break;
 	case 1:
 		message_enum = FILTER_MID;
 		break;
 	case 2:
-		message_enum = FILTER_LP;
+		message_enum = FILTER_HP;
 		break;
 	case 7:
 	case 8:
