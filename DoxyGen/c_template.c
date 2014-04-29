@@ -10,8 +10,18 @@
 * @version 2.0
 */ 
 
+#include "c_template_header.h"
 
-#include <stdio.h>
+#define MAKRO_IN_C_FILE  ///< a macro with documentation
+
+int int_a; 
+///< This is commenting a variable.
+
+double doub_b; ///< this also works 
+
+//function prototypes
+static void herp(int, double, char []);
+
 
 
 /**
@@ -20,8 +30,7 @@
 * You always need a main ive heard or it won't compile.
 * @return Returns a Integer of value 0.
 */
-int main()
-{
+int main(){
   printf("Hello world\n");
   return 0;
 }
@@ -34,7 +43,7 @@ int main()
 * @param  [in,out] string     But I like strings the most.
 * @return this is a void so nothing is returned.
 */
-void herp(int a, double b, char string [256]){
+static void herp(int a, double b, char string [256]){
     int d;
     d = 1337; 
     
