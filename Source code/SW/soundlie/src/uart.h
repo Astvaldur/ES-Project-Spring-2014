@@ -1,6 +1,8 @@
 #ifndef _APBUART_H
 #define _APBUART_H
 
+
+
 extern int putChar(char c);
 extern int putStr(const char *str);
 extern int putInt(int a);

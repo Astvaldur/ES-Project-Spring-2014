@@ -3,7 +3,7 @@
 #define __ADC_H
 
 /* Includes ------------------------------------------------------------------*/
-
+#include <stdint.h>
 
 /* Definitions ---------------------------------------------------------------*/
 #define ADC_APB  0x80000A00
@@ -11,6 +11,6 @@
 /* Private function prototypes -----------------------------------------------*/
 
 /* Function prototypes -------------------------------------------------------*/
-int adc_read(int);
+int32_t adc_read(int32_t);
 
 #endif /* __ADC_H */

@@ -5,7 +5,7 @@
  *      Author: David
  */
 
-#include "irq.h"
+#include "uart.h"
 
 //struct to be used to access the registers of the uart.
 struct uartregisters {
@@ -46,7 +46,8 @@ void SendCharOnUart(char char_to_send) {
 //status check to se if sending is possible
 int UartSendStatus(){
 	int send_status = uart_reg_ptr->status_reg; //get the status of the uart
-	return (send_status & 0x2);
+	send_status = (send_status & 0x2) >> 1;  //bitwise AND then shift the status bit to LSB.
+	return send_status;
 }
 
 //status check to see if reading is possible
