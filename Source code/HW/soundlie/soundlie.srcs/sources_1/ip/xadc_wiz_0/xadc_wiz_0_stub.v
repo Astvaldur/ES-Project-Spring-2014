@@ -1,9 +1,9 @@
 // Copyright 1986-1999, 2001-2013 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2013.4 (win64) Build 353583 Mon Dec  9 17:49:19 MST 2013
-// Date        : Mon Mar 31 10:30:09 2014
-// Host        : Zotty-LT02 running 64-bit Service Pack 1  (build 7601)
-// Command     : write_verilog -force -mode synth_stub {C:/ES-Project-Spring-2014/Source
+// Date        : Mon Apr 14 15:04:40 2014
+// Host        : CE-PC46 running 64-bit Service Pack 1  (build 7601)
+// Command     : write_verilog -force -mode synth_stub {Z:/DAT096/git/ES-Project-Spring-2014/Source
 //               code/HW/soundlie/soundlie.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0_stub.v}
 // Design      : xadc_wiz_0
 // Purpose     : Stub declaration of top-level module interface
