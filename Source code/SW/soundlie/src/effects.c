@@ -19,7 +19,11 @@ static echo_data_t echo_data = { //REMOVE definition (keep declaration)
 	};
 
 
-
+/**
+ * Used for applying the echo sound effect to the incoming signal
+ * @param  [in]  dry_sample   Latest sample of input signal
+ * @return Output signal from echo.
+ */
 int16_t echo(int16_t dry_samp) {
 
 	// Get delayed wet signal from buffer
@@ -63,7 +67,7 @@ int16_t echo_alt(int16_t dry_samp) {
 	return result;
 }
 
-bool set_echo_alt(echo_input_data *in_data){
+bool set_echo_alt(echo_input_data_t *in_data){
 	echo_data_alt.delay = in_data->delay;
 	echo_data_alt.dry_amp = in_data->dry_amp;
 	echo_data_alt.wet_amp = in_data->wet_amp;

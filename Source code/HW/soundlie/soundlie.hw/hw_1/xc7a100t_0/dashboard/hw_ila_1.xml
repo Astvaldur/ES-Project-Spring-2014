@@ -3,15 +3,17 @@
     <DashboardHolder activeDashboard="ILA">
         <Dashboard columnResizable="1" key="ILA" rowResizable="0" title="ILA">
             <Settings/>
-            <GadgetContainer boxAxis="1" count="2" height="469"
-                layout="JideBoxLayout" vgap="6" width="590">
-                <Gadget height="77" key="Trigger Capture Status" width="590">
+            <GadgetContainer boxAxis="1" count="2" height="593"
+                layout="JideBoxLayout" vgap="6" width="214">
+                <Gadget height="77" key="Trigger Capture Status" width="214">
                     <Ila capture_condition="AND" capture_mode="ALWAYS"
                         data_depth="8192" trigger_condition="AND"
                         trigger_in="false" trigger_mode="BASIC"
                         trigger_out="false" trigger_position="0" tsm_file=""/>
                 </Gadget>
-                <Gadget height="379" key="Basic Trigger Setup" width="590"/>
+                <Gadget height="379" key="Basic Trigger Setup" width="214">
+                    <Probe name="xadc_apb_if/apbo[pirq][0:0]"/>
+                </Gadget>
                 <Settings/>
             </GadgetContainer>
         </Dashboard>

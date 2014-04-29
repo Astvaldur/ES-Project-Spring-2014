@@ -1,11 +1,12 @@
 <?xml version="1.0"?>
 <!--Product Version: Vivado v2013.4 (64-bit)-->
-<Project Version="6" Minor="14" Path="C:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.xpr">
+<Project Version="6" Minor="14" Path="Z:/DAT096/git/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.xpr">
 	<FileSet Dir="sources_1" File="fileset.xml"/>
 	<FileSet Dir="constrs_1" File="fileset.xml"/>
 	<FileSet Dir="sim_1" File="fileset.xml"/>
 	<FileSet Dir="sim_leon3-digilent-nexys4" File="fileset.xml"/>
 	<FileSet Dir="xadc_wiz_0" File="fileset.xml"/>
+	<FileSet Dir="dac_clk" File="fileset.xml"/>
 	<HWSession Dir="hw" File="hwsession_1.xml"/>
 	<RunSet Dir="runs" File="runs.xml"/>
 	<DefaultLaunch Dir="$PRUNDIR"/>
@@ -17,5 +18,25 @@
 		<Option Name="Board" Val=""/>
 		<Option Name="ActiveSimSet" Val="sim_1"/>
 	</Config>
+	<MsgRule>
+		<MsgAttr Name="RuleType" Val="0"/>
+		<MsgAttr Name="Limit" Val="-1"/>
+		<MsgAttr Name="NewSeverity" Val="ANY"/>
+		<MsgAttr Name="Id" Val="Common 17-301"/>
+		<MsgAttr Name="Severity" Val="ANY"/>
+		<MsgAttr Name="ShowRule" Val="1"/>
+		<MsgAttr Name="RuleSource" Val="8"/>
+		<MsgAttr Name="StringsToMatch" Val="WARNING: [Common 17-301] Failed to get a license: Implementation"/>
+	</MsgRule>
+	<MsgRule>
+		<MsgAttr Name="RuleType" Val="0"/>
+		<MsgAttr Name="Limit" Val="-1"/>
+		<MsgAttr Name="NewSeverity" Val="ANY"/>
+		<MsgAttr Name="Id" Val="Common 17-301"/>
+		<MsgAttr Name="Severity" Val="ANY"/>
+		<MsgAttr Name="ShowRule" Val="1"/>
+		<MsgAttr Name="RuleSource" Val="8"/>
+		<MsgAttr Name="StringsToMatch" Val="WARNING: [Common 17-301] Failed to get a license: Synthesis"/>
+	</MsgRule>
 </Project>
 

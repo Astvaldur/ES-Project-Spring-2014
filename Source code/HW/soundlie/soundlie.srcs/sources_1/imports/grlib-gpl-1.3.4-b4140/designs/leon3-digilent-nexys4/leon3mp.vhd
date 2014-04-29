@@ -152,6 +152,12 @@ entity leon3mp is
     ampPWM          : out std_logic;
     ampSD           : out std_logic;
     
+    --DAC module
+    dac_sync        : out std_logic;
+    dac_DIN         : out std_logic;
+    dac_sclk        : out std_logic;
+        
+    
     -- GPIO module
     gpio            : inout std_logic_vector(CFG_GRGPIO_WIDTH-1 downto 0) 	-- I/O port
 
@@ -292,7 +298,9 @@ architecture rtl of leon3mp is
   -- PWM
   signal ampPWM_sig : std_logic;
   signal ampSD_sig : std_logic;
-  
+  signal dac_sync_sig : std_logic;
+  signal dac_DIN_sig : std_logic;
+  signal dac_sclk_sig : std_logic;
   -- XADC
   signal xadc_out_s : std_logic_vector(15 downto 0);
   
@@ -325,8 +333,12 @@ begin
   gnd <= '0';
   
   ampPWM <= ampPWM_sig;
-  ampSD <= ampSD_sig;
+  dac_sync <= dac_sync_sig;
+  dac_DIN <= dac_DIN_sig;
+  dac_sclk <= dac_sclk_sig;
+  ampSD <= '1';
   
+
   probe0 <= xadc_out_s;
   probe1(0) <= apbo(10).pirq(10);
   probe2(0) <= rxd1;
@@ -534,16 +546,34 @@ begin
   
   --  Custom PWM module
   
-    PWMapb_if : PWMapb
-        generic map (pindex => 11, paddr => 11, pmask => 16#FFF#) 
-        port map (rstn => rstn,
-          clk => clk,
-          apbi => apbi,
-          apbo => apbo(11),
-          pwm_clk => clk,
-          ampPWM => ampPWM_sig,
-          ampSD => ampSD_sig
-        );
+--    PWMapb_if : PWMapb
+--        generic map (pindex => 11, paddr => 11, pmask => 16#FFF#) 
+--        port map (rstn => rstn,
+--          clk => clk,
+--          apbi => apbi,
+--          apbo => apbo(11),
+ --         pwm_clk => clk,
+ --         ampPWM => ampPWM_sig,
+ --         ampSD => ampSD_sig
+ --       );
+                
+    DACapb_if : DACapb 
+        generic map (pindex => 11, paddr => 11, pmask => 16#FFF#)
+          port map(
+            --AMBA
+            rstn => rstn,
+            clk	=> clk,
+            apbi => apbi,
+            apbo =>apbo(11),
+            --PWM
+            ampPWM	=> ampPWM_sig,  --! The ouput PWM signal, It is connected to the input of the filter. 
+            ampSD => ampSD_sig,   	--! We need to select the filter to be on.
+            --DAC
+            dac_sync => dac_sync_sig,
+            dac_DIN => dac_DIN_sig,
+            dac_sclk => dac_sclk_sig	--! Serial clock            
+          );                      
+         
         
     gpio0 : if CFG_GRGPIO_ENABLE /= 0 generate     -- GR GPIO unit
         grgpio0: grgpio

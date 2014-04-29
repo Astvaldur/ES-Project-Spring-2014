@@ -21,14 +21,12 @@
 #NET "JB<7>"			LOC = "U11"	| IOSTANDARD = "LVCMOS33";		#Bank = 14, Pin name = IO_L19N_T3_A09_D25_VREF_14,			Sch name = JB10 
  
 ## Pmod Header JC
-#NET "JC<0>"			LOC = "K2"	| IOSTANDARD = "LVCMOS33";		#Bank = 35, Pin name = IO_L23P_T3_35,						Sch name = JC1
-set_property PACKAGE_PIN K2 [get_ports uart_rxd1]
-set_property IOSTANDARD LVCMOS33 [get_ports uart_rxd1]
-
-#NET "JC<1>"			LOC = "E7"	| IOSTANDARD = "LVCMOS33";		#Bank = 35, Pin name = IO_L6P_T0_35,						Sch name = JC2
-set_property PACKAGE_PIN E7 [get_ports uart_txd1]
-set_property IOSTANDARD LVCMOS33 [get_ports uart_txd1]
-
+##Bank = 35, Pin name = IO_L21P_T3_DQS_35,					Sch name = JC4
+set_property PACKAGE_PIN J4 [get_ports  uart_rxd1]					
+	set_property IOSTANDARD LVCMOS33 [get_ports  uart_rxd1]
+##Bank = 35, Pin name = IO_L23N_T3_35,						Sch name = JC7
+set_property PACKAGE_PIN K1 [get_ports uart_txd1]					
+	set_property IOSTANDARD LVCMOS33 [get_ports uart_txd1]
 #NET "JC<2>"			LOC = "J3"	| IOSTANDARD = "LVCMOS33";		#Bank = 35, Pin name = IO_L22P_T3_35,						Sch name = JC3
 #NET "JC<3>"			LOC = "J4"	| IOSTANDARD = "LVCMOS33";		#Bank = 35, Pin name = IO_L21P_T3_DQS_35,					Sch name = JC4
 #NET "JC<4>"			LOC = "K1"	| IOSTANDARD = "LVCMOS33";		#Bank = 35, Pin name = IO_L23N_T3_35,						Sch name = JC7
