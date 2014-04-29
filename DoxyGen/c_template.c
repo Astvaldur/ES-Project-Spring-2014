@@ -14,15 +14,13 @@
 
 #define MAKRO_IN_C_FILE  ///< a macro with documentation
 
+//prototype 
+static void herp(int a, double b, char string [256]);
+
 int int_a; 
 ///< This is commenting a variable.
 
 double doub_b; ///< this also works 
-
-//function prototypes
-static void herp(int, double, char []);
-
-
 
 /**
 * This is the description of the main function.
