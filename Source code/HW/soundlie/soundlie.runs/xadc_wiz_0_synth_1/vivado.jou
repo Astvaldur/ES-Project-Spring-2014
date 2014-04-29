@@ -2,9 +2,9 @@
 # Vivado v2013.4 (64-bit)
 # SW Build 353583 on Mon Dec  9 17:49:19 MST 2013
 # IP Build 208076 on Mon Dec  2 12:38:17 MST 2013
-# Start of session at: Mon Mar 31 10:27:25 2014
-# Process ID: 6524
-# Log file: C:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.runs/xadc_wiz_0_synth_1/xadc_wiz_0.rds
-# Journal file: C:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.runs/xadc_wiz_0_synth_1\vivado.jou
+# Start of session at: Mon Apr 14 15:03:31 2014
+# Process ID: 4256
+# Log file: Z:/DAT096/git/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.runs/xadc_wiz_0_synth_1/xadc_wiz_0.rds
+# Journal file: Z:/DAT096/git/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.runs/xadc_wiz_0_synth_1\vivado.jou
 #-----------------------------------------------------------
 source xadc_wiz_0.tcl

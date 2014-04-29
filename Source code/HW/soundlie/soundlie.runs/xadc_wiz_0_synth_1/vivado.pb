@@ -3,11 +3,6 @@
  Attempting to get a license: %s
 78*common2"
 Implementation2default:defaultZ17-78
-x
-%Your %s license expires in %s day(s)
-86*common2"
-Implementation2default:default2
-292default:defaultZ17-86
 Q
 Feature available: %s
 81*common2"
@@ -15,15 +10,15 @@ Q
 É
 +Loading parts and site information from %s
 36*device2?
-+D:/Xilinx/Vivado/2013.4/data/parts/arch.xml2default:defaultZ21-36
++C:/Xilinx/Vivado/2013.4/data/parts/arch.xml2default:defaultZ21-36
 ê
 !Parsing RTL primitives file [%s]
 14*netlist2U
-AD:/Xilinx/Vivado/2013.4/data/parts/xilinx/rtl/prims/rtl_prims.xml2default:defaultZ29-14
+AC:/Xilinx/Vivado/2013.4/data/parts/xilinx/rtl/prims/rtl_prims.xml2default:defaultZ29-14
 ô
 *Finished parsing RTL primitives file [%s]
 11*netlist2U
-AD:/Xilinx/Vivado/2013.4/data/parts/xilinx/rtl/prims/rtl_prims.xml2default:defaultZ29-11
+AC:/Xilinx/Vivado/2013.4/data/parts/xilinx/rtl/prims/rtl_prims.xml2default:defaultZ29-11
 5
 Refreshing IP repositories
 234*coregenZ19-234
@@ -33,7 +28,7 @@ AD:/Xilinx/Vivado/2013.4/data/parts/xilinx/rtl/prims/rtl_prims.xml2default:def
 s
 "Loaded Vivado IP repository '%s'.
 1332*coregen23
-D:/Xilinx/Vivado/2013.4/data/ip2default:defaultZ19-2313
+C:/Xilinx/Vivado/2013.4/data/ip2default:defaultZ19-2313
 Ñ
 Command: %s
 53*	vivadotcl2\
@@ -61,13 +56,13 @@ xadc_wiz_02default:default2M
 xc7a100t2default:defaultZ17-349
 õ
 %s*synth2ã
-wStarting RTL Elaboration : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 241.867 ; gain = 89.688
+wStarting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:11 . Memory (MB): peak = 239.359 ; gain = 93.281
 2default:default
-Î
+˜
 synthesizing module '%s'638*oasys2
 
-xadc_wiz_02default:default2|
-fc:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0.vhd2default:default2
+xadc_wiz_02default:default2á
+qz:/DAT096/git/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0.vhd2default:default2
 782default:default8@Z8-638
 V
 %s*synth2G
@@ -213,23 +208,23 @@ O
 %s*synth2œ
 ∫	Parameter SIM_MONITOR_FILE bound to: c:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0/simulation/functional/design.txt - type: string 
 2default:default
-í
+û
 ,binding component instance '%s' to cell '%s'113*oasys2
 U02default:default2
-XADC2default:default2|
-fc:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0.vhd2default:default2
+XADC2default:default2á
+qz:/DAT096/git/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0.vhd2default:default2
 1452default:default8@Z8-113
-¶
+≤
 %done synthesizing module '%s' (%s#%s)256*oasys2
 
 xadc_wiz_02default:default2
 12default:default2
-12default:default2|
-fc:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0.vhd2default:default2
+12default:default2á
+qz:/DAT096/git/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0.vhd2default:default2
 782default:default8@Z8-256
 ú
 %s*synth2å
-xFinished RTL Elaboration : Time (s): cpu = 00:00:22 ; elapsed = 00:00:25 . Memory (MB): peak = 275.906 ; gain = 123.727
+xFinished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:13 . Memory (MB): peak = 272.578 ; gain = 126.500
 2default:default
 ;
 %s*synth2,
@@ -267,63 +262,63 @@ a
 õ
 Loading clock regions from %s
 13*device2d
-PD:/Xilinx/Vivado/2013.4/data\parts/xilinx/artix7/artix7/xc7a100t/ClockRegion.xml2default:defaultZ21-13
+PC:/Xilinx/Vivado/2013.4/data\parts/xilinx/artix7/artix7/xc7a100t/ClockRegion.xml2default:defaultZ21-13
 ú
 Loading clock buffers from %s
 11*device2e
-QD:/Xilinx/Vivado/2013.4/data\parts/xilinx/artix7/artix7/xc7a100t/ClockBuffers.xml2default:defaultZ21-11
+QC:/Xilinx/Vivado/2013.4/data\parts/xilinx/artix7/artix7/xc7a100t/ClockBuffers.xml2default:defaultZ21-11
 ô
 &Loading clock placement rules from %s
 318*place2Y
-ED:/Xilinx/Vivado/2013.4/data/parts/xilinx/artix7/ClockPlacerRules.xml2default:defaultZ30-318
+EC:/Xilinx/Vivado/2013.4/data/parts/xilinx/artix7/ClockPlacerRules.xml2default:defaultZ30-318
 ó
 )Loading package pin functions from %s...
 17*device2U
-AD:/Xilinx/Vivado/2013.4/data\parts/xilinx/artix7/PinFunctions.xml2default:defaultZ21-17
+AC:/Xilinx/Vivado/2013.4/data\parts/xilinx/artix7/PinFunctions.xml2default:defaultZ21-17
 ò
 Loading package from %s
 16*device2g
-SD:/Xilinx/Vivado/2013.4/data\parts/xilinx/artix7/artix7/xc7a100t/csg324/Package.xml2default:defaultZ21-16
+SC:/Xilinx/Vivado/2013.4/data\parts/xilinx/artix7/artix7/xc7a100t/csg324/Package.xml2default:defaultZ21-16
 å
 Loading io standards from %s
 15*device2V
-BD:/Xilinx/Vivado/2013.4/data\./parts/xilinx/artix7/IOStandards.xml2default:defaultZ21-15
+BC:/Xilinx/Vivado/2013.4/data\./parts/xilinx/artix7/IOStandards.xml2default:defaultZ21-15
 ò
 +Loading device configuration modes from %s
 14*device2T
-@D:/Xilinx/Vivado/2013.4/data\parts/xilinx/artix7/ConfigModes.xml2default:defaultZ21-14
+@C:/Xilinx/Vivado/2013.4/data\parts/xilinx/artix7/ConfigModes.xml2default:defaultZ21-14
 5
 
 Processing XDC Constraints
 244*projectZ1-262
-⁄
+Ê
 $Parsing XDC File [%s] for cell '%s'
-848*designutils2~
-jc:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0_OOC.xdc2default:default2
+848*designutils2â
+uz:/DAT096/git/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0_OOC.xdc2default:default2
 U02default:defaultZ20-848
-„
+Ô
 -Finished Parsing XDC File [%s] for cell '%s'
-847*designutils2~
-jc:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0_OOC.xdc2default:default2
+847*designutils2â
+uz:/DAT096/git/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0_OOC.xdc2default:default2
 U02default:defaultZ20-847
-÷
+‚
 $Parsing XDC File [%s] for cell '%s'
-848*designutils2z
-fc:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0.xdc2default:default2
+848*designutils2Ö
+qz:/DAT096/git/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0.xdc2default:default2
 U02default:defaultZ20-848
-ﬂ
+Î
 -Finished Parsing XDC File [%s] for cell '%s'
-847*designutils2z
-fc:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0.xdc2default:default2
+847*designutils2Ö
+qz:/DAT096/git/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0.xdc2default:default2
 U02default:defaultZ20-847
-´
+∑
 Parsing XDC File [%s]
-179*designutils2u
-aC:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.runs/xadc_wiz_0_synth_1/dont_touch.xdc2default:defaultZ20-179
-¥
+179*designutils2Ä
+lZ:/DAT096/git/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.runs/xadc_wiz_0_synth_1/dont_touch.xdc2default:defaultZ20-179
+¿
 Finished Parsing XDC File [%s]
-178*designutils2u
-aC:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.runs/xadc_wiz_0_synth_1/dont_touch.xdc2default:defaultZ20-178
+178*designutils2Ä
+lZ:/DAT096/git/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.runs/xadc_wiz_0_synth_1/dont_touch.xdc2default:defaultZ20-178
 ?
 &Completed Processing XDC Constraints
 
@@ -335,11 +330,11 @@ u
 2default:defaultZ1-111
 µ
 %s*synth2•
-êFinished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:57 ; elapsed = 00:01:06 . Memory (MB): peak = 474.801 ; gain = 322.621
+êFinished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:21 ; elapsed = 00:00:30 . Memory (MB): peak = 471.402 ; gain = 325.324
 2default:default
 ù
 %s*synth2ç
-yFinished RTL Optimization : Time (s): cpu = 00:00:57 ; elapsed = 00:01:06 . Memory (MB): peak = 474.801 ; gain = 322.621
+yFinished RTL Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:30 . Memory (MB): peak = 471.402 ; gain = 325.324
 2default:default
 <
 %s*synth2-
@@ -370,7 +365,7 @@ BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
 2default:default
 ±
 %s*synth2°
-åFinished Loading Part and Timing Information : Time (s): cpu = 00:01:36 ; elapsed = 00:01:46 . Memory (MB): peak = 538.332 ; gain = 386.152
+åFinished Loading Part and Timing Information : Time (s): cpu = 00:00:34 ; elapsed = 00:00:44 . Memory (MB): peak = 535.012 ; gain = 388.934
 2default:default
 B
 %s*synth23
@@ -390,7 +385,7 @@ B
 2default:default
 ©
 %s*synth2ô
-ÑFinished Cross Boundary Optimization : Time (s): cpu = 00:01:36 ; elapsed = 00:01:46 . Memory (MB): peak = 538.332 ; gain = 386.152
+ÑFinished Cross Boundary Optimization : Time (s): cpu = 00:00:34 ; elapsed = 00:00:44 . Memory (MB): peak = 535.012 ; gain = 388.934
 2default:default
 ¢
 %s*synth2í
@@ -412,19 +407,19 @@ R-------------------------------------------------------------------------------
 2default:default
 û
 %s*synth2é
-zFinished Area Optimization : Time (s): cpu = 00:01:36 ; elapsed = 00:01:47 . Memory (MB): peak = 539.336 ; gain = 387.156
+zFinished Area Optimization : Time (s): cpu = 00:00:34 ; elapsed = 00:00:45 . Memory (MB): peak = 537.070 ; gain = 390.992
 2default:default
 ≠
 %s*synth2ù
-àFinished Applying XDC Timing Constraints : Time (s): cpu = 00:01:36 ; elapsed = 00:01:47 . Memory (MB): peak = 539.340 ; gain = 387.160
+àFinished Applying XDC Timing Constraints : Time (s): cpu = 00:00:34 ; elapsed = 00:00:45 . Memory (MB): peak = 537.074 ; gain = 390.996
 2default:default
 †
 %s*synth2ê
-|Finished Timing Optimization : Time (s): cpu = 00:01:36 ; elapsed = 00:01:47 . Memory (MB): peak = 539.340 ; gain = 387.160
+|Finished Timing Optimization : Time (s): cpu = 00:00:34 ; elapsed = 00:00:45 . Memory (MB): peak = 537.074 ; gain = 390.996
 2default:default
 ü
 %s*synth2è
-{Finished Technology Mapping : Time (s): cpu = 00:01:36 ; elapsed = 00:01:47 . Memory (MB): peak = 548.879 ; gain = 396.699
+{Finished Technology Mapping : Time (s): cpu = 00:00:34 ; elapsed = 00:00:45 . Memory (MB): peak = 546.602 ; gain = 400.523
 2default:default
 D
 %s*synth25
@@ -432,7 +427,7 @@ D
 2default:default
 ô
 %s*synth2â
-uFinished IO Insertion : Time (s): cpu = 00:01:38 ; elapsed = 00:01:48 . Memory (MB): peak = 548.879 ; gain = 396.699
+uFinished IO Insertion : Time (s): cpu = 00:00:34 ; elapsed = 00:00:45 . Memory (MB): peak = 546.602 ; gain = 400.523
 2default:default
 ;
 %s*synth2,
@@ -461,11 +456,11 @@ I+------+------------------+-------+---------+-------+------------------+
 2default:default
 ™
 %s*synth2ö
-ÖFinished Renaming Generated Instances : Time (s): cpu = 00:01:38 ; elapsed = 00:01:48 . Memory (MB): peak = 548.879 ; gain = 396.699
+ÖFinished Renaming Generated Instances : Time (s): cpu = 00:00:35 ; elapsed = 00:00:45 . Memory (MB): peak = 546.602 ; gain = 400.523
 2default:default
 ß
 %s*synth2ó
-ÇFinished Rebuilding User Hierarchy : Time (s): cpu = 00:01:38 ; elapsed = 00:01:48 . Memory (MB): peak = 548.879 ; gain = 396.699
+ÇFinished Rebuilding User Hierarchy : Time (s): cpu = 00:00:35 ; elapsed = 00:00:45 . Memory (MB): peak = 546.602 ; gain = 400.523
 2default:default
 ¢
 %s*synth2í
@@ -558,7 +553,7 @@ E
 2default:default
 ¶
 %s*synth2ñ
-ÅFinished Writing Synthesis Report : Time (s): cpu = 00:01:38 ; elapsed = 00:01:48 . Memory (MB): peak = 548.879 ; gain = 396.699
+ÅFinished Writing Synthesis Report : Time (s): cpu = 00:00:35 ; elapsed = 00:00:45 . Memory (MB): peak = 546.602 ; gain = 400.523
 2default:default
 i
 %s*synth2Z
@@ -566,7 +561,7 @@ FSynthesis finished with 0 errors, 0 critical warnings and 0 warnings.
 2default:default
 £
 %s*synth2ì
-Synthesis Optimization Complete : Time (s): cpu = 00:01:38 ; elapsed = 00:01:49 . Memory (MB): peak = 548.879 ; gain = 396.699
+Synthesis Optimization Complete : Time (s): cpu = 00:00:35 ; elapsed = 00:00:46 . Memory (MB): peak = 546.602 ; gain = 400.523
 2default:default
 \
 -Analyzing %s Unisim elements for replacement
@@ -576,25 +571,25 @@ a
 2Unisim Transformation completed in %s CPU seconds
 28*netlist2
 02default:defaultZ29-28
-⁄
+Ê
 $Parsing XDC File [%s] for cell '%s'
-848*designutils2~
-jc:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0_OOC.xdc2default:default2
+848*designutils2â
+uz:/DAT096/git/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0_OOC.xdc2default:default2
 U02default:defaultZ20-848
-„
+Ô
 -Finished Parsing XDC File [%s] for cell '%s'
-847*designutils2~
-jc:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0_OOC.xdc2default:default2
+847*designutils2â
+uz:/DAT096/git/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0_OOC.xdc2default:default2
 U02default:defaultZ20-847
-÷
+‚
 $Parsing XDC File [%s] for cell '%s'
-848*designutils2z
-fc:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0.xdc2default:default2
+848*designutils2Ö
+qz:/DAT096/git/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0.xdc2default:default2
 U02default:defaultZ20-848
-ﬂ
+Î
 -Finished Parsing XDC File [%s] for cell '%s'
-847*designutils2z
-fc:/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0.xdc2default:default2
+847*designutils2Ö
+qz:/DAT096/git/ES-Project-Spring-2014/Source code/HW/soundlie/soundlie.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0.xdc2default:default2
 U02default:defaultZ20-847
 C
 Pushed %s inverter(s).
@@ -624,18 +619,18 @@ U
 I%sTime (s): cpu = %s ; elapsed = %s . Memory (MB): peak = %s ; gain = %s
 268*common2"
 synth_design: 2default:default2
-00:02:232default:default2
-00:02:362default:default2
-952.6722default:default2
-760.2192default:defaultZ17-268
+00:00:492default:default2
+00:01:022default:default2
+949.3632default:default2
+759.5122default:defaultZ17-268
 <
 %Done setting XDC timing constraints.
 35*timingZ38-35
 
-sreport_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.183 . Memory (MB): peak = 952.672 ; gain = 0.000
+sreport_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.297 . Memory (MB): peak = 949.363 ; gain = 0.000
 *common
 w
 Exiting %s at %s...
 206*common2
 Vivado2default:default2,
-Mon Mar 31 10:30:10 20142default:defaultZ17-206
+Mon Apr 14 15:04:41 20142default:defaultZ17-206
