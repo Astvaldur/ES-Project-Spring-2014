@@ -30,6 +30,7 @@ double doub_b; ///< this also works
 */
 int main(){
   printf("Hello world\n");
+  herp(5, 13.37, "test");
   return 0;
 }
 
