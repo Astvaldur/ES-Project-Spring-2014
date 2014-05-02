@@ -1,7 +1,7 @@
 // Copyright 1986-1999, 2001-2013 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2013.4 (win64) Build 353583 Mon Dec  9 17:49:19 MST 2013
-// Date        : Fri May 02 10:19:08 2014
+// Date        : Fri May 02 13:12:32 2014
 // Host        : Zotty-LT02 running 64-bit Service Pack 1  (build 7601)
 // Command     : write_verilog -force -mode funcsim {C:/ES-Project-Spring-2014/Source
 //               code/HW/soundlie/soundlie.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0_funcsim.v}

@@ -511,48 +511,48 @@ begin
     apbo(7) <= apb_none;
   end generate;
   
-  --  Custom XADC module
-    xadc_apb_if : xadc_apb
-      generic map (pindex => 10, paddr => 10, pmask => 16#FFF#) 
-      port map (rstn => rstn,
-          clk => clkm, 
-          apbi => apbi, 
-          apbo => apbo(10),
-          xadc_clk => clk,
-          xadc_vp => AdcVp,
-          xadc_vn  => AdcVn,
-          xadc_out => xadc_out_s
-      );
-  
   --  Custom PWM module
+--  PWMapb_if : PWMapb
+--      generic map (pindex => 9, paddr => 9, pmask => 16#FFF#) 
+--      port map (rstn => rstn,
+--        clk => clk,
+--        apbi => apbi,
+--        apbo => apbo(9),
+--        pwm_clk => clk,
+--        ampPWM => ampPWM_sig,
+--        ampSD => ampSD_sig
+--      );
   
---    PWMapb_if : PWMapb
---        generic map (pindex => 11, paddr => 11, pmask => 16#FFF#) 
---        port map (rstn => rstn,
---          clk => clk,
---          apbi => apbi,
---          apbo => apbo(11),
- --         pwm_clk => clk,
- --         ampPWM => ampPWM_sig,
- --         ampSD => ampSD_sig
- --       );
-                
-    DACapb_if : DACapb 
-        generic map (pindex => 11, paddr => 11, pmask => 16#FFF#)
-          port map(
-            --AMBA
-            rstn => rstn,
-            clk	=> clk,
-            apbi => apbi,
-            apbo =>apbo(11),
-            --PWM
-            ampPWM	=> ampPWM_sig,  --! The ouput PWM signal, It is connected to the input of the filter. 
-            ampSD => ampSD_sig,   	--! We need to select the filter to be on.
-            --DAC
-            dac_sync => dac_sync_sig,
-            dac_DIN => dac_DIN_sig,
-            dac_sclk => dac_sclk_sig	--! Serial clock            
-          );                      
+  --  Custom XADC module
+  xadc_apb_if : xadc_apb
+    generic map (pindex => 10, paddr => 10, pmask => 16#FFF#) 
+    port map (rstn => rstn,
+        clk => clkm, 
+        apbi => apbi, 
+        apbo => apbo(10),
+        xadc_clk => clk,
+        xadc_vp => AdcVp,
+        xadc_vn  => AdcVn,
+        xadc_out => xadc_out_s
+    );
+    
+  --  Custom DAC  module           
+  DACapb_if : DACapb 
+    generic map (pindex => 11, paddr => 11, pmask => 16#FFF#)
+      port map(
+        --AMBA
+        rstn => rstn,
+        clk	=> clk,
+        apbi => apbi,
+        apbo =>apbo(11),
+        --PWM
+        ampPWM	=> ampPWM_sig,  --! The ouput PWM signal, It is connected to the input of the filter. 
+        ampSD => ampSD_sig,   	--! We need to select the filter to be on.
+        --DAC
+        dac_sync => dac_sync_sig,
+        dac_DIN => dac_DIN_sig,
+        dac_sclk => dac_sclk_sig	--! Serial clock            
+      );                      
          
   --  GPIO
   gpio0 : if CFG_GRGPIO_ENABLE /= 0 generate     -- GR GPIO unit
@@ -650,13 +650,16 @@ begin
 ---  ILA  ----------------------------------------------------
 -----------------------------------------------------------------------
 
---  ila_leon3_0 : ila_leon3
---    PORT MAP (
---      clk => clk,
---      probe0 => probe0,
---      probe1 => probe1,
---      probe2 => probe2
---    );
+
+--  en_ila_leon3_0 : if CFG_ILA_ENABLE /= 0 generate
+--    ila_leon3_0 : ila_leon3
+--      PORT MAP (
+--        clk => clk,
+--        probe0 => probe0,
+--        probe1 => probe1,
+--        probe2 => probe2
+--      );
+--  end generate;
 
 -----------------------------------------------------------------------
 ---  Boot message  ----------------------------------------------------
