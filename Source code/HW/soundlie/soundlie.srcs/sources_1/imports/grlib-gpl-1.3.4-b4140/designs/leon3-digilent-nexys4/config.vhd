@@ -1,8 +1,3 @@
-
-
-
-
-
 -----------------------------------------------------------------------------
 -- LEON3 Demonstration design test bench configuration
 -- Copyright (C) 2009 Aeroflex Gaisler
@@ -182,8 +177,8 @@ package config is
 -- GPIO port
   constant CFG_GRGPIO_ENABLE : integer := 1;
   constant CFG_GRGPIO_IMASK : integer := 16#0000#;
-  constant CFG_GRGPIO_WIDTH : integer := (8);
-
+  constant CFG_GRGPIO_WIDTH : integer := (24);
+  
 -- SPI memory controller
   constant CFG_SPIMCTRL : integer := 0;
   constant CFG_SPIMCTRL_SDCARD : integer := 0;
@@ -211,4 +206,7 @@ package config is
 
 -- GRLIB debugging
   constant CFG_DUART : integer := 1;
+  
+-- Integrated Logic Analyzer
+--  constant CFG_ILA_ENABLE : integer := 0;
 end;

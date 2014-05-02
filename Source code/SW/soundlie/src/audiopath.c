@@ -30,14 +30,14 @@ void sample_irq(int32_t irq)
 	circ_buff_put(&circ_buff, sample);
 
 	//Run straight through
-	//tmp_out = circ_buff_get(&circ_buff, 0);
+	tmp_out = circ_buff_get(&circ_buff, 0);
 
 	//Run echo
 	//tmp_out = echo(sample);
 
 	//Run tone control
 	//tmp_out = tc_amp(&(echo_data.buff_wet));
-	tmp_out = tc_amp(&circ_buff);
+	//tmp_out = tc_amp(&circ_buff);
 
 	//Enable IRQ when done
 	enable_irq(SAMPLE_IRQ_ID);

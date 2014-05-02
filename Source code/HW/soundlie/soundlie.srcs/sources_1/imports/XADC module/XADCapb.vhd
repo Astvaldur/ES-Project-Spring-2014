@@ -32,15 +32,6 @@ end entity xadc_apb;
 
 architecture rtl of xadc_apb is
 
-  COMPONENT ila_xadc
-  PORT (
-    clk : IN STD_LOGIC;
-    probe0 : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-    probe1 : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-    probe2 : IN STD_LOGIC_VECTOR(0 DOWNTO 0)
-  );
-  END COMPONENT;
-
   -- APB related signals
   type xadc_registers is record
     sample       : std_logic_vector(31 downto 0);
@@ -58,11 +49,6 @@ architecture rtl of xadc_apb is
   
   signal fir_y          : std_logic_vector(31 downto 0);
   
-  -- ILA
-  signal probe0   : std_logic_vector(0 downto 0);
-  signal probe1   : std_logic_vector(0 downto 0);
-  signal probe2   : std_logic_vector(0 downto 0);
-  
 --constant REVISION       : amba_version_type := 0; 
 constant pconfig        : apb_config_type := (
                         0 => ahb_device_reg ( VENDOR_OPENCORES, GAISLER_GPREG, 0, 0, 0),
@@ -76,12 +62,6 @@ begin
   
   sample(15 downto 0) <= fir_y(31 downto 16);
   
-  
-  -- ILA
-  probe0(0) <= xadc_eoc;
-  probe1(0) <= xadc_irq;
-  probe2(0) <= pirq;
-
   -- combinatorial process
   apb_comb : process(rstn, apb_reg, apbi)
     variable v : xadc_registers;
@@ -161,15 +141,6 @@ begin
    bootmsg : report_version 
    generic map ("apbvgreport_versiona" & tost(pindex) & ": LED Control rev 0");
    -- pragma translate_on
-   
-     ila_xdc0 : ila_xadc
-     PORT MAP (
-       clk => clk,
-       probe0 => probe0,
-       probe1 => probe1,
-       probe2 => probe2
-     );
-
 
 end rtl;
 
