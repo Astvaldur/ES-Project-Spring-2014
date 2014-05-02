@@ -8,6 +8,11 @@
 
 #include "audiopath.h"
 
+/**
+ * Receive and handle IRQ from ADC
+ * @param  [in]  irq	Source of the generated interrupt
+ * @return None
+ */
 void sample_irq(int32_t irq)
 {
 	//Disable IRQ to provide mutual exclusion

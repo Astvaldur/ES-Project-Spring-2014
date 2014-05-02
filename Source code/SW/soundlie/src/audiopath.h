@@ -9,6 +9,7 @@
 
 #include "datatypes.h"
 #include "main.h"
+#include "adc.h"
 
 /* Definitions ---------------------------------------------------------------*/
 #define SAMPLE_IRQ_ID	10

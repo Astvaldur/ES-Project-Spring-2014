@@ -1,14 +1,17 @@
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __ADC_H
-#define __ADC_H
+#ifndef __GPIO_H
+#define __GPIO_H
 
 /* Includes ------------------------------------------------------------------*/
 #include <stdint.h>
 
 /* Definitions ---------------------------------------------------------------*/
-#define ADC_APB  0x80000A00
+#define GPIO_APB  0x80000C00
 
 /* Function prototypes -------------------------------------------------------*/
-int32_t adc_read(int32_t);
+void gpio_init(int32_t);
+void gpio_write(int32_t, int32_t);
+void gpio_set_pin_dir(int32_t, int32_t);
+int32_t gpio_read(int32_t);
 
 #endif /* __ADC_H */
