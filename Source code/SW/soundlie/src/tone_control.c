@@ -31,6 +31,12 @@ static iir_data_t iir_data_hp = {
 		{0, {0}}
 };
 
+static tc_ctrl_data_t tc_amp_data = {
+		0x400,
+		0x400,
+		0x400
+};
+
 /**
  * Used for applying tone control to incoming signal
  * @param  [in]  circ_buff   Circular buffer containing input signal
@@ -44,9 +50,9 @@ int16_t tc_amp(circ_buff_t *circ_buff) {
 	int16_t filt_hp = tc_iir(&iir_data_hp, circ_buff);			//Use HP-filter
 
 	/** Apply +- 12dB amplification */
-	int32_t amp_lp = (int16_t)filt_lp * ((int16_t)(0x4000));
-	int32_t amp_bp = (int16_t)filt_bp * ((int16_t)(0x1000));
-	int32_t amp_hp = (int16_t)filt_hp * ((int16_t)(0x1000));
+	int32_t amp_lp = (int16_t)filt_lp * tc_amp_data.lp_amp;
+	int32_t amp_bp = (int16_t)filt_bp * tc_amp_data.bp_amp;
+	int32_t amp_hp = (int16_t)filt_hp * tc_amp_data.hp_amp;
 
 	/** Calculate sum of amplified frequency bands */
 	int32_t result = amp_lp + amp_bp + amp_hp;
@@ -96,12 +102,29 @@ int16_t tc_iir(iir_data_t *iir_data, circ_buff_t *circ_buff) {
 	//return (int16_t) (result_64 >> 13);															//Test junk
 }
 
+/**
+ * Access method for amplification factors used in Tone Control.
+ * @param  [in]  tc_ctrl_data_t    Instance of tc_ctrl_data_t, contains amplification factors for all frequency bands
+ * @return Returns true if amplification factors were set successfully.
+ */
+void tc_set_amp(tc_ctrl_data_t *in_data){
+	/** Copy values from input struct */
+	tc_amp_data.lp_amp = in_data->lp_amp;
+	tc_amp_data.bp_amp = in_data->bp_amp;
+	tc_amp_data.hp_amp = in_data->hp_amp;
+
+}
+
+tc_ctrl_data_t tc_get_amp(void){
+	return tc_amp_data;
+}
+
 
 /**
  * Access method for IIR filter coefficients used in Tone Control.
  * @param  [in]  iir_data    Instance of iir_input_data_t, contains filter coefficients and buffer for wet signal.
  * @param  [in]  circ_buff   Circular buffer containing input signal
- * @return Output signal from IIR filter.
+ * @return Returns true if filter coefficients were set successfully.
  */
 bool tc_set_filter_coeff(iir_input_data_t *in_data){
 	if(in_data->taps <= IIR_MAX_COEFFS){

@@ -24,6 +24,18 @@ int main()
 
     catch_interrupt(sample_irq, 10);
     enable_irq(10);
+
+    buttons_init();
+
+    tc_ctrl_data_t tc_amp_data = {
+    		0x400,
+    		0x400,
+    		0x400
+    };
+
+    tc_set_amp(&tc_amp_data);
+
+
 	//printf(":");
 
     /*

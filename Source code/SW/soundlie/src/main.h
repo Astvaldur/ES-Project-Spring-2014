@@ -14,6 +14,8 @@
 #include "uart.h"
 #include "adc.h"
 #include "pwm.h"
+#include "pwm.h"
+//#include "gpio.h"
 #include "irq.h"
 #include "effects.h"
 #include "audiopath.h"

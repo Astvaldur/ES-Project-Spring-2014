@@ -38,7 +38,7 @@ typedef struct {
 } tc_ctrl_data_t;
 
 typedef struct {
-	uint8_t taps;						/* Add member comments here!	*/
+	uint8_t taps;						/* Number of taps				*/
 	input_type_e type;					/* Add member comments here!	*/
 	int16_t *x_data;					/* Add member comments here!	*/
 	int16_t *y_data;					/* Add member comments here!	*/
