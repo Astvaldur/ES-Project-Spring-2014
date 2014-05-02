@@ -105,21 +105,28 @@ static void MessageHandler() {
 		} else {
 			SendCharOnUart('?');
 		}*/
-	}
 		break;
+	}
 	case SET_BASS:{
+		SendCharOnUart('B');
 		//set new new value on bass amplification
-
-	}
+		//int new_bass_amp = ExtractAmplificationValue();
+		//tc_ctrl_data_t current_amp = tc_get_amp();
+		//current_amp.bp_amp = new_bass_amp; //set the new bass amplitude
 		break;
+	}
 	case SET_MIDDLE:{
 		//set new value on middle amplification
-
-	}
+		//int new_middle_amp = ExtractAmplificationValue();
+		//tc_ctrl_data_t current_amp = tc_get_amp();
+		//current_amp.bp_amp = new_middle_amp; //set the new bass amplitude
 		break;
+	}
 	case SET_TREBLE:{
 		//set new value on treble amplification
-
+		//int new_treble_amp = ExtractAmplificationValue();
+		//tc_ctrl_data_t current_amp = tc_get_amp();
+		//current_amp.bp_amp = new_treble_amp; //set the new bass amplitude
 	}
 		break;
 	case 8:
