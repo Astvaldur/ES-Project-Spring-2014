@@ -8,12 +8,17 @@
 
 #include "buttons.h"
 
-void gpio1_init(void);
+void buttons_init_gpio(void);
+
+void buttons_irq(int32_t irq) {
+	disable_irq(10);
+	gpio_write(GPIO_APB, ~(gpio_read(GPIO_APB)));
+	enable_irq(10);
+}
+
 
 void buttons_init(){
-	gpio1_init();
-
-
+	buttons_init_gpio();
 
 	while (1) {
 		volatile int16_t in_data = gpio_read(GPIO_APB);
@@ -70,7 +75,6 @@ void buttons_init(){
 			in_data = gpio_read(GPIO_APB);
 		}
 
-
 		//Turn off leds
 		gpio_write(GPIO_APB, 0);
 
@@ -78,7 +82,10 @@ void buttons_init(){
 
 }
 
-void gpio1_init(){
+void buttons_init_gpio(){
+
+	gpio_init(GPIO_APB);
+
 	//Set 3 MSB to outputs
 	gpio_set_pin_dir(GPIO_APB, 0xE0);
 

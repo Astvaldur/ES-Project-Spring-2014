@@ -1,44 +1,47 @@
 /**
-* @file main.c
-* @brief Main program file.
-* @details Main program file for soundlie project.
-* @author Viktor Jarenfors
-* @author Tobias Hallberg
-* @version 1.0
-*/
+ * @file main.c
+ * @brief Main program file.
+ * @details Main program file for soundlie project.
+ * @author Viktor Jarenfors
+ * @author Tobias Hallberg
+ * @version 1.0
+ */
 
 //Include Libraries
 #include "main.h"
 
 int main()
- { 
-    //echo_input_data alt;
-    //alt.delay = 48000;
-    //alt.dry_amp = 0x6000;
-    //alt.wet_amp = 0x2000;
-    //set_echo_alt(&alt);
+{
+	//echo_input_data alt;
+	//alt.delay = 48000;
+	//alt.dry_amp = 0x6000;
+	//alt.wet_amp = 0x2000;
+	//set_echo_alt(&alt);
 
 
 	//Initialize hw config
-	PcConnectionInitHex();
+	//PcConnectionInitHex();
 
-    catch_interrupt(sample_irq, 10);
-    enable_irq(10);
+	catch_interrupt(sample_irq, 10);
+	enable_irq(10);
 
-    buttons_init();
+	//catch_interrupt(buttons_irq, 10);
+	//enable_irq(10);
 
-    tc_ctrl_data_t tc_amp_data = {
-    		0x400,
-    		0x400,
-    		0x400
-    };
+	tc_ctrl_data_t tc_amp_data = {
+			0x2000,
+			0x2000,
+			0x2000
+	};
 
-    tc_set_amp(&tc_amp_data);
+	tc_set_amp(&tc_amp_data);
+
+	buttons_init();
 
 
 	//printf(":");
 
-    /*
+	/*
 	//TEST
 	iir_input_data in_data;
 	in_data.taps = 3;
@@ -61,17 +64,17 @@ int main()
 	} else {
 		//SendCharOnUart('?');
 	}
-*/
+	 */
 
 	//catch_interrupt(irqhandler, 10);
-    //enable_irq(10);
+	//enable_irq(10);
 	//PcConnectionInit();
 	//printf("1");
 
-    //SET DEFAULT VALUES FOR ECHO AND TC HERE!
+	//SET DEFAULT VALUES FOR ECHO AND TC HERE!
 
-    //Infinite loop
-    while(1);
- }
+	//Infinite loop
+	while(1);
+}
 
 

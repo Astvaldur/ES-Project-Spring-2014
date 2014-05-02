@@ -36,7 +36,10 @@ registers for IO[4*n : 3+4+n], if implemented.
 */
 
 void gpio_init(int32_t addr) {
-
+	struct gpio_regs *gpio = (struct gpio_regs *) addr;
+	gpio->capability = 0xFFFFFFFF;
+	gpio->irq_mask = 0xFFFFF;
+	gpio->irq_polarity = 0xFFFFF;
 }
 
 int32_t gpio_read(int32_t addr){

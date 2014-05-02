@@ -7,6 +7,7 @@
 #include "gpio.h"
 #include "datatypes.h"
 #include "tone_control.h"
+#include "irq.h"
 
 /* Definitions ---------------------------------------------------------------*/
 
@@ -38,6 +39,7 @@
 #define SW_15  	23
 
 /* Function prototypes -------------------------------------------------------*/
+void buttons_irq(int32_t);
 void buttons_init(void);
 
 #endif /* __BUTTONS_H */
