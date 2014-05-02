@@ -46,8 +46,10 @@ extern int putInt(int a);
 //Function Prototypes
 void InitUart();
 char ReadUartChar();
-void SendCharOnUart(char);
+void SendCharOnUart(char char_to_send);
 int UartReadStatus();
 int UartSendStatus();
+int UartIsOverRun();
+void UartClearStatusBit(int bitNr);
 
 #endif

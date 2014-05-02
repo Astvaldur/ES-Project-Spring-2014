@@ -26,6 +26,7 @@ static void SendCharBufferHex();
 static void MessageHandler();
 static void ExtractFilterTaps();
 static input_type_e GetMessageTypeEnum();
+static int ExtractAmplificationValue();
 
 //char buffer set at the maximum msg size accepted
 char uart_hex_buffer[MAX_MSG_SIZE] = { 0 };
@@ -57,16 +58,13 @@ void PcConnectionInitHex() {
 void PcConnectionHandlerHex() {
 	disable_irq(10);
 	disable_irq(UART_INTERRUP_NR); //Disable interrupts
-	disable_irq(10);
 	if (UartReadStatus()) { //When the uartstatus == 1. then data ready (DR).
 		ReadFromUartHex();
-
 		if (CheckIsMessageComplete()) {
 			if (VerifyChecksumHex()) { //Verify that checksum is valid
 				//call the messagehandler
 				MessageHandler();
-				//SendCharOnUart('Y');
-
+				SendCharOnUart('S');
 				ResetPcConnectionParametersHex(); //reset variables when all has been handled.
 			} else {
 				//SendCharBufferHex();
@@ -77,8 +75,12 @@ void PcConnectionHandlerHex() {
 	} else if (UartSendStatus() && sending) { //&& logical AND
 		//call to send a char
 		SendACharHex();
+	} else if (UartIsOverRun()){
+		//if the uart is overrun then the message has to be resent.
+		SendCharOnUart('O');  //signal that the message got Overrunned.
+		UartClearStatusBit(5); //clear the overrun bit.
+		ResetPcConnectionParametersHex();  //reset the connection for a new message.
 	}
-	enable_irq(10);
 	enable_irq(UART_INTERRUP_NR); //enable interrupts.
 	enable_irq(10);
 }
@@ -91,10 +93,8 @@ static void MessageHandler() {
 	case FILTER_HP:
 	case FILTER_MID:
 	case FILTER_LP: {
-
 		iir_input_data_t new_filter_data; //declare struct to store the data in.
 		//calculate the number of taps in the message. data field length/2/4 => datafield/8. each tap takes 4 ascii so thats why division of 4 is present.
-
 		new_filter_data.type = msg_type;
 		new_filter_data.taps = (msg_length - 9) / 8;
 
@@ -105,28 +105,31 @@ static void MessageHandler() {
 		new_filter_data.y_data = new_y_coefficients; //assign array to struct array.
 
 		ExtractFilterTaps(new_x_coefficients, new_y_coefficients);
-
 		//printf("%d", new_filter_data.y_data[0]); //to verify i have the correct ints.
-
-		bool result = tc_set_filter_coeff(&new_filter_data); //calling the filter config function.
-
-		if (result){
+		//bool result =
+		tc_set_filter_coeff(&new_filter_data); //calling the filter config function.
+		/*if (result){
 			SendCharOnUart('!'); //send ! on succesful configuration.
 		} else {
 			SendCharOnUart('?');
-		}
-
-		//SendCharOnUart('$');
-		//function here to handle filter taps
-		//call on the function to configure filters
+		}*/
+	}
+		break;
+	case SET_BASS:{
+		//set new new value on bass amplification
 
 	}
 		break;
-	case 3:
+	case SET_MIDDLE:{
+		//set new value on middle amplification
+
+	}
 		break;
-	case 5:
+	case SET_TREBLE:{
+		//set new value on treble amplification
+
+	}
 		break;
-	case 7:
 	case 8:
 	case 9:
 		//function here to handle setting values of the bass, mid and treble.
@@ -134,6 +137,17 @@ static void MessageHandler() {
 	default:
 		break;
 	}
+}
+
+//read the the amplification value from the message and return it.
+static int ExtractAmplificationValue(){
+	char amp_chars[4] = {0}; //array to store chars that represent the amp value
+	amp_chars[0] = uart_hex_buffer[6];
+	amp_chars[1] = uart_hex_buffer[7];
+	amp_chars[2] = uart_hex_buffer[8];
+	amp_chars[3] = uart_hex_buffer[9];
+	int amp_value = strtol(amp_chars, NULL, 16); //convert the value to integer.
+	return amp_value;
 }
 
 static void ExtractFilterTaps(int16_t *x_pointer, int16_t *y_pointer) {
@@ -178,9 +192,14 @@ static input_type_e GetMessageTypeEnum() {
 	case 2:
 		message_enum = FILTER_HP;
 		break;
-	case 7:
-	case 8:
-	case 9:
+	case 3:
+		message_enum = SET_BASS;
+		break;
+	case 4:
+		message_enum = SET_MIDDLE;
+		break;
+	case 5:
+		message_enum = SET_TREBLE;
 		;
 	}
 	return message_enum;

@@ -56,6 +56,19 @@ int UartReadStatus(){
 	return (read_status & 0x1);
 }
 
+//Checks the overrun status bit of the uart.
+int UartIsOverRun(){
+	int overrun_status = uart_reg_ptr->status_reg; //read the status of uart.
+	overrun_status = (overrun_status & 0x10) > 4;
+	return overrun_status;
+}
+
+//Writes 0 to a specific bit in the uart status registry.
+void UartClearStatusBit(int bitNr){
+	int regMask = 1 << bitNr;  //shift the one to the right bit.
+	regMask = ~regMask; //invert the maske so we only have one
+	uart_reg_ptr->status_reg = regMask; //write to the register.
+}
 /*get the status of the uart. Is there data recieved? Can we send next char. redundant
 int UartStatus() {
 	//read the status from the uart.
