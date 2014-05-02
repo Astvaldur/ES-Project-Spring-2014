@@ -162,13 +162,13 @@ begin
    generic map ("apbvgreport_versiona" & tost(pindex) & ": LED Control rev 0");
    -- pragma translate_on
    
-     ila_xdc0 : ila_xadc
-     PORT MAP (
-       clk => clk,
-       probe0 => probe0,
-       probe1 => probe1,
-       probe2 => probe2
-     );
+--     ila_xdc0 : ila_xadc
+--     PORT MAP (
+--       clk => clk,
+--       probe0 => probe0,
+--       probe1 => probe1,
+--       probe2 => probe2
+--     );
 
 
 end rtl;

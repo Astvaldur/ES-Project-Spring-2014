@@ -1,5 +1,4 @@
 
- 
 ## Pmod Header JA
 #NET "JA<0>"			LOC = "B13"	| IOSTANDARD = "LVCMOS33";		#Bank = 15, Pin name = IO_L1N_T0_AD0N_15,					Sch name = JA1
 #NET "JA<1>"			LOC = "F14"	| IOSTANDARD = "LVCMOS33";		#Bank = 15, Pin name = IO_L5N_T0_AD9N_15,					Sch name = JA2
@@ -12,7 +11,13 @@
 
 ## Pmod Header JB
 #NET "JB<0>"			LOC = "G14"	| IOSTANDARD = "LVCMOS33";		#Bank = 15, Pin name = IO_L15N_T2_DQS_ADV_B_15,				Sch name = JB1
+set_property PACKAGE_PIN G14 [get_ports uart_rxd1]
+set_property IOSTANDARD LVCMOS33 [get_ports uart_rxd1]
+
 #NET "JB<1>"			LOC = "P15"	| IOSTANDARD = "LVCMOS33";		#Bank = 14, Pin name = IO_L13P_T2_MRCC_14,					Sch name = JB2
+set_property PACKAGE_PIN P15 [get_ports uart_txd1]
+set_property IOSTANDARD LVCMOS33 [get_ports uart_txd1]
+
 #NET "JB<2>"			LOC = "V11"	| IOSTANDARD = "LVCMOS33";		#Bank = 14, Pin name = IO_L21N_T3_DQS_A06_D22_14,			Sch name = JB3
 #NET "JB<3>"			LOC = "V15"	| IOSTANDARD = "LVCMOS33";		#Bank = CONFIG, Pin name = IO_L16P_T2_CSI_B_14,				Sch name = JB4
 #NET "JB<4>"			LOC = "K16"	| IOSTANDARD = "LVCMOS33";		#Bank = 15, Pin name = IO_25_15,							Sch name = JB7
@@ -21,12 +26,8 @@
 #NET "JB<7>"			LOC = "U11"	| IOSTANDARD = "LVCMOS33";		#Bank = 14, Pin name = IO_L19N_T3_A09_D25_VREF_14,			Sch name = JB10 
  
 ## Pmod Header JC
-##Bank = 35, Pin name = IO_L21P_T3_DQS_35,					Sch name = JC4
-set_property PACKAGE_PIN J4 [get_ports  uart_rxd1]					
-	set_property IOSTANDARD LVCMOS33 [get_ports  uart_rxd1]
-##Bank = 35, Pin name = IO_L23N_T3_35,						Sch name = JC7
-set_property PACKAGE_PIN K1 [get_ports uart_txd1]					
-	set_property IOSTANDARD LVCMOS33 [get_ports uart_txd1]
+#NET "JC<0>"			LOC = "K2"	| IOSTANDARD = "LVCMOS33";		#Bank = 35, Pin name = IO_L23P_T3_35,						Sch name = JC1
+#NET "JC<1>"			LOC = "E7"	| IOSTANDARD = "LVCMOS33";		#Bank = 35, Pin name = IO_L6P_T0_35,						Sch name = JC2
 #NET "JC<2>"			LOC = "J3"	| IOSTANDARD = "LVCMOS33";		#Bank = 35, Pin name = IO_L22P_T3_35,						Sch name = JC3
 #NET "JC<3>"			LOC = "J4"	| IOSTANDARD = "LVCMOS33";		#Bank = 35, Pin name = IO_L21P_T3_DQS_35,					Sch name = JC4
 #NET "JC<4>"			LOC = "K1"	| IOSTANDARD = "LVCMOS33";		#Bank = 35, Pin name = IO_L23N_T3_35,						Sch name = JC7
@@ -36,36 +37,36 @@ set_property PACKAGE_PIN K1 [get_ports uart_txd1]
  
 ## Pmod Header JD
 #NET "JD<0>"			LOC = "H4"	| IOSTANDARD = "LVCMOS33";		#Bank = 35, Pin name = IO_L21N_T2_DQS_35,					Sch name = JD1
-set_property PACKAGE_PIN H4 [get_ports {gpio[0]}]
-set_property IOSTANDARD LVCMOS33 [get_ports {gpio[0]}]
+#set_property PACKAGE_PIN H4 [get_ports {gpio[0]}]
+#set_property IOSTANDARD LVCMOS33 [get_ports {gpio[0]}]
 
 #NET "JD<1>"			LOC = "H1"	| IOSTANDARD = "LVCMOS33";		#Bank = 35, Pin name = IO_L17P_T2_35,						Sch name = JD2
-set_property PACKAGE_PIN H1 [get_ports {gpio[1]}]
-set_property IOSTANDARD LVCMOS33 [get_ports {gpio[1]}]
+#set_property PACKAGE_PIN H1 [get_ports {gpio[1]}]
+#set_property IOSTANDARD LVCMOS33 [get_ports {gpio[1]}]
 
 #NET "JD<2>"			LOC = "G1"	| IOSTANDARD = "LVCMOS33";		#Bank = 35, Pin name = IO_L17N_T2_35,						Sch name = JD3
-set_property PACKAGE_PIN G1 [get_ports {gpio[2]}]
-set_property IOSTANDARD LVCMOS33 [get_ports {gpio[2]}]
+#set_property PACKAGE_PIN G1 [get_ports {gpio[2]}]
+#set_property IOSTANDARD LVCMOS33 [get_ports {gpio[2]}]
 
 #NET "JD<3>"			LOC = "G3"	| IOSTANDARD = "LVCMOS33";		#Bank = 35, Pin name = IO_L20N_T3_35,						Sch name = JD4
-set_property PACKAGE_PIN G3 [get_ports {gpio[3]}]
-set_property IOSTANDARD LVCMOS33 [get_ports {gpio[3]}]
+#set_property PACKAGE_PIN G3 [get_ports {gpio[3]}]
+#set_property IOSTANDARD LVCMOS33 [get_ports {gpio[3]}]
 
 #NET "JD<4>"			LOC = "H2"	| IOSTANDARD = "LVCMOS33";		#Bank = 35, Pin name = IO_L15P_T2_DQS_35,					Sch name = JD7
-set_property PACKAGE_PIN H2 [get_ports {gpio[4]}]
-set_property IOSTANDARD LVCMOS33 [get_ports {gpio[4]}]
+#set_property PACKAGE_PIN H2 [get_ports {gpio[4]}]
+#set_property IOSTANDARD LVCMOS33 [get_ports {gpio[4]}]
 
 #NET "JD<5>"			LOC = "G4"	| IOSTANDARD = "LVCMOS33";		#Bank = 35, Pin name = IO_L20P_T3_35,						Sch name = JD8
-set_property PACKAGE_PIN G4 [get_ports {gpio[5]}]
-set_property IOSTANDARD LVCMOS33 [get_ports {gpio[5]}]
+#set_property PACKAGE_PIN G4 [get_ports {gpio[5]}]
+#set_property IOSTANDARD LVCMOS33 [get_ports {gpio[5]}]
 
 #NET "JD<6>"			LOC = "G2"	| IOSTANDARD = "LVCMOS33";		#Bank = 35, Pin name = IO_L15N_T2_DQS_35,					Sch name = JD9
-set_property PACKAGE_PIN G2 [get_ports {gpio[6]}]
-set_property IOSTANDARD LVCMOS33 [get_ports {gpio[6]}]
+#set_property PACKAGE_PIN G2 [get_ports {gpio[6]}]
+#set_property IOSTANDARD LVCMOS33 [get_ports {gpio[6]}]
 
 #NET "JD<7>"			LOC = "F3"	| IOSTANDARD = "LVCMOS33";		#Bank = 35, Pin name = IO_L13N_T2_MRCC_35,					Sch name = JD10
-set_property PACKAGE_PIN F3 [get_ports {gpio[7]}]
-set_property IOSTANDARD LVCMOS33 [get_ports {gpio[7]}]
+#set_property PACKAGE_PIN F3 [get_ports {gpio[7]}]
+#set_property IOSTANDARD LVCMOS33 [get_ports {gpio[7]}]
  
 ## Pmod Header JXADC
 #NET "JXADC<0>"			LOC = "A13"	| IOSTANDARD = "LVCMOS33";		#Bank = 15, Pin name = IO_L9P_T1_DQS_AD3P_15,				Sch name = XADC1_P -> XA1_P

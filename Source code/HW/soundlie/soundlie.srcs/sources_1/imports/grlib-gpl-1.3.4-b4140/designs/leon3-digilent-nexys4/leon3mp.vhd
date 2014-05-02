@@ -98,14 +98,6 @@ entity leon3mp is
     btnCpuResetn    : in    std_ulogic;
     btn             : in    std_logic_vector(4 downto 0);
 
-    -- VGA Connector
-    --vgaRed          : out   std_logic_vector(2 downto 0);
-    --vgaGreen        : out   std_logic_vector(2 downto 0);
-    --vgaBlue         : out   std_logic_vector(2 downto 1);
-
-    --Hsync           : out   std_ulogic;
-    --Vsync           : out   std_ulogic;
-
     -- 12 pin connectors
     --ja              : inout std_logic_vector(7 downto 0);
     --jb              : inout std_logic_vector(7 downto 0);
@@ -126,24 +118,14 @@ entity leon3mp is
     PhyMdc          : out   std_ulogic;
     PhyMdio         : inout std_logic;
 
-    -- Pic USB-HID interface
-    --~ PS2KeyboardData : inout std_logic;
-    --~ PS2KeyboardClk  : inout std_logic;
-
-    --~ PS2MouseData    : inout std_logic;
-    --~ PS2MouseClk     : inout std_logic;
-
-    --~ PicGpio         : out   std_logic_vector(1 downto 0);
-
     -- USB-RS232 interface (DEBUG UART)
     RsRx            : in    std_logic;
     RsTx            : out   std_logic;
     
-    -- USB-RS232 interface (DEBUG UART)
+    -- USB-RS232 interface (APP UART)
     uart_rxd1       : in    std_logic;
     uart_txd1       : out   std_logic;
     
-
     --XADC
     AdcVn           : in    std_logic;
     AdcVp           : in    std_logic;
@@ -156,8 +138,7 @@ entity leon3mp is
     dac_sync        : out std_logic;
     dac_DIN         : out std_logic;
     dac_sclk        : out std_logic;
-        
-    
+       
     -- GPIO module
     gpio            : inout std_logic_vector(CFG_GRGPIO_WIDTH-1 downto 0) 	-- I/O port
 
@@ -338,7 +319,6 @@ begin
   dac_sclk <= dac_sclk_sig;
   ampSD <= '1';
   
-
   probe0 <= xadc_out_s;
   probe1(0) <= apbo(10).pirq(10);
   probe2(0) <= rxd1;
@@ -515,7 +495,7 @@ begin
   -- UART
   ua1 : if CFG_UART1_ENABLE /= 0 generate
     uart1 : apbuart                     -- UART 1
-      generic map (pindex   => 1, paddr => 1, pirq => 2, console => dbguart, fifosize => CFG_UART1_FIFO)
+      generic map (pindex   => 4, paddr => 4, pirq => 4, console => dbguart, fifosize => CFG_UART1_FIFO)
       port map (rstn, clkm, apbi, apbo(1), u1i, u1o);
     u1i.rxd    <= rxd1;
     u1i.ctsn   <= '0';
@@ -574,21 +554,18 @@ begin
             dac_sclk => dac_sclk_sig	--! Serial clock            
           );                      
          
-        
-    gpio0 : if CFG_GRGPIO_ENABLE /= 0 generate     -- GR GPIO unit
-        grgpio0: grgpio
-          generic map( pindex => 12, paddr => 12, imask => CFG_GRGPIO_IMASK, 
-            nbits => CFG_GRGPIO_WIDTH)
-          port map( rstn, clkm, apbi, apbo(12), gpioi, gpioo);
-        
-          pio_pads : for i in 0 to CFG_GRGPIO_WIDTH-1 generate
-            pio_pad : iopad generic map (tech => padtech)
-              port map (gpio(i), gpioo.dout(i), gpioo.oen(i), gpioi.din(i));
-          end generate;
-    end generate;
-
-
-
+  --  GPIO
+  gpio0 : if CFG_GRGPIO_ENABLE /= 0 generate     -- GR GPIO unit
+    grgpio0: grgpio
+      generic map( pindex => 12, paddr => 12, imask => CFG_GRGPIO_IMASK, 
+        nbits => CFG_GRGPIO_WIDTH)
+      port map( rstn, clkm, apbi, apbo(12), gpioi, gpioo);
+              
+      pio_pads : for i in 0 to CFG_GRGPIO_WIDTH-1 generate
+        pio_pad : iopad generic map (tech => padtech)
+          port map (gpio(i), gpioo.dout(i), gpioo.oen(i), gpioi.din(i));
+      end generate;
+  end generate;
 
 -----------------------------------------------------------------------
 ---  ETHERNET ---------------------------------------------------------
@@ -673,13 +650,13 @@ begin
 ---  ILA  ----------------------------------------------------
 -----------------------------------------------------------------------
 
-  ila_leon3_0 : ila_leon3
-    PORT MAP (
-      clk => clk,
-      probe0 => probe0,
-      probe1 => probe1,
-      probe2 => probe2
-    );
+--  ila_leon3_0 : ila_leon3
+--    PORT MAP (
+--      clk => clk,
+--      probe0 => probe0,
+--      probe1 => probe1,
+--      probe2 => probe2
+--    );
 
 -----------------------------------------------------------------------
 ---  Boot message  ----------------------------------------------------

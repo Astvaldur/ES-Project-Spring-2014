@@ -722,17 +722,6 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/imports/fir_2cascaded/fir2.vhd">
-      <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Google Drive/DAT096/Tasks/FIR/fir_2cascaded/fir2.vhd"/>
-        <Attr Name="ImportTime" Val="1396602214"/>
-        <Attr Name="UsedInSynthesis" Val="1"/>
-        <Attr Name="UsedInSimulation" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PSRCDIR/sources_1/imports/fir_2cascaded/fir1.vhd">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Google Drive/DAT096/Tasks/FIR/fir_2cascaded/fir1.vhd"/>
@@ -948,32 +937,11 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/imports/fir_2cascaded/fir_wrap2.vhd">
-      <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Google Drive/DAT096/Tasks/FIR/fir_2cascaded/fir_wrap2.vhd"/>
-        <Attr Name="ImportTime" Val="1396602212"/>
-        <Attr Name="UsedInSynthesis" Val="1"/>
-        <Attr Name="UsedInSimulation" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PSRCDIR/sources_1/imports/fir_2cascaded/fir_wrap.vhd">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Google Drive/DAT096/Tasks/FIR/fir_2cascaded/fir_wrap.vhd"/>
         <Attr Name="ImportTime" Val="1396602211"/>
         <Attr Name="UsedInSynthesis" Val="1"/>
-        <Attr Name="UsedInSimulation" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/ip/ila_xadc/ila_xadc.xci">
-      <FileInfo>
-        <Attr Name="UsedInSynthesis" Val="1"/>
-        <Attr Name="UsedInImplementation" Val="1"/>
         <Attr Name="UsedInSimulation" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -1239,10 +1207,22 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/ip/ila_leon3/ila_leon3.xci">
+    <File Path="$PSRCDIR/sources_1/imports/DAC module/DACInterface.vhd">
       <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Desktop/DAC module/DACInterface.vhd"/>
+        <Attr Name="ImportTime" Val="1399014863"/>
         <Attr Name="UsedInSynthesis" Val="1"/>
-        <Attr Name="UsedInImplementation" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/DAC module/clk_enable.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Desktop/DAC module/clk_enable.vhd"/>
+        <Attr Name="ImportTime" Val="1399014863"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
         <Attr Name="UsedInSimulation" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -1253,17 +1233,6 @@
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Desktop/Stuff/rtl/XADC module/XADCapb.vhd"/>
         <Attr Name="ImportTime" Val="1394543038"/>
-        <Attr Name="UsedInSynthesis" Val="1"/>
-        <Attr Name="UsedInSimulation" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/imports/PWM module/PWMapb.vhd">
-      <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Desktop/Stuff/rtl/PWM module/PWMapb.vhd"/>
-        <Attr Name="ImportTime" Val="1393515088"/>
         <Attr Name="UsedInSynthesis" Val="1"/>
         <Attr Name="UsedInSimulation" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -1521,10 +1490,74 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/imports/DAC module/DAC_apb.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Desktop/DAC module/DAC_apb.vhd"/>
+        <Attr Name="ImportTime" Val="1399014863"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/imports/grlib-gpl-1.3.4-b4140/designs/leon3-digilent-nexys4/leon3mp.vhd">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Desktop/Stuff/LEON3/grlib-gpl-1.3.4-b4140/grlib-gpl-1.3.4-b4140/designs/leon3-digilent-nexys4/leon3-digilent-nexys4/leon3mp.vhd"/>
         <Attr Name="ImportTime" Val="1387560003"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/ip/ila_xadc/ila_xadc.xci">
+      <FileInfo>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInImplementation" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/ip/ila_leon3/ila_leon3.xci">
+      <FileInfo>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInImplementation" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/fir_2cascaded/fir2.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Google Drive/DAT096/Tasks/FIR/fir_2cascaded/fir2.vhd"/>
+        <Attr Name="ImportTime" Val="1396602214"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/fir_2cascaded/fir_wrap2.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Google Drive/DAT096/Tasks/FIR/fir_2cascaded/fir_wrap2.vhd"/>
+        <Attr Name="ImportTime" Val="1396602212"/>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/PWM module/PWMapb.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Users/Zotty/Desktop/Stuff/rtl/PWM module/PWMapb.vhd"/>
+        <Attr Name="ImportTime" Val="1393515088"/>
         <Attr Name="UsedInSynthesis" Val="1"/>
         <Attr Name="UsedInSimulation" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>

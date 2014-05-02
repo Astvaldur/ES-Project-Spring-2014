@@ -1,9 +1,9 @@
 // Copyright 1986-1999, 2001-2013 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2013.4 (win64) Build 353583 Mon Dec  9 17:49:19 MST 2013
-// Date        : Mon Apr 14 15:04:40 2014
-// Host        : CE-PC46 running 64-bit Service Pack 1  (build 7601)
-// Command     : write_verilog -force -mode funcsim {Z:/DAT096/git/ES-Project-Spring-2014/Source
+// Date        : Fri May 02 10:19:08 2014
+// Host        : Zotty-LT02 running 64-bit Service Pack 1  (build 7601)
+// Command     : write_verilog -force -mode funcsim {C:/ES-Project-Spring-2014/Source
 //               code/HW/soundlie/soundlie.srcs/sources_1/ip/xadc_wiz_0/xadc_wiz_0_funcsim.v}
 // Design      : xadc_wiz_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
