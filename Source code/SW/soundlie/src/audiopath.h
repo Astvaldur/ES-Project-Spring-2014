@@ -15,6 +15,7 @@
 #define SAMPLE_IRQ_ID	10
 
 /* Function prototypes -------------------------------------------------------*/
+void audiopath_init(void);
 void sample_irq(int32_t);
 
 #endif /* __SOUNDPATH_H */

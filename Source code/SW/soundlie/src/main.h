@@ -20,15 +20,9 @@
 #include "audiopath.h"
 #include "pc_communication.h"
 
-
-
 /* Definitions ---------------------------------------------------------------*/
-
 
 /* Function prototypes -------------------------------------------------------*/
 extern void *catch_interrupt(void func(), int irq);
-
-/* Global variables ----------------------------------------------------------*/
-
 
 #endif /* __MAIN_H */
