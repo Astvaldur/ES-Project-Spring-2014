@@ -10,7 +10,6 @@
 #include <stdbool.h>
 
 #include "datatypes.h"
-#include "applications.h"
 #include "uart.h"
 #include "adc.h"
 #include "buttons.h"
