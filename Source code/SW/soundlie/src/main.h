@@ -16,7 +16,8 @@
 #include "buttons.h"
 #include "pwm.h"
 #include "irq.h"
-#include "effects.h"
+#include "echo.h"
+#include "chorus.h"
 #include "audiopath.h"
 #include "pc_communication.h"
 

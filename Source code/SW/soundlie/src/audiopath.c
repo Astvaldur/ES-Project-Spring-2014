@@ -8,6 +8,8 @@
 
 #include "audiopath.h"
 
+static audiopath_t audiopath_state;
+
 /**
  * Initialize the the audio path and enables the proper interrupts
  * @param  None
@@ -16,6 +18,28 @@
 void audiopath_init() {
 	catch_interrupt(sample_irq, SAMPLE_IRQ_ID);
 	enable_irq(SAMPLE_IRQ_ID);
+
+	audiopath_state.effects_enable = OFF;
+	audiopath_state.tc_enable = false;
+}
+
+/**
+ * Set...
+ * @param  None
+ * @return None
+ */
+void audiopath_set(audiopath_t *audiopath_new_state) {
+	audiopath_state.effects_enable = audiopath_new_state->effects_enable;
+	audiopath_state.tc_enable = audiopath_new_state->tc_enable;
+}
+
+/**
+ * Get...
+ * @param  None
+ * @return None
+ */
+audiopath_t audiopath_get() {
+	return audiopath_state;
 }
 
 /**
@@ -29,29 +53,36 @@ void sample_irq(int32_t irq)
 	disable_irq(SAMPLE_IRQ_ID);
 
 	static circ_buff_t circ_buff;
-	static int16_t tmp_out = 0;
+	static int16_t sample = 0;
 
 	/* Write sample from last irq (get 1 sample delay in exchange for "stable skew") */
-	pwm_write(PWM_APB, tmp_out);
+	pwm_write(PWM_APB, sample);
 
 	/* Read sample from ADC */
-	int16_t sample = (int16_t) adc_read(ADC_APB);
+	sample = (int16_t) adc_read(ADC_APB);
 
+	switch (audiopath_state.effects_enable) {
+	case ECHO :
+		/* Run echo */
+		sample = echo(sample);
+		break;
+	case CHORUS :
+		/* Run chorus */
+		sample = chorus(sample);
+		break;
+	case OFF :
+		/* Do nothing */
+		break;
+	}
+
+	/* Add sample to buffer */
 	circ_buff_put(&circ_buff, sample);
 
-	/* Run straight through */
-	tmp_out = circ_buff_get(&circ_buff, 0);
-
-	/* Run echo */
-	//tmp_out = echo(sample);
-
-	/* Run tone control */
-	//tmp_out = tc_amp(&(echo_data.buff_wet));
-	//tmp_out = tc_amp(&circ_buff);
+	if (audiopath_state.tc_enable) {
+		/* Run tone control */
+		sample = tc_amp(&circ_buff);
+	}
 
 	/* Enable IRQ when done */
 	enable_irq(SAMPLE_IRQ_ID);
-
 }
-
-

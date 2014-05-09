@@ -10,78 +10,160 @@
 
 void buttons_init_gpio(void);
 
-void buttons_irq(int32_t irq) {
-	disable_irq(10);
-	gpio_write(GPIO_APB, ~(gpio_read(GPIO_APB)));
-	enable_irq(10);
-}
-
-
+/**
+ * Polling based interface for buttons that sets audio processing parameters
+ * @param  [in] None
+ * @return None
+ */
 void buttons_init(){
 	buttons_init_gpio();
+
+	audiopath_t ap_state;
+	tc_ctrl_data_t tc_state;
+	echo_input_data_t ec_state;
 
 	while (1) {
 		volatile int16_t in_data = gpio_read(GPIO_APB);
 
 		if (in_data & (1 << BUTN_U)) {
-			if (in_data & (1 << SW_0)){
-				tc_ctrl_data_t tmp = tc_get_amp();
-				if(tmp.lp_amp <= 0x2000){
-					tmp.lp_amp = tmp.lp_amp*2;
-					tc_set_amp(&tmp);
-				}
+			int32_t eval = in_data & ACT_BUTN;
+			switch (eval) {
+			case (1 << SW_TC_EN) :
+				ap_state = audiopath_get();
+				ap_state.tc_enable = true;
+				audiopath_set(&ap_state);
+				break;
 
-			}if (in_data & (1 << SW_1)) {
-				tc_ctrl_data_t tmp = tc_get_amp();
-				if(tmp.bp_amp <= 0x2000){
-					tmp.bp_amp = tmp.bp_amp*2;
-					tc_set_amp(&tmp);
-				}
+			case (1 << SW_TC_BAS) :
+				tc_state = tc_get_amp();
+				tc_state.lp_amp = 2*tc_state.lp_amp;
+				tc_set_amp(&tc_state);
+				break;
 
-			}if (in_data & (1 << SW_2)) {
-				tc_ctrl_data_t tmp = tc_get_amp();
-				if(tmp.hp_amp <= 0x2000){
-					tmp.hp_amp = tmp.hp_amp*2;
-					tc_set_amp(&tmp);
-				}
+			case (1 << SW_TC_MID) :
+				tc_state = tc_get_amp();
+				tc_state.bp_amp = 2*tc_state.bp_amp;
+				tc_set_amp(&tc_state);
+				break;
+
+			case (1 << SW_TC_TRE) :
+				tc_state = tc_get_amp();
+				tc_state.hp_amp = 2*tc_state.hp_amp;
+				tc_set_amp(&tc_state);
+				break;
+
+			case (1 << SW_ECHO_EN) :
+				ap_state = audiopath_get();
+				ap_state.effects_enable = ECHO;
+				audiopath_set(&ap_state);
+				break;
+			case (1 << SW_ECHO_DEL) :
+				ec_state = echo_get();
+				ec_state.delay = ec_state.delay + ECHO_DEL_STEP;
+				echo_set(&ec_state);
+				break;
+
+			case (1 << SW_ECHO_AMP) :
+				ec_state = echo_get();
+				ec_state.wet_amp = ec_state.wet_amp + ECHO_AMP_STEP;
+				ec_state.dry_amp = ECHO_TOT_POW - ec_state.wet_amp;
+				echo_set(&ec_state);
+				break;
+
+			case (1 << SW_CHO_EN) :	//Not working below!?
+				ap_state = audiopath_get();
+				ap_state.effects_enable = CHORUS;
+				audiopath_set(&ap_state);
+				break;
+			case (1 << SW_CHO_DEL) :
+				gpio_write(GPIO_APB, 1 << LED_B);
+				break;
+			case (1 << SW_CHO_AMP) :
+				gpio_write(GPIO_APB, 1 << LED_B);
+				break;
 			}
 
 		}
 		if (in_data & (1 << BUTN_D)) {
-			if (in_data & (1 << SW_0)){
-				tc_ctrl_data_t tmp = tc_get_amp();
-				tmp.lp_amp = tmp.lp_amp/2;
-				tc_set_amp(&tmp);
+			int32_t eval = in_data & 0x3FF00;
+			switch (eval) {
+			case (1 << SW_TC_EN) :
+				ap_state = audiopath_get();
+				ap_state.tc_enable = false;
+				audiopath_set(&ap_state);
+				break;
 
-			}if (in_data & (1 << SW_1)) {
-				tc_ctrl_data_t tmp = tc_get_amp();
-				tmp.bp_amp = tmp.bp_amp/2;
-				tc_set_amp(&tmp);
+			case (1 << SW_TC_BAS) :
+				tc_state = tc_get_amp();
+				tc_state.lp_amp = tc_state.lp_amp / 2;
+				tc_set_amp(&tc_state);
+				break;
 
-			}if (in_data & (1 << SW_2)) {
-				tc_ctrl_data_t tmp = tc_get_amp();
-				tmp.hp_amp = tmp.hp_amp/2;
-				tc_set_amp(&tmp);
+			case (1 << SW_TC_MID) :
+				tc_state = tc_get_amp();
+				tc_state.bp_amp = tc_state.bp_amp / 2;
+				tc_set_amp(&tc_state);
+				break;
+
+			case (1 << SW_TC_TRE) :
+				tc_state = tc_get_amp();
+				tc_state.hp_amp = tc_state.hp_amp / 2;
+				tc_set_amp(&tc_state);
+				break;
+
+			case (1 << SW_ECHO_EN) :
+				ap_state = audiopath_get();
+				ap_state.effects_enable = OFF;
+				audiopath_set(&ap_state);
+				break;
+			case (1 << SW_ECHO_DEL) :
+				ec_state = echo_get();
+				ec_state.delay = ec_state.delay - ECHO_AMP_STEP;
+				echo_set(&ec_state);
+				break;
+
+			case (1 << SW_ECHO_AMP) :
+				ec_state = echo_get();
+				ec_state.wet_amp = ec_state.wet_amp - ECHO_AMP_STEP;
+				ec_state.dry_amp = ECHO_TOT_POW - ec_state.wet_amp;
+				echo_set(&ec_state);
+				break;
+
+			case (1 << SW_CHO_EN) :	//Not working below!?
+				gpio_write(GPIO_APB, 1 << LED_B);		// Testing button
+				ap_state = audiopath_get();
+				ap_state.effects_enable = CHORUS;
+				audiopath_set(&ap_state);
+				break;
+			case (1 << SW_CHO_DEL) :
+				gpio_write(GPIO_APB, 1 << LED_B);
+				break;
+			case (1 << SW_CHO_AMP) :
+				gpio_write(GPIO_APB, 1 << LED_B);
+				break;
 			}
-
 		}
 
+		/* Center button pressed, may be used to reset to default values in future implementation */
 		if (in_data & (1 << BUTN_C)) {
 			gpio_write(GPIO_APB, 1 << LED_B);
-
 		}
 
+		/* Wait until button has been released */
 		while((in_data & 0x1F) != 0){
 			in_data = gpio_read(GPIO_APB);
 		}
 
-		//Turn off leds
+		//Turn off RGB leds, used for testing
 		gpio_write(GPIO_APB, 0);
-
 	}
-
 }
 
+/**
+ * Initialize button interface
+ * @param  [in] None
+ * @return None
+ */
 void buttons_init_gpio(){
 
 	gpio_init(GPIO_APB);

@@ -115,15 +115,30 @@ int16_t tc_iir(iir_data_t *iir_data, circ_buff_t *circ_buff) {
  * @return Returns true if amplification factors were set successfully.
  */
 void tc_set_amp(tc_ctrl_data_t *in_data){
-	/* Copy values from input struct */
-	tc_amp_data.lp_amp = in_data->lp_amp;
-	tc_amp_data.bp_amp = in_data->bp_amp;
-	tc_amp_data.hp_amp = in_data->hp_amp;
+	/* Copy values from input struct if they are valid */
+	if (tc_amp_valid_value(in_data->lp_amp)) {
+		tc_amp_data.lp_amp = in_data->lp_amp;
+	}
+	if (tc_amp_valid_value(in_data->bp_amp)) {
+		tc_amp_data.bp_amp = in_data->bp_amp;
+	}
+	if (tc_amp_valid_value(in_data->hp_amp)) {
+		tc_amp_data.hp_amp = in_data->hp_amp;
+	}
 
 }
 
 tc_ctrl_data_t tc_get_amp(void){
 	return tc_amp_data;
+}
+
+bool tc_amp_valid_value(int16_t value) {
+	if (4 < value && value <= 0x2000) {
+		return true;
+	}
+	else {
+		return false;
+	}
 }
 
 /**

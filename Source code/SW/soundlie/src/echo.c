@@ -1,13 +1,13 @@
 /**
-* @file effects.c
-* @brief Sounds effects and associated functions.
-* @details Sounds effects and associated functions for use with circular buffer.
-* @author Tobias Hallberg
-* @author Jonas Andersson
-* @version 1.0
-*/
+ * @file echo.c
+ * @brief Sound effect echo and associated functions.
+ * @details Sounds effects and associated functions for use with circular buffer.
+ * @author Tobias Hallberg
+ * @author Jonas Andersson
+ * @version 1.0
+ */
 
-#include "effects.h"
+#include "echo.h"
 
 //Declare/define variables with limited scope
 static echo_data_t echo_data;
@@ -41,9 +41,9 @@ int16_t echo(int16_t dry_samp) {
  */
 bool echo_init()
 {
-	echo_data.delay = 12000;
-	echo_data.dry_amp = 0x6000;
-	echo_data.wet_amp = 0x2000;
+	echo_data.delay = 24000;
+	echo_data.dry_amp = 0x4000;
+	echo_data.wet_amp = 0x4000;
 
 	return true;
 }
@@ -54,7 +54,10 @@ bool echo_init()
  * @return Returns true
  */
 bool echo_set(echo_input_data_t *in_data){
-	echo_data.delay = in_data->delay;
+	if (ECHO_DEL_LO_LIM < in_data->delay && in_data->delay < ECHO_DEL_HI_LIM) {
+		echo_data.delay = in_data->delay;
+	}
+
 	echo_data.dry_amp = in_data->dry_amp;
 	echo_data.wet_amp = in_data->wet_amp;
 

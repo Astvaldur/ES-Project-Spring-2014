@@ -21,7 +21,7 @@
 #define MAX_MSG_SIZE 209				// 208 ASCII + terminator.
 #define MSG_TERMINATOR 'x'				//select the terminator of the message.
 #define DATA_FIELD_LENGTH 10
-#define UART_INTERRUP_NR 2
+#define UART_INTERRUP_NR 4
 
 //Functions
 void PcConnectionInitHex();
