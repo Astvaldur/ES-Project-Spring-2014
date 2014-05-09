@@ -7,6 +7,9 @@
 
 #include "pc_communication.h"
 
+// Added i here...
+static int i;
+
 //help function prototypes
 static int CheckMessageContentHex();
 static int CheckIsMessageComplete();

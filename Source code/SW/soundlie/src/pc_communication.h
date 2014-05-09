@@ -13,7 +13,6 @@
 #include "irq.h"			//to be able to enable interrupts for uart
 #include "tone_control.h"
 #include "datatypes.h"
-#include "applications.h"
 #include "main.h"
 
 //Macro
