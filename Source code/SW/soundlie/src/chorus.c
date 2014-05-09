@@ -19,18 +19,26 @@ static chorus_data_t chorus_data;
  */
 int16_t chorus(int16_t dry_samp) {
 
+	/* Store dry signal in buffer */
+	circ_buff_put(&(chorus_data.buff_dry), dry_samp);
+
+	/*int16_t buff_offset = 200 * sin((3/20)*2*M_PI*t1);
+
+	t1 = t1 + 3/Sine_y_FS;*/
+
 	/* Get delayed wet signal from buffer */
-	int16_t wet_samp = circ_buff_get(&(chorus_data.buff_wet), chorus_data.delay);
+	//int16_t wet_samp = circ_buff_get(&(chorus_data.buff_wet), chorus_data.delay);
 
 	/* Apply chorus effect */
-	int32_t chorus_calc = (dry_samp * chorus_data.dry_amp) + (wet_samp * chorus_data.wet_amp);
+	//int32_t chorus_calc = (dry_samp * chorus_data.dry_amp) + (wet_samp * chorus_data.wet_amp);
 
 	/* Perform bitshift to get correct result from Q1.15 x Q1.15 multiplication */
-	int16_t result = (int16_t) (chorus_calc >> 15);
+	//int16_t result = (int16_t) (chorus_calc >> 15);
 
 	/* Push calculated signal into wet buffer */
-	circ_buff_put(&(chorus_data.buff_wet), result);
+	//circ_buff_put(&(chorus_data.buff_wet), result);
 
+	int result = 1;
 	return result;
 }
 

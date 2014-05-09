@@ -54,7 +54,7 @@ typedef struct {
 	uint16_t delay;						/* Delay in number of samples	 */
 	int16_t dry_amp;					/* Attenuation of dry signal	 */
 	int16_t wet_amp;					/* Attenuation of wet signal	 */
-	circ_buff_t buff_wet;				/* Buffer for wet signal 		 */
+	circ_buff_t buff_dry;				/* Buffer for wet signal 		 */
 } chorus_data_t;
 
 typedef struct {
