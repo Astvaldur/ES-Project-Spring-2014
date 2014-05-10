@@ -2,7 +2,7 @@
  * @file tone_control.c
  * @brief Tone control feature.
  * @details This filer implements the tone control feature by using 3 filters (LP, BP and HP). The filter coefficients can be set or changed by calling tc_set_filter_coeff().
- * @author Tobias Hallberg, Jonas Andersson
+ * @author Tobias Hallberg
  * @author Jonas Andersson
  * @version 1.0
  */
@@ -12,6 +12,7 @@
 /* Private functions ----------------------------------------------------*/
 static int16_t tc_iir(iir_data_t *, circ_buff_t *);
 
+/* Private variables ----------------------------------------------------*/
 static iir_data_t iir_data_lp = {
 		3,
 		{6, 12, 6},
@@ -38,27 +39,41 @@ static tc_ctrl_data_t tc_amp_data = {
 };
 
 /**
+ * Initialize the tone control and set the default amplification levels
+ * @param  None
+ * @return None
+ */
+void tc_init() {
+	tc_ctrl_data_t tc_amp_data = {
+			0x2000,
+			0x2000,
+			0x2000
+	};
+
+	tc_set_amp(&tc_amp_data);
+}
+
+/**
  * Used for applying tone control to incoming signal
  * @param  [in]  circ_buff   Circular buffer containing input signal
  * @return Output signal from Tone Control.
  */
 int16_t tc_amp(circ_buff_t *circ_buff) {
 
-	/** Execute filter calculations */
-	int16_t filt_lp = tc_iir(&iir_data_lp, circ_buff);			//Use LP-filter
-	int16_t filt_bp = tc_iir(&iir_data_bp, circ_buff);			//Use BP-filter
-	int16_t filt_hp = tc_iir(&iir_data_hp, circ_buff);			//Use HP-filter
+	/* Execute filter calculations */
+	int16_t filt_lp = tc_iir(&iir_data_lp, circ_buff);
+	int16_t filt_bp = tc_iir(&iir_data_bp, circ_buff);
+	int16_t filt_hp = tc_iir(&iir_data_hp, circ_buff);
 
-	/** Apply +- 12dB amplification */
+	/* Apply +- 12dB amplification */
 	int32_t amp_lp = (int16_t)filt_lp * tc_amp_data.lp_amp;
 	int32_t amp_bp = (int16_t)filt_bp * tc_amp_data.bp_amp;
 	int32_t amp_hp = (int16_t)filt_hp * tc_amp_data.hp_amp;
 
-	/** Calculate sum of amplified frequency bands */
+	/* Calculate sum of amplified frequency bands */
 	int32_t result = amp_lp + amp_bp + amp_hp;
 
-	/** Shift bits after fixed point multiplication and return result */
-	//(Do shifting here to save cpu time)
+	/* Shift bits after fixed point multiplication and return result */
 	return (int16_t) (result >> 13);
 }
 
@@ -69,37 +84,29 @@ int16_t tc_amp(circ_buff_t *circ_buff) {
  * @return Output signal from IIR filter.
  */
 int16_t tc_iir(iir_data_t *iir_data, circ_buff_t *circ_buff) {
-	/** Declare and define loop variables n and sum to 0 */
+	/* Declare and define loop variables n and sum to 0 */
 	uint16_t n = 0;
 	int32_t sum = 0;
 
-	/** Perform IIR calculations for dry signal within loop */
+	/* Perform IIR calculations for dry signal within loop */
 	for (n = 0; n < iir_data->num_coeffs; n++) {
 		/** Calc: tmp = tmp + (x_coeff * dry_signal) */
 		sum += iir_data->coeffs_x[n] * circ_buff_get(circ_buff, n);
-		//tmp = tmp + ((iir_data->coeffs_x[n]) * (circ_buff_get(circ_buff, n)));					//remove this row after test
 	}
 
-	/** Perform IIR calculations for wet signal within loop */
+	/* Perform IIR calculations for wet signal within loop */
 	for (n = 1; n < iir_data->num_coeffs; n++) {
 		/** Calc: tmp = tmp - (y_coeff * wet_signal) */
 		sum -= iir_data->coeffs_y[n] * circ_buff_get( &(iir_data->buff_wet), n - 1);
-		//tmp = tmp - ((iir_data->coeffs_y[n]) * ( circ_buff_get(&(iir_data->buff_wet), n - 1)));	//remove this row after test
 	}
 
-	//tmp = tmp * ((int32_t)(0x40000000));															//Test junk
-
-	/** Shift bits after fixed point multiplication */
-	//(Do shifting here to save cpu time)
+	/* Shift bits after fixed point multiplication */
 	int16_t result = (int16_t) (sum >> 14);
-
-	//int32_t result_64 = (int16_t) result * ((int16_t)(0x1000));									//Test junk
 
 	/** Push calculated signal into wet buffer */
 	circ_buff_put(&(iir_data->buff_wet), result);
 
 	return (int16_t) (result);
-	//return (int16_t) (result_64 >> 13);															//Test junk
 }
 
 /**
@@ -108,10 +115,16 @@ int16_t tc_iir(iir_data_t *iir_data, circ_buff_t *circ_buff) {
  * @return Returns true if amplification factors were set successfully.
  */
 void tc_set_amp(tc_ctrl_data_t *in_data){
-	/** Copy values from input struct */
-	tc_amp_data.lp_amp = in_data->lp_amp;
-	tc_amp_data.bp_amp = in_data->bp_amp;
-	tc_amp_data.hp_amp = in_data->hp_amp;
+	/* Copy values from input struct if they are valid */
+	if (tc_amp_valid_value(in_data->lp_amp)) {
+		tc_amp_data.lp_amp = in_data->lp_amp;
+	}
+	if (tc_amp_valid_value(in_data->bp_amp)) {
+		tc_amp_data.bp_amp = in_data->bp_amp;
+	}
+	if (tc_amp_valid_value(in_data->hp_amp)) {
+		tc_amp_data.hp_amp = in_data->hp_amp;
+	}
 
 }
 
@@ -119,6 +132,14 @@ tc_ctrl_data_t tc_get_amp(void){
 	return tc_amp_data;
 }
 
+bool tc_amp_valid_value(int16_t value) {
+	if (4 < value && value <= 0x2000) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
 
 /**
  * Access method for IIR filter coefficients used in Tone Control.

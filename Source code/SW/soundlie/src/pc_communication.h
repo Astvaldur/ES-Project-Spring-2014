@@ -13,7 +13,6 @@
 #include "irq.h"			//to be able to enable interrupts for uart
 #include "tone_control.h"
 #include "datatypes.h"
-#include "applications.h"
 #include "main.h"
 
 //Macro
@@ -21,7 +20,6 @@
 #define MAX_MSG_SIZE 209				// 208 ASCII + terminator.
 #define MSG_TERMINATOR 'x'				//select the terminator of the message.
 #define DATA_FIELD_LENGTH 10
-
 
 //Functions
 void PcConnectionInitHex();

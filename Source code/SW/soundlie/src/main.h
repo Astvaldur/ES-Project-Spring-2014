@@ -10,25 +10,19 @@
 #include <stdbool.h>
 
 #include "datatypes.h"
-#include "applications.h"
 #include "uart.h"
 #include "adc.h"
 #include "buttons.h"
 #include "pwm.h"
 #include "irq.h"
-#include "effects.h"
+#include "echo.h"
+#include "chorus.h"
 #include "audiopath.h"
 #include "pc_communication.h"
 
-
-
 /* Definitions ---------------------------------------------------------------*/
-
 
 /* Function prototypes -------------------------------------------------------*/
 extern void *catch_interrupt(void func(), int irq);
-
-/* Global variables ----------------------------------------------------------*/
-
 
 #endif /* __MAIN_H */

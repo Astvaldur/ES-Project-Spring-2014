@@ -8,23 +8,20 @@
 
 #include "pwm.h"
 
-/** Struct representation of data registers on APB */
+/* Struct representation of data registers on APB */
 struct pwm_regs
 {
    volatile int output;
 };
 
-/*void pwm_init(int addr)
-{
-        //struct pwm_regs *pwm = (struct pwm_regs *) addr;
-
-        //pwm->direction = 0xFF;
-        //pwm->output = 0xFF;
-}*/
-
-
-void pwm_write(int32_t addr, int32_t outdata) {
+/**
+ * Write new sample to DAC output
+ * @param  [in]  addr		Address of PWM module on APB
+ * @param  [in]  sample		Sample to be written to DAC output
+ * @return None
+ */
+void pwm_write(int32_t addr, int32_t sample) {
 		struct pwm_regs *pwm = (struct pwm_regs *) addr;
 
-		pwm->output = outdata;
+		pwm->output = sample;
 }
