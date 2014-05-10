@@ -50,13 +50,17 @@ void PcConnectionInitHex() {
 void PcConnectionHandlerHex() {
 	disable_irq(10);
 	disable_irq(UART_INTERRUP_NR); //Disable interrupts
-	if (UartReadStatus()) { //When the uartstatus == 1. then data ready (DR).
+	if (UartIsOverRun()) {
+		//if the uart is overrun then the message has to be resent.
+		SendCharOnUart('O');  //signal that the message got Overrunned.
+		UartClearStatusBit(5); //clear the overrun bit.
+		ResetPcConnectionParametersHex();  //reset the connection for a new message.
+	}else if (UartReadStatus()) { //When the uartstatus == 1. then data ready (DR).
 		ReadFromUartHex();
 		if (CheckIsMessageComplete()) {
 			if (VerifyChecksumHex()) { //Verify that checksum is valid
 				//call the messagehandler
 				MessageHandler();
-				SendCharOnUart('S');
 				ResetPcConnectionParametersHex(); //reset variables when all has been handled.
 			} else {
 				//SendCharBufferHex();
@@ -67,11 +71,6 @@ void PcConnectionHandlerHex() {
 	} else if (UartSendStatus() && sending) { //&& logical AND
 		//call to send a char
 		SendACharHex();
-	} else if (UartIsOverRun()){
-		//if the uart is overrun then the message has to be resent.
-		SendCharOnUart('O');  //signal that the message got Overrunned.
-		UartClearStatusBit(5); //clear the overrun bit.
-		ResetPcConnectionParametersHex();  //reset the connection for a new message.
 	}
 	enable_irq(UART_INTERRUP_NR); //enable interrupts.
 	enable_irq(10);
@@ -108,34 +107,31 @@ static void MessageHandler() {
 		break;
 	}
 	case SET_BASS:{
-		SendCharOnUart('B');
+		//SendCharOnUart('B');
 		//set new new value on bass amplification
-		//int new_bass_amp = ExtractAmplificationValue();
-		//tc_ctrl_data_t current_amp = tc_get_amp();
-		//current_amp.bp_amp = new_bass_amp; //set the new bass amplitude
+		int new_bass_amp = ExtractAmplificationValue();
+		tc_ctrl_data_t current_amp = tc_get_amp();
+		current_amp.bp_amp = new_bass_amp; //set the new bass amplitude
 		break;
 	}
 	case SET_MIDDLE:{
 		//set new value on middle amplification
-		//int new_middle_amp = ExtractAmplificationValue();
-		//tc_ctrl_data_t current_amp = tc_get_amp();
-		//current_amp.bp_amp = new_middle_amp; //set the new bass amplitude
+		int new_middle_amp = ExtractAmplificationValue();
+		tc_ctrl_data_t current_amp = tc_get_amp();
+		current_amp.bp_amp = new_middle_amp; //set the new bass amplitude
 		break;
 	}
 	case SET_TREBLE:{
 		//set new value on treble amplification
-		//int new_treble_amp = ExtractAmplificationValue();
-		//tc_ctrl_data_t current_amp = tc_get_amp();
-		//current_amp.bp_amp = new_treble_amp; //set the new bass amplitude
+		int new_treble_amp = ExtractAmplificationValue();
+		tc_ctrl_data_t current_amp = tc_get_amp();
+		current_amp.bp_amp = new_treble_amp; //set the new bass amplitude
 	}
-		break;
-	case 8:
-	case 9:
-		//function here to handle setting values of the bass, mid and treble.
 		break;
 	default:
 		break;
 	}
+	SendCharOnUart('S');
 }
 
 //read the the amplification value from the message and return it.
