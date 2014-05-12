@@ -10,7 +10,7 @@ extern int putInt(int a);
 #define SIM 2
 #define SYN 1
 #define UART_BASE_ADDRESS (int*)0x80000100
-#define UART_INTERRUP_NR 4
+#define UART_INTERRUP_NR 2
 
 
 
