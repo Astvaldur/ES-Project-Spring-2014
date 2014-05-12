@@ -25,6 +25,8 @@ void InitUart() {
 	//set the correct control bits.
 	//bit0:receiver enable, bit1:transmitter enable, bit2:receiver interrupt enabled, bit3: transmitt interuppt enabled.
 	uart_reg_ptr->control_reg = 0x0F;
+	//clear the uart status reg.
+	uart_reg_ptr->status_reg = 0;
 }
 
 //function to read from uart.
@@ -59,13 +61,14 @@ int UartReadStatus(){
 //Checks the overrun status bit of the uart.
 int UartIsOverRun(){
 	int overrun_status = uart_reg_ptr->status_reg; //read the status of uart.
-	overrun_status = (overrun_status & 0x10) > 4;
+	overrun_status = (overrun_status & 0x10) >> 4;
 	return overrun_status;
 }
 
 //Writes 0 to a specific bit in the uart status registry.
-void UartClearStatusBit(int bitNr){
-	int regMask = 1 << bitNr;  //shift the one to the right bit.
+void UartClearStatusBits(){
+	//int regMask = 1 << bitNr;  //shift the one to the right bit.
+	int regMask = 0;
 	regMask = ~regMask; //invert the maske so we only have one
 	uart_reg_ptr->status_reg = regMask; //write to the register.
 }

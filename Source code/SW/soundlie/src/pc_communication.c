@@ -13,11 +13,11 @@
 //help function prototypes
 static int CheckMessageContentHex();
 static int CheckIsMessageComplete();
-static int VerifyChecksumHex();
-static void ReadFromUartHex();
-static void ResetPcConnectionParametersHex();
-static void SendACharHex();
-static void SendCharBufferHex();
+static int VerifyChecksum();
+static void ReadFromUart();
+static void ResetPcConnectionParameters();
+static void SendAChar();
+static void SendCharBuffer();
 static void MessageHandler();
 static void ExtractFilterTaps();
 static input_type_e GetMessageTypeEnum();
@@ -40,7 +40,7 @@ int receiving = 0;
 
 void PcConnectionInitHex() {
 	//make sure everything is reset.
-	ResetPcConnectionParametersHex();
+	ResetPcConnectionParameters();
 	//call on InitUart
 	InitUart();
 	//bind which function should be called when interrupt occurs on uart.
@@ -56,24 +56,24 @@ void PcConnectionHandlerHex() {
 	if (UartIsOverRun()) {
 		//if the uart is overrun then the message has to be resent.
 		SendCharOnUart('O');  //signal that the message got Overrunned.
-		UartClearStatusBit(5); //clear the overrun bit.
-		ResetPcConnectionParametersHex();  //reset the connection for a new message.
+		UartClearStatusBits(); //clear the overrun bit.
+		ResetPcConnectionParameters();  //reset the connection for a new message.
 	}else if (UartReadStatus()) { //When the uartstatus == 1. then data ready (DR).
-		ReadFromUartHex();
+		ReadFromUart();
 		if (CheckIsMessageComplete()) {
-			if (VerifyChecksumHex()) { //Verify that checksum is valid
+			if (VerifyChecksum()) { //Verify that checksum is valid
 				//call the messagehandler
 				MessageHandler();
-				ResetPcConnectionParametersHex(); //reset variables when all has been handled.
+				ResetPcConnectionParameters(); //reset variables when all has been handled.
 			} else {
 				//SendCharBufferHex();
-				ResetPcConnectionParametersHex(); //reset if something was invalid in the message.
+				ResetPcConnectionParameters(); //reset if something was invalid in the message.
 			} //end of checkmessage/verifychecksum if.
 
 		}// end of message complete
 	} else if (UartSendStatus() && sending) { //&& logical AND
 		//call to send a char
-		SendACharHex();
+		SendAChar();
 	}
 	enable_irq(UART_INTERRUP_NR); //enable interrupts.
 	enable_irq(10);
@@ -114,37 +114,44 @@ static void MessageHandler() {
 		//set new new value on bass amplification
 		int new_bass_amp = ExtractAmplificationValue();
 		tc_ctrl_data_t current_amp = tc_get_amp();
-		current_amp.bp_amp = new_bass_amp; //set the new bass amplitude
+		current_amp.lp_amp = new_bass_amp; //set the new bass amplitude
+		tc_set_amp(&current_amp); //set the new configuration
+		SendCharOnUart('B');
 		break;
 	}
 	case SET_MIDDLE:{
 		//set new value on middle amplification
 		int new_middle_amp = ExtractAmplificationValue();
 		tc_ctrl_data_t current_amp = tc_get_amp();
-		current_amp.bp_amp = new_middle_amp; //set the new bass amplitude
+		current_amp.bp_amp = new_middle_amp; //set the new middle amplitude
+		tc_set_amp(&current_amp); //set the new configuration
+		SendCharOnUart('M');
 		break;
 	}
 	case SET_TREBLE:{
 		//set new value on treble amplification
 		int new_treble_amp = ExtractAmplificationValue();
 		tc_ctrl_data_t current_amp = tc_get_amp();
-		current_amp.bp_amp = new_treble_amp; //set the new bass amplitude
+		current_amp.hp_amp = new_treble_amp; //set the new treble amplitude
+		tc_set_amp(&current_amp); //set the new configuration
+		SendCharOnUart('T');
 	}
 		break;
 	default:
 		break;
 	}
-	SendCharOnUart('S');
+
 }
 
 //read the the amplification value from the message and return it.
 static int ExtractAmplificationValue(){
-	char amp_chars[4] = {0}; //array to store chars that represent the amp value
+	char amp_chars[5] = {0}; //array to store chars that represent the amp value
 	amp_chars[0] = uart_hex_buffer[6];
 	amp_chars[1] = uart_hex_buffer[7];
 	amp_chars[2] = uart_hex_buffer[8];
 	amp_chars[3] = uart_hex_buffer[9];
 	int amp_value = strtol(amp_chars, NULL, 16); //convert the value to integer.
+	//printf("%x", amp_value);
 	return amp_value;
 }
 
@@ -175,7 +182,6 @@ static void ExtractFilterTaps(int16_t *x_pointer, int16_t *y_pointer) {
 		*y_pointer = strtol(hex_number, NULL, 16); //store value in array.
 		y_pointer++;
 	}
-	//SendCharOnUart('T');
 }
 
 static input_type_e GetMessageTypeEnum() {
@@ -199,23 +205,26 @@ static input_type_e GetMessageTypeEnum() {
 		break;
 	case 5:
 		message_enum = SET_TREBLE;
-		;
 	}
 	return message_enum;
 }
 
+//message to be used when sending
+//void SendCustomMessage(char msg_prt*) {
+//}
+
 //how function to send a char.
-static void SendACharHex() {
+static void SendAChar() {
 	SendCharOnUart(uart_hex_buffer[send_index]);
 	send_index++;
 
 	if (send_index == msg_length) { //when the whole message is sent then we stop
-		ResetPcConnectionParametersHex(); //reseting parameters since were done.
+		ResetPcConnectionParameters(); //reseting parameters since were done.
 	}
 }
 
 //read from uart, hex version
-static void ReadFromUartHex() {
+static void ReadFromUart() {
 	char hex_char = ReadUartChar(); //read the character
 	//printf(".");
 	if (message_complete == 0) { //we do not have a complete message
@@ -240,14 +249,14 @@ static void ReadFromUartHex() {
 				if (CheckMessageContentHex()) { //checking that message content is okay.
 					message_complete = 1;
 				} else {
-					ResetPcConnectionParametersHex(); //Reset if invalid.
+					ResetPcConnectionParameters(); //Reset if invalid.
 				}
 			} //end of buffer = index if
 		} // end of hex_char = 'S' .... if
 	}// end of message_complete if
 }
 
-static void ResetPcConnectionParametersHex() {
+static void ResetPcConnectionParameters() {
 	message_complete = 0; //message complete reset.
 	msg_length = 8; //minimum message length was 8.
 	uart_hex_buffer_index = 0;
@@ -281,7 +290,7 @@ static int CheckMessageContentHex() {
 }
 
 //help function for verifying the checksum of message. Hex version
-static int VerifyChecksumHex() {
+static int VerifyChecksum() {
 	int computed_checksum = 0;
 	char hex_pair[2];
 
@@ -316,7 +325,7 @@ static int CheckIsMessageComplete() {
 //--------------------------------------------------------------------------------- debug functions
 
 //used for debugging to check that the message works. to use this disable sending interrupts. Will only work in simulator(TSIM)
-static void SendCharBufferHex() {
+static void SendCharBuffer() {
 	int hex_buffer_index = 0;
 	int not_finished = 1;
 
