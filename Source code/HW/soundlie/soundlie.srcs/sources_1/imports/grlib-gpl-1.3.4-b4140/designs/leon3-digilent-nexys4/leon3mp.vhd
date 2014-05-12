@@ -495,7 +495,7 @@ begin
   -- UART
   ua1 : if CFG_UART1_ENABLE /= 0 generate
     uart1 : apbuart                     -- UART 1
-      generic map (pindex   => 4, paddr => 4, pirq => 4, console => dbguart, fifosize => CFG_UART1_FIFO)
+      generic map (pindex   => 1, paddr => 1, pirq => 2, console => dbguart, fifosize => CFG_UART1_FIFO)
       port map (rstn, clkm, apbi, apbo(1), u1i, u1o);
     u1i.rxd    <= rxd1;
     u1i.ctsn   <= '0';

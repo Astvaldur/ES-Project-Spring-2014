@@ -13,6 +13,8 @@ extern int putInt(int a);
 #define UART_INTERRUP_NR 4
 
 
+
+
 //Write registers
 #define DATA_REGISTER 			0x0
 #define STATUS_REGISTER 		0x04
