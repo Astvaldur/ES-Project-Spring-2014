@@ -8,7 +8,7 @@
 #include "pc_communication.h"
 
 // Added i here...
-static int i;
+//static int i;
 
 //help function prototypes
 static int CheckMessageContentHex();
@@ -113,23 +113,23 @@ static void MessageHandler() {
 	case SET_BASS:{
 		SendCharOnUart('B');
 		//set new new value on bass amplification
-		//int new_bass_amp = ExtractAmplificationValue();
-		//tc_ctrl_data_t current_amp = tc_get_amp();
-		//current_amp.bp_amp = new_bass_amp; //set the new bass amplitude
+		int new_bass_amp = ExtractAmplificationValue();
+		tc_ctrl_data_t current_amp = tc_get_amp();
+		current_amp.bp_amp = new_bass_amp; //set the new bass amplitude
 		break;
 	}
 	case SET_MIDDLE:{
 		//set new value on middle amplification
-		//int new_middle_amp = ExtractAmplificationValue();
-		//tc_ctrl_data_t current_amp = tc_get_amp();
-		//current_amp.bp_amp = new_middle_amp; //set the new bass amplitude
+		int new_middle_amp = ExtractAmplificationValue();
+		tc_ctrl_data_t current_amp = tc_get_amp();
+		current_amp.bp_amp = new_middle_amp; //set the new bass amplitude
 		break;
 	}
 	case SET_TREBLE:{
 		//set new value on treble amplification
-		//int new_treble_amp = ExtractAmplificationValue();
-		//tc_ctrl_data_t current_amp = tc_get_amp();
-		//current_amp.bp_amp = new_treble_amp; //set the new bass amplitude
+		int new_treble_amp = ExtractAmplificationValue();
+		tc_ctrl_data_t current_amp = tc_get_amp();
+		current_amp.bp_amp = new_treble_amp; //set the new bass amplitude
 	}
 		break;
 	case 8:
@@ -158,6 +158,7 @@ static void ExtractFilterTaps(int16_t *x_pointer, int16_t *y_pointer) {
 	//printf("Border: %d ", data_index_border);
 
 	char hex_number[4] = { 0 }; //array to temporary store the hex number.
+	int i = 0;
 	//iterate through the first half of the data field and save the x values.
 	for (i = 6; i < data_index_border; i += 4) {
 		hex_number[0] = uart_hex_buffer[i]; //transfer the hex chars.
@@ -257,6 +258,7 @@ static void ResetPcConnectionParametersHex() {
 	receiving = 0; //not receiving a message anymore
 	sending = 0; //not sending characters anymore.
 	send_index = 0; //reset send index.
+	int i;
 	for (i = 0; i < MAX_MSG_SIZE; i++) { //reset all elements in the array
 		uart_hex_buffer[i] = 0;
 	}
@@ -267,7 +269,8 @@ static int CheckMessageContentHex() {
 	int valid_content = 1; //content is set as valid initially
 	if (uart_hex_buffer[0] == 'S' && uart_hex_buffer[msg_length - 1]
 			== MSG_TERMINATOR) { //check the first and last char of the message
-		//check the rest of the message content is with valid chars.
+		//check the rest of the message content is with valid chars
+		int i;
 		for (i = 1; i < msg_length - 1; i++) { //-1 on the msg_length since we do not want to include the terminator in the check.
 			char tmp_hex = uart_hex_buffer[i];
 			if (!(('0' <= tmp_hex && tmp_hex <= '9') || ('a' <= tmp_hex
@@ -286,6 +289,7 @@ static int VerifyChecksumHex() {
 	int computed_checksum = 0;
 	char hex_pair[2];
 
+	int i;
 	for (i = 2; i < msg_length - 3; i += 2) { //go through the message. -3 to exclude checksum pair and terminator.
 		hex_pair[0] = uart_hex_buffer[i]; //read two chars
 		hex_pair[1] = uart_hex_buffer[i + 1];
