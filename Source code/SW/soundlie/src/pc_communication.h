@@ -21,6 +21,7 @@
 #define MSG_TERMINATOR 'x'				//select the terminator of the message.
 #define DATA_FIELD_LENGTH 10
 
+
 //Functions
 void PcConnectionInitHex();
 void PcConnectionHandlerHex();
