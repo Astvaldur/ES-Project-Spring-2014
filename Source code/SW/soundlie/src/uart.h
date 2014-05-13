@@ -52,7 +52,7 @@ char ReadUartChar();
 void SendCharOnUart(char char_to_send);
 int UartReadStatus();
 int UartSendStatus();
-int UartIsOverRun();
+int UartCheckOverrunAndFraming();
 void UartClearStatusBits();
 
 #endif

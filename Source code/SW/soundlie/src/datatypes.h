@@ -10,7 +10,7 @@
 #define CIRC_BUFF_SIZE		48000
 #define IIR_MAX_COEFFS  	15
 
-typedef enum {FILTER_LP, FILTER_MID, FILTER_HP, SET_BASS, SET_MIDDLE, SET_TREBLE} input_type_e;
+typedef enum {FILTER_LP, FILTER_MID, FILTER_HP, SET_BASS, SET_MIDDLE, SET_TREBLE, SET_ECHO} input_type_e;
 
 typedef struct {
 	int32_t		pos;					/* Position of latest added val	 */
