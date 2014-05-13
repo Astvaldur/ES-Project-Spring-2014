@@ -31,9 +31,9 @@ COMPONENT fir2 IS
 END COMPONENT fir2;
 	
 
-SIGNAL x_s : STD_LOGIC_VECTOR(W-1 DOWNTO 0);
-SIGNAL y_s : STD_LOGIC_VECTOR(2*W-1 DOWNTO 0);
-SIGNAL x_zeros: STD_LOGIC_VECTOR(W-1 DOWNTO 0);
+SIGNAL x_s : STD_LOGIC_VECTOR(17 DOWNTO 0);
+SIGNAL y_s : STD_LOGIC_VECTOR(35 DOWNTO 0);
+SIGNAL x_zeros: STD_LOGIC_VECTOR(1 DOWNTO 0);
 SIGNAL start_iir: STD_LOGIC;
 SIGNAL fin_counter: INTEGER;
 SIGNAL fin:STD_LOGIC;
@@ -56,7 +56,7 @@ PROCESS (clk)
 			 started<='0';
 
 		ELSIF (start='1' AND started='0') THEN
-				x_s <= x;
+				x_s <= x & x_zeros;
 				start_iir <='1';
 				fin_counter <= fin_counter+1;
 				
@@ -65,7 +65,7 @@ PROCESS (clk)
 				IF (fin_counter=3) THEN
 					finish <='1';
 					fin_counter <=0;
-					y <= y_s;
+					y <= y_s(35 downto 4);
 				END IF;
 				
 				started<='1';
@@ -85,8 +85,8 @@ PROCESS (clk)
 
 
  fir_comp: fir2
-      GENERIC MAP(WIDTH => 16,     --number of bits of variables and data in calculations
-                   N => 24)         --order of filter
+      GENERIC MAP(WIDTH => 18,     --number of bits of variables and data in calculations
+                   N => 100)         --order of filter
       PORT MAP (reset => reset,
                 start => start_iir,
 					      clk => clk,
