@@ -29,6 +29,7 @@ void buttons_init(){
 			int32_t eval = in_data & ACT_BUTN;
 			switch (eval) {
 			case (1 << SW_TC_EN) :
+		gpio_write(GPIO_APB, 1 << LED_G);
 				ap_state = audiopath_get();
 				ap_state.tc_enable = true;
 				audiopath_set(&ap_state);

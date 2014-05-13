@@ -78,6 +78,8 @@ void sample_irq(int32_t irq)
 	/* Add sample to buffer */
 	circ_buff_put(&circ_buff, sample);
 
+	//sample = circ_buff_get(&circ_buff, 0);
+
 	if (audiopath_state.tc_enable) {
 		/* Run tone control */
 		sample = tc_amp(&circ_buff);
