@@ -74,7 +74,7 @@ int16_t tc_amp(circ_buff_t *circ_buff) {
 	int32_t result = amp_lp + amp_bp + amp_hp;
 
 	/* Shift bits after fixed point multiplication and return result */
-	return (int16_t) (result >> 13);
+	return (int16_t) (result >> 12);
 }
 
 /**
