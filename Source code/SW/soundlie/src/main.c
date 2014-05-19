@@ -25,7 +25,7 @@ int main()
 	audiopath_init();
 
 	/* Initialize pc connection */
-	PcConnectionInitHex();
+	PcConnectionInit();
 
 	/* Initialize tone control */
 	tc_init();

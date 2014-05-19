@@ -22,8 +22,8 @@
 
 
 //Functions
-void PcConnectionInitHex();
-void PcConnectionHandlerHex();
+void PcConnectionInit();
+void PcConnectionHandler();
 
 
 #endif /* PC_CONNECTION_H_ */
