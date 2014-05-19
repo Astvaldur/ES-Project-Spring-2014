@@ -29,7 +29,6 @@ void buttons_init(){
 			int32_t eval = in_data & ACT_BUTN;
 			switch (eval) {
 			case (1 << SW_TC_EN) :
-		gpio_write(GPIO_APB, 1 << LED_G);
 				ap_state = audiopath_get();
 				ap_state.tc_enable = true;
 				audiopath_set(&ap_state);
@@ -37,19 +36,19 @@ void buttons_init(){
 
 			case (1 << SW_TC_BAS) :
 				tc_state = tc_get_amp();
-				tc_state.lp_amp = 2*tc_state.lp_amp;
+				tc_state.lp_amp = (int16_t)(tc_state.lp_amp * THREE_DB);
 				tc_set_amp(&tc_state);
 				break;
 
 			case (1 << SW_TC_MID) :
 				tc_state = tc_get_amp();
-				tc_state.bp_amp = 2*tc_state.bp_amp;
+				tc_state.bp_amp = (int16_t)(tc_state.bp_amp * THREE_DB);
 				tc_set_amp(&tc_state);
 				break;
 
 			case (1 << SW_TC_TRE) :
 				tc_state = tc_get_amp();
-				tc_state.hp_amp = 2*tc_state.hp_amp;
+				tc_state.hp_amp = (int16_t)(tc_state.hp_amp * THREE_DB);
 				tc_set_amp(&tc_state);
 				break;
 
@@ -96,19 +95,19 @@ void buttons_init(){
 
 			case (1 << SW_TC_BAS) :
 				tc_state = tc_get_amp();
-				tc_state.lp_amp = tc_state.lp_amp / 2;
+				tc_state.lp_amp = (int16_t)(tc_state.lp_amp / THREE_DB);
 				tc_set_amp(&tc_state);
 				break;
 
 			case (1 << SW_TC_MID) :
 				tc_state = tc_get_amp();
-				tc_state.bp_amp = tc_state.bp_amp / 2;
+				tc_state.bp_amp = (int16_t)(tc_state.bp_amp / THREE_DB);
 				tc_set_amp(&tc_state);
 				break;
 
 			case (1 << SW_TC_TRE) :
 				tc_state = tc_get_amp();
-				tc_state.hp_amp = tc_state.hp_amp / 2;
+				tc_state.hp_amp = (int16_t)(tc_state.hp_amp / THREE_DB);
 				tc_set_amp(&tc_state);
 				break;
 

@@ -45,9 +45,9 @@ static tc_ctrl_data_t tc_amp_data = {
  */
 void tc_init() {
 	tc_ctrl_data_t tc_amp_data = {
-			0x2000,
-			0x2000,
-			0x2000
+			0x800,
+			0x800,
+			0x800
 	};
 
 	tc_set_amp(&tc_amp_data);

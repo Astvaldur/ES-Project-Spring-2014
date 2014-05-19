@@ -20,7 +20,7 @@ void audiopath_init() {
 	enable_irq(SAMPLE_IRQ_ID);
 
 	audiopath_state.effects_enable = OFF;
-	audiopath_state.tc_enable = false;
+	audiopath_state.tc_enable = true;
 }
 
 /**

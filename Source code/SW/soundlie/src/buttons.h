@@ -37,6 +37,8 @@
 #define SW_CHO_DEL 	16
 #define SW_CHO_AMP 	17
 
+#define THREE_DB	1.41
+
 /*#define SW_10 	18
 #define SW_11  	19
 #define SW_12  	20
