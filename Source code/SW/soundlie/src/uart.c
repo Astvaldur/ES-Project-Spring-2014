@@ -63,7 +63,7 @@ int UartCheckOverrunAndFraming(){
 	int overrun_error = uart_reg_ptr->status_reg; //read the status of uart.
 	int framing_error = uart_reg_ptr->status_reg;
 	overrun_error = (overrun_error & 0x10) >> 4; //shift down the overrun flag
-	framing_error = (framing_error & 0x0) >> 6;  //shift down framing flag
+	framing_error = (framing_error & 0x40) >> 6;  //shift down framing flag
 	if (framing_error == 1 || overrun_error == 1) {
 		//if one of the flags have been raised return true.
 		return 1;
