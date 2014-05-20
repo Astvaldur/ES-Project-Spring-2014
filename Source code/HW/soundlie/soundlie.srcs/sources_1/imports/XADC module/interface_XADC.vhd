@@ -46,7 +46,8 @@ end interface_XADC;
 architecture Behavioral of interface_XADC is
 
 --XADC signal   
-signal xadc_den : std_logic := '1';         
+signal xadc_den : std_logic := '1';   
+signal xadc_output_temp : std_logic_vector(15 downto 0);
 --signal xadc_rdy : std_logic;                       
 
 COMPONENT xadc_wiz_0
@@ -79,7 +80,7 @@ PORT MAP (  di_in => (others => '0'),
             den_in => xadc_den,
             dwe_in => '0',
             --drdy_out => xadc_rdy,
-            do_out => xadc_output,
+            do_out => xadc_output_temp,
             dclk_in => xadc_clk,
             reset_in => not xadc_reset,
             vp_in => '0',
@@ -96,6 +97,8 @@ PORT MAP (  di_in => (others => '0'),
 
 -- CONCURRENT STATEMENTS
 xadc_eoc <= xadc_den;
+xadc_output(15 downto 4) <= xadc_output_temp(15 downto 4);
+xadc_output(3 downto 0) <= "1111" WHEN xadc_output_temp(15)='1' ELSE "0000";
 
 end Behavioral;
 
