@@ -1,7 +1,7 @@
 /**
  * @file datatypes.c
  * @brief Associated functions for types.
- * @details Functions for handling types.
+ * @details Functions for handling types related to circular buffers.
  * @author Tobias Hallberg
  * @version 1.0
  */
@@ -25,7 +25,6 @@ void circ_buff_put(circ_buff_t *circ_buff, int16_t indata)
 	}
 	circ_buff->elems[circ_buff->pos] = indata;
 }
-
 
 /**
  * Fetches data from circular buffer

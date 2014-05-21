@@ -1,3 +1,11 @@
+/**
+ * @file irq.c
+ * @brief Functions for interrupt handling.
+ * @details Functions for enabling, disabling and forcing interrupts.
+ * @author Aeroflex Gaisler
+ * @version 1.0
+ */
+
 #include "irq.h"
 
 int *lreg = (int *) 0x80000000;

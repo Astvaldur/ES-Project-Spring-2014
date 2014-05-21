@@ -15,7 +15,7 @@ void buttons_init_gpio(void);
  * @param  [in] None
  * @return None
  */
-void buttons_init(){
+void buttons_poll(){
 	buttons_init_gpio();
 
 	audiopath_t ap_state;
@@ -69,18 +69,6 @@ void buttons_init(){
 				ec_state.dry_amp = ECHO_TOT_POW - ec_state.wet_amp;
 				echo_set(&ec_state);
 				break;
-
-			case (1 << SW_CHO_EN) :	//Not working below!?
-				ap_state = audiopath_get();
-				ap_state.effects_enable = CHORUS;
-				audiopath_set(&ap_state);
-				break;
-			case (1 << SW_CHO_DEL) :
-				gpio_write(GPIO_APB, 1 << LED_B);
-				break;
-			case (1 << SW_CHO_AMP) :
-				gpio_write(GPIO_APB, 1 << LED_B);
-				break;
 			}
 
 		}
@@ -128,34 +116,19 @@ void buttons_init(){
 				ec_state.dry_amp = ECHO_TOT_POW - ec_state.wet_amp;
 				echo_set(&ec_state);
 				break;
-
-			case (1 << SW_CHO_EN) :	//Not working below!?
-				gpio_write(GPIO_APB, 1 << LED_B);		// Testing button
-				ap_state = audiopath_get();
-				ap_state.effects_enable = CHORUS;
-				audiopath_set(&ap_state);
-				break;
-			case (1 << SW_CHO_DEL) :
-				gpio_write(GPIO_APB, 1 << LED_B);
-				break;
-			case (1 << SW_CHO_AMP) :
-				gpio_write(GPIO_APB, 1 << LED_B);
-				break;
 			}
 		}
 
 		/* Center button pressed, may be used to reset to default values in future implementation */
-		if (in_data & (1 << BUTN_C)) {
+		/*if (in_data & (1 << BUTN_C)) {
 			gpio_write(GPIO_APB, 1 << LED_B);
-		}
+		}*/
 
 		/* Wait until button has been released */
 		while((in_data & 0x1F) != 0){
 			in_data = gpio_read(GPIO_APB);
 		}
 
-		//Turn off RGB leds, used for testing
-		gpio_write(GPIO_APB, 0);
 	}
 }
 

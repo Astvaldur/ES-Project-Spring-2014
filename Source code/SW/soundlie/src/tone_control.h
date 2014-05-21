@@ -1,3 +1,12 @@
+/**
+ * @file tone_control.h
+ * @brief Header file for tone_control.c.
+ * @details Header file for tone control feature.
+ * @author Tobias Hallberg
+ * @author Jonas Andersson
+ * @version 1.0
+ */
+
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __TONE_CONTROL_H
 #define __TONE_CONTROL_H
@@ -11,8 +20,6 @@
 
 #include "datatypes.h"
 #include "adc.h"
-
-/* Definitions ---------------------------------------------------------------*/
 
 /* Function prototypes -------------------------------------------------------*/
 void tc_init(void);

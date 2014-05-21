@@ -1,3 +1,11 @@
+/**
+ * @file audiopath.h
+ * @brief Header file for audiopath.h
+ * @details Header file for the audio throughput through the system.
+ * @author Tobias Hallberg
+ * @version 1.0
+ */
+
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __SOUNDPATH_H
 #define __SOUNDPATH_H
@@ -15,7 +23,7 @@
 /* Definitions ---------------------------------------------------------------*/
 #define SAMPLE_IRQ_ID	10
 
-typedef enum {OFF, ECHO, CHORUS} effects_enable_e;
+typedef enum {OFF, ECHO} effects_enable_e;
 
 typedef struct {
 	bool				tc_enable;

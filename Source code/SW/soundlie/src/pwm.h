@@ -1,3 +1,11 @@
+/**
+* @file pwm.h
+* @brief Header file for pwm.c
+* @details Header file for driver interface used for writing data to PWM module located on APB-bus.
+* @author Tobias Hallberg
+* @version 1.0
+*/
+
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __PWM_H
 #define __PWM_H

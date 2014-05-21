@@ -1,3 +1,11 @@
+/**
+* @file gpio.h
+* @brief header file for gpio.c
+* @details Header file for driver interface used for reading data and writing data from/to GPIO module located on APB-bus.
+* @author Tobias Hallberg
+* @version 1.0
+*/
+
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __GPIO_H
 #define __GPIO_H

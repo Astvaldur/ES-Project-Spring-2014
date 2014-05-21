@@ -1,7 +1,7 @@
 /**
  * @file audiopath.c
- * @brief Audiopath....
- * @details .
+ * @brief Audiopath for audio throughput
+ * @details Provides audio throughput through the system, determines which effect should be applied.
  * @author Tobias Hallberg
  * @version 1.0
  */
@@ -24,8 +24,8 @@ void audiopath_init() {
 }
 
 /**
- * Set...
- * @param  None
+ * Update audio path state
+ * @param  [in]	audiopath_new_state	New settings for audiopath
  * @return None
  */
 void audiopath_set(audiopath_t *audiopath_new_state) {
@@ -34,9 +34,9 @@ void audiopath_set(audiopath_t *audiopath_new_state) {
 }
 
 /**
- * Get...
+ * Fetches the currenly applied settings for audiopath
  * @param  None
- * @return None
+ * @return Currenly applied settings for audiopath
  */
 audiopath_t audiopath_get() {
 	return audiopath_state;
@@ -66,10 +66,6 @@ void sample_irq(int32_t irq)
 		/* Run echo */
 		sample = echo(sample);
 		break;
-	case CHORUS :
-		/* Run chorus */
-		sample = chorus(sample);
-		break;
 	case OFF :
 		/* Do nothing */
 		break;
@@ -77,8 +73,6 @@ void sample_irq(int32_t irq)
 
 	/* Add sample to buffer */
 	circ_buff_put(&circ_buff, sample);
-
-	//sample = circ_buff_get(&circ_buff, 0);
 
 	if (audiopath_state.tc_enable) {
 		/* Run tone control */

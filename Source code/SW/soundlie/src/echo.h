@@ -1,3 +1,12 @@
+/**
+ * @file echo.h
+ * @brief header file for echo.h.
+ * @details Header file for sound effects and associated functions for use with circular buffer.
+ * @author Tobias Hallberg
+ * @author Jonas Andersson
+ * @version 1.0
+ */
+
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __ECHO_H
 #define __ECHO_H

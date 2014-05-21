@@ -1,3 +1,11 @@
+/**
+ * @file irq.h
+ * @brief Header file for irq.c
+ * @details Header file for functions used for enabling, disabling and forcing interrupts.
+ * @author Aeroflex Gaisler
+ * @version 1.0
+ */
+
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __IRQ_H
 #define __IRQ_H

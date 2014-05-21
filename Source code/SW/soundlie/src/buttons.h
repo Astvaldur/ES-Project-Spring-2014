@@ -1,3 +1,11 @@
+/**
+ * @file buttons.h
+ * @brief Header file for buttons.c
+ * @details Header file for driver interface for reading data from XADC module located on APB-bus.
+ * @author Tobias Hallberg
+ * @version 1.0
+ */
+
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __BUTTONS_H
 #define __BUTTONS_H
@@ -9,7 +17,6 @@
 #include "datatypes.h"
 #include "audiopath.h"
 #include "echo.h"
-#include "chorus.h"
 #include "tone_control.h"
 #include "irq.h"
 
@@ -39,15 +46,8 @@
 
 #define THREE_DB	1.41
 
-/*#define SW_10 	18
-#define SW_11  	19
-#define SW_12  	20
-#define SW_13  	21
-#define SW_14  	22
-#define SW_15  	23*/
-
 /* Function prototypes -------------------------------------------------------*/
 void buttons_irq(int32_t);
-void buttons_init(void);
+void buttons_poll(void);
 
 #endif /* __BUTTONS_H */

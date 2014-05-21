@@ -1,3 +1,11 @@
+/**
+ * @file datatypes.h
+ * @brief Header file for most datatypes used in project.
+ * @details Contains datatypes for buffers, filters and sound effects.
+ * @author Tobias Hallberg
+ * @version 1.0
+ */
+
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef DATATYPES_H_
 #define DATATYPES_H_
@@ -6,7 +14,6 @@
 #include <stdint.h>
 
 /* Definitions ---------------------------------------------------------------*/
-//#define CIRC_BUFF_SIZE		48000
 #define CIRC_BUFF_SIZE		48000
 #define IIR_MAX_COEFFS  	15
 
@@ -44,10 +51,10 @@ typedef struct {
 } tc_ctrl_data_t;
 
 typedef struct {
-	uint8_t taps;						/* Number of taps				*/
-	input_type_e type;					/* Add member comments here!	*/
-	int16_t *x_data;					/* Add member comments here!	*/
-	int16_t *y_data;					/* Add member comments here!	*/
+	uint8_t taps;						/* Number of filter taps		*/
+	input_type_e type;					/* Type of filter to be altered	*/
+	int16_t *x_data;					/* Filter X coefficients		*/
+	int16_t *y_data;					/* Filter Y coefficients		*/
 } iir_input_data_t;
 
 typedef struct {
@@ -62,8 +69,6 @@ typedef struct {
 	int16_t dry_amp;					/* Attenuation of dry signal	 */
 	int16_t wet_amp;					/* Attenuation of wet signal	 */
 } chorus_input_data_t;
-
-
 
 /* Function prototypes -------------------------------------------------------*/
 void circ_buff_put(circ_buff_t *, int16_t);

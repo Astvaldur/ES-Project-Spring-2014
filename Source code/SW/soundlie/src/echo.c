@@ -1,7 +1,7 @@
 /**
  * @file echo.c
  * @brief Sound effect echo and associated functions.
- * @details Sounds effects and associated functions for use with circular buffer.
+ * @details Sound effects and associated functions for use with circular buffer.
  * @author Tobias Hallberg
  * @author Jonas Andersson
  * @version 1.0

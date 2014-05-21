@@ -1,7 +1,7 @@
 /**
  * @file main.c
  * @brief Main program file.
- * @details Main program file for soundlie project.
+ * @details Main program file for Soundlie project.
  * @author Viktor Jarenfors
  * @author Tobias Hallberg
  * @author Jonas Andersson
@@ -34,7 +34,7 @@ int main()
 	echo_init();
 
 	/* Initialize buttons */
-	buttons_init();
+	buttons_poll();
 
 	//Infinite loop
 	while(1);

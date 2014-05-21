@@ -1,3 +1,14 @@
+/**
+ * @file main.h
+ * @brief Header file for main.c
+ * @details Header file for main program.
+ * @author Viktor Jarenfors
+ * @author Tobias Hallberg
+ * @author Jonas Andersson
+ * @author David Alm
+ * @version 1.0
+ */
+
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __MAIN_H
 #define __MAIN_H
@@ -16,11 +27,8 @@
 #include "pwm.h"
 #include "irq.h"
 #include "echo.h"
-#include "chorus.h"
 #include "audiopath.h"
 #include "pc_communication.h"
-
-/* Definitions ---------------------------------------------------------------*/
 
 /* Function prototypes -------------------------------------------------------*/
 extern void *catch_interrupt(void func(), int irq);

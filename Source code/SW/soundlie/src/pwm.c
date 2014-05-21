@@ -1,5 +1,5 @@
 /**
-* @file adc.c
+* @file pwm.c
 * @brief Driver for PWM on APB.
 * @details Driver interface for writing data to PWM module located on APB-bus.
 * @author Tobias Hallberg
