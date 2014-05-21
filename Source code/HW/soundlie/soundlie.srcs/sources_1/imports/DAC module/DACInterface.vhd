@@ -1,25 +1,41 @@
-library ieee;
-use ieee.std_logic_1164.ALL;
-use ieee.numeric_std.ALL;
+--! @file DACInterface.vhd
+--! @brief DAC interface is the VHDL code that generates the SPI message from the data sample.
+--! @details The SPI for the DAC needs it sample in a very clear format which is described by the
+--! AD5062 Data sheet. This code generates the message needed with the two process method and
+--! outputs the message. The message is generated constantly from the newest awailable sample.
 
+--! @author Ástvaldur Hjartarson
+--! @version 1.0
+
+library ieee;--! Use standard library
+use ieee.std_logic_1164.ALL;--! Use ieee 1164 standard for logic elements.
+use ieee.numeric_std.ALL;--! Use ieee numeric standard
+
+
+--! Ports
 entity dac_interface is
   generic(
-    width : natural := 12
+    width : natural := 16 --!  Generic for the width of the communications.
   );
   port(
-    reset : in std_logic;
-    sclk : in std_logic;
+    --! Inputs
+    reset : in std_logic; --! system reset input, restart is active low('0').
+    sclk : in std_logic; --! The serial interface clock generated for the SPI.
 
-    data_input : in std_logic_vector(width-1 downto 0);
-    write_data : in std_logic;
-    DAC_shutdown : in std_logic_vector(1 downto 0);
-
-    sync : out std_logic;
-    DIN : out std_logic; -- SDI
-    finished : out std_logic
-
+    data_input : in std_logic_vector(width-1 downto 0);--! The data 16 bit sample that is to be send. 
+    write_data : in std_logic; --! A  signal from wrapper to tell when a new sample should be sent to the DAC.
+    DAC_shutdown : in std_logic_vector(1 downto 0); --! Configuration bits for the DAC modes, future work part.
+    --! Output
+    sync : out std_logic; --!  Synchronization  signal.
+    DIN : out std_logic;  --!  Serial Data signal.
+    finished : out std_logic --! Telling the wrapper when we have finished sending the sample.
   );
 end entity;
+
+
+--! @brief This the DAC SPI interface architecture.
+--! @details The code is developed with the two process method to generate the
+--! desired communication message.
 
 architecture behavioural of dac_interface is
   
