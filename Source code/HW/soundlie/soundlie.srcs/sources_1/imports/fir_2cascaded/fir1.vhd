@@ -1,19 +1,38 @@
+--! @brief This is the FIR filter implementation of the first stage filter in the decimation filter design. 
+--! @details This code block is a FIR filter. It is the first filter in the two stage decimation 
+--! filter design. It is a sub-block of a wrapper, fir_wrap.
+--! @author Malin Eliasson
+--! @author Astvaldur Hjartarson
+--! @version 2.0
+
+
+--! Use standard library
 LIBRARY ieee;
+--! Use logic elements
 USE ieee.std_logic_1164.ALL;
+--! Use numeric elements
 USE ieee.numeric_std.ALL;
 
+ --! This FIR entity takes input from the fir_wrap block. It also outputs its calculated 
+ --! results to the fir_wrap block.
+
+ 
 ENTITY fir1 IS
-      GENERIC(WIDTH:INTEGER:=16;
-              N:INTEGER:=16);
-      PORT(reset: IN STD_LOGIC;
-           start: IN STD_LOGIC;
-           clk: IN STD_LOGIC;
-           x:IN STD_LOGIC_VECTOR(WIDTH-1 DOWNTO 0);
-           y:OUT STD_LOGIC_VECTOR(2*WIDTH-1 DOWNTO 0);
+      GENERIC(WIDTH:INTEGER:=16; --! Sets the width (number of bits) used for numbers in the wrapper
+              N:INTEGER:=16);  --! Sets the order of the FIR filter
+      PORT(reset: IN STD_LOGIC; --! Reset the FIR filter
+           start: IN STD_LOGIC; --! Signal that tells the FIR filter to start processing its input
+           clk: IN STD_LOGIC; --! Clock signal
+           x:IN STD_LOGIC_VECTOR(WIDTH-1 DOWNTO 0); --! Input to the FIR filter
+           y:OUT STD_LOGIC_VECTOR(2*WIDTH-1 DOWNTO 0); --! Output results of the FIR filter
 --         y:OUT STD_LOGIC_VECTOR(WIDTH-1 DOWNTO 0);
-           finished:OUT STD_LOGIC);
+           finished:OUT STD_LOGIC); --! Output which is set to high when the FIR filter has finished it calculation
    END fir1;
    
+--! @brief This is the architecture of the FIR filter of the first stage of the decimation filter design
+--! @details This architecture of the FIR filter contains
+--! code which describes the functionality of the filter. The filter calculates
+--! the output by multiplying the inputs with the filter coefficients. 
      
     ARCHITECTURE calc OF fir1 IS
       

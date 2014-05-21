@@ -1,12 +1,11 @@
 -------------------------------------------------------
---! @file source PWM_interface.vhdl
---! @This is the Pwm. It ouputs pulses with Pulse width modulation
+--! @file PWM_interface.vhdl
+--! @This is the PWM. It ouputs pulses with Pulse width modulation
 --! to a fourth order Low pass filter where the pulses are filtered out.
 --! This code is developed using a 2 process model.
 
---! \Astvaldur Hjartarson
---! \1.0v
---! \vhdlflow[PWM]
+--! @author Ástvaldur Hjartarson
+--! @version 2.0v
 -------------------------------------------------------
 
 ----------------------------------------------------------
@@ -26,7 +25,7 @@ USE ieee.std_logic_unsigned.all;
 --! 
 entity PWM is
    GENERIC(
-           width   : integer  := 16; -- Bit resulution of the input bit vector
+           width   : integer  := 16; --! Bit resolution of the input bit vector
            op_freq : integer  := 200_000; --! The 2*frequency of the Pulses that we output.
            sys_clk : integer  := 100_000_000); --! The overall system clock
     PORT(
@@ -36,7 +35,7 @@ entity PWM is
         --! in
         vsample: in	std_logic_vector(width-1 downto 0);
         --! out
-        ampPWM	: out	std_logic;  --! The ouput PWM signal, It is connected to the input of the filter. 
+        ampPWM	: out	std_logic;  --! The output PWM signal, It is connected to the input of the filter. 
         ampSD	: out	 std_logic   --! We need to select the filter to be on.
     );
 end entity;
@@ -44,13 +43,13 @@ end entity;
 architecture RTL of PWM is
 -- This is the current Period can be set shorter for more interpolation.
 
---! Function------------------------------------------------------------------
+-- Function------------------------------------------------------------------
 --------------------------------------------------------------------
 --------------------------------------------------------------------
---! Function name: integerbitsize
---! Before: The function takes a integer x as a input.
---! After: We get return a integer that represent lowest amount of bits
---!        needed to represent integer x.
+-- Function name: integerbitsize
+-- Before: The function takes a integer x as a input.
+-- After: We get return a integer that represent lowest amount of bits
+--        needed to represent integer x.
 function integerbitsize(
 size : Integer)
 return integer is variable value : integer;
@@ -91,7 +90,7 @@ signal r : reg_t := bull;
 
 begin
 inputs<=vsample;
---! combinatorial process --------------------------------------
+-- combinatorial process --------------------------------------
 comb:process(clk,reset) 
 
 variable period_counter : std_logic_vector(8 downto 0):=(others=>'0');

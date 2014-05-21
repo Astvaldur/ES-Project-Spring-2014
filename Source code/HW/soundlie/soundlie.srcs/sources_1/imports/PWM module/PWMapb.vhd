@@ -11,7 +11,7 @@ use work.PWM_pkg.all;
 
 entity PWMapb is
   generic(
-    --AMBA
+    --AMBA commented
     pindex      : integer := 0;
     paddr       : integer := 0;
     pmask       : integer := 16#fff#;

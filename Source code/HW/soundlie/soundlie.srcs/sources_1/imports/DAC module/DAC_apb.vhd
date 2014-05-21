@@ -1,41 +1,64 @@
-library ieee;
-use ieee.std_logic_1164.all;
-use ieee.numeric_std.all;
-library grlib;
-use grlib.amba.all;
-use grlib.stdlib.all;
-use grlib.devices.all;
+--! @file DAC_apb.vhd
+--! @brief This is the output stage wrapper, it handles the communication to the DAC.
+--! @details The output stage wrapper takes input from the AMBA peripheral bus APB
+--! and sends it the SPI communication interface and the PWM interface. The wrapper 
+--! then sends the output results from them to the corresponding outputs.
+--! The PWM was kept in the device for development purposes and can be excluded,
+--! in the final product. It is good to have this functionality if the DAC breaks
+--! down during development.
+--! @author Tobias Hallberg
+--! @author Ástvaldur Hjartarson
+--! @author Gaisler.
+--! @version 2.0
+
+
+library ieee;--! Use standard library
+use ieee.std_logic_1164.all;--! Use ieee 1164 standard for logic elements.
+use ieee.numeric_std.all;--! Use ieee numeric standard
+library grlib;--! Use the grlib from Gaisler.
+use grlib.amba.all;--! Use the AMBA grlib from Gaisler.
+use grlib.stdlib.all;--! Use the stdlib grlib from Gaisler.
+use grlib.devices.all;--! Use the devices grlib from Gaisler.
 
 library work;
-use work.PWM_pkg.all;
+use work.PWM_pkg.all;--! Include the PWM module.
 
 entity DACapb is
   generic(
-    --AMBA
-    pindex      : integer := 0;
-    paddr       : integer := 0;
-    pmask       : integer := 16#fff#;
-    width       : integer := 16;
-    sclk_freq   : integer := 50
+    --! Generic values(can be overridden by a higher  VHDL code like LEON3):
+    pindex      : integer := 0; --! AMBA peripheral index.
+    paddr       : integer := 0; --! AMBA peripheral address. 
+    pmask       : integer := 16#fff#; --! AMBA peripheral mask.
+    width       : integer := 16; --! AMBA data width.
+    sclk_freq   : integer := 50 --! SPI clock value for changing the frequency.  
     );
   port (
     --AMBA
-    rstn	: in  std_ulogic;
-    clk		: in  std_ulogic;
-    apbi	: in  apb_slv_in_type;
-    apbo	: out  apb_slv_out_type;
+    rstn	: in  std_ulogic; --! system reset input, restart is active low('0').
+    clk		: in  std_ulogic; --! system clock input.
+    apbi	: in  apb_slv_in_type; --! AMBA peripheral bus data input to the device.
+    apbo	: out  apb_slv_out_type; --! AMBA peripheral bus data output from the device.
     
     --PWM
-    ampPWM	: out std_logic;  				--! The ouput PWM signal, It is connected to the input of the filter. 
-    ampSD	: out std_logic;   				--! We need to select the filter to be on.
+    ampPWM	: out std_logic;  --! The output PWM signal, It is connected to the input of the filter. 
+    ampSD	: out std_logic;  --! The amplifier select signal
 
-    --DAC
-    dac_sclk  : out  std_ulogic;        --! Serial clock
-    dac_sync : out std_logic;
-    dac_DIN : out std_logic -- SDI
+    --! SPI communication output
+    dac_sclk  : out  std_ulogic;        --!  Serial clock  signal.
+    dac_sync : out std_logic;           --!  Synchronization  signal.
+    dac_DIN : out std_logic             --!  Serial Data signal.
   );                      
  
 end entity DACapb;
+
+--! @brief This the APB interface architecture.
+--! @details This is a modified version of the Gaisler APH tutorial code.
+--! It interfaces with the APB in the way that is done in the tutorial, with
+--! slight modification to the registers(just one register). 
+--! The interface has three sub-modules added to the original design.
+--! 1. PWM interface for converting samples and outputting straight to the on-board reconstruction filter 
+--! 2. SPI communication message generation(DAC_interface).
+--! 3. clock enable that generates the serial communication clock for the SPI communications.
 
 architecture rtl of DACapb is
 
@@ -142,14 +165,6 @@ DAC_SPI_comp: dac_interface
     finished =>dac_fin
   );
     
---sclk_gen: dac_clk --5 MHz
---  PORT MAP(
---          reset => rstn,
---          clk => clk,
---          clk_out => dac_sclk_sig
---    );
-
-
   slck_comp: clk_enable
     Generic map(freq =>50, half=>25)
    port map (
