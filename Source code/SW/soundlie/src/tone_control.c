@@ -154,8 +154,8 @@ bool tc_amp_valid_value(int16_t value) {
  * @return Returns true if filter coefficients were set successfully.
  */
 bool tc_set_filter_coeff(iir_input_data_t *in_data){
+	iir_data_t *filter;
 	if(in_data->taps <= IIR_MAX_COEFFS){
-		iir_data_t *filter;
 		switch(in_data->type)
 		{
 		case FILTER_LP:
