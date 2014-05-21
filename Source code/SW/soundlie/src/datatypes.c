@@ -12,7 +12,6 @@
  * Put data into circular buffer
  * @param  [in]  circ_buff  The circular buffer that the data is to be put into.
  * @param  [in]  indata   	The data that will be put in the buffer
- * @return None
  */
 void circ_buff_put(circ_buff_t *circ_buff, int16_t indata)
 {

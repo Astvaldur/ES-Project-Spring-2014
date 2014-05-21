@@ -12,8 +12,6 @@ static audiopath_t audiopath_state;
 
 /**
  * Initialize the the audio path and enables the proper interrupts
- * @param  None
- * @return None
  */
 void audiopath_init() {
 	catch_interrupt(sample_irq, SAMPLE_IRQ_ID);
@@ -26,7 +24,6 @@ void audiopath_init() {
 /**
  * Update audio path state
  * @param  [in]	audiopath_new_state	New settings for audiopath
- * @return None
  */
 void audiopath_set(audiopath_t *audiopath_new_state) {
 	audiopath_state.effects_enable = audiopath_new_state->effects_enable;
@@ -35,7 +32,6 @@ void audiopath_set(audiopath_t *audiopath_new_state) {
 
 /**
  * Fetches the currenly applied settings for audiopath
- * @param  None
  * @return Currenly applied settings for audiopath
  */
 audiopath_t audiopath_get() {
@@ -45,7 +41,6 @@ audiopath_t audiopath_get() {
 /**
  * Receive and handle IRQ from ADC
  * @param  [in]  irq	Source of the generated interrupt
- * @return None
  */
 void sample_irq(int32_t irq)
 {

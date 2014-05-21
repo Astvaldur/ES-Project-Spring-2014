@@ -10,7 +10,7 @@
 
 void gpio_set_pin_dir(int32_t, int32_t);
 
-/** Struct representation of data registers on APB */
+/* Struct representation of data registers on APB */
 struct gpio_regs
 {
 	volatile int32_t data;
@@ -22,19 +22,11 @@ struct gpio_regs
 	volatile int32_t bypass;
 	volatile int32_t capability;
 };
-/*
-0x00 I/O port data register
-0x04 I/O port output register
-0x08 I/O port direction register
-0x0C Interrupt mask register
-0x10 Interrupt polarity register
-0x14 Interrupt edge register
-0x18 Bypass register
-0x1C Capability register
-0x20 - 0x3C Interrupt map register(s). Address 0x20 + 4*n contains interrupt map
-registers for IO[4*n : 3+4+n], if implemented.
-*/
 
+/**
+ * Initialize GPIO module
+ * @param  [in]  addr   Adress of GPIO module on APB bus
+ */
 void gpio_init(int32_t addr) {
 	struct gpio_regs *gpio = (struct gpio_regs *) addr;
 	gpio->capability = 0xFFFFFFFF;
@@ -42,16 +34,31 @@ void gpio_init(int32_t addr) {
 	gpio->irq_polarity = 0xFFFFF;
 }
 
+/**
+ * Read sample from GPIO port
+ * @param  [in]  addr   Adress of GPIO module on APB bus
+ * @return Current data read from GPIO ports
+ */
 int32_t gpio_read(int32_t addr){
 	struct gpio_regs *gpio = (struct gpio_regs *) addr;
 	return gpio->data;
 }
 
+/**
+ * Write sample to GPIO port
+ * @param  [in]  addr   Adress of GPIO module on APB bus
+ * @param  [in]  data   Data to be written to GPIO port
+ */
 void gpio_write(int32_t addr, int32_t data){
 	struct gpio_regs *gpio = (struct gpio_regs *) addr;
 	gpio->output = data;
 }
 
+/**
+ * Set pin directions of GPIO port
+ * @param  [in]  addr   Adress of GPIO module on APB bus
+ * @param  [in]  data   Direction of pin on GPIO port
+ */
 void gpio_set_pin_dir(int32_t addr, int32_t ports){
 	struct gpio_regs *gpio = (struct gpio_regs *) addr;
 	gpio->direction = ports;

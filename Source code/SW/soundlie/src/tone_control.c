@@ -40,8 +40,6 @@ static tc_ctrl_data_t tc_amp_data = {
 
 /**
  * Initialize the tone control and set the default amplification levels
- * @param  None
- * @return None
  */
 void tc_init() {
 	tc_ctrl_data_t tc_amp_data = {
@@ -110,7 +108,7 @@ int16_t tc_iir(iir_data_t *iir_data, circ_buff_t *circ_buff) {
 }
 
 /**
- * Access method for amplification factors used in Tone Control.
+ * Modifier method for amplification factors used in Tone Control.
  * @param  [in]  tc_ctrl_data_t    Instance of tc_ctrl_data_t, contains amplification factors for all frequency bands
  * @return Returns true if amplification factors were set successfully.
  */
@@ -128,10 +126,18 @@ void tc_set_amp(tc_ctrl_data_t *in_data){
 
 }
 
+/**
+ * Access method for amplification factors used in Tone Control.
+ * @return Returns and array containing the amplification factors used in Tone Control.
+ */
 tc_ctrl_data_t tc_get_amp(void){
 	return tc_amp_data;
 }
 
+/**
+ * Verifies that the amplification values are valid for use with TC
+ * @return Returns true if and only if the amplification value is valid.
+ */
 bool tc_amp_valid_value(int16_t value) {
 	if (4 < value && value <= 0x2000) {
 		return true;

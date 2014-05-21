@@ -12,8 +12,6 @@ void buttons_init_gpio(void);
 
 /**
  * Polling based interface for buttons that sets audio processing parameters
- * @param  [in] None
- * @return None
  */
 void buttons_poll(){
 	buttons_init_gpio();
@@ -134,8 +132,6 @@ void buttons_poll(){
 
 /**
  * Initialize button interface
- * @param  [in] None
- * @return None
  */
 void buttons_init_gpio(){
 

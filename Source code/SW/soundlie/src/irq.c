@@ -10,12 +10,20 @@
 
 int *lreg = (int *) 0x80000000;
 
+/**
+ * Enables the given irq id
+ * @param  [in]  irq	The id of the interrupt to be enabled
+ */
 void enable_irq (int irq)
 {
 	lreg[ICLEAR/4] = (1 << irq);	// clear any pending irq
-	lreg[IMASK/4] |= (1 << irq);	// unmaks irq
+	lreg[IMASK/4] |= (1 << irq);	// unmask irq
 }
 
-void disable_irq (int irq) { lreg[IMASK/4] &= ~(1 << irq); }	// mask irq
-
-void force_irq (int irq) { lreg[IFORCE/4] = (1 << irq); }	// force irq
+/**
+ * Disables the given irq id
+ * @param  [in]  irq	The id of the interrupt to be enabled
+ */
+void disable_irq (int irq) {
+	lreg[IMASK/4] &= ~(1 << irq);	// mask irq
+}

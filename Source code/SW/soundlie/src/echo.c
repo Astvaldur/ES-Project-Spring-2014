@@ -9,7 +9,7 @@
 
 #include "echo.h"
 
-//Declare/define variables with limited scope
+/* Declare variables with limited scope */
 static echo_data_t echo_data;
 
 /**
@@ -36,7 +36,6 @@ int16_t echo(int16_t dry_samp) {
 
 /**
  * Initialize the echo sound effect and set the default settings
- * @param  None
  * @return Returns true
  */
 bool echo_init()
