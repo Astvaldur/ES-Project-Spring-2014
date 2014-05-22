@@ -1,13 +1,20 @@
-/*
- * uart.c
- *
- *  Created on: Mar 28, 2014
- *      Author: David
- */
+/**
+* @file uart.c
+* @brief Configuration and control functions for the APB UART.
+* @details All functions related to the UART is contained in this file.
+* Functions to configure, read & send, read & clear status register
+* is available in this file.
+* @author David Alm
+* @version 1.0
+*/
 
 #include "uart.h"
 
-//struct to be used to access the registers of the uart.
+
+#define UART_BASE_ADDRESS (int*)0x80000100
+///< Pointer for the base memory address of the UART on the APB bus.
+
+///< With this struct access to the UARTs register is achieved by creating a pointer
 struct uartregisters {
 	volatile int data_reg;
 	volatile int status_reg;
@@ -15,13 +22,17 @@ struct uartregisters {
 	volatile int scaler_reg;
 };
 
-//create a pointer to the UART registers. Making the pointer of type uartregsisters
+///< Struct pointer that points to the base address of the UART.
 struct uartregisters *uart_reg_ptr = (struct uartregisters *) UART_BASE_ADDRESS;
 
-//initialize the uart to be able to communicate with the pc.
+
+/**
+* Function to initialize the UART. Sets the baud rate to 9600 baud,
+* activates transmitter/receiver operation and enables interrupt generation.
+*/
 void InitUart() {
 	//set scaler to 9600 baudrate.
-	uart_reg_ptr->scaler_reg = 650; //28A in hex.
+	uart_reg_ptr->scaler_reg = 650; //28A in hex, 9600 baud
 	//set the correct control bits.
 	//bit0:receiver enable, bit1:transmitter enable, bit2:receiver interrupt enabled, bit3: transmitt interuppt enabled.
 	uart_reg_ptr->control_reg = 0x0F;
@@ -29,7 +40,12 @@ void InitUart() {
 	uart_reg_ptr->status_reg = 0;
 }
 
-//function to read from uart.
+
+
+/**
+* Used to read data that the UARTs receiver has successfully received.
+* @return Character read from UART.
+*/
 char ReadUartChar() {
 	//read the data register
 	int data_reg = uart_reg_ptr->data_reg;
@@ -39,26 +55,51 @@ char ReadUartChar() {
 	return uart_char;
 }
 
-//sends message over uart.
+
+/**
+* Function used to transmit data over the UART.
+* @param [in] Character to be sent.
+*/
 void SendCharOnUart(char char_to_send) {
 	//put the char in the holding register. (data register)
 	uart_reg_ptr->data_reg = char_to_send;
 }
 
-//status check to se if sending is possible
+
+/**
+* Reads the status registers and specifically checks if
+* the transmitter is ready to send new data.
+* @return The status of the specific status bit, its high or low.
+*/
 int UartSendStatus(){
 	int send_status = uart_reg_ptr->status_reg; //get the status of the uart
 	send_status = (send_status & 0x2) >> 1;  //bitwise AND then shift the status bit to LSB.
 	return send_status;
 }
 
-//status check to see if reading is possible
+
+/**
+* Reads the status register and returns the specific status
+* bit signaling if the receiver has received data that can
+* be retrieved.
+* @return Returns status of the receiver which is high or low.
+*/
 int UartReadStatus(){
 	int read_status = uart_reg_ptr->status_reg; //read status of the uart.
 	return (read_status & 0x1);
 }
 
-//Checks the desired error bits of the uart.
+
+
+/**
+* This is the description of the main function.
+* It is the beginning of the program.
+* You always need a main ive heard or it won't compile.
+*
+* Reads the error bits in the status register.
+* Specifically checks the overrun error and framing error bits.
+* @return Error status, either high or low.
+*/
 int UartCheckOverrunAndFraming(){
 	int overrun_error = uart_reg_ptr->status_reg; //read the status of uart.
 	int framing_error = uart_reg_ptr->status_reg;
@@ -72,15 +113,11 @@ int UartCheckOverrunAndFraming(){
 	}
 }
 
-//Writes 0 to a specific bit in the uart status registry.
+
+
+/**
+* Used to clear the status register of errors.
+*/
 void UartClearStatusBits(){
 	uart_reg_ptr->status_reg = 0; //write zero to status register
 }
-/*get the status of the uart. Is there data recieved? Can we send next char. redundant
-int UartStatus() {
-	//read the status from the uart.
-	int uart_status = uart_reg_ptr->status_reg;
-	//mask out unwanted bit is the status. We want bit0 & bit1.
-	uart_status = (uart_status & 0x3);
-	return uart_status;
-}*/
