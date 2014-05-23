@@ -1,0 +1,16 @@
+<map id="XORSTAGE_128" name="XORSTAGE_128">
+<area shape="rect" id="node9" href="$d5/d33/class_d_b_l_c_a_d_d_e_r__128__128.html" title="DBLCADDER_128_128" alt="" coords="48,160,211,189"/>
+<area shape="rect" id="node2" href="$d3/d9f/class_x_x_o_r1.html" title="XXOR1" alt="" coords="5,5,72,35"/>
+<area shape="rect" id="node4" href="$d2/d0d/class_x_x_o_r2.html" title="XXOR2" alt="" coords="96,5,163,35"/>
+<area shape="rect" id="node6" href="$d3/d5c/class_b_l_o_c_k2_a.html" title="BLOCK2A" alt="" coords="187,5,269,35"/>
+<area shape="rect" id="node11" href="$d8/dbe/class_m_u_l_t_i_p_l_i_e_r__34__34.html" title="MULTIPLIER_34_34" alt="" coords="59,237,200,267"/>
+<area shape="rect" id="node13" href="$d2/d1d/class_m_u_l__33__33.html" title="MUL_33_33" alt="" coords="84,315,175,344"/>
+<area shape="rect" id="node15" href="$d7/d24/classtechmult.html" title="techmult" alt="" coords="93,392,165,421"/>
+<area shape="rect" id="node17" href="$d7/d68/classmul32.html" title="mul32" alt="" coords="101,469,157,499"/>
+<area shape="rect" id="node19" href="$d3/d71/classproc3.html" title="proc3" alt="" coords="103,547,156,576"/>
+<area shape="rect" id="node21" href="$dd/d81/classleon3x.html" title="leon3x" alt="" coords="100,624,159,653"/>
+<area shape="rect" id="node23" href="$dd/df8/classleon3cg.html" title="leon3cg" alt="" coords="9,701,76,731"/>
+<area shape="rect" id="node25" href="$d5/d28/classleon3s.html" title="leon3s" alt="" coords="100,701,159,731"/>
+<area shape="rect" id="node29" href="$d2/db2/classleon3sh.html" title="leon3sh" alt="" coords="183,701,249,731"/>
+<area shape="rect" id="node27" href="$df/d82/classleon3mp.html" title="leon3mp" alt="" coords="95,779,164,808"/>
+</map>

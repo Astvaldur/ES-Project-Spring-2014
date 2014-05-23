@@ -1,0 +1,34 @@
+<map id="generic_syncram_2p" name="generic_syncram_2p">
+<area shape="rect" id="node3" href="$d3/d4f/classsyncram__2p.html" title="syncram_2p" alt="" coords="197,376,291,405"/>
+<area shape="rect" id="node5" href="$d4/dcc/classapbvga.html" title="apbvga" alt="" coords="363,5,427,35"/>
+<area shape="rect" id="node7" href="$da/df0/classcachemem.html" title="cachemem" alt="" coords="657,244,743,273"/>
+<area shape="rect" id="node19" href="$d9/de2/classddr2buf.html" title="ddr2buf" alt="" coords="363,165,427,195"/>
+<area shape="rect" id="node31" href="$d0/dc6/classgreth.html" title="greth" alt="" coords="369,112,420,141"/>
+<area shape="rect" id="node36" href="$dc/dcb/classgreth__gbit.html" title="greth_gbit" alt="" coords="356,59,433,88"/>
+<area shape="rect" id="node39" href="$dc/dd9/classgreth__gbit__gen.html" title="greth_gbit_gen" alt="" coords="341,269,448,299"/>
+<area shape="rect" id="node41" href="$d2/db2/classgreth__gbit__mb.html" title="greth_gbit_mb" alt="" coords="343,323,447,352"/>
+<area shape="rect" id="node43" href="$dc/df4/classgreth__gen.html" title="greth_gen" alt="" coords="356,376,433,405"/>
+<area shape="rect" id="node45" href="$d0/d30/classgreth__mb.html" title="greth_mb" alt="" coords="357,429,432,459"/>
+<area shape="rect" id="node47" href="$dc/d9f/classlogan.html" title="logan" alt="" coords="368,483,421,512"/>
+<area shape="rect" id="node49" href="$dc/de2/classregfile__3p.html" title="regfile_3p" alt="" coords="356,536,433,565"/>
+<area shape="rect" id="node63" href="$d9/d5b/classrgmii.html" title="rgmii" alt="" coords="369,589,420,619"/>
+<area shape="rect" id="node65" href="$de/d9f/classspictrlx.html" title="spictrlx" alt="" coords="363,643,427,672"/>
+<area shape="rect" id="node69" href="$d8/d07/classsvgactrl.html" title="svgactrl" alt="" coords="361,696,428,725"/>
+<area shape="rect" id="node71" href="$dc/dc3/classsyncram__2pbw.html" title="syncram_2pbw" alt="" coords="340,749,449,779"/>
+<area shape="rect" id="node9" href="$dd/d81/classleon3x.html" title="leon3x" alt="" coords="793,324,852,353"/>
+<area shape="rect" id="node11" href="$dd/df8/classleon3cg.html" title="leon3cg" alt="" coords="901,244,968,273"/>
+<area shape="rect" id="node13" href="$d5/d28/classleon3s.html" title="leon3s" alt="" coords="905,297,964,327"/>
+<area shape="rect" id="node17" href="$d2/db2/classleon3sh.html" title="leon3sh" alt="" coords="901,351,968,380"/>
+<area shape="rect" id="node15" href="$df/d82/classleon3mp.html" title="leon3mp" alt="" coords="1017,152,1087,181"/>
+<area shape="rect" id="node21" href="$d6/df9/classahb2avl__async.html" title="ahb2avl_async" alt="" coords="499,139,608,168"/>
+<area shape="rect" id="node23" href="$d5/def/classddr1spax.html" title="ddr1spax" alt="" coords="516,192,591,221"/>
+<area shape="rect" id="node27" href="$d4/d2b/classddr2spax.html" title="ddr2spax" alt="" coords="516,85,591,115"/>
+<area shape="rect" id="node25" href="$dd/dc0/classddrspa.html" title="ddrspa" alt="" coords="669,191,731,220"/>
+<area shape="rect" id="node29" href="$dd/dc2/classddr2spa.html" title="ddr2spa" alt="" coords="667,85,733,115"/>
+<area shape="rect" id="node33" href="$da/d12/classgrethm.html" title="grethm" alt="" coords="523,32,584,61"/>
+<area shape="rect" id="node51" href="$de/d6f/classregfile__3p__l3.html" title="regfile_3p_l3" alt="" coords="507,404,600,433"/>
+<area shape="rect" id="node53" href="$d6/dc4/classgrfpwx.html" title="grfpwx" alt="" coords="669,297,731,327"/>
+<area shape="rect" id="node56" href="$d5/d3b/classgrfpwxsh.html" title="grfpwxsh" alt="" coords="663,351,737,380"/>
+<area shape="rect" id="node59" href="$de/d3b/classgrlfpwx.html" title="grlfpwx" alt="" coords="668,404,732,433"/>
+<area shape="rect" id="node67" href="$dc/d96/classspictrl.html" title="spictrl" alt="" coords="525,643,581,672"/>
+</map>

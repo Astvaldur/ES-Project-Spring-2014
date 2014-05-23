@@ -1,0 +1,21 @@
+<map id="syncram64" name="syncram64">
+<area shape="rect" id="node18" href="$d3/da8/classahbtrace__mmb.html" title="ahbtrace_mmb" alt="" coords="5,315,112,344"/>
+<area shape="rect" id="node24" href="$db/d75/classsyncram128.html" title="syncram128" alt="" coords="136,315,229,344"/>
+<area shape="rect" id="node26" href="$dc/d56/classtbufmem.html" title="tbufmem" alt="" coords="253,315,325,344"/>
+<area shape="rect" id="node2" href="$d5/db1/classunisim__syncram64.html" title="unisim_syncram64" alt="" coords="44,160,175,189"/>
+<area shape="rect" id="node4" href="$d0/d1c/classunisim__syncram.html" title="unisim_syncram(2)" alt="" coords="36,83,167,112"/>
+<area shape="rect" id="node6" href="$d4/d86/classgeneric__syncram.html" title="generic_syncram(2)" alt="" coords="107,5,243,35"/>
+<area shape="rect" id="node14" href="$d0/d1c/classunisim__syncram.html" title="unisim_syncram" alt="" coords="191,83,308,112"/>
+<area shape="rect" id="node8" href="$d0/d29/classsyncram.html" title="syncram(4)" alt="" coords="264,160,349,189"/>
+<area shape="rect" id="node10" href="$df/d66/classgrmux2.html" title="grmux2" alt="" coords="332,83,396,112"/>
+<area shape="rect" id="node12" href="$d4/d86/classgeneric__syncram.html" title="generic_syncram" alt="" coords="420,83,540,112"/>
+<area shape="rect" id="node20" href="$d8/da7/classahbtrace__mb.html" title="ahbtrace_mb" alt="" coords="11,392,107,421"/>
+<area shape="rect" id="node22" href="$db/dd2/classahbtrace.html" title="ahbtrace" alt="" coords="23,469,95,499"/>
+<area shape="rect" id="node28" href="$dc/dab/classdsu3x.html" title="dsu3x" alt="" coords="168,392,224,421"/>
+<area shape="rect" id="node34" href="$dd/d81/classleon3x.html" title="leon3x" alt="" coords="272,392,331,421"/>
+<area shape="rect" id="node30" href="$dc/df1/classdsu3.html" title="dsu3" alt="" coords="144,469,195,499"/>
+<area shape="rect" id="node32" href="$df/d82/classleon3mp.html" title="leon3mp" alt="" coords="219,547,288,576"/>
+<area shape="rect" id="node36" href="$dd/df8/classleon3cg.html" title="leon3cg" alt="" coords="219,469,285,499"/>
+<area shape="rect" id="node38" href="$d5/d28/classleon3s.html" title="leon3s" alt="" coords="309,469,368,499"/>
+<area shape="rect" id="node41" href="$d2/db2/classleon3sh.html" title="leon3sh" alt="" coords="392,469,459,499"/>
+</map>

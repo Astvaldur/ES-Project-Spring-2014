@@ -1,0 +1,31 @@
+<map id="MUL_33_33" name="MUL_33_33">
+<area shape="rect" id="node2" href="$d8/dbe/class_m_u_l_t_i_p_l_i_e_r__34__34.html" title="MULTIPLIER_34_34" alt="" coords="716,299,857,328"/>
+<area shape="rect" id="node4" href="$dd/d35/class_b_o_o_t_h_c_o_d_e_r__34__34.html" title="BOOTHCODER_34_34" alt="" coords="505,139,665,168"/>
+<area shape="rect" id="node6" href="$d7/dd6/class_d_e_c_o_d_e_r.html" title="DECODER(17)" alt="" coords="331,5,443,35"/>
+<area shape="rect" id="node8" href="$d1/d0b/class_p_p___l_o_w.html" title="PP_LOW(17)" alt="" coords="337,59,436,88"/>
+<area shape="rect" id="node10" href="$d2/d43/class_r___g_a_t_e.html" title="R_GATE(17)" alt="" coords="339,112,435,141"/>
+<area shape="rect" id="node12" href="$df/d02/class_p_p___m_i_d_d_l_e.html" title="PP_MIDDLE(561)" alt="" coords="324,165,449,195"/>
+<area shape="rect" id="node14" href="$d0/db7/class_p_p___h_i_g_h.html" title="PP_HIGH(17)" alt="" coords="336,219,437,248"/>
+<area shape="rect" id="node16" href="$d9/ddd/class_w_a_l_l_a_c_e__34__34.html" title="WALLACE_34_34" alt="" coords="521,299,649,328"/>
+<area shape="rect" id="node18" href="$da/d2e/class_h_a_l_f___a_d_d_e_r.html" title="HALF_ADDER(55)" alt="" coords="320,272,453,301"/>
+<area shape="rect" id="node20" href="$d6/df1/class_f_u_l_l___a_d_d_e_r.html" title="FULL_ADDER(497)" alt="" coords="317,325,456,355"/>
+<area shape="rect" id="node22" href="$d5/d33/class_d_b_l_c_a_d_d_e_r__128__128.html" title="DBLCADDER_128_128" alt="" coords="504,432,667,461"/>
+<area shape="rect" id="node24" href="$d9/d1c/class_p_r_e_s_t_a_g_e__128.html" title="PRESTAGE_128" alt="" coords="145,539,268,568"/>
+<area shape="rect" id="node26" href="$db/d4e/class_b_l_o_c_k0.html" title="BLOCK0" alt="" coords="13,539,88,568"/>
+<area shape="rect" id="node28" href="$d1/d37/class_i_n_v_b_l_o_c_k.html" title="INVBLOCK" alt="" coords="5,379,96,408"/>
+<area shape="rect" id="node32" href="$d6/db4/class_d_b_l_c__0__128.html" title="DBLC_0_128" alt="" coords="157,219,256,248"/>
+<area shape="rect" id="node39" href="$d5/db7/class_d_b_l_c__1__128.html" title="DBLC_1_128" alt="" coords="157,485,256,515"/>
+<area shape="rect" id="node46" href="$d2/df0/class_d_b_l_c__2__128.html" title="DBLC_2_128" alt="" coords="157,272,256,301"/>
+<area shape="rect" id="node51" href="$d3/d35/class_d_b_l_c__3__128.html" title="DBLC_3_128" alt="" coords="157,379,256,408"/>
+<area shape="rect" id="node56" href="$d2/d7b/class_d_b_l_c__4__128.html" title="DBLC_4_128" alt="" coords="157,325,256,355"/>
+<area shape="rect" id="node61" href="$d9/dc1/class_d_b_l_c__5__128.html" title="DBLC_5_128" alt="" coords="157,432,256,461"/>
+<area shape="rect" id="node30" href="$d8/de6/class_d_b_l_c_t_r_e_e__128.html" title="DBLCTREE_128" alt="" coords="325,379,448,408"/>
+<area shape="rect" id="node35" href="$d5/dc9/class_b_l_o_c_k1_a.html" title="BLOCK1A" alt="" coords="9,272,92,301"/>
+<area shape="rect" id="node66" href="$df/da1/class_d_b_l_c__6__128.html" title="DBLC_6_128" alt="" coords="157,165,256,195"/>
+<area shape="rect" id="node37" href="$df/d77/class_b_l_o_c_k1.html" title="BLOCK1" alt="" coords="13,219,88,248"/>
+<area shape="rect" id="node42" href="$d3/d5c/class_b_l_o_c_k2_a.html" title="BLOCK2A" alt="" coords="9,485,92,515"/>
+<area shape="rect" id="node70" href="$dc/d76/class_x_o_r_s_t_a_g_e__128.html" title="XORSTAGE_128" alt="" coords="145,592,268,621"/>
+<area shape="rect" id="node44" href="$dc/d65/class_b_l_o_c_k2.html" title="BLOCK2" alt="" coords="13,432,88,461"/>
+<area shape="rect" id="node72" href="$d3/d9f/class_x_x_o_r1.html" title="XXOR1" alt="" coords="17,645,84,675"/>
+<area shape="rect" id="node74" href="$d2/d0d/class_x_x_o_r2.html" title="XXOR2" alt="" coords="17,592,84,621"/>
+</map>

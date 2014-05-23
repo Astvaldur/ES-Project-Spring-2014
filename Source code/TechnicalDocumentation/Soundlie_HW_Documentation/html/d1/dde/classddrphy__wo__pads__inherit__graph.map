@@ -1,0 +1,16 @@
+<map id="ddrphy_wo_pads" name="ddrphy_wo_pads">
+<area shape="rect" id="node21" href="$de/d85/classddrphy.html" title="ddrphy" alt="" coords="169,392,231,421"/>
+<area shape="rect" id="node29" href="$df/d8e/classddrphy__wrap__cbd__wo__pads.html" title="ddrphy_wrap_cbd_wo_pads" alt="" coords="255,392,436,421"/>
+<area shape="rect" id="node2" href="$d2/d44/classgeneric__ddr__phy__wo__pads.html" title="generic_ddr_phy_wo_pads" alt="" coords="184,237,360,267"/>
+<area shape="rect" id="node4" href="$d0/dc2/classddrphy__datapath.html" title="ddrphy_datapath" alt="" coords="213,160,331,189"/>
+<area shape="rect" id="node6" href="$d9/d58/classddr__oreg.html" title="ddr_oreg(5)" alt="" coords="128,83,213,112"/>
+<area shape="rect" id="node8" href="$d9/d2e/classgen__oddr__reg.html" title="gen_oddr_reg" alt="" coords="5,5,104,35"/>
+<area shape="rect" id="node10" href="$d9/d5e/classunisim__oddr__reg.html" title="unisim_oddr_reg" alt="" coords="128,5,245,35"/>
+<area shape="rect" id="node12" href="$d2/d8d/classgrdff.html" title="grdff(15)" alt="" coords="237,83,307,112"/>
+<area shape="rect" id="node14" href="$d4/d6e/classddr__ireg.html" title="ddr_ireg" alt="" coords="331,83,397,112"/>
+<area shape="rect" id="node16" href="$dd/df6/classgen__iddr__reg.html" title="gen_iddr_reg" alt="" coords="300,5,396,35"/>
+<area shape="rect" id="node18" href="$d5/d6d/classunisim__iddr__reg.html" title="unisim_iddr_reg" alt="" coords="420,5,532,35"/>
+<area shape="rect" id="node23" href="$d6/d7b/classddrphy__wrap.html" title="ddrphy_wrap" alt="" coords="85,469,181,499"/>
+<area shape="rect" id="node25" href="$d2/dcb/classddrphy__wrap__cbd.html" title="ddrphy_wrap_cbd" alt="" coords="205,469,328,499"/>
+<area shape="rect" id="node27" href="$dd/dc0/classddrspa.html" title="ddrspa" alt="" coords="236,547,297,576"/>
+</map>

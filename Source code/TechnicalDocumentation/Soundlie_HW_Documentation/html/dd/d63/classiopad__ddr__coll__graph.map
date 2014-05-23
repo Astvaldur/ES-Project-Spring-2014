@@ -1,0 +1,10 @@
+<map id="iopad_ddr" name="iopad_ddr">
+<area shape="rect" id="node2" href="$d8/d85/classiopad.html" title="iopad" alt="" coords="111,83,164,112"/>
+<area shape="rect" id="node4" href="$d5/d25/classunisim__iopad.html" title="unisim_iopad" alt="" coords="5,5,104,35"/>
+<area shape="rect" id="node6" href="$d4/d6e/classddr__ireg.html" title="ddr_ireg" alt="" coords="207,83,273,112"/>
+<area shape="rect" id="node8" href="$dd/df6/classgen__iddr__reg.html" title="gen_iddr_reg" alt="" coords="128,5,224,35"/>
+<area shape="rect" id="node10" href="$d5/d6d/classunisim__iddr__reg.html" title="unisim_iddr_reg" alt="" coords="248,5,360,35"/>
+<area shape="rect" id="node12" href="$d9/d58/classddr__oreg.html" title="ddr_oreg" alt="" coords="397,83,469,112"/>
+<area shape="rect" id="node14" href="$d9/d2e/classgen__oddr__reg.html" title="gen_oddr_reg" alt="" coords="384,5,483,35"/>
+<area shape="rect" id="node16" href="$d9/d5e/classunisim__oddr__reg.html" title="unisim_oddr_reg" alt="" coords="507,5,624,35"/>
+</map>

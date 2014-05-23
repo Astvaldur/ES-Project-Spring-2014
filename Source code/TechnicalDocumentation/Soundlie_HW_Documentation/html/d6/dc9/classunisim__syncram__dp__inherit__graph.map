@@ -1,0 +1,37 @@
+<map id="unisim_syncram_dp" name="unisim_syncram_dp">
+<area shape="rect" id="node3" href="$db/d7c/classsyncram__dp.html" title="syncram_dp" alt="" coords="215,85,308,114"/>
+<area shape="rect" id="node19" href="$d2/d2d/classunisim__syncram__2p.html" title="unisim_syncram_2p" alt="" coords="192,218,331,248"/>
+<area shape="rect" id="node5" href="$df/d67/classahbdpram.html" title="ahbdpram" alt="" coords="387,33,464,62"/>
+<area shape="rect" id="node7" href="$da/df0/classcachemem.html" title="cachemem" alt="" coords="533,32,619,61"/>
+<area shape="rect" id="node9" href="$dd/d81/classleon3x.html" title="leon3x" alt="" coords="961,86,1020,116"/>
+<area shape="rect" id="node11" href="$dd/df8/classleon3cg.html" title="leon3cg" alt="" coords="1069,60,1136,89"/>
+<area shape="rect" id="node13" href="$d5/d28/classleon3s.html" title="leon3s" alt="" coords="1073,113,1132,142"/>
+<area shape="rect" id="node17" href="$d2/db2/classleon3sh.html" title="leon3sh" alt="" coords="1069,166,1136,196"/>
+<area shape="rect" id="node15" href="$df/d82/classleon3mp.html" title="leon3mp" alt="" coords="1185,166,1255,196"/>
+<area shape="rect" id="node21" href="$d3/d4f/classsyncram__2p.html" title="syncram_2p" alt="" coords="379,378,472,408"/>
+<area shape="rect" id="node23" href="$d4/dcc/classapbvga.html" title="apbvga" alt="" coords="544,245,608,274"/>
+<area shape="rect" id="node26" href="$d9/de2/classddr2buf.html" title="ddr2buf" alt="" coords="544,298,608,328"/>
+<area shape="rect" id="node38" href="$d0/dc6/classgreth.html" title="greth" alt="" coords="551,138,601,168"/>
+<area shape="rect" id="node43" href="$dc/dcb/classgreth__gbit.html" title="greth_gbit" alt="" coords="537,192,615,221"/>
+<area shape="rect" id="node46" href="$dc/dd9/classgreth__gbit__gen.html" title="greth_gbit_gen" alt="" coords="523,352,629,381"/>
+<area shape="rect" id="node48" href="$d2/db2/classgreth__gbit__mb.html" title="greth_gbit_mb" alt="" coords="524,405,628,434"/>
+<area shape="rect" id="node50" href="$dc/df4/classgreth__gen.html" title="greth_gen" alt="" coords="537,458,615,488"/>
+<area shape="rect" id="node52" href="$d0/d30/classgreth__mb.html" title="greth_mb" alt="" coords="539,512,613,541"/>
+<area shape="rect" id="node54" href="$dc/d9f/classlogan.html" title="logan" alt="" coords="549,565,603,594"/>
+<area shape="rect" id="node56" href="$dc/de2/classregfile__3p.html" title="regfile_3p" alt="" coords="537,85,615,114"/>
+<area shape="rect" id="node70" href="$d9/d5b/classrgmii.html" title="rgmii" alt="" coords="551,618,601,648"/>
+<area shape="rect" id="node72" href="$de/d9f/classspictrlx.html" title="spictrlx" alt="" coords="544,672,608,701"/>
+<area shape="rect" id="node76" href="$d8/d07/classsvgactrl.html" title="svgactrl" alt="" coords="543,725,609,754"/>
+<area shape="rect" id="node78" href="$dc/dc3/classsyncram__2pbw.html" title="syncram_2pbw" alt="" coords="521,778,631,808"/>
+<area shape="rect" id="node28" href="$d6/df9/classahb2avl__async.html" title="ahb2avl_async" alt="" coords="680,245,789,274"/>
+<area shape="rect" id="node30" href="$d5/def/classddr1spax.html" title="ddr1spax" alt="" coords="697,298,772,328"/>
+<area shape="rect" id="node34" href="$d4/d2b/classddr2spax.html" title="ddr2spax" alt="" coords="697,352,772,381"/>
+<area shape="rect" id="node32" href="$dd/dc0/classddrspa.html" title="ddrspa" alt="" coords="844,298,905,328"/>
+<area shape="rect" id="node36" href="$dd/dc2/classddr2spa.html" title="ddr2spa" alt="" coords="841,352,908,381"/>
+<area shape="rect" id="node40" href="$da/d12/classgrethm.html" title="grethm" alt="" coords="704,192,765,221"/>
+<area shape="rect" id="node58" href="$de/d6f/classregfile__3p__l3.html" title="regfile_3p_l3" alt="" coords="688,85,781,114"/>
+<area shape="rect" id="node60" href="$d6/dc4/classgrfpwx.html" title="grfpwx" alt="" coords="844,60,905,89"/>
+<area shape="rect" id="node63" href="$d5/d3b/classgrfpwxsh.html" title="grfpwxsh" alt="" coords="837,113,912,142"/>
+<area shape="rect" id="node66" href="$de/d3b/classgrlfpwx.html" title="grlfpwx" alt="" coords="843,166,907,196"/>
+<area shape="rect" id="node74" href="$dc/d96/classspictrl.html" title="spictrl" alt="" coords="707,672,763,701"/>
+</map>

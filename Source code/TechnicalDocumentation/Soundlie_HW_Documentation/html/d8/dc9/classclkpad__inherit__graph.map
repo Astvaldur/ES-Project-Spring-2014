@@ -1,0 +1,14 @@
+<map id="clkpad" name="clkpad">
+<area shape="rect" id="node5" href="$dd/d1a/classspartan3a__ddr2__phy.html" title="spartan3a_ddr2_phy" alt="" coords="5,160,144,189"/>
+<area shape="rect" id="node13" href="$d2/de9/classspartan3e__ddr__phy.html" title="spartan3e_ddr_phy" alt="" coords="168,160,299,189"/>
+<area shape="rect" id="node23" href="$dc/dd7/classvirtex2__ddr__phy.html" title="virtex2_ddr_phy" alt="" coords="323,160,437,189"/>
+<area shape="rect" id="node26" href="$d1/d14/classvirtex4__ddr__phy.html" title="virtex4_ddr_phy" alt="" coords="461,160,576,189"/>
+<area shape="rect" id="node2" href="$d4/da4/classunisim__clkpad.html" title="unisim_clkpad" alt="" coords="255,5,359,35"/>
+<area shape="rect" id="node7" href="$d4/dc2/classddr2phy.html" title="ddr2phy" alt="" coords="41,237,108,267"/>
+<area shape="rect" id="node9" href="$d6/d38/classddr2phy__wrap__cbd.html" title="ddr2phy_wrap_cbd" alt="" coords="9,315,140,344"/>
+<area shape="rect" id="node11" href="$dd/dc2/classddr2spa.html" title="ddr2spa" alt="" coords="41,392,108,421"/>
+<area shape="rect" id="node15" href="$de/d85/classddrphy.html" title="ddrphy" alt="" coords="349,237,411,267"/>
+<area shape="rect" id="node17" href="$d6/d7b/classddrphy__wrap.html" title="ddrphy_wrap" alt="" coords="265,315,361,344"/>
+<area shape="rect" id="node19" href="$d2/dcb/classddrphy__wrap__cbd.html" title="ddrphy_wrap_cbd" alt="" coords="385,315,508,344"/>
+<area shape="rect" id="node21" href="$dd/dc0/classddrspa.html" title="ddrspa" alt="" coords="416,392,477,421"/>
+</map>

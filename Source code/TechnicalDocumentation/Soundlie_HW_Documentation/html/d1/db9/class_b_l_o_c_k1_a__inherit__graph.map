@@ -1,0 +1,36 @@
+<map id="BLOCK1A" name="BLOCK1A">
+<area shape="rect" id="node3" href="$d6/db4/class_d_b_l_c__0__128.html" title="DBLC_0_128" alt="" coords="137,5,236,35"/>
+<area shape="rect" id="node29" href="$d9/d44/class_d_b_l_c__0__32.html" title="DBLC_0_32" alt="" coords="140,219,233,248"/>
+<area shape="rect" id="node37" href="$dd/dd0/class_d_b_l_c__0__64.html" title="DBLC_0_64" alt="" coords="140,379,233,408"/>
+<area shape="rect" id="node58" href="$d2/df0/class_d_b_l_c__2__128.html" title="DBLC_2_128" alt="" coords="137,59,236,88"/>
+<area shape="rect" id="node61" href="$d4/d0e/class_d_b_l_c__2__32.html" title="DBLC_2_32" alt="" coords="140,272,233,301"/>
+<area shape="rect" id="node64" href="$de/de0/class_d_b_l_c__2__64.html" title="DBLC_2_64" alt="" coords="140,432,233,461"/>
+<area shape="rect" id="node67" href="$d2/d7b/class_d_b_l_c__4__128.html" title="DBLC_4_128" alt="" coords="137,112,236,141"/>
+<area shape="rect" id="node70" href="$d4/d39/class_d_b_l_c__4__32.html" title="DBLC_4_32" alt="" coords="140,325,233,355"/>
+<area shape="rect" id="node73" href="$df/d3b/class_d_b_l_c__4__64.html" title="DBLC_4_64" alt="" coords="140,485,233,515"/>
+<area shape="rect" id="node76" href="$df/da1/class_d_b_l_c__6__128.html" title="DBLC_6_128" alt="" coords="137,165,236,195"/>
+<area shape="rect" id="node79" href="$d3/de8/class_x_o_r_s_t_a_g_e__64.html" title="XORSTAGE_64" alt="" coords="288,511,405,540"/>
+<area shape="rect" id="node5" href="$d8/de6/class_d_b_l_c_t_r_e_e__128.html" title="DBLCTREE_128" alt="" coords="285,112,408,141"/>
+<area shape="rect" id="node7" href="$d5/d33/class_d_b_l_c_a_d_d_e_r__128__128.html" title="DBLCADDER_128_128" alt="" coords="456,139,619,168"/>
+<area shape="rect" id="node9" href="$d8/dbe/class_m_u_l_t_i_p_l_i_e_r__34__34.html" title="MULTIPLIER_34_34" alt="" coords="668,192,809,221"/>
+<area shape="rect" id="node11" href="$d2/d1d/class_m_u_l__33__33.html" title="MUL_33_33" alt="" coords="860,245,951,275"/>
+<area shape="rect" id="node13" href="$d7/d24/classtechmult.html" title="techmult" alt="" coords="1000,379,1072,408"/>
+<area shape="rect" id="node15" href="$d7/d68/classmul32.html" title="mul32" alt="" coords="1121,379,1177,408"/>
+<area shape="rect" id="node17" href="$d3/d71/classproc3.html" title="proc3" alt="" coords="1228,379,1281,408"/>
+<area shape="rect" id="node19" href="$dd/d81/classleon3x.html" title="leon3x" alt="" coords="1332,379,1391,408"/>
+<area shape="rect" id="node21" href="$dd/df8/classleon3cg.html" title="leon3cg" alt="" coords="1440,325,1507,355"/>
+<area shape="rect" id="node23" href="$d5/d28/classleon3s.html" title="leon3s" alt="" coords="1444,379,1503,408"/>
+<area shape="rect" id="node27" href="$d2/db2/classleon3sh.html" title="leon3sh" alt="" coords="1440,432,1507,461"/>
+<area shape="rect" id="node25" href="$df/d82/classleon3mp.html" title="leon3mp" alt="" coords="1556,379,1625,408"/>
+<area shape="rect" id="node31" href="$d5/dc6/class_d_b_l_c_t_r_e_e__32.html" title="DBLCTREE_32" alt="" coords="289,272,404,301"/>
+<area shape="rect" id="node33" href="$dc/d4d/class_d_b_l_c_a_d_d_e_r__32__32.html" title="DBLCADDER_32_32" alt="" coords="464,272,611,301"/>
+<area shape="rect" id="node35" href="$d8/dfa/class_a_d_d32.html" title="ADD32" alt="" coords="707,272,771,301"/>
+<area shape="rect" id="node39" href="$dc/daf/class_d_b_l_c_t_r_e_e__64.html" title="DBLCTREE_64" alt="" coords="289,432,404,461"/>
+<area shape="rect" id="node41" href="$d6/dab/class_d_b_l_c_a_d_d_e_r__64__64.html" title="DBLCADDER_64_64" alt="" coords="464,432,611,461"/>
+<area shape="rect" id="node43" href="$da/dca/class_m_u_l_t_i_p_l_i_e_r__18__18.html" title="MULTIPLIER_18_18" alt="" coords="668,352,809,381"/>
+<area shape="rect" id="node48" href="$d0/d69/class_m_u_l_t_i_p_l_i_e_r__34__10.html" title="MULTIPLIER_34_10" alt="" coords="668,405,809,435"/>
+<area shape="rect" id="node53" href="$db/dd4/class_m_u_l_t_i_p_l_i_e_r__34__18.html" title="MULTIPLIER_34_18" alt="" coords="668,459,809,488"/>
+<area shape="rect" id="node45" href="$d0/d2a/class_m_u_l__17__17.html" title="MUL_17_17" alt="" coords="860,352,951,381"/>
+<area shape="rect" id="node50" href="$df/ddf/class_m_u_l__33__9.html" title="MUL_33_9" alt="" coords="863,405,948,435"/>
+<area shape="rect" id="node55" href="$df/df9/class_m_u_l__33__17.html" title="MUL_33_17" alt="" coords="860,459,951,488"/>
+</map>

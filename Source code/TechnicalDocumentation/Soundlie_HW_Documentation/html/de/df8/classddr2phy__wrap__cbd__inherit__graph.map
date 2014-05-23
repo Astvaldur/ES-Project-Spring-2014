@@ -1,0 +1,31 @@
+<map id="ddr2phy_wrap_cbd" name="ddr2phy_wrap_cbd">
+<area shape="rect" id="node62" href="$dd/dc2/classddr2spa.html" title="ddr2spa" alt="" coords="1199,299,1265,328"/>
+<area shape="rect" id="node2" href="$d4/dc2/classddr2phy.html" title="ddr2phy" alt="" coords="903,299,969,328"/>
+<area shape="rect" id="node4" href="$dd/d1a/classspartan3a__ddr2__phy.html" title="spartan3a_ddr2_phy" alt="" coords="715,299,853,328"/>
+<area shape="rect" id="node6" href="$dc/d1c/classoutpad.html" title="outpad(12)" alt="" coords="529,325,612,355"/>
+<area shape="rect" id="node8" href="$de/dbe/classunisim__outpad.html" title="unisim_outpad" alt="" coords="313,219,420,248"/>
+<area shape="rect" id="node48" href="$dc/d1c/classoutpad.html" title="outpad(17)" alt="" coords="529,219,612,248"/>
+<area shape="rect" id="node10" href="$da/d42/classclkpad.html" title="clkpad" alt="" coords="541,379,600,408"/>
+<area shape="rect" id="node12" href="$d4/da4/classunisim__clkpad.html" title="unisim_clkpad" alt="" coords="315,379,419,408"/>
+<area shape="rect" id="node14" href="$d9/d9a/classiopad__ds.html" title="iopad_ds" alt="" coords="533,272,608,301"/>
+<area shape="rect" id="node46" href="$dc/dab/classddr2pads.html" title="ddr2pads" alt="" coords="747,165,821,195"/>
+<area shape="rect" id="node16" href="$df/d61/classunisim__iopad__ds.html" title="unisim_iopad_ds" alt="" coords="308,272,425,301"/>
+<area shape="rect" id="node18" href="$d8/d85/classiopad.html" title="iopad" alt="" coords="544,165,597,195"/>
+<area shape="rect" id="node20" href="$d5/d25/classunisim__iopad.html" title="unisim_iopad" alt="" coords="317,112,416,141"/>
+<area shape="rect" id="node58" href="$d8/d85/classiopad.html" title="iopad(2)" alt="" coords="537,59,604,88"/>
+<area shape="rect" id="node22" href="$d4/df9/classddr2phy__wo__pads.html" title="ddr2phy_wo_pads" alt="" coords="721,459,847,488"/>
+<area shape="rect" id="node24" href="$de/dc2/classvirtex5__ddr2__phy__wo__pads.html" title="virtex5_ddr2_phy_wo_pads" alt="" coords="481,432,660,461"/>
+<area shape="rect" id="node26" href="$d9/ddd/classspartan6__ddr2__phy__wo__pads.html" title="spartan6_ddr2_phy_wo_pads" alt="" coords="476,485,665,515"/>
+<area shape="rect" id="node28" href="$dc/d3f/classgeneric__ddr2__phy__wo__pads.html" title="generic_ddr2_phy_wo_pads" alt="" coords="480,539,661,568"/>
+<area shape="rect" id="node30" href="$d0/dc2/classddrphy__datapath.html" title="ddrphy_datapath" alt="" coords="308,539,425,568"/>
+<area shape="rect" id="node32" href="$d9/d58/classddr__oreg.html" title="ddr_oreg(5)" alt="" coords="172,485,257,515"/>
+<area shape="rect" id="node34" href="$d9/d2e/classgen__oddr__reg.html" title="gen_oddr_reg" alt="" coords="15,445,113,475"/>
+<area shape="rect" id="node36" href="$d9/d5e/classunisim__oddr__reg.html" title="unisim_oddr_reg" alt="" coords="5,499,123,528"/>
+<area shape="rect" id="node38" href="$d2/d8d/classgrdff.html" title="grdff(15)" alt="" coords="180,539,249,568"/>
+<area shape="rect" id="node40" href="$d4/d6e/classddr__ireg.html" title="ddr_ireg" alt="" coords="181,592,248,621"/>
+<area shape="rect" id="node42" href="$dd/df6/classgen__iddr__reg.html" title="gen_iddr_reg" alt="" coords="16,579,112,608"/>
+<area shape="rect" id="node44" href="$d5/d6d/classunisim__iddr__reg.html" title="unisim_iddr_reg" alt="" coords="8,632,120,661"/>
+<area shape="rect" id="node51" href="$d6/db1/classinpad.html" title="inpad" alt="" coords="544,5,597,35"/>
+<area shape="rect" id="node53" href="$da/d61/classunisim__inpad.html" title="unisim_inpad" alt="" coords="317,5,416,35"/>
+<area shape="rect" id="node55" href="$df/d63/classoutpad__ds.html" title="outpad_ds" alt="" coords="529,112,612,141"/>
+</map>

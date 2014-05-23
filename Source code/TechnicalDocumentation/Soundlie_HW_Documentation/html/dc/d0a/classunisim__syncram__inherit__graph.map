@@ -1,0 +1,30 @@
+<map id="unisim_syncram" name="unisim_syncram">
+<area shape="rect" id="node5" href="$d0/d29/classsyncram.html" title="syncram" alt="" coords="396,216,468,245"/>
+<area shape="rect" id="node57" href="$da/d8f/classunisim__syncram128bw.html" title="unisim_syncram128bw" alt="" coords="355,320,509,349"/>
+<area shape="rect" id="node61" href="$d5/db1/classunisim__syncram64.html" title="unisim_syncram64" alt="" coords="367,59,497,88"/>
+<area shape="rect" id="node2" href="$d4/d86/classgeneric__syncram.html" title="generic_syncram(2)" alt="" coords="5,216,141,245"/>
+<area shape="rect" id="node7" href="$da/df0/classcachemem.html" title="cachemem" alt="" coords="908,268,993,297"/>
+<area shape="rect" id="node19" href="$df/d64/classmmutlb.html" title="mmutlb" alt="" coords="595,216,659,245"/>
+<area shape="rect" id="node28" href="$d4/d6c/classsyncram128bw.html" title="syncram128bw" alt="" coords="572,320,681,349"/>
+<area shape="rect" id="node30" href="$d6/d2f/classsyncram156bw.html" title="syncram156bw" alt="" coords="572,112,681,141"/>
+<area shape="rect" id="node32" href="$d1/d26/classsyncram256bw.html" title="syncram256bw" alt="" coords="572,373,681,403"/>
+<area shape="rect" id="node34" href="$d4/d30/classsyncram64.html" title="syncram64" alt="" coords="584,59,669,88"/>
+<area shape="rect" id="node52" href="$dd/d94/classsyncrambw.html" title="syncrambw" alt="" coords="755,163,843,192"/>
+<area shape="rect" id="node9" href="$dd/d81/classleon3x.html" title="leon3x" alt="" coords="1175,267,1233,296"/>
+<area shape="rect" id="node11" href="$dd/df8/classleon3cg.html" title="leon3cg" alt="" coords="1285,267,1352,296"/>
+<area shape="rect" id="node13" href="$d5/d28/classleon3s.html" title="leon3s" alt="" coords="1289,213,1348,243"/>
+<area shape="rect" id="node17" href="$d2/db2/classleon3sh.html" title="leon3sh" alt="" coords="1285,320,1352,349"/>
+<area shape="rect" id="node15" href="$df/d82/classleon3mp.html" title="leon3mp" alt="" coords="1401,161,1471,191"/>
+<area shape="rect" id="node21" href="$d9/d0e/classmmu.html" title="mmu" alt="" coords="773,216,824,245"/>
+<area shape="rect" id="node23" href="$d3/dd5/classmmu__cache.html" title="mmu_cache" alt="" coords="904,215,997,244"/>
+<area shape="rect" id="node25" href="$d3/d71/classproc3.html" title="proc3" alt="" coords="1059,215,1112,244"/>
+<area shape="rect" id="node36" href="$d3/da8/classahbtrace__mmb.html" title="ahbtrace_mmb" alt="" coords="745,59,852,88"/>
+<area shape="rect" id="node42" href="$db/d75/classsyncram128.html" title="syncram128" alt="" coords="752,5,845,35"/>
+<area shape="rect" id="node44" href="$dc/d56/classtbufmem.html" title="tbufmem" alt="" coords="1049,111,1121,140"/>
+<area shape="rect" id="node38" href="$d8/da7/classahbtrace__mb.html" title="ahbtrace_mb" alt="" coords="903,59,999,88"/>
+<area shape="rect" id="node40" href="$db/dd2/classahbtrace.html" title="ahbtrace" alt="" coords="1049,57,1121,87"/>
+<area shape="rect" id="node46" href="$dc/dab/classdsu3x.html" title="dsu3x" alt="" coords="1176,109,1232,139"/>
+<area shape="rect" id="node48" href="$dc/df1/classdsu3.html" title="dsu3" alt="" coords="1293,109,1344,139"/>
+<area shape="rect" id="node54" href="$d5/db5/classahbram.html" title="ahbram" alt="" coords="1172,163,1236,192"/>
+<area shape="rect" id="node64" href="$db/ddf/classunisim__syncram128.html" title="unisim_syncram128" alt="" coords="557,5,696,35"/>
+</map>

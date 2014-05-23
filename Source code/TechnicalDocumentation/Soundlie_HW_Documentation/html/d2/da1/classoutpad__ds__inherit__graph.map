@@ -1,0 +1,15 @@
+<map id="outpad_ds" name="outpad_ds">
+<area shape="rect" id="node3" href="$dc/dab/classddr2pads.html" title="ddr2pads" alt="" coords="87,83,161,112"/>
+<area shape="rect" id="node13" href="$da/db0/classddrpads.html" title="ddrpads" alt="" coords="185,83,252,112"/>
+<area shape="rect" id="node23" href="$de/d2d/classlvds__combo.html" title="lvds_combo" alt="" coords="276,83,367,112"/>
+<area shape="rect" id="node25" href="$d9/d2b/classoutpad__dsv.html" title="outpad_dsv" alt="" coords="391,83,479,112"/>
+<area shape="rect" id="node27" href="$d1/d14/classvirtex4__ddr__phy.html" title="virtex4_ddr_phy" alt="" coords="503,83,617,112"/>
+<area shape="rect" id="node5" href="$d4/dc2/classddr2phy.html" title="ddr2phy" alt="" coords="37,160,104,189"/>
+<area shape="rect" id="node11" href="$d7/d7a/classddr2phy__wrap.html" title="ddr2phy_wrap" alt="" coords="128,160,229,189"/>
+<area shape="rect" id="node7" href="$d6/d38/classddr2phy__wrap__cbd.html" title="ddr2phy_wrap_cbd" alt="" coords="5,237,136,267"/>
+<area shape="rect" id="node9" href="$dd/dc2/classddr2spa.html" title="ddr2spa" alt="" coords="37,315,104,344"/>
+<area shape="rect" id="node15" href="$de/d85/classddrphy.html" title="ddrphy" alt="" coords="281,160,343,189"/>
+<area shape="rect" id="node17" href="$d6/d7b/classddrphy__wrap.html" title="ddrphy_wrap" alt="" coords="212,237,308,267"/>
+<area shape="rect" id="node19" href="$d2/dcb/classddrphy__wrap__cbd.html" title="ddrphy_wrap_cbd" alt="" coords="332,237,455,267"/>
+<area shape="rect" id="node21" href="$dd/dc0/classddrspa.html" title="ddrspa" alt="" coords="363,315,424,344"/>
+</map>
