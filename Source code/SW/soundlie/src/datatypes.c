@@ -28,7 +28,7 @@ void circ_buff_put(circ_buff_t *circ_buff, int16_t indata)
 /**
  * Fetches data from circular buffer
  * @param  [in]  circ_buff   The circular buffer that the data is to be read from
- * @param  [in]  circ_buff   The offset of the fetched data's position in relation to the latest added data's position
+ * @param  [in]  offset   The offset of the fetched data's position in relation to the latest added data's position
  * @return Requested data from buffer
  */
 int16_t circ_buff_get(circ_buff_t *circ_buff, int32_t offset)

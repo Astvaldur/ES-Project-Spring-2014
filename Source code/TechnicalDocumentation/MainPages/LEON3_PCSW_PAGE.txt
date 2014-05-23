@@ -1,0 +1,51 @@
+/*! \mainpage Soundlie User Interface
+ *
+ * \section intro_sec Introduction
+ *
+ * The Soundlie user interface has been developed to increase the flexibility of the developed Soundlie effect-unit. \n
+ * The user interface makes it possible for the user to alter the system behavior at runtime and monitor events on \n
+ * the device. The communication between the device and the user interface use a UART connection and sends and receive \n 
+ * data using the modified SREC protocol.
+ *
+ * \section sec_desc File description
+ * File: uart_gui.sln \n
+ * Project file used to open the Soundlie User Interface project
+ * 
+ * File: Soundlie_GUI.cs [design] \n
+ * Contains the layout of the user interface. 
+ * 
+ * File: Soundlie_GUI.cs \n
+ * Contains the source code for all events and all functions developed.
+ *
+ *
+ * \section sec_desc2 Installation
+ * The user interface have been developed in Visual Studio C#.\n
+ * The user interface use the MATLAB COM objec MLAPP to perform the filter coefficient calculations.
+ *
+ * \subsection sec_desc3 Register the MATLAB COM object
+ * In order to be able to use the access the COM object, and get the user interface to work properly, the following steps need to be taken.
+ * 
+ * \subsubsection sec_desc4 Step 1: In MATLAB the COM object need to be registered.
+ * Run the following command in the MATLAB command window (administrator mode): \n
+ * >> !matlab -regserver
+ * 
+ * \subsubsection sec_desc5 Step 2: In Visual Studio the COM object need to be added as a reference.
+ * From Visual Studio, add a reference to the MATLAB COM object. \n
+ * In Microsoft Visual Studio, open your project. From the Project menu, select Add Reference. Select the COM tab in the Add Reference dialog box. \n
+ * Select the MATLAB application.
+
+ * \subsubsection sec_desc6 Step 3: Access the COM object
+ * The MATLAB com object is accessed in the code using the following command (This step is already implmented in the code).
+ * MLApp.MLApp matlab = new MLApp.MLApp();
+ *
+ * \section sec_desc7 System requirement 
+ * The Soundlie user inteface have been developed using the following software \n
+ * MATLAB Version: 8.3.0.532 (R2014a) \n
+ * Visual Studio Ultimate 2012 \n
+ * Microsoft Visual C# 2012 \n
+ * Microsoft Windows 7 Professional  Version 6.1 (Build 7601: Service Pack 1)
+ */
+
+
+
+

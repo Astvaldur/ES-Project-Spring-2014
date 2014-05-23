@@ -8,8 +8,6 @@
 
 #include "gpio.h"
 
-void gpio_set_pin_dir(int32_t, int32_t);
-
 /* Struct representation of data registers on APB */
 struct gpio_regs
 {
@@ -57,7 +55,7 @@ void gpio_write(int32_t addr, int32_t data){
 /**
  * Set pin directions of GPIO port
  * @param  [in]  addr   Adress of GPIO module on APB bus
- * @param  [in]  data   Direction of pin on GPIO port
+ * @param  [in]  ports  Direction of pin on GPIO port
  */
 void gpio_set_pin_dir(int32_t addr, int32_t ports){
 	struct gpio_regs *gpio = (struct gpio_regs *) addr;

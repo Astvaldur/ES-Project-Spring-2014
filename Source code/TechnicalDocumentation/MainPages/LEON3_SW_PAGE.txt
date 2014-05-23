@@ -1,0 +1,15 @@
+/*! \mainpage My Personal Index Page
+ *
+ * \section intro_sec Introduction
+ *
+ * For the development of this software GRTools-20140227 were used. GRTools is a toolsuite that contains:
+ * 
+ *
+ * \section install_sec Installation
+ *
+ * \subsection step1 Step 1: Opening the box
+ *
+ * etc...
+ */
+
+GRMON2 LEON debug monitor v2.0.49 proxima version

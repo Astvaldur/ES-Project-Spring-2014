@@ -1,0 +1,20 @@
+/*! \mainpage Soundlie Hardware Descriptive Code - Index Page
+ *
+ * \section intro_sec Introduction
+ *
+ * This part contains all necessary HDL for the Soundlie project. Development was done in:
+ * Vivado v2013.4 (64-bit)
+ * SW Build 353583 on Mon Dec 9 17:49:19 MST 2013
+ * IP Build 208076 on Mon Dec 2 12:38:17 MST 2013
+ *
+ * The LEON3 HDL from Aeroflex Gaisler is included in and is of version:
+ * grlib-gpl-1.3.4-b4140
+ *
+ * \section install_sec Installation
+ *
+ * \subsection step1 Step 1: Opening the box
+ *
+ * etc...
+ */
+
+  
