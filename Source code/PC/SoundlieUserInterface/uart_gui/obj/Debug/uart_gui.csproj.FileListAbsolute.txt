@@ -31,3 +31,8 @@ C:\Users\Jonas\Google Drive\DAT096\Technical Documentation\GUI\SoundlieUserInter
 C:\Users\Jonas\Google Drive\DAT096\Technical Documentation\GUI\SoundlieUserInterface\uart_gui\obj\Debug\uart_gui.Soundlie_GUI.resources
 C:\Users\Jonas\Google Drive\DAT096\Technical Documentation\GUI\SoundlieUserInterface\uart_gui\obj\Debug\uart_gui.Properties.Resources.resources
 C:\Users\Jonas\Google Drive\DAT096\Technical Documentation\GUI\SoundlieUserInterface\uart_gui\obj\Debug\uart_gui.csproj.GenerateResource.Cache
+C:\Users\Jonas\Documents\GitHub\ES-Project-Spring-2014\Source code\PC\SoundlieUserInterface\uart_gui\bin\Debug\uart_gui.exe.config
+C:\Users\Jonas\Documents\GitHub\ES-Project-Spring-2014\Source code\PC\SoundlieUserInterface\uart_gui\obj\Debug\Interop.MLApp.dll
+C:\Users\Jonas\Documents\GitHub\ES-Project-Spring-2014\Source code\PC\SoundlieUserInterface\uart_gui\obj\Debug\uart_gui.csproj.ResolveComReference.cache
+C:\Users\Jonas\Documents\GitHub\ES-Project-Spring-2014\Source code\PC\SoundlieUserInterface\uart_gui\obj\Debug\uart_gui.exe
+C:\Users\Jonas\Documents\GitHub\ES-Project-Spring-2014\Source code\PC\SoundlieUserInterface\uart_gui\obj\Debug\uart_gui.pdb
