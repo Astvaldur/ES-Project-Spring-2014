@@ -1,3 +1,4 @@
+--!@file top_fir.vhd
 --! @brief This the top-entity of the FIR decimation filter design. 
 --! @details This code block is the top-entity of the decimation filter design. It
 --! connects the two FIR filter stages. One filter stage consist of a wrapper 

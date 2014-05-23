@@ -1,3 +1,4 @@
+--!@file fir_wrap.vhd
 --! @brief This is the wrapper for the first filter stage of the FIR decimation filter design. 
 --! @details This code block is a wrapper which connects the first stage FIR filter (fir1)
 --! to the top-entity of the decimation filter design (top_fir). 

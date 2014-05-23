@@ -1,3 +1,4 @@
+--!@file fir_wrap2.vhd
 --! @brief This is the wrapper for the second filter stage of the FIR decimation filter design. 
 --! @details This code block is a wrapper which connects the second stage FIR filter (fir2)
 --! to the top-entity of the decimation filter design (top_fir). 

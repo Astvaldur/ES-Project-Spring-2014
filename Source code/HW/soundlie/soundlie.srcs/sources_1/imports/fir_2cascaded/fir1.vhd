@@ -1,3 +1,4 @@
+--!@file fir1.vhd
 --! @brief This is the FIR filter implementation of the first stage filter in the decimation filter design. 
 --! @details This code block is a FIR filter. It is the first filter in the two stage decimation 
 --! filter design. It is a sub-block of a wrapper, fir_wrap.
