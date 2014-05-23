@@ -1,0 +1,23 @@
+/*! \mainpage Soundlie C Source Code 
+ *
+ * \section intro_sec Introduction 
+ * This project contains all source code required to run the embedded software of the Soundlie device. \n
+ * The software includes implementations of filters, user interfaces, and a sound effect.
+ *
+ * \section org_sec Project Organization
+ * The project is opened using Eclipse. \n
+ To open the project, select "File" -> "Import..." -> "General" -> "Existing Projects into Workspace".\n
+ * Select the root directory of the software project and click "Finished"
+ *
+ * \section tools_sec Project Settings
+ * - Optimization level: O3
+ * - Hardware V8 Extension Enabled
+ *
+ * \section sysreq_sec System requirement
+ * The development of this software was done with:\n
+ * - GRTools-20140227
+ * - GRMON2 LEON debug monitor v2.0.49 proxima version\n
+ * - Microsoft Windows 7 Professional Version 6.1 (Build 7601: Service Pack 1)
+ *
+ */
+
