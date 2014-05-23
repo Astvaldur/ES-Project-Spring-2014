@@ -38,7 +38,7 @@
  * The MATLAB com object is accessed in the code using the following command (This step is already implmented in the code).
  * MLApp.MLApp matlab = new MLApp.MLApp();
  *
- * \section sec_desc7 System requirement \n
+ * \section sec_desc7 System requirement 
  * The Soundlie user inteface have been developed using the following software \n
  * MATLAB Version: 8.3.0.532 (R2014a) \n
  * Visual Studio Ultimate 2012 \n
