@@ -17,8 +17,8 @@
 #include <stdbool.h>
 
 #include "datatypes.h"
-#include "main.h"
 #include "adc.h"
+#include "pwm.h"
 
 /* Definitions ---------------------------------------------------------------*/
 #define SAMPLE_IRQ_ID	10

@@ -19,11 +19,11 @@
 ///< When configuring the tone control and echo we call function available here.
 #include "datatypes.h"
 ///< To set new configurations data structures from this file is used to store the new values.
-#include "main.h"
+#include "echo.h"
+///< To be able to configure echo sound effect
 
 //Functions
 void PcConnectionInit();
 void PcConnectionHandler();
-
 
 #endif /* PC_CONNECTION_H_ */
