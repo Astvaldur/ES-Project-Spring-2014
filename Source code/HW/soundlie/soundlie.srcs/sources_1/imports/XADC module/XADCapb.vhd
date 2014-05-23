@@ -1,6 +1,14 @@
+--! @file XADCapb.vhd
+--! @brief XADC and filter wrapper for the APB bus. 
+--! @details XADC and decimation filter wrapper for the APB bus.
+--! @author Jonas Andersson & Malin Eliasson
+--! @version 1.0
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
+
+--! GAISLER GRLIB libraries
 library grlib;
 use grlib.amba.all;
 use grlib.stdlib.all;
@@ -9,23 +17,24 @@ use grlib.devices.all;
 library work;
 use work.xadc_pkg.all;
 
+--! APB bus component
 entity xadc_apb is
   generic(
-    pindex      : integer := 0;
-    paddr       : integer := 0;
-    pmask       : integer := 16#fff#
+    pindex      : integer := 0; --! APB bus index
+    paddr       : integer := 0; --! APB bus paddr
+    pmask       : integer := 16#fff# --! APB bus pmask
     );
   port (
-    rstn        : in  std_ulogic;
-    clk         : in  std_ulogic;
-    apbi        : in  apb_slv_in_type;
-    apbo        : out apb_slv_out_type;
+    rstn        : in  std_ulogic; --! input reset signal
+    clk         : in  std_ulogic; --! input clock signal
+    apbi        : in  apb_slv_in_type; --! input APB bus input record
+    apbo        : out apb_slv_out_type; --! input APB bus output record
 	
 	--Module specific
-	xadc_clk    : in std_logic;
-    xadc_vp     : in  std_logic;
-    xadc_vn     : in  std_logic;
-    xadc_out    : out std_logic_vector(15 downto 0)	
+	xadc_clk    : in std_logic; --! XAC clock signal
+    xadc_vp     : in  std_logic; --! XADC positive V
+    xadc_vn     : in  std_logic; --! XADC negative V
+    xadc_out    : out std_logic_vector(15 downto 0)	--! XADC output vector
   );                      
  
 end entity xadc_apb;

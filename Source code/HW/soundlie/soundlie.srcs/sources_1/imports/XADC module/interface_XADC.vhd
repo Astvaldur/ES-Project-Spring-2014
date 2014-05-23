@@ -1,48 +1,28 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date: 02/22/2014 10:31:13 PM
--- Design Name: 
--- Module Name: interface_XADC - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
-----------------------------------------------------------------------------------
-
+--! @file interface_XADC.vhd
+--! @brief interface for the XADC. 
+--! @details Interface developed to handle the communication with the XADC on the Artix-7 FPGA.
+--! @author Jonas Andersson & Malin Eliasson
+--! @version 1.0
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
-
+ --! interface_XADC Entity
 entity interface_XADC is
-    Port (  xadc_clk : in std_logic;
-            xadc_reset : in std_logic;
-            xadc_vp : in  std_logic;
-            xadc_vn : in  std_logic;    
-            xadc_addr : in  std_logic_vector(6 downto 0);
-            xadc_eoc : out std_logic;
-            xadc_eos : out std_logic;
-            xadc_output : out std_logic_vector(15 downto 0));
+    Port (  xadc_clk : in std_logic;  --! input clock 
+            xadc_reset : in std_logic; --! input reset
+            xadc_vp : in  std_logic; --! input XADC positive V
+            xadc_vn : in  std_logic; --! input XADC negative V
+            xadc_addr : in  std_logic_vector(6 downto 0); --! input vector for the XADC status register address
+            xadc_eoc : out std_logic; --! output XADC end of conversion
+            xadc_eos : out std_logic; --! output XADC end of sequence
+            xadc_output : out std_logic_vector(15 downto 0)); --! output XADC output result
 
 end interface_XADC;
 
+--! @brief interface to the XADC
+--! @details interface to the XADC IP core from Xilinx. 
+--! The XADC is setup as a single channel, continues, bipoal ADC
 architecture Behavioral of interface_XADC is
 
 --XADC signal   
