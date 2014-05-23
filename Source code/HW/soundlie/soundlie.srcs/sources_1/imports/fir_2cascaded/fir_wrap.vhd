@@ -2,6 +2,7 @@
 --! @details This code block is a wrapper which connects the first stage FIR filter (fir1)
 --! to the top-entity of the decimation filter design (top_fir). 
 --! @author Malin Eliasson
+--! @author Astvaldur Hjartarson
 --! @version 2.0
 
 --! Use standard library
@@ -21,14 +22,14 @@ ENTITY fir_wrap IS
 					 start: IN STD_LOGIC; --! Signal that tells the wrapper to start processing its input
 					 clk: IN STD_LOGIC; --! Clock signal
            x: IN STD_LOGIC_VECTOR(W-1 DOWNTO 0); --! Input to the wrapper
-					 finish: OUT STD_LOGIC; --! Output which is set to high when the wrapper has decimated by 4
-           y: OUT STD_LOGIC_VECTOR((2*W-1) DOWNTO 0)); --! Output value of the wrapper
+					 finish: OUT STD_LOGIC; --! Finish signal which is set to high when the wrapper is finished
+           y: OUT STD_LOGIC_VECTOR((2*W-1) DOWNTO 0)); --! Output result of the wrapper
 END fir_wrap;
 
---! @brief This is the architecture of the first wrapper of the first decimation stage of the decimation filter design
+--! @brief This is the architecture of the first wrapper of the first decimation stage of the decimation filter design.
 --! @details This architecture of the first wrapper of the first decimation stage contains all the 
 --! code which describes the functionality of the wrapper. It contains a FIR filter sub-block, fir1, which does
---! the filter calculations. The wrapper takes the output from the filter and sends it to the top-entity. 
+--! the filter calculation. The wrapper takes the output from the filter and sends it to the top-entity. 
 
    
     ARCHITECTURE fir_wrap_calc OF fir_wrap IS
@@ -41,15 +42,14 @@ COMPONENT fir1 IS
            clk: IN STD_LOGIC;
            x:IN STD_LOGIC_VECTOR(WIDTH-1 DOWNTO 0);
            y:OUT STD_LOGIC_VECTOR(2*WIDTH-1 DOWNTO 0);
---         y:OUT STD_LOGIC_VECTOR(WIDTH-1 DOWNTO 0);
            finished:OUT STD_LOGIC);
 END COMPONENT fir1;
 	
 
-SIGNAL x_s : STD_LOGIC_VECTOR(17 downto 0); --(W-1 DOWNTO 0);
-SIGNAL y_s : STD_LOGIC_VECTOR(35 DOWNTO 0); --(2*W-1 DOWNTO 0);
-SIGNAL x_zeros : STD_LOGIC_VECTOR(1 downto 0); --(W-1 DOWNTO 0);
-SIGNAL x_ones : STD_LOGIC_VECTOR(1 downto 0); --(W-1 DOWNTO 0);
+SIGNAL x_s : STD_LOGIC_VECTOR(17 downto 0); 
+SIGNAL y_s : STD_LOGIC_VECTOR(35 DOWNTO 0); 
+SIGNAL x_zeros : STD_LOGIC_VECTOR(1 downto 0); 
+SIGNAL x_ones : STD_LOGIC_VECTOR(1 downto 0); 
 SIGNAL start_iir : STD_LOGIC;
 SIGNAL fin_counter : INTEGER;
 SIGNAL fin : STD_LOGIC;
@@ -86,7 +86,7 @@ PROCESS (clk)
 				IF (fin_counter=3) THEN
 					finish <='1';
 					fin_counter <=0;
-					y <= y_s(35 downto 4);--y_s;
+					y <= y_s(35 downto 4);
 				END IF;
 				
 				started<='1';
@@ -102,8 +102,8 @@ PROCESS (clk)
 
 
  fir_comp: fir1
-      GENERIC MAP(WIDTH => 18,     --!number of bits of variables and data in calculations
-                   N => 60)         --order of filter
+      GENERIC MAP(WIDTH => 18,     
+                   N => 60)        
       PORT MAP (reset => reset,
                 start => start_iir,
 				clk => clk,

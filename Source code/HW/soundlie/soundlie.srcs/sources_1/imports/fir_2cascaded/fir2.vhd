@@ -1,19 +1,36 @@
+--! @brief This is the FIR filter implementation of the second stage filter in the decimation filter design. 
+--! @details This code block is a FIR filter. It is the second filter in the two stage decimation 
+--! filter design. It is a sub-block of a wrapper, fir_wrap2.
+--! @author Malin Eliasson
+--! @author Astvaldur Hjartarson
+--! @version 2.0
+
+
+--! Use standard library
 LIBRARY ieee;
+--! Use logic elements
 USE ieee.std_logic_1164.ALL;
+--! Use numeric elements
 USE ieee.numeric_std.ALL;
 
+ --! This FIR entity takes input from the fir_wrap2 block. It also outputs its calculated 
+ --! results to the fir_wrap2 block.
+ 
 ENTITY fir2 IS
-      GENERIC(WIDTH:INTEGER:=16;
-              N:INTEGER:=16);
-      PORT(reset: IN STD_LOGIC;
-           start: IN STD_LOGIC;
-           clk: IN STD_LOGIC;
-           x:IN STD_LOGIC_VECTOR(WIDTH-1 DOWNTO 0);
-           y:OUT STD_LOGIC_VECTOR(2*WIDTH-1 DOWNTO 0);
---         y:OUT STD_LOGIC_VECTOR(WIDTH-1 DOWNTO 0);
-           finished:OUT STD_LOGIC);
+      GENERIC(WIDTH:INTEGER:=16; --! Sets the width (number of bits) used for numbers in the filter
+              N:INTEGER:=16);  --! Sets the order of the FIR filter
+      PORT(reset: IN STD_LOGIC; --! Reset the FIR filter
+           start: IN STD_LOGIC; --! Signal that tells the FIR filter to start processing its input
+           clk: IN STD_LOGIC; --! Clock signal
+           x:IN STD_LOGIC_VECTOR(WIDTH-1 DOWNTO 0); --! Input to the FIR filter
+           y:OUT STD_LOGIC_VECTOR(2*WIDTH-1 DOWNTO 0); --! Output results of the FIR filter
+           finished:OUT STD_LOGIC); --! Output which is set to high when the FIR filter has finished it calculation
    END fir2 ;
    
+--! @brief This is the architecture of the FIR filter of the second stage of the decimation filter design
+--! @details This architecture of the FIR filter contains
+--! code which describes the functionality of the filter. The filter calculates
+--! the output by multiplying the inputs with the filter coefficients. 
      
     ARCHITECTURE calc OF fir2 IS
       
@@ -23,8 +40,7 @@ ENTITY fir2 IS
       TYPE memory_2 is array (0 to N-1) of
            std_logic_vector(WIDTH-1 DOWNTO 0);
            
-           
-      --SIGNALS AND CONSTANTS
+
       SIGNAL coefficients:memory;
       
       
@@ -39,8 +55,7 @@ ENTITY fir2 IS
     PROCESS (reset,clk)
       BEGIN   
          IF (reset='1') THEN
-          --reset things
---coefficients for 0.247000247(work)
+
  
           coefficients<= (
           "111111111111100101", 
@@ -145,25 +160,7 @@ ENTITY fir2 IS
           "000000000000011101", 
           "111111111111100101");
                           
---coefficients for 0.2288002288 (dont work)          
---          coefficients<= ("1111111111001011",
---													"1111111101011101",
---													"1111111010101000",
---													"1111111010110100",--4
---												  "0000000101110010",
---													"0000100000011000", 
---													"0001000101110011",
---													"0001100111011100",--8
---													"0001110101000000",
---													"0001100111011100",--8
---													"0001000101110011",
---													"0000100000011000",
---													"0000000101110010",
---													"1111111010110100",--4
---													"1111111010101000",
---													"1111111101011101",
---                          "1111111111001011"
---                          );
+
                           
           y_sum<=(OTHERS=>'0');
          

@@ -18,14 +18,13 @@ USE ieee.numeric_std.ALL;
 
  
 ENTITY fir1 IS
-      GENERIC(WIDTH:INTEGER:=16; --! Sets the width (number of bits) used for numbers in the wrapper
+      GENERIC(WIDTH:INTEGER:=16; --! Sets the width (number of bits) used for numbers in the filter
               N:INTEGER:=16);  --! Sets the order of the FIR filter
       PORT(reset: IN STD_LOGIC; --! Reset the FIR filter
            start: IN STD_LOGIC; --! Signal that tells the FIR filter to start processing its input
            clk: IN STD_LOGIC; --! Clock signal
            x:IN STD_LOGIC_VECTOR(WIDTH-1 DOWNTO 0); --! Input to the FIR filter
            y:OUT STD_LOGIC_VECTOR(2*WIDTH-1 DOWNTO 0); --! Output results of the FIR filter
---         y:OUT STD_LOGIC_VECTOR(WIDTH-1 DOWNTO 0);
            finished:OUT STD_LOGIC); --! Output which is set to high when the FIR filter has finished it calculation
    END fir1;
    
@@ -43,7 +42,6 @@ ENTITY fir1 IS
            std_logic_vector(WIDTH-1 DOWNTO 0);
            
            
-      --SIGNALS AND CONSTANTS
       SIGNAL coefficients:memory;
       
       
@@ -58,9 +56,7 @@ ENTITY fir1 IS
     PROCESS (reset,clk)
       BEGIN   
          IF (reset='1') THEN
-          --reset things
 
- --coefficients for 0.247000247(work)
          
           coefficients<= ("000000000000000100", 
  "000000000000001010", 
