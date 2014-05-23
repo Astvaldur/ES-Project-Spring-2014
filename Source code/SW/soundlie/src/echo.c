@@ -49,7 +49,7 @@ bool echo_init()
 
 /**
  * Sets the parameters for the echo sound effect
- * @param  [in] Data structure containing the parameter values to be set
+ * @param  [in] in_data Data structure containing the parameter values to be set
  * @return Returns true
  */
 bool echo_set(echo_input_data_t *in_data){
