@@ -39,11 +39,11 @@
  * MLApp.MLApp matlab = new MLApp.MLApp();
  *
  * \section sec_desc7 System requirement 
- * The Soundlie user inteface have been developed using the following software \n
- * MATLAB Version: 8.3.0.532 (R2014a) \n
- * Visual Studio Ultimate 2012 \n
- * Microsoft Visual C# 2012 \n
- * Microsoft Windows 7 Professional  Version 6.1 (Build 7601: Service Pack 1)
+ * - The Soundlie user inteface have been developed using the following software \n
+ * - MATLAB Version: 8.3.0.532 (R2014a) \n
+ * - Visual Studio Ultimate 2012 \n
+ * - Microsoft Visual C# 2012 \n
+ * - Microsoft Windows 7 Professional  Version 6.1 (Build 7601: Service Pack 1)
  */
 
 
