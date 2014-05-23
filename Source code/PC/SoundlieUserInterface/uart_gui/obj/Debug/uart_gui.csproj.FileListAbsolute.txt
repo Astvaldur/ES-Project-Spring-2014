@@ -1,0 +1,33 @@
+C:\Dropbox\MPEES\DAT096_Embedded_System_Design_Project\UART_GUI\uart_gui\uart_gui\bin\Debug\uart_gui.exe.config
+C:\Dropbox\MPEES\DAT096_Embedded_System_Design_Project\UART_GUI\uart_gui\uart_gui\bin\Debug\uart_gui.exe
+C:\Dropbox\MPEES\DAT096_Embedded_System_Design_Project\UART_GUI\uart_gui\uart_gui\bin\Debug\uart_gui.pdb
+C:\Dropbox\MPEES\DAT096_Embedded_System_Design_Project\UART_GUI\uart_gui\uart_gui\obj\Debug\uart_gui.csprojResolveAssemblyReference.cache
+C:\Dropbox\MPEES\DAT096_Embedded_System_Design_Project\UART_GUI\uart_gui\uart_gui\obj\Debug\uart_gui.Form1.resources
+C:\Dropbox\MPEES\DAT096_Embedded_System_Design_Project\UART_GUI\uart_gui\uart_gui\obj\Debug\uart_gui.Properties.Resources.resources
+C:\Dropbox\MPEES\DAT096_Embedded_System_Design_Project\UART_GUI\uart_gui\uart_gui\obj\Debug\uart_gui.csproj.GenerateResource.Cache
+C:\Dropbox\MPEES\DAT096_Embedded_System_Design_Project\UART_GUI\uart_gui\uart_gui\obj\Debug\uart_gui.exe
+C:\Dropbox\MPEES\DAT096_Embedded_System_Design_Project\UART_GUI\uart_gui\uart_gui\obj\Debug\uart_gui.pdb
+C:\Dropbox\MPEES\DAT096_Embedded_System_Design_Project\UART_GUI\uart_gui\uart_gui\obj\Debug\Interop.MLApp.dll
+C:\Dropbox\MPEES\DAT096_Embedded_System_Design_Project\UART_GUI\uart_gui\uart_gui\obj\Debug\uart_gui.csproj.ResolveComReference.cache
+D:\Dropbox\MPEES\DAT096_Embedded_System_Design_Project\UART_GUI\uart_gui\uart_gui\bin\Debug\uart_gui.exe.config
+D:\Dropbox\MPEES\DAT096_Embedded_System_Design_Project\UART_GUI\uart_gui\uart_gui\obj\Debug\uart_gui.csproj.ResolveComReference.cache
+D:\Dropbox\MPEES\DAT096_Embedded_System_Design_Project\UART_GUI\uart_gui\uart_gui\obj\Debug\uart_gui.csprojResolveAssemblyReference.cache
+D:\Dropbox\MPEES\DAT096_Embedded_System_Design_Project\UART_GUI\uart_gui\uart_gui\obj\Debug\uart_gui.Properties.Resources.resources
+D:\Dropbox\MPEES\DAT096_Embedded_System_Design_Project\UART_GUI\uart_gui\uart_gui\obj\Debug\uart_gui.csproj.GenerateResource.Cache
+D:\Dropbox\MPEES\DAT096_Embedded_System_Design_Project\UART_GUI\uart_gui\uart_gui\obj\Debug\Interop.MLApp.dll
+D:\Dropbox\MPEES\DAT096_Embedded_System_Design_Project\UART_GUI\uart_gui\uart_gui\bin\Debug\uart_gui.exe
+D:\Dropbox\MPEES\DAT096_Embedded_System_Design_Project\UART_GUI\uart_gui\uart_gui\bin\Debug\uart_gui.pdb
+D:\Dropbox\MPEES\DAT096_Embedded_System_Design_Project\UART_GUI\uart_gui\uart_gui\obj\Debug\uart_gui.exe
+D:\Dropbox\MPEES\DAT096_Embedded_System_Design_Project\UART_GUI\uart_gui\uart_gui\obj\Debug\uart_gui.pdb
+D:\Dropbox\MPEES\DAT096_Embedded_System_Design_Project\UART_GUI\uart_gui\uart_gui\obj\Debug\uart_gui.Soundlie_GUI.resources
+C:\Users\Jonas\Google Drive\DAT096\Technical Documentation\GUI\SoundlieUserInterface\uart_gui\bin\Debug\uart_gui.exe.config
+C:\Users\Jonas\Google Drive\DAT096\Technical Documentation\GUI\SoundlieUserInterface\uart_gui\obj\Debug\Interop.MLApp.dll
+C:\Users\Jonas\Google Drive\DAT096\Technical Documentation\GUI\SoundlieUserInterface\uart_gui\obj\Debug\uart_gui.csproj.ResolveComReference.cache
+C:\Users\Jonas\Google Drive\DAT096\Technical Documentation\GUI\SoundlieUserInterface\uart_gui\obj\Debug\uart_gui.exe
+C:\Users\Jonas\Google Drive\DAT096\Technical Documentation\GUI\SoundlieUserInterface\uart_gui\obj\Debug\uart_gui.pdb
+C:\Users\Jonas\Google Drive\DAT096\Technical Documentation\GUI\SoundlieUserInterface\uart_gui\bin\Debug\uart_gui.exe
+C:\Users\Jonas\Google Drive\DAT096\Technical Documentation\GUI\SoundlieUserInterface\uart_gui\bin\Debug\uart_gui.pdb
+C:\Users\Jonas\Google Drive\DAT096\Technical Documentation\GUI\SoundlieUserInterface\uart_gui\obj\Debug\uart_gui.csprojResolveAssemblyReference.cache
+C:\Users\Jonas\Google Drive\DAT096\Technical Documentation\GUI\SoundlieUserInterface\uart_gui\obj\Debug\uart_gui.Soundlie_GUI.resources
+C:\Users\Jonas\Google Drive\DAT096\Technical Documentation\GUI\SoundlieUserInterface\uart_gui\obj\Debug\uart_gui.Properties.Resources.resources
+C:\Users\Jonas\Google Drive\DAT096\Technical Documentation\GUI\SoundlieUserInterface\uart_gui\obj\Debug\uart_gui.csproj.GenerateResource.Cache
