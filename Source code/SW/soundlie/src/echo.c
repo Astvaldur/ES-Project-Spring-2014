@@ -14,7 +14,7 @@ static echo_data_t echo_data;
 
 /**
  * Used for applying the echo sound effect to the incoming signal
- * @param  [in]  dry_sample   Latest sample of input signal
+ * @param  [in]  dry_samp   Latest sample of input signal
  * @return Output signal from echo.
  */
 int16_t echo(int16_t dry_samp) {
@@ -65,7 +65,6 @@ bool echo_set(echo_input_data_t *in_data){
 
 /**
  * Fetches the current parameters for the echo sound effect
- * @param  [in] None
  * @return Parameters currently used in for the echo sound effect
  */
 echo_input_data_t echo_get(){

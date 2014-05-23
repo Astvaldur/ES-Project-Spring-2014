@@ -109,7 +109,7 @@ int16_t tc_iir(iir_data_t *iir_data, circ_buff_t *circ_buff) {
 
 /**
  * Modifier method for amplification factors used in Tone Control.
- * @param  [in]  tc_ctrl_data_t    Instance of tc_ctrl_data_t, contains amplification factors for all frequency bands
+ * @param  [in]  in_data    Instance of tc_ctrl_data_t, contains amplification factors for all frequency bands
  * @return Returns true if amplification factors were set successfully.
  */
 void tc_set_amp(tc_ctrl_data_t *in_data){
@@ -150,7 +150,7 @@ bool tc_amp_valid_value(int16_t value) {
 
 /**
  * Access method for IIR filter coefficients used in Tone Control.
- * @param  [in]  iir_data    Instance of iir_input_data_t for filter.
+ * @param  [in]  in_data    Instance of iir_input_data_t for filter.
  * @return Returns true if filter coefficients were set successfully.
  */
 bool tc_set_filter_coeff(iir_input_data_t *in_data){
