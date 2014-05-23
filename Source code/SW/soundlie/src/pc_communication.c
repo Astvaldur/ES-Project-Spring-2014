@@ -164,7 +164,7 @@ static void MessageHandler() {
 *  This help function reads four characters from the message buffers
 *  data field at a time and converts them to integer values. The offset
 *  is used to enable reading characters longer into the data field.
-*  @param [in] Selected offset
+*  @param [in] offset Selected offset
 *  @return Interger value of the four characters read.
 */
 static int ExtractSelectedValue(int offset) {
@@ -182,8 +182,8 @@ static int ExtractSelectedValue(int offset) {
 * This help function is used to extract filter coefficients from the
 * data field when filter configurations have been received. Each coefficient
 * has a x and y value.
-* @param [in] Pointer to array to store the coefficients x values.
-* @param [in] Pointer to array to store the coefficients y values.
+* @param [in] *x_pointer Pointer to array to store the coefficients x values.
+* @param [in] *y_pointer Pointer to array to store the coefficients y values.
 */
 static void ExtractFilterTaps(int16_t *x_pointer, int16_t *y_pointer) {
 
@@ -322,10 +322,9 @@ static bool ReadFromUart() {
 
 //function to check that a char is valid.
 /**
-*
-* @param Character that will be checked if it is valid in the SREC message.
 * It checks if the char is a character representing a hexadecimal number i.e.
 * 0-9, a-f or A-F.
+* @param [in] hexChar Character to be checked
 * @return True if the character is valid, false if invalid.
 */
 static bool checkChar(char hexChar) {

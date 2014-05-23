@@ -58,7 +58,7 @@ char ReadUartChar() {
 
 /**
 * Function used to transmit data over the UART.
-* @param [in] Character to be sent.
+* @param [in] char_to_send Character to be sent.
 */
 void SendCharOnUart(char char_to_send) {
 	//put the char in the holding register. (data register)
