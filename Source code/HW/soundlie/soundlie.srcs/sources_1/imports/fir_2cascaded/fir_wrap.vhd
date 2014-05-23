@@ -104,7 +104,7 @@ PROCESS (clk)
 
  fir_comp: fir1
       GENERIC MAP(WIDTH => 18,     
-                   N => 69)        
+                   N => 60)        
       PORT MAP (reset => reset,
                 start => start_iir,
 				clk => clk,
