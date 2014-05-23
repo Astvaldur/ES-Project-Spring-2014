@@ -878,7 +878,7 @@ namespace uart_gui
 
         /**
              * Convert an integer ( < 16) to the hex char
-             * @param  [in]  amplification      string containing the amplification
+             * @param  [in]  num      string containing the amplification
              * @return hexadecimal value as a character
         */
         static public char inttochar(int num)
