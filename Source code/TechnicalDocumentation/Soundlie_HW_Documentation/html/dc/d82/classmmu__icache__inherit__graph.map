@@ -1,9 +1,0 @@
-<map id="mmu_icache" name="mmu_icache">
-<area shape="rect" id="node3" href="$d3/dd5/classmmu__cache.html" title="mmu_cache" alt="" coords="79,83,172,112"/>
-<area shape="rect" id="node5" href="$d3/d71/classproc3.html" title="proc3" alt="" coords="99,160,152,189"/>
-<area shape="rect" id="node7" href="$dd/d81/classleon3x.html" title="leon3x" alt="" coords="96,237,155,267"/>
-<area shape="rect" id="node9" href="$dd/df8/classleon3cg.html" title="leon3cg" alt="" coords="5,315,72,344"/>
-<area shape="rect" id="node11" href="$d5/d28/classleon3s.html" title="leon3s" alt="" coords="96,315,155,344"/>
-<area shape="rect" id="node15" href="$d2/db2/classleon3sh.html" title="leon3sh" alt="" coords="179,315,245,344"/>
-<area shape="rect" id="node13" href="$df/d82/classleon3mp.html" title="leon3mp" alt="" coords="91,392,160,421"/>
-</map>

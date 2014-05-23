@@ -1,8 +1,0 @@
-<map id="imports" name="imports">
-<area shape="rect" id="node4" href="dir_44572c50ca96d3f0c8cde20be9b6eccb.html" title="DAC module" alt="" coords="419,65,515,113"/>
-<area shape="rect" id="node5" href="dir_fdcc68dee259c9af9abee92c200905cb.html" title="fir_2cascaded" alt="" coords="293,65,395,113"/>
-<area shape="rect" id="node6" href="dir_dc5b0bdac8d9cc5ac3329e9ed8cc7ca7.html" title="PWM module" alt="" coords="168,65,269,113"/>
-<area shape="rect" id="node7" href="dir_b7434b8adffc4d270e70e04a703b0b95.html" title="XADC module" alt="" coords="37,65,144,113"/>
-<area shape="rect" id="graph3" href="dir_cdfd25dc4aa301cf6470f81231715821.html" alt="" coords="27,55,621,124"/>
-<area shape="rect" id="graph2" href="dir_f9810d35245b46f219be9d65c0feda9c.html" title="sources_1" alt="" coords="16,16,632,135"/>
-</map>

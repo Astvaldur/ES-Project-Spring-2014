@@ -1,9 +1,0 @@
-<map id="ddrpads" name="ddrpads">
-<area shape="rect" id="node2" href="$dc/d1c/classoutpad.html" title="outpad(16)" alt="" coords="35,83,117,112"/>
-<area shape="rect" id="node4" href="$de/dbe/classunisim__outpad.html" title="unisim_outpad" alt="" coords="5,5,112,35"/>
-<area shape="rect" id="node6" href="$d6/db1/classinpad.html" title="inpad" alt="" coords="149,83,203,112"/>
-<area shape="rect" id="node8" href="$da/d61/classunisim__inpad.html" title="unisim_inpad" alt="" coords="136,5,235,35"/>
-<area shape="rect" id="node10" href="$df/d63/classoutpad__ds.html" title="outpad_ds" alt="" coords="227,83,309,112"/>
-<area shape="rect" id="node12" href="$d8/d85/classiopad.html" title="iopad(2)" alt="" coords="333,83,400,112"/>
-<area shape="rect" id="node14" href="$d5/d25/classunisim__iopad.html" title="unisim_iopad" alt="" coords="317,5,416,35"/>
-</map>

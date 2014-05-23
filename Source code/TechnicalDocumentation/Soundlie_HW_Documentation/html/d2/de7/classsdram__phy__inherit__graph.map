@@ -1,8 +1,0 @@
-<map id="sdram_phy" name="sdram_phy">
-<area shape="rect" id="node2" href="$d6/de8/classoutpadv.html" title="outpadv(4)" alt="" coords="35,160,117,189"/>
-<area shape="rect" id="node4" href="$dc/d1c/classoutpad.html" title="outpad" alt="" coords="32,83,93,112"/>
-<area shape="rect" id="node6" href="$de/dbe/classunisim__outpad.html" title="unisim_outpad" alt="" coords="5,5,112,35"/>
-<area shape="rect" id="node8" href="$d2/d9d/classiopadvv.html" title="iopadvv" alt="" coords="148,160,215,189"/>
-<area shape="rect" id="node10" href="$d8/d85/classiopad.html" title="iopad" alt="" coords="156,83,209,112"/>
-<area shape="rect" id="node12" href="$d5/d25/classunisim__iopad.html" title="unisim_iopad" alt="" coords="136,5,235,35"/>
-</map>

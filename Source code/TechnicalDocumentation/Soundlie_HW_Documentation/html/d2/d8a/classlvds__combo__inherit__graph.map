@@ -1,6 +1,0 @@
-<map id="lvds_combo" name="lvds_combo">
-<area shape="rect" id="node2" href="$df/d63/classoutpad__ds.html" title="outpad_ds(2)" alt="" coords="5,83,101,112"/>
-<area shape="rect" id="node4" href="$d0/dd2/classinpad__ds.html" title="inpad_ds(2)" alt="" coords="125,83,213,112"/>
-<area shape="rect" id="node6" href="$dc/d93/classunisim__inpad__ds.html" title="unisim_inpad_ds" alt="" coords="39,5,156,35"/>
-<area shape="rect" id="node8" href="$dc/df3/classvirtex4__inpad__ds.html" title="virtex4_inpad_ds" alt="" coords="180,5,300,35"/>
-</map>

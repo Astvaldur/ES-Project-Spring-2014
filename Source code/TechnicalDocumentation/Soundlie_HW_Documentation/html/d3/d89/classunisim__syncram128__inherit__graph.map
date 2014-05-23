@@ -1,6 +1,0 @@
-<map id="unisim_syncram128" name="unisim_syncram128">
-<area shape="rect" id="node9" href="$db/d75/classsyncram128.html" title="syncram128" alt="" coords="32,315,125,344"/>
-<area shape="rect" id="node2" href="$d5/db1/classunisim__syncram64.html" title="unisim_syncram64(2)" alt="" coords="5,160,152,189"/>
-<area shape="rect" id="node4" href="$d0/d1c/classunisim__syncram.html" title="unisim_syncram(2)" alt="" coords="13,83,144,112"/>
-<area shape="rect" id="node6" href="$d4/d86/classgeneric__syncram.html" title="generic_syncram(2)" alt="" coords="11,5,147,35"/>
-</map>
