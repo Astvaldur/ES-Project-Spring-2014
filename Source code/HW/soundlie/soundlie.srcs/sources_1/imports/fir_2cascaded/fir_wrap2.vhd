@@ -34,6 +34,7 @@ END COMPONENT fir2;
 SIGNAL x_s : STD_LOGIC_VECTOR(17 DOWNTO 0);
 SIGNAL y_s : STD_LOGIC_VECTOR(35 DOWNTO 0);
 SIGNAL x_zeros: STD_LOGIC_VECTOR(1 DOWNTO 0);
+SIGNAL x_ones : STD_LOGIC_VECTOR(1 downto 0); 
 SIGNAL start_iir: STD_LOGIC;
 SIGNAL fin_counter: INTEGER;
 SIGNAL fin:STD_LOGIC;
@@ -49,6 +50,7 @@ PROCESS (clk)
 
 		IF (reset='1') THEN
 			 x_zeros <= (OTHERS => '0');
+			 x_ones <= (OTHERS => '1');
 			 finish <= '0';
 			 start_iir <= '0';
 			 fin_counter <= 0;
@@ -56,7 +58,15 @@ PROCESS (clk)
 			 started<='0';
 
 		ELSIF (start='1' AND started='0') THEN
-				x_s <= x & x_zeros;
+
+		
+				IF x(15)='0' THEN
+				  x_s <= x & x_zeros; 
+				ELSE 
+				  x_s <= x & x_ones; 
+				END IF;
+				
+			
 				start_iir <='1';
 				fin_counter <= fin_counter+1;
 				
